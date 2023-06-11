@@ -39,7 +39,7 @@ filter:drop-shadow(0px 7px 3px rgb(244,244,244))
 <body>
 
 <header>
-<a href="">
+<a href="../../index.html">
 <font>主頁</font>
 </a>
 </header>
