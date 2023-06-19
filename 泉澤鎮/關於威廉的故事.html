@@ -42,12 +42,20 @@ filter:drop-shadow(0px 7px 3px rgb(244,244,244))
 <a href="../../index.html">
 <font>主頁</font>
 </a>
+  
+<span style="float:right">
+<label for="fontsize">字體大小：</label>
+<input type="range" id="fontsize" name="fontsize" min="10" max="30" value="16" onchange="changeFontSize(this.value)">
+&emsp;
+
+</span>
+  
 </header>
   
 <br><br><br>
   
   
-<div>
+<div class="content">
 <p align="left">
 6月14日<br>
 <br>
@@ -59,11 +67,10 @@ filter:drop-shadow(0px 7px 3px rgb(244,244,244))
 <br>
 我會好好地思考我的選擇，確保我做出的決定是正確的，對我和我的家人都有好處。我相信只要我保持著冷靜和理智，未來的路一定會變得更好。
 </p> 
-</div>
+
   
 <br><br>
-  
-<div>
+
 <p align="left">
 6月20日<br>
 <br>
@@ -83,7 +90,17 @@ filter:drop-shadow(0px 7px 3px rgb(244,244,244))
 <br><br>
 
 
+<script>
+// 定义一个函数，用于改变 .content 类的字体大小
+function changeFontSize(size) 
+{
+document.querySelector('.content').style.fontSize = size + 'px';
+}
+</script>
+  
+  
+  
+  
 </body>
   
 </html>
-
