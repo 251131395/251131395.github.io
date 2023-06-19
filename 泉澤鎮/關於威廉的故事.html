@@ -98,9 +98,52 @@ document.querySelector('.content').style.fontSize = size + 'px';
 }
 </script>
   
-  
+<script>
+// 定義一個函數，用於設置 Cookie
+function setCookie(name, value, days) {
+  var expires = "";
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+// 定義一個函數，用於讀取 Cookie
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+
+// 獲取字體大小的元素
+var fontSizeElement = document.querySelector('.content');
+
+// 讀取 Cookie 中的字體大小設定
+var fontSize = getCookie('fontSize');
+
+// 如果 Cookie 中有字體大小設定，則使用該設定
+if (fontSize !== null) {
+  fontSizeElement.style.fontSize = fontSize + 'px';
+}
+
+// 監聽滑動條的變化，並設置 Cookie 中的字體大小設定
+document.querySelector('#fontsize').addEventListener('change', function() {
+  var size = this.value;
+  // 設置 Cookie 中的字體大小設定，保存 7 天
+  setCookie('fontSize', size, 7);
+  fontSizeElement.style.fontSize = size + 'px';
+});
+</script>
   
   
 </body>
   
 </html>
+
