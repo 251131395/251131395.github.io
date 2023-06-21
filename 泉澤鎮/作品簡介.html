@@ -36,12 +36,18 @@ filter:drop-shadow(0px 7px 3px rgb(244,244,244))
 </head>
   
   
-<body>
+<body class="content">
 
 <header>
 <a href="../../index.html">
 <font>主頁</font>
 </a>
+
+<span style="float:right">
+<label for="fontsize">字體大小：</label>
+<input type="range" id="fontsize" name="fontsize" min="10" max="30" value="16" onchange="changeFontSize(this.value)">
+&emsp;
+</span>
 </header>
   
 <br><br><br>
@@ -81,6 +87,60 @@ OC指的是人們自行創作的角色，通常是在現有作品不存在的新
 除了漁業，泉澤鎮還有許多令人驚嘆的自然景觀。漫步於當地綿延不絕的田野和山丘、河流邊，感受自然的美妙，聆聽自己的內心。夏日時節，您可以在當地的河流中進行自由游泳，盡情享受清涼和恬靜。在醉人的自然景觀中，忘卻都市的騷動和忙碌，享受一刻的寧靜。
 </p>
 <br><br><br><br>
+
+
+
+<script>
+// 定义一个函数，用于改变 .content 类的字体大小
+function changeFontSize(size) 
+{
+document.querySelector('.content').style.fontSize = size + 'px';
+}
+</script>
+  
+<script>
+// 定義一個函數，用於設置 Cookie
+function setCookie(name, value, days) {
+  var expires = "";
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+// 定義一個函數，用於讀取 Cookie
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+
+// 獲取字體大小的元素
+var fontSizeElement = document.querySelector('.content');
+
+// 讀取 Cookie 中的字體大小設定
+var fontSize = getCookie('fontSize');
+
+// 如果 Cookie 中有字體大小設定，則使用該設定
+if (fontSize !== null) {
+  fontSizeElement.style.fontSize = fontSize + 'px';
+}
+
+// 監聽滑動條的變化，並設置 Cookie 中的字體大小設定
+document.querySelector('#fontsize').addEventListener('change', function() {
+  var size = this.value;
+  // 設置 Cookie 中的字體大小設定，保存 7 天
+  setCookie('fontSize', size, 7);
+  fontSizeElement.style.fontSize = size + 'px';
+});
+</script>
   
 </body>
   
