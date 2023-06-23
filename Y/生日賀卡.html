@@ -38,6 +38,14 @@ color:white;
 background-color:#F2BE22;
 }
 
+#playButton{
+position:fixed;
+right:0px;
+bottom:0px;
+margin:10px;
+color:gray;
+}
+
 @media screen and (max-width: 768px){
 .top_cake{
 width:350px;
@@ -48,10 +56,6 @@ filter:saturate(1.3) brightness(1.07);
 <head>
 
 <body>
-
-<audio id="myAudio" autoplay loop>
-<source src="../img/生日賀卡/Happy Birthday Soul - E's Jammy Jams.mp3" type="audio/mp3">
-</audio>
   
 <div class="top">
 <br>
@@ -69,7 +73,7 @@ filter:saturate(1.3) brightness(1.07);
 
 
   
- <button id="playButton">播放視頻</button> 
+<p id="playButton"><b>播放音樂<b></p> 
   
 <iframe id="youtubeIframe" width="560" height="0" src="https://www.youtube.com/embed/i2bE2JFD4yM?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -80,9 +84,6 @@ function changeImage() {
   var image = document.getElementById("myImage");
   image.src = "https://raw.githubusercontent.com/251131395/251131395.github.io/main/img/%E7%94%9F%E6%97%A5%E8%B3%80%E5%8D%A1/Cake2.png";
 }
-
-var audio = document.getElementById("myAudio");
-audio.play();
 
 
 
