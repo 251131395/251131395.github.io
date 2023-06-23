@@ -65,6 +65,16 @@ filter:saturate(1.3) brightness(1.07);
 <button class="blow" onclick="changeImage()"><b>吹蠟燭</b></button>
 </div>
 
+
+
+
+  
+ <button id="playButton">播放視頻</button> 
+  
+<iframe id="youtubeIframe" width="560" height="0" src="https://www.youtube.com/embed/i2bE2JFD4yM?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+  
 <script>
 function changeImage() {
   var image = document.getElementById("myImage");
@@ -73,6 +83,15 @@ function changeImage() {
 
 var audio = document.getElementById("myAudio");
 audio.play();
+
+
+
+var playButton = document.getElementById("playButton");
+var iframe = document.getElementById("youtubeIframe");
+
+playButton.addEventListener("click", function() {
+  iframe.contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+});
 </script>
 </body>
 </html>
