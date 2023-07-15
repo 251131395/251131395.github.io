@@ -51,14 +51,6 @@ a:link, a:visited, a:active {
 color:black;
 text-decoration: none;
 }
-  
-#playButton{
-position:fixed;
-right:0px;
-bottom:0px;
-margin:10px;
-color:gray;
-}
 
 .name {
 z-index:999;
@@ -157,31 +149,8 @@ font-size:15px;">*點擊下載</font>
 <div class="note">Wishing you a birthday that's just as wonderful as you are.</div>
 </div>
 </div>
-  
 
 
-  
-<p id="playButton"><b>播放音樂<b></p> 
-  
-<iframe id="youtubeIframe" width="0" height="0" src="https://www.youtube.com/embed/i2bE2JFD4yM?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-  
-<script>
-function changeImage() {
-  var image = document.getElementById("myImage");
-  image.src = "https://raw.githubusercontent.com/251131395/251131395.github.io/main/img/%E7%94%9F%E6%97%A5%E8%B3%80%E5%8D%A1/Cake2.png";
-}
-
-
-
-var playButton = document.getElementById("playButton");
-var iframe = document.getElementById("youtubeIframe");
-
-playButton.addEventListener("click", function() {
-  iframe.contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-});
-</script>
 
 <script>
 var names = document.getElementsByClassName("name");
