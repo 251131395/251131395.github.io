@@ -151,7 +151,23 @@ font-size:15px;">*點擊下載</font>
 </div>
 
 
+<script>
+function changeImage() {
+  var image = document.getElementById("myImage");
+  image.src = "https://raw.githubusercontent.com/251131395/251131395.github.io/main/img/%E7%94%9F%E6%97%A5%E8%B3%80%E5%8D%A1/Cake2.png";
+}
 
+var audio = document.getElementById("myAudio");
+audio.play();
+
+
+var playButton = document.getElementById("playButton");
+var iframe = document.getElementById("youtubeIframe");
+
+playButton.addEventListener("click", function() {
+  iframe.contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+});
+</script>
 <script>
 var names = document.getElementsByClassName("name");
 
