@@ -60,6 +60,43 @@ margin:10px;
 color:gray;
 }
 
+.name {
+z-index:999;
+display: inline-block;
+padding: 5px;
+background-color:rgba(161,204,209,0.7);
+position:relative;
+font-size:12px;
+color:#468B97;
+box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.note {
+text-align:left;
+z-index:-999;
+width: 200px;
+height: 100px;
+padding: 20px;
+background-color: white;
+background: linear-gradient(0deg, 
+rgb(233,233,233) 0%, 
+rgb(244,244,244) 20%);
+box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+transform: translateY(-10px);
+}
+
+.wish{
+display:inline-block;
+padding:10px;
+}
+
+.card {
+text-align: center;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
 </style>
 
 <head>
@@ -94,7 +131,33 @@ font-size:15px;">*點擊下載</font>
 <div style="margin:100px"></div>
   
 
-
+<div class="card" style="margin:10px; text-align:center">
+<div class="wish">
+<div class="name">蔬菜咸咸</div>
+<div class="note">你勇敢一点，能面对自己孤独的生日，还有什么困难会阻挡你呢？</div>
+</div>
+<div class="wish">
+<div class="name">无敌のOO人</div>
+<div class="note">祝你生日快乐！在最好的今天做最棒的自己！！​</div>
+</div>
+<div class="wish">
+<div class="name">251131395</div>
+<div class="note">生日快樂！祝你能保持學習的熱情，充實地過每一天，不虛度光陰，在新的階段成為更好的自己。</div>
+</div>
+<div class="wish">
+<div class="name">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+<div class="note">Happy birthday! May all your dreams come true and your life be filled with joy.</div>
+</div>
+<div class="wish">
+<div class="name">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+<div class="note">祝你生日快樂，願你的生命之路充滿智慧和勇氣，每一天都是一個新的開始。</div>
+</div>
+<div class="wish">
+<div class="name">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
+<div class="note">Wishing you a birthday that's just as wonderful as you are.</div>
+</div>
+</div>
+  
 
 
   
@@ -119,5 +182,31 @@ playButton.addEventListener("click", function() {
   iframe.contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
 });
 </script>
+
+<script>
+var names = document.getElementsByClassName("name");
+
+// 遍历所有元素，并随机旋转它们
+for (var i = 0; i < names.length; i++) {
+  // 生成一个随机角度
+  var angle = Math.floor(Math.random() * -10);
+
+  // 使用transform属性将元素旋转到指定的角度
+  names[i].style.transform = "rotate(" + angle + "deg)";
+}
+</script>
+<script>
+var wishes = document.getElementsByClassName("wish");
+
+// 遍历所有元素，并随机旋转它们
+for (var i = 0; i < wishes.length; i++) {
+  // 生成一个随机角度
+  var angle = Math.floor(Math.random() * 5 - Math.random() * 5);
+
+  // 使用transform属性将元素旋转到指定的角度
+  wishes[i].style.transform = "rotate(" + angle + "deg)";
+}
+</script>
+   
 </body>
 </html>
