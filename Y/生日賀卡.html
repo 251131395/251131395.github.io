@@ -89,6 +89,13 @@ flex-wrap: wrap;
 justify-content: center;
 }
 
+#input{
+height:155px;
+}
+
+textarea {
+resize: none;
+}
 </style>
 
 <head>
@@ -124,6 +131,26 @@ font-size:15px;">*點擊下載</font>
   
 
 <div class="card" style="margin:10px; text-align:center">
+
+
+<div class="wish">
+<div class="name">你也來填寫吧!</div>
+<div class="note" id="input">
+  
+<form method="post" action="https://script.google.com/macros/s/AKfycby_AFk1u8FwiUOOx2_qqsKSrrLu7DNVaJ2KUAEu4ndGpQRVN0I57WRxTRsrzLSeNyTC2g/exec" name="contact-form">
+      <label for="name">姓名：</label>
+      <input type="text" id="name" name="your-name">
+      <br>
+      <label for="content">輸入內容：</label>
+      <textarea id="content" name="your-number" rows="4" cols="24" required></textarea>
+      <br>
+      <input type="submit" value="提交">
+    </form>
+  
+</div>
+</div>
+
+
 <div class="wish">
 <div class="name">蔬菜咸咸</div>
 <div class="note">你勇敢一点，能面对自己孤独的生日，还有什么困难会阻挡你呢？</div>
@@ -180,7 +207,14 @@ for (var i = 0; i < names.length; i++) {
   names[i].style.transform = "rotate(" + angle + "deg)";
 }
 </script>
+
+
+
+
 <script>
+
+//抄的（ ’ - ’ * )  ↓
+
 var wishes = document.getElementsByClassName("wish");
 
 // 遍历所有元素，并随机旋转它们
@@ -192,6 +226,22 @@ for (var i = 0; i < wishes.length; i++) {
   wishes[i].style.transform = "rotate(" + angle + "deg)";
 }
 </script>
+
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycby_AFk1u8FwiUOOx2_qqsKSrrLu7DNVaJ2KUAEu4ndGpQRVN0I57WRxTRsrzLSeNyTC2g/exec'
+
+const form = document.forms['contact-form']
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+  .then(response => alert("謝謝你！您的表單已成功提交。" ))
+  .then(() => { window.location.reload(); })
+  .catch(error => console.error('Error!', error.message))
+})
+
+</script>
+
    
 </body>
 </html>
