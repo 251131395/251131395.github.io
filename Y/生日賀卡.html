@@ -90,12 +90,27 @@ justify-content: center;
 }
 
 #input{
-height:155px;
+min-height:155px;
+}
+  
+textarea{
+resize: vertical;  
+min-height:70px;
+max-height:300px;
+width:97%;
+font-size:22px;
 }
 
-textarea {
-resize: none;
+  
+@media screen and (max-width: 768px){
+  
+.top_cake{
+width:95vw;
+transform:translateX(-3vw);
 }
+  
+}
+  
 </style>
 
 <head>
@@ -139,7 +154,7 @@ font-size:15px;">*點擊下載</font>
   
 <form method="post" action="https://script.google.com/macros/s/AKfycby_AFk1u8FwiUOOx2_qqsKSrrLu7DNVaJ2KUAEu4ndGpQRVN0I57WRxTRsrzLSeNyTC2g/exec" name="contact-form">
       <label for="name">姓名：</label>
-      <input type="text" id="name" name="your-name">
+      <input type="text" id="name" name="your-name" style="width:97%;">
       <br>
       <label for="content">輸入內容：</label>
       <textarea id="content" name="your-number" rows="4" cols="24" required></textarea>
