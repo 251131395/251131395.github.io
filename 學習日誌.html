@@ -7,7 +7,7 @@
 
   <style>
     @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
-body {
+  body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -93,75 +93,70 @@ body {
   filter: blur(30px);
 }
 
-
-
-.content{
-  min-height:100vh;
+.content {
+  min-height: 100vh;
   background-image: url("https://images.unsplash.com/photo-1710976329448-a5bbda1b1a83?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ1Mzg1NDh8&ixlib=rb-4.0.3&q=85");
   background-size: cover;
   background-position: bottom left;
-  padding:20px;
+  padding: 20px;
 }
 
-.group{
-  margin:0px 0px 50px;
+.group {
+  margin: 0px 0px 50px;
 }
 
 @media screen and (min-width: 430px) {
-  .group{
-  margin:0px calc(50% - 140px) 50px;
-}
+  .group {
+    margin: 0px calc(50% - 140px) 50px;
+  }
 }
 
 .title {
   font-size: 20px;
-  font-weight:bold;
+  font-weight: bold;
   letter-spacing: 2px;
-  margin:0px 0px 15px;
+  margin: 0px 0px 15px;
   color: black;
-  display:block;
+  display: block;
 }
 
-.block{
-  border-left:2.5px black dashed;
-  padding:10px 10px 20px;
+.block {
+  border-left: 2.5px black dashed;
+  padding: 10px 10px 20px;
 }
 
-.bl-span{
-  display:inline-block;
-  min-width:calc(100% - 20px);
-  padding:15px 15px 5px;
-  border:1px lightgray solid;
-  border-radius:4px;
-  background-color:rgba(255,255,255,0.3);
-  backdrop-filter:blur(8px);
-  position:relative;
+.bl-span {
+  display: inline-block;
+  min-width: calc(100% - 20px);
+  padding: 15px 15px 5px;
+  border: 1px lightgray solid;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  position: relative;
 }
 
 @media screen and (min-width: 430px) {
-  .bl-span{
-  min-width:250px;
+  .bl-span {
+    min-width: 250px;
   }
 }
 
-.bl-span::before{
-  color:black;
-  content:"●";
-  position:absolute;
-  font-size:16px;
-  left:0;
+.bl-span::before {
+  color: black;
+  content: "●";
+  position: absolute;
+  font-size: 16px;
+  left: 0;
   transform: translate(-16.5px, 0px);
 }
 
-.bl-span span{
+.bl-span span {
   line-height: 1.5;
-  font-size:12px;
-  color:gray;
-  display:block;
+  font-size: 12px;
+  color: gray;
+  display: block;
 }
-
-
-
 
 footer {
   background-color: black;
@@ -220,6 +215,7 @@ footer hr {
     background: rgba(66, 66, 66, 0.5);
   }
 }
+
   </style>
 </head>
 
@@ -232,32 +228,48 @@ footer hr {
     <a href="">學習日誌</a>
     <a href="">作品一覽</a>
   </div>
-  
-  
+
   <div class="content">
     <div class="group">
       <span class="title">Python</span>
-      <div class="block"><div class="bl-span">開始學習Python<span>1/5/2024</span></div></div>
-      <div class="block"><div class="bl-span">????????<span>??/??/2024</span></div></div>
+      <div class="block">
+        <div class="bl-span">
+          <iframe width="100%" src="https://www.youtube.com/embed/kqtD5dpn9C8?si=77dSbZrzseq0lI0v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          開始學習Python<span>1/5/2024</span>
+        </div>
+      </div>
+      <div class="block">
+        <div class="bl-span">????????<span>??/??/2024</span></div>
+      </div>
     </div>
     <div class="group">
       <span class="title">Blender</span>
-      <div class="block"><div class="bl-span">開始學習Blender<span>31/8/2020</span></div></div>
-      <div class="block"><div class="bl-span">????????<span>??/??/2024</span></div></div>
+      <div class="block">
+        <div class="bl-span"><img width=100% src="https://251131395.github.io/media/image/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(9).png">開始學習Blender<span>31/8/2020</span></div>
+      </div>
+      <div class="block">
+        <div class="bl-span">????????<span>??/??/2024</span></div>
+      </div>
     </div>
     <div class="group">
       <span class="title">網頁編寫</span>
-      <div class="block"><div class="bl-span">開始學習HTML及CSS<span>??/??/2022</span></div></div>
-      <div class="block"><div class="bl-span">????????<span>??/??/2024</span></div></div>
+      <div class="block">
+        <div class="bl-span">開始學習HTML及CSS<span>??/??/2022</span></div>
+      </div>
+      <div class="block">
+        <div class="bl-span">????????<span>??/??/2024</span></div>
+      </div>
     </div>
     <div class="group">
       <span class="title">繪畫</span>
-      <div class="block"><div class="bl-span">開始學習繪畫<span>很久很久以前</span></div></div>
-      <div class="block"><div class="bl-span">????????<span>??/??/2024</span></div></div>
+      <div class="block">
+        <div class="bl-span">開始學習繪畫<span>很久很久以前</span></div>
+      </div>
+      <div class="block">
+        <div class="bl-span">????????<span>??/??/2024</span></div>
+      </div>
     </div>
   </div>
-        
-  
 
   <footer>
     <div class="info">
