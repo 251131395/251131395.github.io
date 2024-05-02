@@ -146,9 +146,20 @@
   color: black;
   content: "●";
   position: absolute;
+  font-size: 13px;
+  left: 0;
+  transform: translate(-18px, 0px);
+}
+
+@media screen and (min-width: 430px) {
+  .bl-span::before {
+  color: black;
+  content: "●";
+  position: absolute;
   font-size: 16px;
   left: 0;
   transform: translate(-16.5px, 0px);
+}
 }
 
 .bl-span span {
