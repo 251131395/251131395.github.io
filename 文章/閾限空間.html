@@ -63,6 +63,17 @@
   font-size: 36px;
 }
 
+.link{
+  width:13px;
+  mix-blend-mode: screen;
+  opacity:0.6;
+}
+
+center a{
+  color:#aaa;
+  text-decoration: none;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
@@ -250,18 +261,20 @@ details{
     width: calc(33.3% - 22px);
     height: 250px;
   }
+  position:relative;
 }
 
 .box button{
+  position: absolute;
+  top:5px;
+  right:5px;
   color:white;
   background-color:transparent;
   font-size:12px;
+  text-decoration:underline;
   font-weight:bold;
   border:none;
   cursor: pointer;
-  display:block;
-  width:100%;
-  text-align:right;
 }
 
 .box span{
@@ -369,6 +382,8 @@ footer hr {
 
   <details>
     <summary><span class="title">什麼是閾限空間？</span></summary>
+    <br>
+    <center><span style="color:gray">以下文章摘錄自<a href="https://en.wikipedia.org/wiki/Liminal_space_(aesthetic)"> 維基百科<img class="link" width="15px" src="https://251131395.github.io/media/image/link.png"></a></span></center>
     <br><br>
     <div class="paragraph">
       <img id="閾限空間-酒店" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Royal_York_Hallway.JPG/330px-Royal_York_Hallway.JPG">
@@ -418,10 +433,12 @@ footer hr {
       <span>照片</span>
     </div>
     <div class="box" id="Sun">
-      <span>電腦合成影像<button onclick="location.href='https://youtu.be/Rp2jTNw13S8?si=vswMoyaJZBq1lui8'">查看更多 &#8594</button></span>
+      <button onclick="location.href='https://youtu.be/Rp2jTNw13S8?si=vswMoyaJZBq1lui8'">查看更多 &#8594</button>
+      <span>電腦合成影像</span>
     </div>
     <div class="box" id="Where">
-      <span>電腦合成影像<button onclick="location.href='https://youtu.be/el6Xd0V0wBU?si=GmII64gKLo6IZCgo'">查看更多 &#8594</button></span>
+      <button onclick="location.href='https://youtu.be/el6Xd0V0wBU?si=GmII64gKLo6IZCgo'">查看更多 &#8594</button>
+      <span>電腦合成影像</span>
     </div>
     <div class="box"></div>
     <div class="box"></div>
@@ -456,9 +473,7 @@ footer hr {
       document.getElementById("mySidenav").style.width = "0";
       p
     }
-  </script>
 
-  <script>
     function showImage(imageURL) {
   var enlargedImage = document.createElement('div');
   enlargedImage.classList.add('enlarged-image');
@@ -486,4 +501,5 @@ function showImage(backgroundImage) {
   });
 }
   </script>
+
 </html>
