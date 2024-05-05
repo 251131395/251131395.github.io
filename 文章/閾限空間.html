@@ -236,6 +236,34 @@ details{
 .box:hover {
 }
 
+.box0 {
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+
+  cursor: pointer;
+  background-color:#222;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border: 1px solid gray;
+  qborder:none;
+  margin: 10px;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  @media (min-width: 40rem) {
+    width: calc(50% - 22px);
+    height: 230px;
+  }
+  @media (min-width: 56rem) {
+    width: calc(33.3% - 22px);
+    height: 250px;
+  }
+  position:relative;
+}
+
 .box {
   justify-content: center;
   align-items: flex-end;
@@ -275,6 +303,15 @@ details{
   font-weight:bold;
   border:none;
   cursor: pointer;
+}
+
+.box0 span{
+  font-size:12px;
+  color:white;
+  padding:3px 0px 5px;
+  width:100%;
+  text-align:center;
+  background-color:rgba(0,0,0,0.3);
 }
 
 .box span{
@@ -432,12 +469,10 @@ footer hr {
     <div class="box" id="生日賀卡">
       <span>照片</span>
     </div>
-    <div class="box" id="Sun">
-      <button onclick="location.href='https://youtu.be/Rp2jTNw13S8?si=vswMoyaJZBq1lui8'">查看更多 &#8594</button>
+    <div class="box0" id="Sun" onclick="location.href='https://youtu.be/Rp2jTNw13S8?si=vswMoyaJZBq1lui8'">
       <span>電腦合成影像</span>
     </div>
-    <div class="box" id="Where">
-      <button onclick="location.href='https://youtu.be/el6Xd0V0wBU?si=GmII64gKLo6IZCgo'">查看更多 &#8594</button>
+    <div class="box0" id="Where" onclick="location.href='https://youtu.be/el6Xd0V0wBU?si=GmII64gKLo6IZCgo'">
       <span>電腦合成影像</span>
     </div>
     <div class="box"></div>
