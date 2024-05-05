@@ -1,0 +1,489 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <title>文章-閾限空間</title>
+
+  <style>
+        @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+  body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: black;
+  margin: 0px;
+  padding: 0px;
+}
+
+.menu {
+  position: fixed;
+  padding: 15px;
+  top: 0;
+  right: 0;
+  z-index: 997;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.9);
+  font-weight: bold;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  overflow-x: hidden;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: gray;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 2px;
+  right: 7px;
+  font-size: 36px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+header {
+  padding: 20px;
+  display: flex;
+  -webkit-display: box;
+  -moz-display: box;
+  -ms-display: flexbox;
+  -webkit-display: flex;
+  flex-wrap: wrap;
+    justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height:40vh;
+  background-color: black;
+  background-color: white;
+  z-index: -2;
+  overflow: hidden;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Backrooms_model.jpg/1200px-Backrooms_model.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+header span {
+  position:absolute;
+  font-size: 9vw;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: white;
+  z-index: 2;
+  opacity:0.4;
+}
+
+#top{
+  font-family: "Noto Sans TC", serif;
+  font-size: 8vh;
+  color:white;
+  z-index: 5;
+  opacity:1;
+  transform: scale(1, 3);
+  font-weight:100;
+}
+
+.iframe{
+  overflow:hidden;
+}
+
+.music{
+  width:calc(100% + 80px);
+  background-color:#282828;
+  margin:0;
+  margin:0px 0px -5px;
+  transform: translate(-80px, 0px);
+}
+
+details{
+  background-color:#282828;
+  margin:0;
+  padding:20px;
+  color:white;
+}
+
+.title{
+ font-size:20px;
+    position: relative;
+   z-index: 1;
+}
+
+.title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  transform: translate(3px, 10px);
+  background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="yellow" fill-opacity="0.3" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
+  background-repeat: repeat;
+  background-size: 8px;
+  z-index: -1;
+}
+
+.paragraph{
+ margin:0px 0px 10px;
+ font-size:18px;
+}
+
+#閾限空間-酒店{
+  width:200px;
+  margin:0px 10px 15px;
+  float: left;
+}
+
+#閾限空間-操場{
+   width:250px;
+  margin:0px 10px 10px;
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  #閾限空間-酒店,#閾限空間-操場{
+    width:100%;
+    margin:0px 0px 10px;
+  }
+}
+
+#image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 887;
+  /* 添加其他样式，例如宽度、高度、背景颜色等 */
+}
+
+.enlarged-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 888;
+  backdrop-filter:blur(5px);
+}
+
+.enlarged-image::before{
+  content:"再次點擊以關閉視窗";
+  height:calc(100% - 10px);
+  font-size:12px;
+  color:white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.work {
+  min-height: 300px;
+}
+
+.area2 {
+  padding: 20px;
+  display: flex;
+  -webkit-display: box;
+  -moz-display: box;
+  -ms-display: flexbox;
+  -webkit-display: flex;
+  flex-wrap: wrap;
+}
+
+.box:hover {
+}
+
+.box {
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+
+  cursor: pointer;
+  background-color:#222;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border: 1px solid gray;
+  qborder:none;
+  margin: 10px;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  @media (min-width: 40rem) {
+    width: calc(50% - 22px);
+    height: 230px;
+  }
+  @media (min-width: 56rem) {
+    width: calc(33.3% - 22px);
+    height: 250px;
+  }
+}
+
+.box button{
+  color:white;
+  background-color:transparent;
+  font-size:12px;
+  font-weight:bold;
+  border:none;
+  cursor: pointer;
+  display:block;
+  width:100%;
+  text-align:right;
+}
+
+.box span{
+  font-size:12px;
+  color:white;
+  padding:3px 0px 5px;
+  width:100%;
+  text-align:center;
+  background-color:rgba(0,0,0,0.3);
+}
+
+footer {
+  border-top:1px gray solid;
+  background-color: black;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.info {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  color: gray;
+}
+
+.info-title {
+  font-weight: bold;
+  color: white;
+}
+
+.info-L {
+  flex: 50%;
+}
+
+.info-R {
+  flex: 50%;
+}
+
+.info span {
+  display: block;
+  font-size: 14px;
+  padding: 2px 0px 2px;
+}
+
+footer hr {
+  border: 0.5px rgba(255, 255, 255, 0.4) solid;
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+
+#生日蛋糕 {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Backrooms_model.jpg/1200px-Backrooms_model.jpg");
+}
+
+#生日賀卡 {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Royal_York_Hallway.JPG/330px-Royal_York_Hallway.JPG");
+}
+
+#Sun {
+  background-image: url("https://251131395.github.io/media/image/liminal-space/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(1019).png");
+}
+
+#Where {
+  background-image: url("https://251131395.github.io/media/image/liminal-space/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(1018).png");
+}
+  </style>
+</head>
+
+<body>
+  <span class="menu" onclick="openNav()">&#9776</span>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="">主頁</a>
+    <a href="">學習日誌</a>
+    <a href="">作品一覽</a>
+  </div>
+
+  <header>
+    <span id="top">閾限空間</span>
+    <span>liminal space</span>
+  </header>
+
+  <div class="iframe"><iframe class="music" src="https://open.spotify.com/embed/track/0uEec9a0RsYeQiaeyJapjY?utm_source=generator&theme=0" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+
+  <details>
+    <summary><span class="title">什麼是閾限空間？</span></summary>
+    <br><br>
+    <div class="paragraph">
+      <img id="閾限空間-酒店" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Royal_York_Hallway.JPG/330px-Royal_York_Hallway.JPG">
+      <div>在網路美學中，閾限空間是空曠或廢棄的地方，顯得怪異、荒涼，而且常常是超現實的。閾限空間通常是過渡場所，與閾限概念相關。<br>
+        <br>
+        《環境心理學雜誌》的研究表明，閾限空間可能顯得怪異或奇怪，因為它們落入了建築和物理場所的恐怖谷。《脈衝：科學與文化雜誌》上的一篇文章將這種怪異感歸因於熟悉的地方缺乏通常觀察到的背景。<br>
+        <br>
+        2019 年， 4chan上一篇描繪名為Backrooms 的有限空間的貼文瘋傳後，這種美學風格開始流行。從那時起，極限空間影像就開始在網路上發布，包括Reddit、Twitter和TikTok。
+      </div>
+    </div><br><br><br>
+    <div class="paragraph">
+      <img id="閾限空間-操場" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Childrens_Game_Park_01621.jpg/330px-Childrens_Game_Park_01621.jpg">
+      <div>從廣義上講， “閾限空間”一詞用於描述變化或過渡的地方或狀態。這可能是身體上的（例如門口）或心理上的（例如青春期）。閾限空間影像通常描繪這種「中間」的感覺，捕捉令人不安地無人的過渡場所（例如樓梯間、道路、走廊或飯店）。美學可能傳達怪異、超現實、懷舊或悲傷的情緒，並引起舒適和不安的反應。<br>
+        <br>
+        卡迪夫大學的亞歷山大·迪爾和邁克爾·劉易斯的研究將閾限空間的令人不安的性質歸因於恐怖谷現象。這個術語通常適用於與人類不完全相似而引起不安感的類人動物，這可以解釋對閾值圖像的類似反應。在這種情況下，看似熟悉但微妙偏離現實的實體場所會產生閾限空間特有的怪誕感。<br>
+        <br>
+        《脈衝：科學與文化期刊》的彼得‧赫夫特進一步探討了這種怪異感。赫夫特借鑒馬克費雪的作品，解釋說，當一個人在與他們期望不同的背景下看待情況時，可能會感受到這種怪異感。例如，一所校舍原本是教師和學生忙碌的聚集地，但當被描繪成不自然的空蕩蕩時，就會變得令人不安。費雪認為這種「存在的失敗」是怪異美學體驗的標誌之一。
+      </div>
+    </div>
+  </details>
+  <details open>
+    <summary><span class="title">我的閾限空間</span></summary>
+    <br><br>
+    <div class="paragraph">
+      <img id="閾限空間-酒店" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Royal_York_Hallway.JPG/330px-Royal_York_Hallway.JPG">
+      <div>在網路美學中，閾限空間是空曠或廢棄的地方，顯得怪異、荒涼，而且常常是超現實的。閾限空間通常是過渡場所，與閾限概念相關。<br>
+        <br>
+        《環境心理學雜誌》的研究表明，閾限空間可能顯得怪異或奇怪，因為它們落入了建築和物理場所的恐怖谷。《脈衝：科學與文化雜誌》上的一篇文章將這種怪異感歸因於熟悉的地方缺乏通常觀察到的背景。<br>
+        <br>
+        2019 年， 4chan上一篇描繪名為Backrooms 的有限空間的貼文瘋傳後，這種美學風格開始流行。從那時起，極限空間影像就開始在網路上發布，包括Reddit、Twitter和TikTok。
+      </div>
+    </div><br><br>
+  </details>
+
+  <img id="thumbnail">
+
+<div id="image-container">
+  <img id="large-image">
+</div>
+
+<div class="work">
+  <div class="area2">
+    <div class="box" id="生日蛋糕">
+      <span>照片</span>
+    </div>
+    <div class="box" id="生日賀卡">
+      <span>照片</span>
+    </div>
+    <div class="box" id="Sun">
+      <span>電腦合成影像<button onclick="location.href='https://youtu.be/Rp2jTNw13S8?si=vswMoyaJZBq1lui8'">查看更多 &#8594</button></span>
+    </div>
+    <div class="box" id="Where">
+      <span>電腦合成影像<button onclick="location.href='https://youtu.be/el6Xd0V0wBU?si=GmII64gKLo6IZCgo'">查看更多 &#8594</button></span>
+    </div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+</div>
+
+  <footer>
+    <div class="info">
+      <div class="info-L">
+        <span class="info-title">需要幫忙？</span>
+        <span onclick="location.href=''">怎麽是？</span>
+        <span onclick="location.href=''">怎麽是？</span>
+        <span onclick="location.href=''">怎麽是？</span>
+      </div>
+      <div class="info-R">
+        <span class="info-title">社交平台</span>
+        <span onclick="location.href='https://space.bilibili.com/470999012?spm_id_from=333.1007.0.0'">Bilibili</span>
+        <span onclick="location.href=''">微博</span>
+      </div>
+    </div>
+    <hr>
+    <span>251131395</span>
+
+  </footer>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      p
+    }
+  </script>
+
+  <script>
+    function showImage(imageURL) {
+  var enlargedImage = document.createElement('div');
+  enlargedImage.classList.add('enlarged-image');
+  enlargedImage.style.backgroundImage = "url('" + imageURL + "')";
+  document.body.appendChild(enlargedImage);
+}
+
+var boxes = document.querySelectorAll('.box');
+
+boxes.forEach(function(box) {
+  box.addEventListener('click', function() {
+    var backgroundImage = window.getComputedStyle(box).backgroundImage;
+    showImage(backgroundImage);
+  });
+});
+
+function showImage(backgroundImage) {
+  var enlargedImage = document.createElement('div');
+  enlargedImage.classList.add('enlarged-image');
+  enlargedImage.style.backgroundImage = backgroundImage;
+  document.body.appendChild(enlargedImage);
+  
+  enlargedImage.addEventListener('click', function() {
+    document.body.removeChild(enlargedImage);
+  });
+}
+  </script>
+</html>
