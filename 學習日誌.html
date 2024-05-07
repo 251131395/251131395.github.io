@@ -72,44 +72,45 @@
   }
 }
 
-#toggleButton {
-  filter: none;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 10px;
-  padding: 3px 8px 4px;
-  color: black;
-  font-size: 10px;
-  border: none;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(4px);
-  z-index: 15;
-  border: 0.8px solid lightgray;
-}
-
-.transparent {
-  filter: blur(30px);
-}
-
 .content {
-  height: 100vh;
+  min-height: 100vh;
   overflow: auto;
   background-image: url("https://images.unsplash.com/photo-1454117096348-e4abbeba002c?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTUwNjQ3NDR8&ixlib=rb-4.0.3&q=85");
   background-size: cover;
-  background-position: bottom left;
+  background-position: bottom center;
   padding: 20px;
 }
 
+.area{
+  white-space: wrap;
+  scroll-snap-type: x;
+  overflow: none;
+}
+
 .group {
-  margin: 0px 0px 50px;
+  margin: 20px 0px 50px;
+  vertical-align: top;
+  white-space: normal;
+  display: block;
+  text-align: left;
 }
 
 @media screen and (min-width: 430px) {
+  .content {
+  padding: 0px;
+}
   .group {
-    margin: 0px calc(50% - 140px) 50px;
+    margin: 40px 60px 0px;
+    width:250px;
+    display: inline-block;
+    transform: translate(-20px, 0px);
   }
+  .area{
+  white-space: nowrap;
+  scroll-snap-type: x;
+  overflow: auto;
+}
+  
 }
 
 .title {
@@ -227,7 +228,6 @@ footer hr {
     background: rgba(66, 66, 66, 0.5);
   }
 }
-
   </style>
 </head>
 
@@ -242,49 +242,51 @@ footer hr {
   </div>
 
   <div class="content">
-    <div class="group">
-      <span class="title">Python</span>
-      <div class="block">
-        <div class="bl-span">
-          <iframe width="100%" src="https://www.youtube.com/embed/kqtD5dpn9C8?si=77dSbZrzseq0lI0v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          開始學習Python<span>1/5/2024</span>
+    <div class="area">
+      <div class="group">
+        <span class="title">Python</span>
+        <div class="block">
+          <div class="bl-span">
+            <iframe width="100%" src="https://www.youtube.com/embed/kqtD5dpn9C8?si=77dSbZrzseq0lI0v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            開始學習Python<span>1/5/2024</span>
+          </div>
+        </div>
+        <div class="block">
+          <div class="bl-span">????????<span>??/??/2024</span></div>
         </div>
       </div>
-      <div class="block">
-        <div class="bl-span">????????<span>??/??/2024</span></div>
+      <div class="group">
+        <span class="title">Blender</span>
+        <div class="block">
+          <div class="bl-span"><img width=100% src="https://251131395.github.io/media/image/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(9).png">開始學習Blender<span>31/8/2020</span></div>
+        </div>
+        <div class="block">
+          <div class="bl-span">????????<span>??/??/2024</span></div>
+        </div>
       </div>
-    </div>
-    <div class="group">
-      <span class="title">Blender</span>
-      <div class="block">
-        <div class="bl-span"><img width=100% src="https://251131395.github.io/media/image/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(9).png">開始學習Blender<span>31/8/2020</span></div>
+      <div class="group">
+        <span class="title">網頁編寫</span>
+        <div class="block">
+          <div class="bl-span">開始學習HTML及CSS<span>??/??/2022</span></div>
+        </div>
+        <div class="block">
+          <div class="bl-span">使用像 <a href="https://poe.com/">poe.com</a> 這樣的AI工具來協助學習及製作網頁<span>--/--/2022</span></div>
+        </div>
+        <div class="block">
+          <div class="bl-span">使用像 <a href="https://codepen.io">codepen.io</a>(實時) 及 <a href="https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default">W3Shools</a>(非實時) 這樣的工具來預覧網頁<span>--/--/2022</span></div>
+        </div>
       </div>
-      <div class="block">
-        <div class="bl-span">????????<span>??/??/2024</span></div>
-      </div>
-    </div>
-    <div class="group">
-      <span class="title">網頁編寫</span>
-      <div class="block">
-        <div class="bl-span">開始學習HTML及CSS<span>??/??/2022</span></div>
-      </div>
-      <div class="block">
-        <div class="bl-span">使用像 <a href="https://poe.com/">poe.com</a> 這樣的AI工具來協助學習及製作網頁<span>--/--/2022</span></div>
-      </div>
-      <div class="block">
-        <div class="bl-span">使用像 <a href="https://codepen.io">codepen.io</a>(實時) 及 <a href="https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default">W3Shools</a>(非實時) 這樣的工具來預覧網頁<span>--/--/2022</span></div>
-      </div>
-    </div>
-    <div class="group">
-      <span class="title">繪畫</span>
-      <div class="block">
-        <div class="bl-span">開始學習繪畫<span>很久很久以前</span></div>
-      </div>
-      <div class="block">
-        <div class="bl-span">使用像 <a href="https://line-of-action.com/">Line of Action</a> 這樣的工具來協助學習<span>--/--/----</span></div>
-      </div>
-      <div class="block">
-        <div class="bl-span"><img width=100% src="https://251131395.github.io/media/image/colorpencil.jpeg">學習色鉛筆繪圖<span>??/??/2022</span></div>
+      <div class="group">
+        <span class="title">繪畫</span>
+        <div class="block">
+          <div class="bl-span">開始學習繪畫<span>很久很久以前</span></div>
+        </div>
+        <div class="block">
+          <div class="bl-span">使用像 <a href="https://line-of-action.com/">Line of Action</a> 這樣的工具來協助學習<span>--/--/----</span></div>
+        </div>
+        <div class="block">
+          <div class="bl-span"><img width=100% src="https://251131395.github.io/media/image/colorpencil.jpeg">學習色鉛筆繪圖<span>??/??/2022</span></div>
+        </div>
       </div>
     </div>
   </div>
