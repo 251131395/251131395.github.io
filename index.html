@@ -72,29 +72,12 @@
   }
 }
 
-#toggleButton {
-  filter: none;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 10px;
-  padding: 3px 8px 4px;
-  color: black;
-  font-size: 10px;
-  border: none;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(4px);
-  z-index: 15;
-  border: 0.8px solid lightgray;
-}
-
-.transparent {
-  filter: blur(30px);
-}
-
 header {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex;
+  overflow: hidden;
   height: 100vh;
   text-align: center;
   background-color: black;
@@ -115,15 +98,15 @@ header img {
 
 @media screen and (max-width: 400px) {
   header img {
-  position: sticky;
-  height: 60vh;
-  top: 12vh;
-}
+    position: sticky;
+    height: 60vh;
+    top: 12vh;
+  }
 }
 
-#title {
+#title,#title-t,#title-b {
   position: absolute;
-  top: 30%;
+  top: calc(45% - 14vw);
   left: 0;
   right: 0;
   font-size: 18vw;
@@ -132,6 +115,23 @@ header img {
   color: white;
   mix-blend-mode: difference;
   z-index: 2;
+  line-height: 1.1;
+  q-webkit-text-stroke: 0.4vw white;
+  qtext-stroke: 0.4vw white;
+}
+
+#title-t,#title-b {
+  top: calc(45% - 14vw);
+  transform: translate(0px, -20vw);
+  z-index: -2;
+  color: transparent;
+  -webkit-text-stroke: 0.4vw gray;
+  text-stroke: 0.4vw gray;
+}
+
+#title-b {
+  top: calc(45% - 14vw);
+  transform: translate(0px, 20vw);
 }
 
 .bottom {
@@ -150,6 +150,16 @@ header img {
     right: 20px;
     width: calc(100% - 40px);
   }
+  #title {
+    position: absolute;
+    top: calc(48% - 33vw);
+    line-height: 1.5;
+  }
+  #title-t {
+    top: calc(48% - 33vw);
+  transform: translate(0px, -25vw);
+}
+  
 }
 
 .bottom .script {
@@ -405,11 +415,12 @@ footer hr {
   background-position: top;
 }
 
-    #閾限空間 {
+#閾限空間 {
   background-image: url("https://251131395.github.io/media/image/liminal-space/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(1019).png");
   background-size: 340%;
   background-position: 71% 30%;
 }
+
   </style>
 </head>
 
@@ -426,9 +437,11 @@ footer hr {
   <header>
     <div class="bottom">
       <span class="script">我有很多興趣，喜歡不斷學習新技能。我會網站上分享我的作品和文章，希望讓更多的人知道我的見聞和心得。</span>
-      <button onclick="location.href=''">關於我</button>
+      <button onclick="location.href='https://example.com'">關於我</button>
     </div>
-    <span id="title">251131395</span><br>
+    <span id="title-t">251131395</span>
+    <span id="title">251131395</span>
+    <span id="title-b">251131395</span>
     <img src="https://251131395.github.io/media/image/251131395.png">
   </header>
 
@@ -482,7 +495,7 @@ footer hr {
   </div>
 
   <div class="page">
-    <button class="page-btn" id="learn" onclick="location.href='https://251131395.github.io/%E5%AD%B8%E7%BF%92%E6%97%A5%E8%AA%8C.html'">學習日誌</button>
+    <button class="page-btn" id="learn" onclick="location.href=''">學習日誌</button>
     <button class="page-btn" id="workk" onclick="location.href=''">作品一覽</button>
   </div>
 
