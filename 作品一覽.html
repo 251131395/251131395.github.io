@@ -1,0 +1,354 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <title>文章-閾限空間</title>
+
+  <style>
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+  body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #eee;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+.menu {
+  position: fixed;
+  padding: 15px;
+  top: 0;
+  right: 0;
+  z-index: 997;
+  color: gray;
+  font-size: 24px;
+  cursor: pointer;
+  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9);
+  font-weight: bold;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  overflow-x: hidden;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: gray;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 2px;
+  right: 7px;
+  font-size: 36px;
+}
+
+
+
+
+.main{
+  padding:20px;
+}
+
+.year{
+  font-size:30px;
+  font-weight:bold;
+  margin:0 0 10px;
+}
+
+.group{
+  display:flex;
+  margin:0 0 20px;
+}
+
+.side span{
+  font-size:14px;
+  font-weight:bold;
+  margin:0;
+  padding:0;
+}
+
+.side p{
+  font-size:30px;
+  font-weight:bold;
+  margin:0;
+  padding:0;
+}
+
+.content{
+  margin:0 10px 0;
+  transform: translate(10px, 0px);
+}
+
+.content div{
+  height:150px;
+  border:1px lightgray solid;
+  border-radius:6px;
+  margin:0 0 5px;
+  background-size: cover;
+  background-position: center;
+}
+
+.content div iframe{
+  border-radius:6px;
+}
+
+.content span{
+  font-weight:bold;
+  font-size:20px;
+}
+
+.content p{
+  margin:4px 0 0;
+  padding:0;
+}
+
+@media screen and (min-width: 480px) {
+.content div{
+  height:250px;
+  margin:0 5px 5px;
+  transform: translate(-5px, 0px);
+}
+}
+
+@media screen and (min-width: 630px) {
+.content div{
+  height:150px;
+  width:280px;
+  float:left;
+  margin:0 5px 5px;
+  transform: translate(-5px, 0px);
+}
+}
+
+
+
+
+
+
+footer {
+  background-color: rgba(0, 0, 0, 1);
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.info {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  color: lightgray;
+  z-index: 5;
+}
+
+.info-title {
+  font-weight: bold;
+  color: white;
+}
+
+.info-L {
+  flex: 50%;
+}
+
+.info-R {
+  flex: 50%;
+}
+
+.info span {
+  display: block;
+  font-size: 14px;
+  padding: 2px 0px 2px;
+}
+
+footer hr {
+  border: 0.5px rgba(255, 255, 255, 0.4) solid;
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <span class="menu" onclick="openNav()">&#9776</span>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="">主頁</a>
+    <a href="">學習日誌</a>
+    <a href="">作品一覽</a>
+  </div>
+  
+  <div class="main">
+    <p class="year">2024</p>
+    <div class="group">
+      <div class="side">
+        <span>5月</span>
+        <p>22</p>
+      </div>
+      <div class="content">
+        <div>
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/36mvATXvD_Q?si=ebhkJQ-Y5b20u7je" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <span>'軟硬交替' blender 渲染分解</span>
+        <p>在網路美學中，閾限空間是空曠或廢棄的地方，顯得怪異、荒涼，而且常常是超現實的。閾限空間通常是過渡場所，與閾限概念相關。環境心理學雜誌》的研究表明，閾限空間可能顯得怪異或奇怪，因為它們落入了建築和物理場所的恐怖谷。</p>
+      </div>
+    </div>
+    <div class="group">
+      <div class="side">
+        <span>5月</span>
+        <p>21</p>
+      </div>
+      <div class="content">
+        <div>
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/auNeXU4xKiE?si=_9doRowA0fQprf9y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <span>'糖霜派對' blender 渲染分解</span>
+        <p>在網路美學中，閾限空間是空曠或廢棄的地方，顯得怪異、荒涼，而且常常是超現實的。閾限空間通常是過渡場所，與閾限概念相關。《脈衝：科學與文化雜誌》上的一篇文章將這種怪異感歸因於熟悉的地方缺乏通常觀察到的背景。</p>
+      </div>
+    </div>
+    <div class="group">
+      <div class="side">
+        <span>5月</span>
+        <p>17</p>
+      </div>
+      <div class="content">
+        <div>
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/7P_dZRfssxs?si=b6mkl1DVwbyRgZvN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <span>'泉澤鎮旅遊發展局及二五牌罐頭廠聯合出品廣告'</span>
+        <p>在網路美學中，閾限空間是空曠或廢棄的地方，顯得怪異、荒涼，而且常常是超現實的。閾限空間通常是過渡場所，與閾限概念相關。《脈衝：科學與文化雜誌》上的一篇文章將這種怪異感歸因於熟悉的地方缺乏通常觀察到的背景。</p>
+      </div>
+    </div>
+    <div class="group">
+      <div class="side">
+        <span>5月</span>
+        <p>11</p>
+      </div>
+      <div class="content">
+        <div>
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/B4gLHIFwqfg?si=x-OeGAv65NP3SORo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <span>'困夢' 片段一</span>
+        <p>在網路美學中，閾限空間是空曠或廢棄的地方，顯得怪異、荒涼，而且常常是超現實的。閾限空間通常是過渡場所，與閾限概念相關。《脈衝：科學與文化雜誌》上的一篇文章將這種怪異感歸因於熟悉的地方缺乏通常觀察到的背景。</p>
+      </div>
+    </div>
+    <div class="group">
+      <div class="side">
+        <span>5月</span>
+        <p>05</p>
+      </div>
+      <div class="content">
+        <div>
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/el6Xd0V0wBU?si=NHWPf3YkBLbpyRi5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <span>'不小心進入了奇怪的展廳'</span>
+        <p>在網路美學中，閾限空間是空曠或廢棄的地方，顯得怪異、荒涼，而且常常是超現實的。閾限空間通常是過渡場所，與閾限概念相關。《脈衝：科學與文化雜誌》上的一篇文章將這種怪異感歸因於熟悉的地方缺乏通常觀察到的背景。</p>
+      </div>
+    </div>
+    <div class="group">
+      <div class="side">
+        <span>5月</span>
+        <p>05</p>
+      </div>
+      <div class="content">
+        <div>
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Rp2jTNw13S8?si=uwl6yuZg0_uCFmVo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <span>'我在哪裡?'</span>
+        <p>在網路美學中，閾限空間是空曠或廢棄的地方，顯得怪異、荒涼，而且常常是超現實的。閾限空間通常是過渡場所，與閾限概念相關。《脈衝：科學與文化雜誌》上的一篇文章將這種怪異感歸因於熟悉的地方缺乏通常觀察到的背景。</p>
+      </div>
+    </div>
+    
+    <div style="height:50px"></div>
+    <p class="year">2021</p>
+    <div class="group">
+      <div class="side">
+        <span>11月</span>
+        <p>04</p>
+      </div>
+      <div class="content">
+        <div>
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/HPgeQYmyhc0?si=IqPuT0jwKcZbsd5o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <span>'生日蛋糕'</span>
+        <p>在網路美學中，閾限空間是空曠或廢棄的地方，顯得怪異、荒涼，而且常常是超現實的。閾限空間通常是過渡場所，與閾限概念相關。環境心理學雜誌》的研究表明，閾限空間可能顯得怪異或奇怪，因為它們落入了建築和物理場所的恐怖谷。《脈衝：科學與文化雜誌》上的一篇文章將這種怪異感歸因於熟悉的地方缺乏通常觀察到的背景。</p>
+      </div>
+    </div>
+  </div>
+  
+  <div style="height:30vh"></div>
+  
+  <footer>
+    <div class="info">
+      <div class="info-L">
+        <span class="info-title">需要幫忙？</span>
+        <span onclick="location.href=''">怎麽是？</span>
+        <span onclick="location.href=''">怎麽是？</span>
+        <span onclick="location.href=''">怎麽是？</span>
+      </div>
+      <div class="info-R">
+        <span class="info-title">社交平台</span>
+        <span onclick="location.href='https://space.bilibili.com/470999012?spm_id_from=333.1007.0.0'">Bilibili</span>
+        <span onclick="location.href=''">微博</span>
+      </div>
+    </div>
+    <hr>
+    <span>251131395</span>
+
+  </footer>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      p
+    }
+  </script>
+
+</html>
