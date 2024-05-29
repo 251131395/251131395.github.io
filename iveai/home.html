@@ -1,0 +1,323 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <title>IVEAI-HOME</title>
+
+  <style>
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+ body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #222;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+.menu {
+  position: fixed;
+  padding: 15px;
+  top: 0;
+  right: 0;
+  z-index: 997;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9);
+  font-weight: bold;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  overflow-x: hidden;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: gray;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 2px;
+  right: 7px;
+  font-size: 36px;
+}
+
+
+
+
+.featured{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding:20px;
+}
+
+.featured iframe{
+  width:100%;
+  height:50vw;
+  border-radius:10px;
+}
+
+@media screen and (min-width: 780px){
+  .featured iframe{
+  height:40vw;
+}
+}
+
+.page{
+  text-align:center;
+  padding:50px 0 50px;
+}
+
+.page span{
+  color:white;
+  font-size:20px;
+  font-weight:bold;
+  padding:5px 20px 5px;
+  cursor: pointer;
+  display:inline-block;
+}
+
+.page span:hover{
+  color:lightgray;
+}
+
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 15px 15px 5px;
+  color: #ff8584;
+  color: white;
+  display: block;
+}
+
+
+.area {
+  white-space: nowrap;
+  overflow: auto;
+  padding: 0px 10px 25px;
+  z-index: 10;
+  position: relative;
+}
+
+.card {
+  z-index: 15;
+  height: 150px;
+  width: 150px;
+  background-color: gray;
+  vertical-align: top;
+  white-space: normal;
+  display: inline-block;
+  margin: 5px;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: width 0.8s, color 0.3s;
+  position: relative;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.card:before {
+  z-index: 5;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background-image: linear-gradient(
+    to top,
+    black 0%,
+    rgba(0, 0, 0, 0.5) 40%,
+    transparent 100%
+  );
+  opacity: 0.6;
+}
+
+.card span {
+  z-index: 10;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+
+
+
+footer {
+  background-color: rgba(0, 0, 0, 1);
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.info {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  color: lightgray;
+  z-index: 5;
+}
+
+.info-title {
+  font-weight: bold;
+  color: white;
+}
+
+.info-L {
+  flex: 50%;
+}
+
+.info-R {
+  flex: 50%;
+}
+
+.info span {
+  display: block;
+  font-size: 14px;
+  padding: 2px 0px 2px;
+}
+
+footer hr {
+  border: 0.5px rgba(255, 255, 255, 0.4) solid;
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <span class="menu" onclick="openNav()">&#9776</span>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="">HOME</a>
+    <a href="">TIMELINE</a>
+    <a href="">PHOTO</a>
+    <a href="">What is IVEAI?</a>
+  </div>
+
+  <div style="min-height:100vh">
+    <div class="featured">
+      <iframe src="https://www.youtube.com/embed/wwaTR9TFbmA?si=fd8JVlGMYiYZLbiI&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <div class="page">
+      <span onclick="location.href=''">TIMELINE</span>
+      <span onclick="location.href=''">PHOTO</span>
+      <span onclick="location.href=''">What is IVEAI?</span>
+    </div>
+
+    <span class="title">MUSIC</span>
+    <div class="area">
+      <div class="card" id="" onclick="location.href=''">
+        <span>--</span>
+      </div>
+      <div class="card" id="" onclick="location.href=''">
+        <span>--</span>
+      </div>
+      <div class="card" id="" onclick="location.href=''">
+        <span>--</span>
+      </div>
+      <div class="card" id="" onclick="location.href=''">
+        <span>--</span>
+      </div>
+      <div class="card" id="" onclick="location.href=''">
+        <span>--</span>
+      </div>
+      <div class="card" id="" onclick="location.href=''">
+        <span>--</span>
+      </div>
+      <div class="card" id="" onclick="location.href=''">
+        <span>--</span>
+      </div>
+      <div class="card" id="" onclick="location.href=''">
+        <span>--</span>
+      </div>
+      <div class="card" id="" onclick="location.href=''">
+        <span>--</span>
+      </div>
+      <div class="card" id="" onclick="location.href=''">
+        <span>--</span>
+      </div>
+    </div>
+
+    <div style="height:20px"></div>
+
+  </div>
+
+  <footer>
+    <div class="info">
+      <div class="info-L">
+        <span class="info-title">What is IVEAI?</span>
+        <span>怎麽是？</span>
+      </div>
+      <div class="info-R">
+        <span class="info-title">Link</span>
+        <span onclick="location.href='https://space.bilibili.com/470999012?spm_id_from=333.1007.0.0'">Youtube</span>
+        <span onclick="location.href=''">Instagram</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      p
+    }
+  </script>
+
+</html>
