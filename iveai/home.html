@@ -6,8 +6,8 @@
   <title>IVEAI-HOME</title>
 
   <style>
-           @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
- body {
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+  body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -64,56 +64,61 @@
   font-size: 36px;
 }
 
-
-.featured{
-  height:100vh;
-  overflow:hidden;
-  padding:15px;
+.featured {
+  height: 100vh;
+  overflow: hidden;
+  padding: 15px;
 }
 
-.featured iframe{
-  width:250%;
-  height:calc(250vh - 75px);
+.featured iframe {
+  width: 250%;
+  height: calc(250vh - 75px);
   -webkit-transform: scale(0.4);
   transform: scale(0.4);
   -webkit-transform-origin: 0% 0%;
   transform-origin: 0% 0%;
-  border-radius:10px;
+  border-radius: 10px;
 }
 
-@media screen and (max-width: 400px) {
-  .featured{
-  height:56.25vw;
+@media screen and (max-width: 835px) {
+  .featured {
+    height: 56.25vw;
+  }
+  .featured iframe {
+    width: 250%;
+    height: calc(140.625vw - 75px);
+    -webkit-transform: scale(0.4);
+    transform: scale(0.4);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    border-radius: 10px;
+  }
 }
-  .featured iframe{
-  width:250%;
-  height:calc(140.625vw - 75px);
-  -webkit-transform: scale(0.4);
-  transform: scale(0.4);
-  -webkit-transform-origin: 0% 0%;
-  transform-origin: 0% 0%;
-  border-radius:10px;
+
+.page {
+  text-align: center;
+  padding: 40px 0 50px;
+}
+
+@media screen and (max-width: 470px) {
+  .page {
+  text-align: center;
+  padding: 20px 0 30px;
 }
 }
 
-.page{
-  text-align:center;
-  padding:50px 0 50px;
-}
-
-.page span{
-  color:white;
-  font-size:20px;
-  font-weight:bold;
-  padding:5px 20px 5px;
+.page span {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px 20px 5px;
   cursor: pointer;
-  display:inline-block;
+  display: inline-block;
 }
 
-.page span:hover{
-  color:lightgray;
+.page span:hover {
+  color: lightgray;
 }
-
 
 .title {
   font-size: 20px;
@@ -123,7 +128,6 @@
   color: white;
   display: block;
 }
-
 
 .area {
   white-space: nowrap;
@@ -175,10 +179,8 @@
   position: absolute;
   left: 10px;
   bottom: 7px;
-  font-size:14px;
+  font-size: 14px;
 }
-
-
 
 footer {
   background-color: rgba(0, 0, 0, 1);
@@ -214,7 +216,7 @@ footer {
   display: block;
   font-size: 14px;
   padding: 2px 10px 2px;
-  text-align:justify;
+  text-align: justify;
 }
 
 footer hr {
@@ -242,14 +244,22 @@ footer hr {
   }
 }
 
-#experimental{
-  background-image:url('https://251131395.github.io/iveai/media/image/2D1E9D3F-86E7-45BA-BC4B-EF0397B116F8.png');
+#experimental {
+  background-image: url("https://251131395.github.io/iveai/media/image/2D1E9D3F-86E7-45BA-BC4B-EF0397B116F8.png");
   background-size: 180%;
   background-position: 60% 0%;
 }
 
-#ghoststory{
-  background-image:url('https://251131395.github.io/iveai/media/image/23454358-7190-4736-97C6-0595DDA07955.png');
+#ghoststory {
+  background-image: url("https://251131395.github.io/iveai/media/image/23454358-7190-4736-97C6-0595DDA07955.png");
+}
+
+#tmsl{
+  background-image: url("https://251131395.github.io/iveai/media/image/21E33FAA-88FC-4F15-BAF9-D4BCAECF167B.png");
+}
+
+#tmsl span{
+  font-size:12px;
 }
   </style>
 </head>
@@ -281,11 +291,11 @@ footer hr {
       <div class="card" id="experimental" onclick="location.href='https://251131395.github.io/iveai/music/experimental-music-collection.html'">
         <span>Experimental Music Collection</span>
       </div>
-      <div class="card" id="ghoststory" onclick="location.href='https://youtu.be/bc3XTrk9-DQ?si=zObX5bohL3IJQpan'">
-        <span>Single Album - <br>Ghost Story (鬼故)</span>
+      <div class="card" id="tmsl" onclick="location.href='https://youtu.be/J5GbltyaWOE?si=UNJh0Xumr2oIf0P8'">
+        <span>Single - <br>最相似戀人<br>(The Most Similar Lovers)</span>
       </div>
-      <div class="card" id="" onclick="location.href=''">
-        <span>--</span>
+      <div class="card" id="ghoststory" onclick="location.href='https://youtu.be/bc3XTrk9-DQ?si=zObX5bohL3IJQpan'">
+        <span>Single - <br>Ghost Story (鬼故)</span>
       </div>
       <div class="card" id="" onclick="location.href=''">
         <span>--</span>
