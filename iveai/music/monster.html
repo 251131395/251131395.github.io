@@ -1,0 +1,534 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <title>IVEAI-M.O.N.S.T.E.R.</title>
+
+  <style>
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #8fd99e;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  overflow:hidden;
+}
+
+.crt{
+  position:fixed;
+  top:0;
+  left:0;
+  height:100vh;
+  width:100vw;
+  background-size: 5px;
+  background-repeat: repeat;
+  background-position: center;
+  background-image: url("https://251131395.github.io/iveai/media/image/AB8DFAA9-EA6E-4BE9-863F-EE5640F6C3A6.png");
+  z-index: 999;
+  mix-blend-mode: soft-light;
+  filter: blur(0.6px);
+  -webkit-filter: blur(0.6px);
+  backdrop-filter: blur(0.6px) saturate(1.2) contrast(1.3);
+  backdrop--webkit-filter: blur(0.6px) saturate(1.2) contrast(1.3);
+  opacity:0.6;
+  pointer-events: none;  
+}
+
+.menu {
+  position:fixed;
+  top:0;
+  left:5px;
+  padding: 0 10px 0;
+  z-index: 555;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #bbb;
+  position:line-block;
+  color:blue;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+
+.menu a{
+  margin:7px;
+  display:inline-block;
+}
+
+.top-div{
+  height:100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #8fd99e;
+  z-index:666;
+  position:relative;
+}
+
+.top-div span{
+  color:white;
+  font-size:8vw;
+  font-family: "Noto Sans TC", sans;
+  font-weight:bold;
+  text-shadow: 5px 5px 5px green;
+}
+
+.top {
+  padding: 30px 20px 30px;
+}
+
+@media screen and (min-width: 555px) {
+  .top {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+  }
+}
+
+.group {
+  padding: 20px;
+  text-align: center;
+}
+
+@media screen and (min-width: 555px) {
+  .group {
+    display: inline-block;
+  }
+}
+
+.group img {
+  width: 200px;
+  height: 200px;
+  margin: 0 0 15px;
+}
+
+#song {
+  border: 0.5px #333 solid;
+}
+
+.group span {
+  line-height: 1.5;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+}
+
+.group font {
+  line-height: 1.5;
+  color: #555;
+  font-size: 14px;
+  display: block;
+  padding: 5px 0 15px;
+}
+
+.content div {
+  border-bottom: 2px gray solid;
+  text-align: left;
+  padding: 20px 0 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.content div:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.content div font {
+  margin: 0;
+  padding: 0;
+  color: gray;
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+}
+
+.content div span {
+  margin: 0;
+  padding: 0 15px 0;
+  font-weight: normal;
+  display: inline-block;
+  font-size: 14px;
+}
+
+footer {
+  background-color: #bbb;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.info {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 5;
+}
+
+.info-title {
+  font-weight: bold;
+  color: #333;
+}
+
+.info-L {
+  flex: 60%;
+  color: #555;
+}
+
+.info-R {
+  flex: 40%;
+  color:blue;
+}
+
+.info-R a{
+  display:block;
+  margin-left:10px;
+  margin-bottom:5px;
+}
+
+.info span {
+  display: block;
+  font-size: 14px;
+  padding: 2px 10px 2px;
+  text-align: justify;
+}
+
+footer hr {
+  border: 0.5px rgba(255, 255, 255, 0.4) solid;
+}
+
+
+
+
+  ::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+
+
+ ::-webkit-scrollbar-track-piece {
+    background: #ddd;
+    box-shadow: inset 3px 0px 1px #ccc,inset -2px 0px 1px #ccc;
+   position:relative;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #f0f0f2 0%, #c4c4c6 100%);
+    border-radius: 3px;
+    border:2px #b3b3b3 solid;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0, 0.1);
+  }
+
+
+
+
+
+.window{
+  position:fixed;
+  top:0;
+  left:0;
+  height:100vh;
+  width:100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow:hidden;
+  z-index: 996;
+  pointer-events: none;
+}
+
+#start{
+  display:none;
+}
+
+#end{
+  display:none;
+}
+
+
+.mess {
+  pointer-events: auto;
+  font-family: "Noto Sans TC", sans;
+  min-width: 240px;
+  border-top: 2px #fbfaf6 solid;
+  border-left: 2px #fbfaf6 solid;
+  border-bottom: 2px #535353 solid;
+  border-right: 2px #535353 solid;
+  background-color: #d4d0c5;
+  overflow:hidden;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.mess:after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 3px);
+  height: calc(100% + 3px);
+  top: -2px;
+  left: -2px;
+  border-top: 1px #d4d0c5 solid;
+  border-left: 1px #d4d0c5 solid;
+}
+
+.mess span,
+.head span {
+  font-size: 12px;
+  display: inline-block;
+  padding: 10px 10px 0;
+}
+
+.head span {
+  font-size: 12px;
+  display: block;
+  padding: 2px;
+}
+
+#progress {
+  margin-right: -25px;
+}
+
+.head {
+  color: white;
+  background-color: blue;
+  background: linear-gradient(90deg, blue 0%, #71e3e6 100%);
+  font-weight: bold;
+  position: relative;
+}
+
+.sure,
+.close {
+  cursor: pointer;
+  font-size: 10px;
+  color: black;
+  padding: 2px;
+  border-top: 2px #fbfaf6 solid;
+  border-left: 2px #fbfaf6 solid;
+  border-bottom: 2px #535353 solid;
+  border-right: 2px #535353 solid;
+  background-color: #d4d0c5;
+  position: relative;
+}
+
+.sure:active,
+.close:active {
+  border-bottom: 2px #fbfaf6 solid;
+  border-right: 2px #fbfaf6 solid;
+  border-top: 2px #535353 solid;
+  border-left: 2px #535353 solid;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 16px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 1px;
+  top: 2px;
+  z-index: 999;
+}
+
+progress {
+  width: calc(100% - 20px);
+  height: 25px;
+  margin: 10px 10px 10px;
+  border: 0;
+  border-radius: 3px;
+  color: blue;
+  position: relative;
+  border: 1px #999 solid;
+}
+
+progress:after {
+  content: "";
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #aaa;
+  border-radius: 3px;
+}
+progress::-webkit-progress-value {
+  background-color: #17e610;
+  border-radius: 3px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sure {
+  font-weight: bold;
+  padding: 1px 15px 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 10px;
+  cursor: pointer;
+
+  z-index: 999;
+}
+
+.sure:after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 3px);
+  height: calc(100% + 2px);
+  top: -2.5px;
+  left: -3px;
+  border: 1.5px black solid;
+}
+
+
+  </style>
+</head>
+
+<body>
+  <div style="height:100vh;overflow:auto;">
+  <div class="menu">
+    <a href="https://251131395.github.io/iveai/home.html">HOME</a>
+    <a href="https://251131395.github.io/iveai/timeline.html">TIMELINE</a>
+    <a href="https://251131395.github.io/iveai/photo.html">PHOTO</a>
+    <a href="https://251131395.github.io/iveai/what-is-iveai.html">What is IVEAI?</a>
+  </div>
+  
+  <div class="crt"></div>
+
+  <div class="window">
+    <div class="mess" id="start">
+      <div class="head">
+        <span>Download Progress</span>
+        <button class="close">&times;</button>
+      </div>
+
+      <span>Cantonese audio pack downloading now (5.2 MB) ..</span><span id="progress">0%</span>
+      <progress max="100" value="0"></progress>
+    </div>
+    <div class="mess" id="end">
+      <div class="head">
+        <span>M.O.N.S.T.E.R.</span>
+        <button class="close" onclick="hideEnd()">&times;</button>
+      </div>
+
+      <span>Download has been completed.</span>
+      <div style="height:20px;"></div>
+      <div class="center">
+        <button class="sure" onclick="hideEnd()">確定</button>
+      </div>
+    </div>
+  </div>
+    
+  <div class="top-div">
+    <span>M.O.N.S.T.E.R.</span>
+  </div>
+
+  <div style="min-height:100vh">
+    <div class="top">
+      <div class="group">
+        <img id="song" src="https://251131395.github.io/iveai/media/image/ai-image%20(20).png">
+        <span>M.O.N.S.T.E.R.</span>
+        <span>(怪獸)</span>
+        <font>IVEAI &#8226; 251131395 / n! &#8226; Suno AI</font>
+        <div class="content">
+          <div onclick="location.href=''">
+            <font>0</font>
+            <span style="color:gray">M.O.N.S.T.E.R (怪獸) Teaser</span>
+          </div>
+          <div onclick="location.href=''">
+            <font>1</font>
+            <span style="color:gray">M.O.N.S.T.E.R (怪獸)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="info">
+      <div class="info-L">
+        <span class="info-title">What is IVEAI?</span>
+        <span>IVEAI is an informal group whose name means “I've AI” that produces music and a range of related content using artificial intelligence tools from Suno AI, Chat GPT, and others.</span>
+      </div>
+      <div class="info-R">
+        <span class="info-title">Link</span>
+        <a href="https://youtube.com/@i.ve_ai?si=tIARTNl2MGQiWuWp"><u>Youtube</u></a>
+        <a href="https://www.instagram.com/i.ve.ai/?next=%2Fg.h.s.d.r%2F"><u>Instagram</u></a>
+      </div>
+    </div>
+  </footer>
+  </div>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      p
+    }
+  </script>
+
+  <script>
+    function hideEnd() {
+      document.getElementById("end").style.display = "none";
+    }
+    window.addEventListener("load", function() {
+      setTimeout(function() {
+        document.getElementById("start").style.display = "block";
+      }, 1000);
+      setTimeout(function() {
+        var progressElement = document.querySelector("progress");
+        var progressSpan = document.getElementById("progress");
+        var value = 0;
+        var intervalId = setInterval(function() {
+          value++;
+          progressElement.value = value;
+          progressSpan.textContent = value + "%";
+          if (value >= 100) {
+            clearInterval(intervalId);
+            document.getElementById("start").style.display = "none";
+            document.getElementById("end").style.display = "block";
+          }
+        }, 60);
+      }, 4000);
+    });
+  </script>
+
+</html>
