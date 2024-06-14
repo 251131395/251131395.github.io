@@ -7,25 +7,31 @@
 
   <style>
     @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
-body {
+  body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   font-family: "Noto Sans TC", sans-serif;
-  background-color: #8fd99e;
+  background-color: #c9dd61;
   margin: 0px;
   padding: 0px;
   position: relative;
-  overflow:hidden;
+  overflow: hidden;
 }
 
-.crt{
-  position:fixed;
-  top:0;
-  left:0;
-  height:100vh;
-  width:100vw;
+nav {
+  height: 10px;
+  background-color: skyblue;
+  margin: 0 0 -10px;
+}
+
+.crt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
   background-size: 5px;
   background-repeat: repeat;
   background-position: center;
@@ -36,52 +42,55 @@ body {
   -webkit-filter: blur(0.6px);
   backdrop-filter: blur(0.6px) saturate(1.2) contrast(1.3);
   backdrop--webkit-filter: blur(0.6px) saturate(1.2) contrast(1.3);
-  opacity:0.6;
-  pointer-events: none;  
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .menu {
-  position:fixed;
-  top:0;
-  left:5px;
+  position: fixed;
+  top: 0;
+  left: 5px;
   padding: 0 10px 0;
   z-index: 555;
   font-size: 12px;
   cursor: pointer;
   font-weight: bold;
   background-color: #bbb;
-  position:line-block;
-  color:blue;
-  border-bottom-left-radius:10px;
-  border-bottom-right-radius:10px;
+  position: line-block;
+  color: blue;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
-.menu a{
-  margin:7px;
-  display:inline-block;
+.menu a {
+  margin: 7px;
+  display: inline-block;
 }
 
-.top-div{
-  height:100vh;
+.top-div {
+  height: 100vh;
+  background-color: white;
+  z-index: 555;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  background-color: #8fd99e;
-  z-index:666;
-  position:relative;
 }
 
-.top-div span{
-  color:white;
-  font-size:8vw;
-  font-family: "Noto Sans TC", sans;
-  font-weight:bold;
-  text-shadow: 5px 5px 5px green;
+.top-div img {
+  width: 100%;
+  padding: 17% 0 0;
+  pointer-events: none;
+
+  opacity: 0.9;
 }
 
 .top {
-  padding: 30px 20px 30px;
+  padding: 100px 20px 30px;
+  background-color: #c9dd61;
+  z-index: 444;
+  min-height: 100vh;
+  position: relative;
 }
 
 @media screen and (min-width: 555px) {
@@ -129,6 +138,19 @@ body {
   padding: 5px 0 15px;
 }
 
+.group .lyrics {
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: normal;
+  text-align: left;
+}
+
+@media screen and (min-width: 950px) {
+  .group .lyrics {
+    width: 20vw;
+  }
+}
+
 .content div {
   border-bottom: 2px gray solid;
   text-align: left;
@@ -167,13 +189,13 @@ footer {
   text-align: center;
   position: relative;
   overflow: hidden;
+  z-index: 998;
 }
 
 .info {
   text-align: left;
   display: flex;
   flex-wrap: wrap;
-  z-index: 5;
 }
 
 .info-title {
@@ -188,13 +210,13 @@ footer {
 
 .info-R {
   flex: 40%;
-  color:blue;
+  color: blue;
 }
 
-.info-R a{
-  display:block;
-  margin-left:10px;
-  margin-bottom:5px;
+.info-R a {
+  display: block;
+  margin-left: 10px;
+  margin-bottom: 5px;
 }
 
 .info span {
@@ -208,63 +230,53 @@ footer hr {
   border: 0.5px rgba(255, 255, 255, 0.4) solid;
 }
 
+::-webkit-scrollbar {
+  height: 10px;
+}
 
+::-webkit-scrollbar-track {
+  border: none;
+  border-radius: 10px;
+}
 
+::-webkit-scrollbar-track-piece {
+  background: #ddd;
+  box-shadow: inset 3px 0px 1px #ccc, inset -2px 0px 1px #ccc;
+  position: relative;
+}
 
-  ::-webkit-scrollbar {
-    height: 10px;
-  }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #f0f0f2 0%, #c4c4c6 100%);
+  border-radius: 3px;
+  border: 2px #b3b3b3 solid;
+}
 
-  ::-webkit-scrollbar-track {
-    border: none;
-    border-radius: 10px;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
 
-
-
- ::-webkit-scrollbar-track-piece {
-    background: #ddd;
-    box-shadow: inset 3px 0px 1px #ccc,inset -2px 0px 1px #ccc;
-   position:relative;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg, #f0f0f2 0%, #c4c4c6 100%);
-    border-radius: 3px;
-    border:2px #b3b3b3 solid;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0,0,0, 0.1);
-  }
-
-
-
-
-
-.window{
-  position:fixed;
-  top:0;
-  left:0;
-  height:100vh;
-  width:100vw;
+.window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow:hidden;
+  overflow: hidden;
   z-index: 996;
   pointer-events: none;
 }
 
-#start{
-  display:none;
+#start {
+  display: none;
 }
 
-#end{
-  display:none;
+#end {
+  display: none;
 }
-
 
 .mess {
   pointer-events: auto;
@@ -275,7 +287,7 @@ footer hr {
   border-bottom: 2px #535353 solid;
   border-right: 2px #535353 solid;
   background-color: #d4d0c5;
-  overflow:hidden;
+  overflow: hidden;
   position: relative;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -415,53 +427,112 @@ progress::-webkit-progress-value {
   border: 1.5px black solid;
 }
 
+.broken {
+  background-color: black;
+  min-height: 600vh;
+  z-index: 333;
+}
+
+.drop {
+  position: fixed;
+  width: 90vw;
+  height: 70vh;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drop img {
+  width: 100%;
+  font-size: 20px;
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  transform: rotate(0.96turn);
+}
+
+@media screen and (min-width: 555px) {
+  .broken div {
+    width: 70vw;
+    height: 80vh;
+  }
+  .broken div img {
+    width: 80%;
+  }
+}
+
+.glass {
+  transform: rotate(13deg);
+  position: fixed;
+  width: 350px;
+  bottom: 90px;
+  right: 20px;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0.9;
+  display: none;
+}
+
+@media screen and (min-width: 555px) {
+  .glass {
+    transform: rotate(13deg);
+    position: fixed;
+    width: 450px;
+    bottom: 55px;
+    right: 20px;
+    z-index: 1000;
+    pointer-events: none;
+  }
+}
 
   </style>
 </head>
 
 <body>
+  <nav></nav>
   <div style="height:100vh;overflow:auto;">
-  <div class="menu">
-    <a href="https://251131395.github.io/iveai/home.html">HOME</a>
-    <a href="https://251131395.github.io/iveai/timeline.html">TIMELINE</a>
-    <a href="https://251131395.github.io/iveai/photo.html">PHOTO</a>
-    <a href="https://251131395.github.io/iveai/what-is-iveai.html">What is IVEAI?</a>
-  </div>
-  
-  <div class="crt"></div>
-
-  <div class="window">
-    <div class="mess" id="start">
-      <div class="head">
-        <span>Download Progress</span>
-        <button class="close">&times;</button>
-      </div>
-
-      <span>Cantonese audio pack downloading now (5.2 MB) ..</span><span id="progress">0%</span>
-      <progress max="100" value="0"></progress>
+    <div class="menu">
+      <a href="https://251131395.github.io/iveai/home.html">HOME</a>
+      <a href="https://251131395.github.io/iveai/timeline.html">TIMELINE</a>
+      <a href="https://251131395.github.io/iveai/photo.html">PHOTO</a>
+      <a href="https://251131395.github.io/iveai/what-is-iveai.html">What is IVEAI?</a>
     </div>
-    <div class="mess" id="end">
-      <div class="head">
-        <span>M.O.N.S.T.E.R.</span>
-        <button class="close" onclick="hideEnd()">&times;</button>
-      </div>
 
-      <span>Download has been completed.</span>
-      <div style="height:20px;"></div>
-      <div class="center">
-        <button class="sure" onclick="hideEnd()">確定</button>
+    <div class="crt"></div>
+
+    <div class="window">
+      <div class="mess" id="start">
+        <div class="head">
+          <span>Download Progress</span>
+          <button class="close">&times;</button>
+        </div>
+
+        <span>Cantonese audio pack downloading now (5.2 MB) ..</span><span id="progress">0%</span>
+        <progress max="100" value="0"></progress>
+      </div>
+      <div class="mess" id="end">
+        <div class="head">
+          <span>M.O.N.S.T.E.R.</span>
+          <button class="close" onclick="hideEnd()">&times;</button>
+        </div>
+
+        <span>Download has been completed.</span>
+        <div style="height:20px;"></div>
+        <div class="center">
+          <button class="sure" onclick="hideEnd()">確定</button>
+        </div>
       </div>
     </div>
-  </div>
-    
-  <div class="top-div">
-    <span>M.O.N.S.T.E.R.</span>
-  </div>
 
-  <div style="min-height:100vh">
+    <div class="top-div">
+      <img src="https://251131395.github.io/iveai/media/image/B921E344-FEA0-4C10-AD75-08D5BFE95118.png">
+    </div>
+
     <div class="top">
       <div class="group">
-        <img id="song" src="https://251131395.github.io/iveai/media/image/ai-image%20(20).png">
+        <img id="song" src="https://251131395.github.io/iveai/media/image/64D5C8D3-499C-4704-AB03-DA05CABD941E.png">
         <span>M.O.N.S.T.E.R.</span>
         <span>(怪獸)</span>
         <font>IVEAI &#8226; 251131395 / n! &#8226; Suno AI</font>
@@ -476,32 +547,114 @@ progress::-webkit-progress-value {
           </div>
         </div>
       </div>
-    </div>
-  </div>
+      <div class="group">
+        <span class="lyrics">
+          [Instrument solo]<br>
+          <br>
+          (Round One)<br>
+          <br>
+          I'm a monster monster monster<br>
+          and you make me slaver slaver slaver<br>
+          請為我戴上頸圈 請同我陷入愛戀<br>
+          我會畀你手握掌控嘅一端<br>
+          <br>
+          你令我變得loco-co-co-co-co<br>
+          大家有目共睹 我會剖開我嘅大腦<br>
+          畀你尋找我愛嘅證據<br>
+          因為愛不分物種 沒有錯對<br>
+          (yes yes no no no no no no)<br>
+          <br>
+          每當我靠近你 脈搏跳動 心跳加速<br>
+          我覺得呢個係愛 係性慾<br>
+          但係你同我講係生物本能<br>
+          我嘅大腦高速運行<br>
+          (yes yes no no no no no no)<br>
+          &times;2<br>
+          <br>
+          I'm m-o-n-s-t-e-r<br>
+          monster monster monster<br>
+          I'm m-o-n-s-t-e-r<br>
+          monster monster monster
+        </span>
+      </div>
+      <div class="group">
+        <span class="lyrics">
+          [Instrument solo]<br>
+          <br>
+          (Round Two)<br>
+          <br>
+          I'm a monster monster monster<br>
+          and you make me slaver slaver slaver<br>
+          請為我戴上頸圈 請同我陷入愛戀<br>
+          我會畀你手握掌控嘅一端<br>
+          <br>
+          你令我變得loco-co-co-co-co<br>
+          大家有目共睹 我會剖開我嘅大腦<br>
+          畀你尋找我愛嘅證據<br>
+          因為愛不分物種 沒有錯對<br>
+          (yes yes no no no no no no)<br>
+          <br>
+          每當我靠近你 脈搏跳動 心跳加速<br>
+          我覺得呢個係愛 係性慾<br>
+          但係你同我講係生物本能<br>
+          我嘅大腦高速運行<br>
+          (yes yes no no no no no no)<br>
+          &times;2<br>
+          <br>
+          I'm m-o-n-s-t-e-r<br>
+          monster monster monster<br>
+          I'm m-o-n-s-t-e-r<br>
+          monster monster monster
+        </span>
+      </div>
 
-  <footer>
-    <div class="info">
-      <div class="info-L">
-        <span class="info-title">What is IVEAI?</span>
-        <span>IVEAI is an informal group whose name means “I've AI” that produces music and a range of related content using artificial intelligence tools from Suno AI, Chat GPT, and others.</span>
-      </div>
-      <div class="info-R">
-        <span class="info-title">Link</span>
-        <a href="https://youtube.com/@i.ve_ai?si=tIARTNl2MGQiWuWp"><u>Youtube</u></a>
-        <a href="https://www.instagram.com/i.ve.ai/?next=%2Fg.h.s.d.r%2F"><u>Instagram</u></a>
+      <div class="group">
+        <span class="lyrics">
+          cha-cha-cha, cha-cha-cha, cha-cha-cha<br>
+          Ooh-ooh, ooh-ooh, ooh-ooh<br>
+          Yeah, yum-yum-yum, yum-yum-yum, yum-yum-yum<br>
+          cha-cha-cha, cha-cha-cha, cha-cha-cha<br>
+          Ooh-ooh, ooh-ooh, ooh-ooh<br>
+          Yeah, yum-yum-yum, yum-yum-yum, yum-yum-yum<br>
+          <br>
+          I'm m-o-n-s-t-e-r<br>
+          monster monster monster<br>
+          I'm m-o-n-s-t-e-r<br>
+          monster monster monster<br>
+          <br>
+          (Game Over)<br>
+          <br>
+          [Instrument solo]
+        </span>
       </div>
     </div>
-  </footer>
+
+    <div class="broken" onclick="showGlass()">
+      <div class="drop">
+        <img src="https://251131395.github.io/iveai/media/image/drop.gif">
+      </div>
+      <img class="glass" src="https://251131395.github.io/iveai/media/image/無標題30_20240614170352.png">
+    </div>
+
+    <footer>
+      <div class="info">
+        <div class="info-L">
+          <span class="info-title">What is IVEAI?</span>
+          <span>IVEAI is an informal group whose name means “I've AI” that produces music and a range of related content using artificial intelligence tools from Suno AI, Chat GPT, and others.</span>
+        </div>
+        <div class="info-R">
+          <span class="info-title">Link</span>
+          <a href="https://youtube.com/@i.ve_ai?si=tIARTNl2MGQiWuWp"><u>Youtube</u></a>
+          <a href="https://www.instagram.com/i.ve.ai/?next=%2Fg.h.s.d.r%2F"><u>Instagram</u></a>
+        </div>
+      </div>
+    </footer>
   </div>
 
   <script>
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
-    }
-
-    function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-      p
+    function showGlass() {
+      var glassElement = document.querySelector('.glass');
+      glassElement.style.display = 'block';
     }
   </script>
 
