@@ -233,8 +233,11 @@ progress::-webkit-progress-value {
 
 @media screen and (max-width: 555px) {
   .menu {
-    width: calc(100% - 15px);
+    top: 0;
+  left: 0;
+    width:100%;
     text-align: center;
+    border-radius:0px;
   }
 }
 
@@ -427,7 +430,7 @@ q@keyframes walk {
 }
 
 .obj div:nth-child(1) {
-  background-size: 200%;
+  background-size: 170%;
   background-position: 65% 50%;
   background-image: url("https://images.unsplash.com/photo-1598682207991-8283028b4a1f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTg1MjY0MzZ8&ixlib=rb-4.0.3&q=80&w=400");
 }
@@ -630,6 +633,7 @@ q@keyframes walk {
   transform: translate(0, 4px);
   -webkit-transform: translate(0, 4px);
   cursor: pointer;
+  font-weight:bold;
 }
 
 ::-webkit-scrollbar {
@@ -724,14 +728,14 @@ q@keyframes walk {
         <font>Music</font>
         <span onclick="location.href='https://youtu.be/bc3XTrk9-DQ?si=zObX5bohL3IJQpan'">Ghost Story</span>
         <span onclick="location.href='https://251131395.github.io/iveai/music/rw.html'">RW</span>
-        <span>M.O.N.S.T.E.R.</span>
+        <span id="play">M.O.N.S.T.E.R.</span>
         <span onclick="location.href='https://251131395.github.io/iveai/music/tmsl.html'">TMSL</span>
 
         <audio id="music" src="" controls loop></audio>
 
         <div>
           <span>&#9776;</span>
-          <font id="mp3-close-btn" onclick="hideMp3()">&#8592;</font>
+          <font id="mp3-close-btn" onclick="hideMp3()">&lArr;</font>
         </div>
 
       </div>
@@ -783,6 +787,30 @@ q@keyframes walk {
   </script>
 
   <script>
+    // 获取进度条元素
+    var progressBar = document.querySelector('.water-bar');
+    // 自动增加进度条的值
+    function increaseValue() {
+      var currentValue = parseInt(progressBar.value);
+      var maxValue = parseInt(progressBar.max);
+      if (currentValue < maxValue) {
+        progressBar.value = currentValue + 1;
+      }
+    }
+    // 按钮点击事件处理函数，减少进度条的值
+    function decreaseValue() {
+      var currentValue = parseInt(progressBar.value);
+      if (currentValue > 0) {
+        progressBar.value = currentValue - 5;
+      }
+    }
+    // 检查进度条的 max 值是否等于 100，如果不等于，则每秒增加进度条的值
+    if (progressBar.max !== "100") {
+      setInterval(increaseValue, 100);
+    }
+  </script>
+
+  <script>
     function showMp3() {
       var mp3Div = document.getElementsByClassName("mp3")[0];
       mp3Div.style.display = "block";
@@ -792,6 +820,15 @@ q@keyframes walk {
       var mp3Div = document.getElementsByClassName("mp3")[0];
       mp3Div.style.display = "none";
     }
+  </script>
+
+  <script>
+    var playButton = document.getElementById("play");
+    var music = document.getElementById("music");
+    playButton.addEventListener("click", function() {
+      music.src = "https://251131395.github.io/iveai/media/audio/monster_teaser.mp3";
+      music.play();
+    });
   </script>
 
 </body>
