@@ -12,18 +12,10 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  font-family: "Noto Sans TC", sans-serif;
   background-color: #c9dd61;
   margin: 0px;
   padding: 0px;
   position: relative;
-  overflow: hidden;
-}
-
-nav {
-  height: 10px;
-  background-color: skyblue;
-  margin: 0 0 -10px;
 }
 
 .crt {
@@ -44,215 +36,6 @@ nav {
   backdrop--webkit-filter: blur(0.6px) saturate(1.2) contrast(1.3);
   opacity: 0.6;
   pointer-events: none;
-}
-
-.menu {
-  position: fixed;
-  top: 0;
-  left: 5px;
-  padding: 0 10px 0;
-  z-index: 555;
-  font-size: 12px;
-  cursor: pointer;
-  font-weight: bold;
-  background-color: #bbb;
-  position: line-block;
-  color: blue;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.menu a {
-  margin: 7px;
-  display: inline-block;
-}
-
-.top-div {
-  height: 100vh;
-  background-color: #ddd;
-  z-index: 555;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.top-div img {
-  width: 100%;
-  padding: 17% 0 0;
-  pointer-events: none;
-
-  opacity: 0.9;
-}
-
-.top {
-  padding: 100px 20px 30px;
-  background-color: #c9dd61;
-  z-index: 444;
-  min-height: 100vh;
-  position: relative;
-}
-
-@media screen and (min-width: 555px) {
-  .top {
-    display: flex;
-    align-items: start;
-    justify-content: center;
-  }
-}
-
-.group {
-  padding: 20px;
-  text-align: center;
-}
-
-@media screen and (min-width: 555px) {
-  .group {
-    display: inline-block;
-  }
-}
-
-.group img {
-  width: 200px;
-  height: 200px;
-  margin: 0 0 15px;
-}
-
-#song {
-  border: 0.5px #333 solid;
-}
-
-.group span {
-  line-height: 1.5;
-  color: black;
-  font-size: 20px;
-  font-weight: bold;
-  display: block;
-}
-
-.group font {
-  line-height: 1.5;
-  color: #555;
-  font-size: 14px;
-  display: block;
-  padding: 5px 0 15px;
-}
-
-.group .lyrics {
-  font-size: 12px;
-  line-height: 1.5;
-  font-weight: normal;
-  text-align: left;
-}
-
-@media screen and (min-width: 950px) {
-  .group .lyrics {
-    width: 20vw;
-  }
-}
-
-.content div {
-  border-bottom: 2px gray solid;
-  text-align: left;
-  padding: 20px 0 10px;
-  position: relative;
-  cursor: pointer;
-}
-
-.content div:hover {
-  background-color: rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-}
-
-.content div font {
-  margin: 0;
-  padding: 0;
-  color: gray;
-  font-weight: bold;
-  display: inline-block;
-  position: absolute;
-  left: 0;
-}
-
-.content div span {
-  margin: 0;
-  padding: 0 15px 0;
-  font-weight: normal;
-  display: inline-block;
-  font-size: 14px;
-}
-
-footer {
-  background-color: #bbb;
-  padding: 20px;
-  color: white;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  z-index: 998;
-}
-
-.info {
-  text-align: left;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.info-title {
-  font-weight: bold;
-  color: #333;
-}
-
-.info-L {
-  flex: 60%;
-  color: #555;
-}
-
-.info-R {
-  flex: 40%;
-  color: blue;
-}
-
-.info-R a {
-  display: block;
-  margin-left: 10px;
-  margin-bottom: 5px;
-}
-
-.info span {
-  display: block;
-  font-size: 14px;
-  padding: 2px 10px 2px;
-  text-align: justify;
-}
-
-footer hr {
-  border: 0.5px rgba(255, 255, 255, 0.4) solid;
-}
-
-::-webkit-scrollbar {
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  border: none;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-track-piece {
-  background: #ddd;
-  box-shadow: inset 3px 0px 1px #ccc, inset -2px 0px 1px #ccc;
-  position: relative;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #f0f0f2 0%, #c4c4c6 100%);
-  border-radius: 3px;
-  border: 2px #b3b3b3 solid;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.1);
 }
 
 .window {
@@ -413,7 +196,6 @@ progress::-webkit-progress-value {
   justify-content: center;
   margin: 0 0 10px;
   cursor: pointer;
-
   z-index: 999;
 }
 
@@ -427,236 +209,552 @@ progress::-webkit-progress-value {
   border: 1.5px black solid;
 }
 
-.broken {
-  background-color: black;
-  min-height: 600vh;
-  z-index: 333;
+.menu {
+  position: fixed;
+  top: 0;
+  left: 5px;
+  padding: 0 10px 0;
+  z-index: 555;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #222;
+  position: line-block;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-family: "Noto Sans TC", sans-serif;
 }
 
-.drop {
-  position: fixed;
-  width: 90vw;
-  height: 70vh;
-  top: 0;
-  left: 0;
-  pointer-events: none;
+.menu a {
+  margin: 7px;
+  display: inline-block;
+  color: #ddd;
+}
+
+@media screen and (max-width: 555px) {
+  .menu {
+    width: calc(100% - 15px);
+    text-align: center;
+  }
+}
+
+.top-div {
+  height: 100vh;
+  background-color: #3e403c;
+  z-index: 555;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
-.drop img {
+.top-div img {
   width: 100%;
+  padding: 17% 0 0;
+  pointer-events: none;
+
+  opacity: 0.9;
+}
+
+.plus {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  z-index: 554;
+  top: 0;
+  left: 0;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+.plus span {
+  color: white;
   font-size: 20px;
-  filter: blur(3px);
-  -webkit-filter: blur(3px);
-  transform: rotate(0.96turn);
+}
+
+.name {
+  color: white;
+  position: fixed;
+  top: 50px;
+  left: 20px;
+  width: 150px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+}
+
+.name span {
+  margin: 0 0 5px;
+  padding: 0;
+  font-weight: bold;
+  display: block;
+  font-size: 18px;
+  color: #c9dd61;
+}
+
+.name p {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.name p font {
+  margin: 0;
+  padding: 0;
+  cursor: help;
+}
+
+@media screen and (max-width: 555px) {
+  .name {
+    top: 55px;
+    left: 10px;
+    width: 120px;
+    line-height: 1.2;
+  }
+
+  .name span {
+    margin: 0 0 5px;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+    font-size: 14px;
+  }
+
+  .name p {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+  }
+}
+
+body .game {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-img {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: -999;
+  background-size: cover;
+  background-position: 65% 8%;
+  background-image: url("https://251131395.github.io/iveai/media/image/QdDLPpnsFyjZdHj86cl7--1--po6dr.png");
+  filter: contrast(1.4) brightness(0.8) saturate(0.7);
+  -webkit-filter: contrast(1.4) brightness(0.8) saturate(0.7);
+}
+
+.breath {
+  height: 100vh;
+  animation: breath 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes breath {
+  0% {
+    transform: scale(1.05) translate(0px, -2px);
+  }
+  50% {
+    transform: scale(1.05) translate(0px, 2px);
+  }
+  100% {
+    transform: scale(1.05) translate(0px, -2px);
+  }
+}
+
+.walk {
+  height: 100vh;
+  animation: walk 30s infinite;
+  pointer-events: none;
+}
+
+q@keyframes walk {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+
+.monster-bar {
+  height: 10px;
+  width: calc(80% - 350px);
+  position: fixed;
+  right: 20px;
+  top: 10px;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+.monster-bar::-webkit-progress-value {
+  background-color: #a5e34d;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 555px) {
+  .monster-bar {
+    height: 8px;
+    width: calc(100% - 45px);
+    right: 15px;
+    top: 30px;
+  }
+}
+
+.obj {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  border: 1.5px white solid;
+  white-space: nowrap;
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+}
+
+.obj div {
+  width: 30px;
+  height: 30px;
+  margin: 4px;
+  border: 1px white solid;
+  cursor: pointer;
+}
+
+.obj div:nth-child(1) {
+  background-size: 200%;
+  background-position: 65% 50%;
+  background-image: url("https://images.unsplash.com/photo-1598682207991-8283028b4a1f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTg1MjY0MzZ8&ixlib=rb-4.0.3&q=80&w=400");
+}
+
+.obj div:nth-child(2) {
+  background-size: 250%;
+  background-position: 65% 8%;
+  background-image: url("https://images.unsplash.com/photo-1566446896748-6075a87760c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTg1MTU4Mjh8&ixlib=rb-4.0.3&q=80&w=400");
+}
+
+.obj div:nth-child(3) {
+  background-size: 290%;
+  background-position: 75% 50%;
+  background-image: url("https://images.unsplash.com/photo-1602523961358-f9f03dd557db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTg1MjU4NjZ8&ixlib=rb-4.0.3&q=80&w=400");
+}
+
+.obj div:nth-child(4) {
+  background-size: 290%;
+  background-position: 65% 65%;
+  background-image: url("https://images.unsplash.com/photo-1515010137531-66995c7f40e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTg1MjU5MTJ8&ixlib=rb-4.0.3&q=80&w=400");
+}
+
+.obj div:active {
+  filter: brightness(0.8);
+  -webkit-filter: brightness(0.8);
+}
+
+@media screen and (max-width: 555px) {
+  .obj {
+    left: 15px;
+    bottom: 15px;
+  }
 }
 
 @media screen and (min-width: 555px) {
-  .broken div {
-    width: 70vw;
-    height: 80vh;
+  .obj {
+    padding-right: 6px;
   }
-  .broken div img {
-    width: 80%;
+
+  .obj div {
+    margin-right: -2px;
+    border: 1px white solid;
+    vertical-align: top;
+    white-space: normal;
+    display: inline-block;
   }
 }
 
-.glass {
-  transform: rotate(13deg);
+.water-bar {
+  height: 10px;
+  width: 30vh;
   position: fixed;
-  width: 450px;
-  bottom: 0;
-  right: -30px;
-  z-index: 1000;
+  right: 10px;
+  transform: rotate(-90deg) translate(0, 30vh);
+  -webkit-transform: rotate(-90deg) translate(0, 30vh);
+  transform-origin: bottom left;
+  -webkit-transform-origin: bottom left;
+  bottom: 10px;
+}
+
+.water-bar::-webkit-progress-value {
+  background-color: #29a5f2;
+  border-radius: 3px;
+}
+
+.water {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  bottom: 20px;
+  right: 55px;
+}
+
+.water .but {
+  border: 2px white solid;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.water .but div {
+  width: 100%;
+  height: 100%;
+  background-size: 250%;
+  background-position: 65% 8%;
+  background-image: url("https://images.unsplash.com/photo-1566446896748-6075a87760c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTg1MTU4Mjh8&ixlib=rb-4.0.3&q=80&w=400");
+  filter: invert(1);
+  -webkit-filter: invert(1);
+  mix-blend-mode: screen;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 555px) {
+  .water {
+    bottom: 10px;
+    right: 40px;
+  }
+  .water .but {
+    width: 55px;
+    height: 55px;
+  }
+  .water-bar {
+    height: 8px;
+    bottom: 3px;
+  }
+}
+
+.water div:active {
+  background-color: #487a99;
+}
+
+.water span {
+  color: white;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: 10px 0 0;
+}
+
+.mp3-center {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 554;
   pointer-events: none;
-  opacity: 0.9;
+}
+
+.mp3 {
+  width: 350px;
+  color: black;
+  border: 1px black solid;
+  background-color: #bf8426;
+  padding: 10px;
+  border-radius: 3px;
+  pointer-events: fill;
+  position: relative;
   display: none;
 }
 
-@media screen and (min-width: 555px) {
-  .glass {
-    transform: rotate(13deg);
-    position: fixed;
-    width: 450px;
-    bottom: 55px;
-    right: 20px;
-    z-index: 1000;
-    pointer-events: none;
+@media screen and (max-width: 555px) {
+  .mp3 {
+    width: 250px;
   }
+}
+
+.mp3 audio {
+  width: calc(100% - 50px);
+  margin-left: 25px;
+  margin-bottom: -30px;
+  height: 25px;
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+}
+
+.mp3 font {
+  display: block;
+  font-weight: bold;
+  border-bottom: 1px black solid;
+  margin-bottom: 5px;
+}
+
+.mp3 span {
+  display: block;
+  padding: 2px 5px 2px;
+  cursor: pointer;
+}
+
+.mp3 span:hover {
+  background-color: black;
+  font-weight: bold;
+  color: #bf8426;
+}
+
+.mp3 div span {
+  float: left;
+}
+
+.mp3 div span:hover {
+  background-color: #bf8426;
+  color: black;
+  font-weight: normal;
+}
+
+.mp3 div font {
+  float: right;
+  border-bottom: none;
+  transform: translate(0, 4px);
+  -webkit-transform: translate(0, 4px);
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border: none;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: #ddd;
+  box-shadow: inset 3px 0px 1px #ccc, inset -2px 0px 1px #ccc;
+  position: relative;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #f0f0f2 0%, #c4c4c6 100%);
+  border-radius: 3px;
+  border: 2px #b3b3b3 solid;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.1);
 }
 
   </style>
 </head>
 
 <body>
-  <nav></nav>
-  <div style="height:100vh;overflow:auto;">
-    <div class="menu">
-      <a href="https://251131395.github.io/iveai/home.html">HOME</a>
-      <a href="https://251131395.github.io/iveai/timeline.html">TIMELINE</a>
-      <a href="https://251131395.github.io/iveai/photo.html">PHOTO</a>
-      <a href="https://251131395.github.io/iveai/what-is-iveai.html">What is IVEAI?</a>
-    </div>
 
-    <div class="crt"></div>
-
-    <div class="window">
-      <div class="mess" id="start">
-        <div class="head">
-          <span>Download Progress</span>
-          <button class="close">&times;</button>
-        </div>
-
-        <span>Cantonese audio pack downloading now (5.2 MB) ..</span><span id="progress">0%</span>
-        <progress max="100" value="0"></progress>
-      </div>
-      <div class="mess" id="end">
-        <div class="head">
-          <span>M.O.N.S.T.E.R.</span>
-          <button class="close" onclick="hideEnd()">&times;</button>
-        </div>
-
-        <span>Download has been completed.</span>
-        <div style="height:20px;"></div>
-        <div class="center">
-          <button class="sure" onclick="hideEnd()">確定</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="top-div">
-      <img src="https://251131395.github.io/iveai/media/image/B921E344-FEA0-4C10-AD75-08D5BFE95118.png">
-    </div>
-
-    <div class="top">
-      <div class="group">
-        <img id="song" src="https://251131395.github.io/iveai/media/image/64D5C8D3-499C-4704-AB03-DA05CABD941E.png">
-        <span>M.O.N.S.T.E.R.</span>
-        <span>(怪獸)</span>
-        <font>IVEAI &#8226; 251131395 / n! &#8226; Suno AI</font>
-        <div class="content">
-          <div onclick="location.href=''">
-            <font>0</font>
-            <span style="color:gray">M.O.N.S.T.E.R (怪獸) Teaser</span>
-          </div>
-          <div onclick="location.href=''">
-            <font>1</font>
-            <span style="color:gray">M.O.N.S.T.E.R (怪獸)</span>
-          </div>
-        </div>
-      </div>
-      <div class="group">
-        <span class="lyrics">
-          [Instrument solo]<br>
-          <br>
-          (Round One)<br>
-          <br>
-          I'm a monster monster monster<br>
-          and you make me slaver slaver slaver<br>
-          請為我戴上頸圈 請同我陷入愛戀<br>
-          我會畀你手握掌控嘅一端<br>
-          <br>
-          你令我變得loco-co-co-co-co<br>
-          大家有目共睹 我會剖開我嘅大腦<br>
-          畀你尋找我愛嘅證據<br>
-          因為愛不分物種 沒有錯對<br>
-          (yes yes no no no no no no)<br>
-          <br>
-          每當我靠近你 脈搏跳動 心跳加速<br>
-          我覺得呢個係愛 係性慾<br>
-          但係你同我講係生物本能<br>
-          我嘅大腦高速運行<br>
-          (yes yes no no no no no no)<br>
-          &times;2<br>
-          <br>
-          I'm m-o-n-s-t-e-r<br>
-          monster monster monster<br>
-          I'm m-o-n-s-t-e-r<br>
-          monster monster monster
-        </span>
-      </div>
-      <div class="group">
-        <span class="lyrics">
-          [Instrument solo]<br>
-          <br>
-          (Round Two)<br>
-          <br>
-          I'm a monster monster monster<br>
-          and you make me slaver slaver slaver<br>
-          請為我戴上頸圈 請同我陷入愛戀<br>
-          我會畀你手握掌控嘅一端<br>
-          <br>
-          你令我變得loco-co-co-co-co<br>
-          大家有目共睹 我會剖開我嘅大腦<br>
-          畀你尋找我愛嘅證據<br>
-          因為愛不分物種 沒有錯對<br>
-          (yes yes no no no no no no)<br>
-          <br>
-          每當我靠近你 脈搏跳動 心跳加速<br>
-          我覺得呢個係愛 係性慾<br>
-          但係你同我講係生物本能<br>
-          我嘅大腦高速運行<br>
-          (yes yes no no no no no no)<br>
-          &times;2<br>
-          <br>
-          I'm m-o-n-s-t-e-r<br>
-          monster monster monster<br>
-          I'm m-o-n-s-t-e-r<br>
-          monster monster monster
-        </span>
-      </div>
-
-      <div class="group">
-        <span class="lyrics">
-          cha-cha-cha, cha-cha-cha, cha-cha-cha<br>
-          Ooh-ooh, ooh-ooh, ooh-ooh<br>
-          Yeah, yum-yum-yum, yum-yum-yum, yum-yum-yum<br>
-          cha-cha-cha, cha-cha-cha, cha-cha-cha<br>
-          Ooh-ooh, ooh-ooh, ooh-ooh<br>
-          Yeah, yum-yum-yum, yum-yum-yum, yum-yum-yum<br>
-          <br>
-          I'm m-o-n-s-t-e-r<br>
-          monster monster monster<br>
-          I'm m-o-n-s-t-e-r<br>
-          monster monster monster<br>
-          <br>
-          (Game Over)<br>
-          <br>
-          [Instrument solo]
-        </span>
-      </div>
-    </div>
-
-    <div class="broken" onclick="showGlass()">
-      <div class="drop">
-        <img src="https://251131395.github.io/iveai/media/image/drop.gif">
-      </div>
-      <img class="glass" src="https://251131395.github.io/iveai/media/image/無標題30_20240614170352.png">
-    </div>
-
-    <footer>
-      <div class="info">
-        <div class="info-L">
-          <span class="info-title">What is IVEAI?</span>
-          <span>IVEAI is an informal group whose name means “I've AI” that produces music and a range of related content using artificial intelligence tools from Suno AI, Chat GPT, and others.</span>
-        </div>
-        <div class="info-R">
-          <span class="info-title">Link</span>
-          <a href="https://youtube.com/@i.ve_ai?si=tIARTNl2MGQiWuWp"><u>Youtube</u></a>
-          <a href="https://www.instagram.com/i.ve.ai/?next=%2Fg.h.s.d.r%2F"><u>Instagram</u></a>
-        </div>
-      </div>
-    </footer>
+  <div class="menu">
+    <a href="https://251131395.github.io/iveai/home.html">HOME</a>
+    <a href="https://251131395.github.io/iveai/timeline.html">TIMELINE</a>
+    <a href="https://251131395.github.io/iveai/photo.html">PHOTO</a>
+    <a href="https://251131395.github.io/iveai/what-is-iveai.html">What is IVEAI?</a>
   </div>
 
-  <script>
-    function showGlass() {
-      var glassElement = document.querySelector('.glass');
-      glassElement.style.display = 'block';
-    }
-  </script>
+  <div class="crt"></div>
+
+  <div class="window">
+    <div class="mess" id="start">
+      <div class="head">
+        <span>Download Progress</span>
+        <button class="close">&times;</button>
+      </div>
+
+      <span>Cantonese audio pack downloading now (5.2 MB) ..</span><span id="progress">0%</span>
+      <progress max="100" value="0"></progress>
+    </div>
+    <div class="mess" id="end">
+      <div class="head">
+        <span>M.O.N.S.T.E.R.</span>
+        <button class="close" onclick="hideEnd()">&times;</button>
+      </div>
+
+      <span>Download has been completed.</span>
+      <div style="height:20px;"></div>
+      <div class="center">
+        <button class="sure" onclick="hideEnd()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="top-div">
+    <img src="https://251131395.github.io/iveai/media/image/B921E344-FEA0-4C10-AD75-08D5BFE95118.png">
+  </div>
+
+  <div class="plus">
+    <span>+<span>
+  </div>
+
+  <div class="game">
+
+    <div class="breath">
+      <div class="walk">
+        <div class="game-img"></div>
+      </div>
+    </div>
+
+    <progress class="monster-bar" max="100" value="70"></progress>
+
+    <div class="name" open>
+
+      <span>Gran Chan Chan</span>
+      <p>A green slime monster made from <font title="which is green apple scented">shower gel</font>.<br><br>Often found in bathrooms and kitchens.<br><br>It is not yet known what kind of damage it can cause.</p>
+    </div>
+
+    <div class="mp3-center">
+      <div class="mp3">
+        <font>Music</font>
+        <span onclick="location.href='https://youtu.be/bc3XTrk9-DQ?si=zObX5bohL3IJQpan'">Ghost Story</span>
+        <span onclick="location.href='https://251131395.github.io/iveai/music/rw.html'">RW</span>
+        <span>M.O.N.S.T.E.R.</span>
+        <span onclick="location.href='https://251131395.github.io/iveai/music/tmsl.html'">TMSL</span>
+
+        <audio id="music" src="" controls loop></audio>
+
+        <div>
+          <span>&#9776;</span>
+          <font id="mp3-close-btn" onclick="hideMp3()">&#8592;</font>
+        </div>
+
+      </div>
+    </div>
+
+    <progress class="water-bar" max="100" value="85"></progress>
+    <div class="water">
+      <div class="but" onclick="decreaseValue()">
+        <div></div>
+      </div>
+      <span>SHOWER</span>
+    </div>
+
+    <div class="obj">
+      <div title="PETAL found on bathroom floor"></div>
+      <div title="SHOWER"></div>
+      <div title="CANDLE found on bathroom floor"></div>
+      <div title="MP3" id="mp3-open-btn" onclick="showMp3()"></div>
+      <div></div>
+      <div></div>
+    </div>
+
+  </div>
 
   <script>
     function hideEnd() {
@@ -665,7 +763,7 @@ progress::-webkit-progress-value {
     window.addEventListener("load", function() {
       setTimeout(function() {
         document.getElementById("start").style.display = "block";
-      }, 1000);
+      }, 5000);
       setTimeout(function() {
         var progressElement = document.querySelector("progress");
         var progressSpan = document.getElementById("progress");
@@ -683,5 +781,19 @@ progress::-webkit-progress-value {
       }, 4000);
     });
   </script>
+
+  <script>
+    function showMp3() {
+      var mp3Div = document.getElementsByClassName("mp3")[0];
+      mp3Div.style.display = "block";
+    }
+
+    function hideMp3() {
+      var mp3Div = document.getElementsByClassName("mp3")[0];
+      mp3Div.style.display = "none";
+    }
+  </script>
+
+</body>
 
 </html>
