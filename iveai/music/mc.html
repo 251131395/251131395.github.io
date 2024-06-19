@@ -1,0 +1,456 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <title>IVEAI-薄荷巧克力 (Mint Chocolate)</title>
+
+  <style>
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+  body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: white;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+.menu {
+  position: fixed;
+  padding: 15px;
+  top: 0;
+  right: 0;
+  z-index: 997;
+  color: gray;
+  font-size: 24px;
+  cursor: pointer;
+  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9);
+  font-weight: bold;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  overflow-x: hidden;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: gray;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 2px;
+  right: 7px;
+  font-size: 36px;
+}
+
+.bg {
+  margin: 25px;
+  height: calc(100vh - 50px);
+  border-radius: 15px;
+  background-color: #00ffab;
+  position: relative;
+  transition: all 0.5s;
+}
+
+.bg-img {
+  border-radius: 15px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(217deg, #bff8d4, rgba(255, 0, 0, 0) 55%),
+    linear-gradient(127deg, #17b3c1, rgba(0, 255, 0, 0) 55%),
+    linear-gradient(336deg, #47d6b6, rgba(0, 0, 255, 0) 55%);
+  z-index: -999;
+  opacity: 1;
+}
+
+.fish{
+  position:fixed;
+  width:150px;
+  right:0;
+  bottom:10px;
+  animation: fh linear 7s infinite;
+  z-index:777;
+  -webkit-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+  pointer-events: none
+}
+
+#fh-2{
+  animation-delay: 0.5s;
+  width:100px;
+  display:bolck;
+  filter: saturate(1.8);
+}
+
+@keyframes fh {
+  0% {
+    transform: rotate(5deg);
+    right:-150px;
+  bottom:49px;
+  }
+  20% {
+    transform: rotate(-5deg);
+    right:18vw;
+  bottom:59px;
+  }
+  70% {
+    transform: rotate(5deg);
+    right:60vw;
+  bottom:49px;
+  }
+  100%{
+    transform: rotate(-5deg);
+    right:100vw;
+  bottom:59px;
+  }
+}
+
+
+
+@media screen and (max-width: 555px) {
+  .bg {
+    margin: 0px;
+    min-height: 100vh;
+    border-radius: 0px;
+
+    transition: all 0.5s;
+  }
+
+  .bg-img {
+    border-radius: 0px;
+    overflow: auto;
+  }
+}
+
+.top {
+  padding: 15px 20px 30px;
+}
+
+@media screen and (min-width: 555px) {
+  .top {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+  }
+}
+
+.group {
+  padding: 20px;
+  text-align: center;
+}
+
+.group img {
+  width: 200px;
+  height: 200px;
+  margin: 0 0 15px;
+}
+
+#song {
+  border: 0.5px #333 solid;
+}
+
+.group span {
+  color: #007f73;
+  line-height: 1.5;
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+}
+
+.group font {
+  line-height: 1.5;
+  color: #007f73;
+  font-size: 14px;
+  display: block;
+  padding: 5px 0 15px;
+}
+
+.content div {
+  border-bottom: 2px rgba(255, 255, 255, 0.7) solid;
+  text-align: left;
+  padding: 20px 0 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.content div:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.group .lyrics {
+  color: #007f73;
+  font-size: 16px;
+  display: block;
+  text-align: left;
+  font-weight: bold;
+}
+
+audio{
+  position:fixed;
+  bottom:10px;
+  left:10px;
+  width:calc(100vw - 10px);
+  height:30px;
+  mix-blend-mode: multiply;
+  opacity:0.9;
+}
+
+@media screen and (min-width: 555px) {
+  .group .lyrics {
+    font-size: 16px;
+    font-weight: bold;
+    height: calc(100vh - 115px);
+    overflow: auto;
+  }
+  
+  audio{
+  position:absolute;
+  bottom:7px;
+  left:5px;
+  width:calc(100% - 10px);
+}
+}
+
+@media screen and (min-width: 845px) {
+  .group #title {
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    left: 25px;
+    top: 15px;
+  }
+
+  .group #name {
+    line-height: 1.5;
+    font-size: 14px;
+    position: absolute;
+    left: 25px;
+    bottom: 30px;
+  }
+
+  .content {
+    position: absolute;
+    left: 35px;
+    top: 70px;
+  }
+
+  .group .lyrics {
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    right: 35px;
+    top: 25px;
+    padding-right: 10px;
+  }
+}
+
+.content div font {
+  margin: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+}
+
+.content div span {
+  margin: 0;
+  padding: 0 15px 0;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 1);
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index:888;
+}
+
+.info {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  color: lightgray;
+  z-index: 5;
+}
+
+.info-title {
+  font-weight: bold;
+  color: white;
+}
+
+.info-L {
+  flex: 60%;
+}
+
+.info-R {
+  flex: 40%;
+}
+
+.info span {
+  display: block;
+  font-size: 14px;
+  padding: 2px 10px 2px;
+  text-align: justify;
+}
+
+footer hr {
+  border: 0.5px rgba(255, 255, 255, 0.4) solid;
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 127, 155, 0.15);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 127, 155, 0.2);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <span class="menu" onclick="openNav()">&#9776</span>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="https://251131395.github.io/iveai/home.html">HOME</a>
+    <a href="https://251131395.github.io/iveai/timeline.html">TIMELINE</a>
+    <a href="https://251131395.github.io/iveai/photo.html">PHOTO</a>
+    <a href="https://251131395.github.io/iveai/what-is-iveai.html">What is IVEAI?</a>
+  </div>
+
+  <div class="bg">
+    <div class="bg-img">
+      <div class="top">
+        <div class="group">
+          <span id="title">薄荷巧克力 (Mint Chocolate)</span>
+          <font id="name">IVEAI &#8226; 251131395 / n! &#8226; Suno AI</font>
+          <div class="content">
+            <div onclick="location.href=''">
+              <font>0</font>
+              <span>薄荷巧克力 (Mint Chocolate) Clip 1</span>
+            </div>
+            <div onclick="location.href=''">
+              <font>1</font>
+              <span>薄荷巧克力 (Mint Chocolate) Clip 2</span>
+            </div>
+          </div>
+        </div>
+        <div class="group">
+          <span class="lyrics">
+            你就像薄荷巧克力 是種清涼的甜蜜<br>
+            總是讓我沉溺 在你眼眸裏<br>
+            <br>
+            你的愛毫無保留 卻又不會銳利<br>
+            讓我變回一個小孩 心意不再壓抑<br>
+            <br>
+            因為你 我有了愛與被愛的能力<br>
+            我雖然不完美 但你是個奇跡 填補了我的縫隙<br>
+            <br>
+            你就像薄荷巧克力 是種清涼的甜蜜<br>
+            總是讓我沉溺 在你眼眸裏<br>
+            你就像薄荷巧克力 不會有負擔的愛意<br>
+            沒有索取 沒有猶豫 才令我如此著迷<br>
+            <br>
+            我不會讓你等待 不會再有阻礙<br>
+            我會熱烈地回應你的愛 我一直都在<br>
+            <br>
+            因為你 我有了愛與被愛的能力<br>
+            我雖然不完美 但你是個奇跡 填補了我的縫隙<br>
+            <br>
+            你就像薄荷巧克力 是種清涼的甜蜜<br>
+            總是讓我沉溺 在你眼眸裏<br>
+            你就像薄荷巧克力 不會有負擔的愛意<br>
+            沒有索取 沒有猶豫 才令我如此珍惜<br>
+            <br>
+            每天都想和你相擁 看着你的瞳孔<br>
+            説你是我一生的奇遇 再拉近間距<br>
+            在你嘴角落下輕輕一吻 不需多問<br>
+            就像薄荷巧克力 小心地剝開錫紙<br>
+            <br>
+            因為你 我有了愛與被愛的能力<br>
+            我雖然不完美 但你是個奇跡 填補了我的縫隙<br>
+            <br>
+            你就像薄荷巧克力 是種清涼的甜蜜<br>
+            總是讓我沉溺 在你眼眸裏<br>
+            你就像薄荷巧克力 不會有負擔的愛意<br>
+            沒有索取 沒有猶豫 才令我如此愛你<br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </span>
+        </div>
+        <img class="fish" id="fh-1" src="https://251131395.github.io/iveai/media/image/chocolate-fish.gif">
+        <img class="fish" id="fh-2" title="一條小魚" src="https://251131395.github.io/iveai/media/image/chocolate-fish.gif">
+      </div>
+      <audio controls loop src="https://251131395.github.io/iveai/media/audio/%E8%96%84%E8%8D%B7%E5%B7%A7%E5%85%8B%E5%8A%9B.mp3"></audio>
+    </div>
+  </div>
+
+  <footer>
+    <div class="info">
+      <div class="info-L">
+        <span class="info-title">What is IVEAI?</span>
+        <span>IVEAI is an informal group whose name means “I've AI” that produces music and a range of related content using artificial intelligence tools from Suno AI, Chat GPT, and others.</span>
+      </div>
+      <div class="info-R">
+        <span class="info-title">Link</span>
+        <span onclick="location.href='https://youtube.com/@i.ve_ai?si=tIARTNl2MGQiWuWp'">Youtube</span>
+        <span onclick="location.href='https://www.instagram.com/i.ve.ai/?next=%2Fg.h.s.d.r%2F'">Instagram</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      p
+    }
+  </script>
+
+</html>
