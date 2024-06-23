@@ -1,0 +1,881 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+
+  <title>IVEAI-Desktop</title>
+
+  <style>
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: white;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+.menu {
+  position: fixed;
+  padding: 15px;
+  top: 0;
+  right: 0;
+  z-index: 997;
+  color: gray;
+  font-size: 24px;
+  cursor: pointer;
+  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9);
+  font-weight: bold;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  overflow-x: hidden;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: gray;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 2px;
+  right: 7px;
+  font-size: 36px;
+}
+
+
+
+
+
+.rotate-shell{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: black;
+  text-align:center;
+}
+
+.rotate{
+  color:white;
+  font-weight:bold;
+}
+
+.rotate i{
+  padding-bottom:15px;
+  font-size:50px;
+  animation: rotate 5s infinite;
+}
+
+.rotate span{
+  display:block;
+  margin:15px;
+}
+
+@keyframes rotate {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  35%{
+    opacity: 1;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+  }
+  80%{
+    opacity: 1;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+  }
+}
+
+
+@media screen and (min-width: 555px) {
+  .rotate-shell{
+    display:none;
+  }
+}
+
+
+
+
+
+.window-shell {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 777;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.window {
+  width: calc(100vw - 120px);
+  min-width:145px;
+  height: calc(100vh - 100px);
+  background-color: #d7dbde;
+  border-radius: 7px;
+  position: relative;
+  overflow: hidden;
+  pointer-events: fill;
+  box-shadow: 0px 0px 18px black;
+}
+
+.top-right-bnt {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.top-right-bnt div {
+  display: inline-block;
+}
+
+.top-right-bnt div i {
+  width: 46px;
+  height: 25px;
+  margin-left: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: gray;
+  font-size: 12px;
+}
+
+.top-right-bnt div i:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#xmark:hover {
+  color: white;
+  background-color: #c22e20;
+}
+
+.win-bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  font-size: 12px;
+  padding: 5px 15px 5px;
+  color: #394960;
+  z-index: 779;
+}
+
+.mid {
+  position: absolute;
+  height: 50px;
+  width:100%;
+  bottom: calc(100% - 140px);
+  left: 0;
+  border-top:1.5px lightgray solid;
+  border-bottom:1.5px lightgray solid;
+  background-color: white;
+  border-right: lightgray;
+  overflow: hidden;
+  padding-top: 5px;
+}
+
+.mid-left{
+  position: absolute;
+  left:0;
+  height:50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add{
+  padding:0 18px 0;
+  font-size:12px;
+  height:30px;
+  border-right:1px lightgray solid;
+}
+
+.add i{
+  margin:5px;
+}
+
+.fa-solid fa-chevron-down{
+  font-size:7px;
+}
+
+.side-left {
+  position: absolute;
+  width: 80px;
+  height: calc(100% - 170px);
+  bottom: 25px;
+  left: 0;
+  background-color: white;
+  border-right: lightgray;
+  overflow-x: hidden;
+  padding-top: 5px;
+}
+
+.side-left div {
+  padding: 5px 20px 5px;
+  display: flex;
+  font-size: 12px;
+}
+
+.side-left div:hover {
+  background-color: #d4ecf7;
+}
+
+.side-left div span {
+  width: 300px;
+  margin-left: 5px;
+}
+
+#div-c {
+  background-color: #d9d9d9;
+}
+
+.side-right .border-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: calc(100% - 1px);
+  border: 1px red solid;
+  padding: 0;
+  cursor: ew-resize;
+  opacity: 0;
+}
+
+.side-right {
+  position: absolute;
+  width: calc(100% - 80px);
+  height: calc(100% - 170px);
+  bottom: 25px;
+  right: 0;
+  background-color: white;
+  border-right: lightgray;
+  overflow-x: hidden;
+  padding-top: 5px;
+}
+
+
+
+
+
+
+
+.desktop {
+  min-height: 100vh;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bg-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#bg-img-1 {
+  z-index: -999;
+  background-image: url("https://251131395.github.io/iveai/media/image/ai-image%20(13).png");
+  animation: bg-img-1 linear 60s infinite;
+}
+
+@keyframes bg-img-1 {
+  0% {
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+  }
+  24.5% {
+    opacity: 1;
+  }
+  26.5% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  51% {
+    opacity: 0;
+  }
+  73.5% {
+    opacity: 0;
+  }
+  75.5% {
+    opacity: 0;
+  }
+  98% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#bg-img-2 {
+  z-index: -998;
+  background-image: url("https://images.unsplash.com/photo-1600182877028-4f3dc323b739?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTkwMzk1MjF8&ixlib=rb-4.0.3&q=85");
+  animation: bg-img-2 linear 60s infinite;
+}
+
+@keyframes bg-img-2 {
+  0% {
+    opacity: 0;
+  }
+  2% {
+    opacity: 0;
+  }
+  24.5% {
+    opacity: 0;
+  }
+  26.5% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  51% {
+    opacity: 0;
+  }
+  73.5% {
+    opacity: 0;
+  }
+  75.5% {
+    opacity: 0;
+  }
+  98% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#bg-img-3 {
+  background-position: left bottom;
+  z-index: -997;
+  background-image: url("https://images.unsplash.com/photo-1718202248232-0cdbc15d29b2?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTkwMzk1NDR8&ixlib=rb-4.0.3&q=85");
+  animation: bg-img-3 linear 60s infinite;
+}
+
+@keyframes bg-img-3 {
+  0% {
+    opacity: 0;
+  }
+  2% {
+    opacity: 0;
+  }
+  24.5% {
+    opacity: 0;
+  }
+  26.5% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  51% {
+    opacity: 1;
+  }
+  73.5% {
+    opacity: 1;
+  }
+  75.5% {
+    opacity: 0;
+  }
+  98% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#bg-img-4 {
+  background-position: right bottom;
+  z-index: -996;
+  background-image: url("https://images.unsplash.com/photo-1714547583415-6ab615e4be1c?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTkwMzk1ODh8&ixlib=rb-4.0.3&q=85");
+  animation: bg-img-4 linear 120s infinite;
+}
+
+@keyframes bg-img-4 {
+  0% {
+    opacity: 0;
+  }
+  2% {
+    opacity: 0;
+  }
+  24.5% {
+    opacity: 0;
+  }
+  26.5% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  51% {
+    opacity: 0;
+  }
+  73.5% {
+    opacity: 0;
+  }
+  75.5% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.file {
+  text-align: center;
+  width: 80px;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.file:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.file-name {
+  font-size: 12px;
+  color: white;
+  display: block;
+  font-weight: bold;
+  -webkit-text-stroke: 0.5px black;
+  text-stroke: 0.5px black;
+  text-shadow: 0px 0px 2px black;
+  margin: 10px 0 0;
+}
+
+.icon-file {
+  width: 45px;
+  height: 30px;
+  margin-left: 17px;
+  margin-top: 13px;
+  background-color: yellow;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 208, 82, 1) 0%,
+    rgba(254, 226, 143, 1) 100%
+  );
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  z-index: 666;
+  position: relative;
+  border-top: 1px #fcbd1a solid;
+  border-bottom: 1px #fcbd1a solid;
+}
+
+.icon-file:after {
+  content: "";
+  z-index: 667;
+  position: absolute;
+  height: 3px;
+  width: 20px;
+  background-color: white;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 3px;
+  border-bottom-right-radius: 5px;
+}
+
+.icon-file:before {
+  content: "";
+  z-index: 668;
+  position: absolute;
+  height: 5px;
+  width: 20px;
+  background-color: #fcbd1a;
+  top: -5px;
+  left: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 7px 5px;
+}
+
+.icon-bin i {
+  font-size: 40px;
+  color: white;
+  margin-top: 8px;
+}
+
+#bin .file-name {
+  margin-top: 7px;
+}
+
+.icon-game {
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: -5px;
+  background-size: 400%;
+  background-position: 10% 40%;
+  background-image: url("https://251131395.github.io/iveai/media/image/B921E344-FEA0-4C10-AD75-08D5BFE95118.png");
+  background-color: #3e403c;
+  border-radius: 3px;
+  position: relative;
+}
+
+.icon-game:after {
+  content: "↗";
+  color: #357ec7;
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  bottom: -3px;
+  left: -3px;
+  border-radius: 1px;
+  border: 1.5px lightgray solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#bin {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#m1 {
+  position: absolute;
+  top: 0;
+  left: calc(50vw - 120px);
+}
+
+#c1 {
+  position: absolute;
+  top: 0;
+  left: calc(50vw - 40px);
+}
+
+#f1 {
+  position: absolute;
+  top: 0;
+  left: calc(50vw + 40px);
+}
+
+.bottom-bar {
+  position: relative;
+  background-color: rgba(237, 250, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  height: 40px;
+  width: 100%;
+  z-index: 888;
+  overflow: hidden;
+  border-top: 1px lightgray solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-bar-shell {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 10px;
+  transform: translate(0, 40px);
+  -webkit-transform: translate(0, 40px);
+  transition: all 0.2s linear;
+}
+
+.bottom-bar-shell:hover {
+  transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+  padding-top: 0px;
+  transition: all 0.2s linear;
+}
+
+.bottom-bar-left {
+  position: absolute;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-bar-left i {
+  font-size: 20px;
+  color: #357ec7;
+}
+
+.bottom-bar-right {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-bar input {
+  display: inline-block;
+  height: 23px;
+  border-radius: 15px;
+  border: 0.5px gray solid;
+  padding-left: 7px;
+  margin-left: 8px;
+}
+
+input::placeholder {
+  filter: grayscale(1) brightness(1.6) contrast(1.3);
+  color: #444;
+  font-size: 12px;
+}
+
+.time {
+  text-align: right;
+  display: inline-block;
+}
+
+.bottom-bar-right .time span {
+  display: block;
+  font-size: 12px;
+}
+
+.icon {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.icon i {
+  font-size: 13px;
+  margin-left: 5px;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="rotate-shell">
+    <div class="rotate">
+      <i class="fa-solid fa-mobile-screen"></i>
+      <span>Please rotate your device to landscape mode.</span>
+    </div>
+  </div>
+  
+  <span class="menu" onclick="openNav()">&#9776</span>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="https://251131395.github.io/iveai/home.html">HOME</a>
+    <a href="https://251131395.github.io/iveai/timeline.html">TIMELINE</a>
+    <a href="https://251131395.github.io/iveai/photo.html">PHOTO</a>
+    <a href="https://251131395.github.io/iveai/what-is-iveai.html">What is IVEAI?</a>
+  </div>
+
+  <div class="desktop">
+    <div class="bg-img" id="bg-img-1"></div>
+    <div class="bg-img" id="bg-img-2"></div>
+    <div class="bg-img" id="bg-img-3"></div>
+    <div class="bg-img" id="bg-img-4"></div>
+
+    <div class="file" id="bin">
+      <div class="icon-bin">
+        <i class="fa-solid fa-poo-storm"></i>
+      </div>
+      <span class="file-name">Recycle Bin</span>
+    </div>
+    <div class="file" id="m1" title="Type: Game&#013;Size: 12 GB">
+      <div class="icon-game"></div>
+      <span class="file-name">M.O.N.S.T.E.R.</span>
+    </div>
+    <div class="file" id="c1" title="Date created: 22/6/2024 2:49 pm&#013;Size: 274 MB&#013;Folders: Diary, 清潔工 (The Cleaner).mp3">
+      <div class="icon-file"></div>
+      <span class="file-name">清潔工 (The Cleaner)</span>
+    </div>
+    <div class="file" id="f1" title="Date created: 20/6/2024 6:26 pm&#013;Size: 127 MB&#013;Folders: 十二小時快餐店 (12 hour Fast Food Restaurant).mp3">
+      <div class="icon-file"></div>
+      <span class="file-name">十二小時快餐店 (12 hour…</span>
+    </div>
+
+    <div class="window-shell">
+      <div class="window">
+        <div class="top-right-bnt">
+          <nobr>
+            <div><i class="fa-solid fa-minus"></i></div>
+            <div><i class="fa-regular fa-square"></i></div>
+            <div><i id="xmark" class="fa-solid fa-xmark"></i></div>
+          </nobr>
+        </div>
+        <div class="mid">
+          <div class="mid-left">
+            <div class="add">
+              <nobr>
+                <i class="fa-regular fa-square-plus"></i>
+                <span>Add</span>
+                <i class="fa-solid fa-chevron-down" style="font-size:7px;"></i>
+              </nobr>
+            </div>
+          </div>
+          <div class="mid-right"></div>
+        </div>
+        <div class="side-left">
+          <div>
+            <i class="fa-solid fa-house" style="color:#c4c4c2"></i>
+            <span>
+              <nobr>Commonly used</nobr>
+            </span>
+          </div>
+          <div>
+            <i class="fa-solid fa-images" style="color:#1788d4"></i>
+            <span>
+              <nobr>Gallery</nobr>
+            </span>
+          </div>
+          <div>
+            <i class="fa-solid fa-table-cells" style="color:#2badcd"></i>
+            <span>
+              <nobr>Desktop</nobr>
+            </span>
+          </div>
+          <div>
+            <i class="fa-solid fa-arrow-down" style="color:#359991"></i>
+            <span>
+              <nobr>Download</nobr>
+            </span>
+          </div>
+          <div>
+            <i class="fa-solid fa-file-lines" style="color:#7993aa"></i>
+            <span>
+              <nobr>Document</nobr>
+            </span>
+          </div>
+          <div>
+            <i class="fa-regular fa-image" style="color:#168ad5"></i>
+            <span>
+              <nobr>Image</nobr>
+            </span>
+          </div>
+          <div>
+            <i class="fa-solid fa-music" style="color:#de8172"></i>
+            <span>
+              <nobr>Music</nobr>
+            </span>
+          </div>
+          <div>
+            <i class="fa-solid fa-film" style="color:#6548ad"></i>
+            <span>
+              <nobr>Video</nobr>
+            </span>
+          </div>
+          <div id="div-c">
+            <i class="fa-solid fa-folder" style="color:#fdd76a"></i>
+            <span>
+              <nobr>清潔工 (The Cleaner)</nobr>
+            </span>
+          </div>
+          <div id="div-f">
+            <i class="fa-solid fa-folder" style="color:#fdd76a"></i>
+            <span>
+              <nobr>十二小時快餐店 (12 hour Fast Food Restaurant)</nobr>
+            </span>
+          </div>
+        </div>
+        <div class="side-right">
+          <div class="border-left"></div>
+        </div>
+        <div class="win-bottom"><span>2 project</span></div>
+      </div>
+    </div>
+
+    <div class="bottom-bar-shell">
+      <div class="bottom-bar">
+        <div class="bottom-bar-left">
+          <i class="fa-brands fa-octopus-deploy"></i>
+          <input type="text" placeholder="&#128269; Search">
+        </div>
+        <div class="bottom-bar-right">
+          <div class="icon">
+            <i class="fa-solid fa-chevron-up"></i>
+            <i class="fa-regular fa-keyboard"></i>
+            <i class="fa fa-wifi"></i>
+            <i class="fas fa-volume-mute"></i>
+            <i class="fa-solid fa-battery-three-quarters"></i>
+          </div>
+          <div class="time"><span>12:54</span><span>22/6/2024</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      p
+    }
+  </script>
+
+</html>
