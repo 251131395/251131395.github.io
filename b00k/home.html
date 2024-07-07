@@ -1,0 +1,567 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <title>B00K</title>
+
+  <style>
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+  body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #eee;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+.menu {
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  right: 0;
+  z-index: 997;
+  color:lightgray;
+  mix-blend-mode: difference;
+  font-size: 20px;
+  cursor: pointer;
+  opacity:0.8;
+}
+
+.menu:hover{
+  color:#eee;
+  mix-blend-mode: normal;
+  -webkit-text-stroke: 0.5px lightgray;
+  text-stroke: 0.5px lightgray;
+}
+
+
+
+
+
+header{
+  height:100vh;
+  background-color:#fff;
+  position: relative;
+  overflow:hidden;
+}
+
+ .bg{
+  color:#CCFFBD;
+  mix-blend-mode: multiply;
+  font-weight:bold;
+  position:absolute;
+  z-index:0;
+}
+
+#B{
+  font-size:400px;
+  left:0;
+  bottom:-150px;
+}
+
+#oo{
+  font-size:400px;
+  left:0;
+  top:-180px;
+}
+
+#K{
+  font-size:450px;
+  right:-70px;
+  top:10%;
+}
+
+.title{
+  font-weight:bold;
+  color:#000;
+  display:block;
+  font-size:60px;
+  position: absolute;
+  z-index:15;
+  left:30px;
+  top:20px;
+}
+
+.text{
+  display:block;
+  position: absolute;
+  width:40%;
+  z-index:15;
+  right:30px;
+  top:30px;
+}
+
+.text-phone{
+  letter-spacing: 3px;
+  display:none;
+  position: absolute;
+  z-index:15;
+  right:30px;
+  top:95px;
+  line-height:2;
+}
+
+@media screen and (max-width: 476px) {
+  .text{
+    display:none;
+  }
+  .text-phone{
+    display:block;
+  }
+}
+
+header p{
+  color:#444;
+  display:block;
+  padding:0;
+  margin:0;
+  line-height:1.5;
+  padding-right:140px;
+}
+
+header font{
+  color:#FF204E;
+  padding:0;
+  margin:0;
+}
+
+.script{
+  font-weight:bold;
+  position: absolute;
+  z-index:10;
+  bottom:25px;
+  left:30px;
+}
+
+header button{
+  cursor: pointer;
+  font-weight:bold;
+  padding:10px 15px 10px;
+  position: absolute;
+  z-index:10;
+  bottom:25px;
+  right:30px;
+  background-color:#000;
+  mix-blend-mode: multiply;
+  color:#fff;
+  border:none;
+  border-radius:30px;
+}
+
+
+
+
+.rank{
+  background-color: #dfdfdf;
+  padding-bottom:15px;
+  overflow:auto;
+}
+
+.rank-shell{
+  padding:0 20px 20px;
+  display: flex;
+}
+
+.rank-bl{
+  flex:50%;
+  margin:-10px 5px 0;
+  border-bottom:1px gray solid;
+  padding:10px;
+  cursor: pointer;
+  
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.rank-bl:hover{
+  background-color:rgba(0,0,0,0.05) ;
+}
+
+@media screen and (max-width: 368px) {
+  .rank-shell{
+  display: block;
+  padding:0 20px 0;
+}
+  
+    .rank-bl{
+  display: block;
+  margin:0 5px 0;
+}
+  
+  .rank{
+    padding-bottom:30px;
+  }
+}
+
+.rank-bl div{
+  display:inline-block;
+}
+
+.rank-bl span{
+  font-size:20px;
+  padding:0; 
+  padding-right:10px;
+}
+
+.rank-bl font{
+  font-weight:bold;
+  font-size:14px;
+  padding:0;
+  margin:0;
+}
+
+.rank-bl p{
+  font-size:12px;
+  color:gray;
+  padding:0;
+  margin:0;
+}
+
+
+
+
+
+
+
+
+
+
+.main{
+  min-height:100vh;
+}
+
+.bookshelf {
+  padding: 0 0 20px;
+  margin:-15px 0 0;
+  background-color: clack;
+}
+
+.area {
+  white-space: nowrap;
+  scroll-snap-type: x;
+  overflow: auto;
+  min-height: 150px;
+  font-weight: bold;
+  color: black;
+  border: none;
+  text-align: left;
+}
+
+.block {
+  vertical-align: top;
+  white-space: normal;
+  display: inline-block;
+  margin: 15px;
+  text-align: left;
+}
+
+.space {
+  padding: 7px;
+}
+
+body .book {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  letter-spacing: 2px;
+  width: 110px;
+  min-height: 150px;
+  background-color: gray;
+  border: 0.7px gray solid;
+  border-radius: 3px;
+  text-align: center;
+  box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.25),
+    2px 2px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.book span {
+  font-size: 18px;
+  color: white;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  margin: 10px;
+}
+
+
+
+.name {
+  margin: 10px 0px 0px;
+  font-size: 14px;
+  display: block;
+  color: #000;
+}
+
+.date {
+  font-size: 12px;
+  color: gray;
+  display: block;
+  font-weight: normal;
+}
+
+
+
+
+.tit{
+  padding:15px 30px 15px;
+  display:block;
+  font-weight:bold;
+  font-size:20px;
+}
+
+
+
+
+
+footer {
+  background-color: rgba(0, 0, 0, 1);
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.info {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  color: lightgray;
+  z-index: 5;
+}
+
+.info-title {
+  font-weight: bold;
+  color: white;
+}
+
+.info-L {
+  flex: 70%;
+}
+
+.info-R {
+  flex: 30%;
+}
+
+.info span {
+  display: block;
+  font-size: 14px;
+  padding: 2px 10px 2px;
+  text-align: justify;
+}
+
+footer hr {
+  border: 0.5px rgba(255, 255, 255, 0.4) solid;
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+
+
+#tc {
+  background-image: url("https://251131395.github.io/b00k/media/image/u2ntitled.png");
+  background-size: cover;
+  background-position: center;
+}
+
+#f11 {
+  background-image: url("https://251131395.github.io/b00k/media/image/WhatsApp Image 2024-06-30 at 2.36.13 PM.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+  </style>
+</head>
+
+<body>
+  <span class="menu" onclick="openNav()"><i class="fa-solid fa-house"></i></span>
+
+  <div style="min-height:100vh">
+    <header>
+      <span class="title">B 0 0 K</span>
+      <span class="bg" id="B">B</span>
+      <span class="bg" id="oo">00</span>
+      <span class="bg" id="K">K</span>
+      <div class="script">
+        <p>電子書閱讀平台 B00K 現已上載超過<font>1.0000000</font>本藏書！！！<br>
+          內容豐富，質量上乘，絕對是您選擇電子書的不二之選。</p>
+      </div>
+      <span class="text">
+        便捷的閱讀體驗： B00K 平台提供多種閱讀模式，您可以根據自己的喜好選擇適合的閱讀方式，例如：夜間模式、護眼模式、翻頁模式等等。<br><br>
+        個性化推薦： B00K 平台會根據我的閱讀偏好為您推薦合適的書籍，讓您輕鬆發現更多精彩的書籍。<br><br>
+        多平台支持： B00K 平台支持多種設備，包括手機、平板電腦、電腦等等，讓您隨時隨地都能享受閱讀的樂趣。
+      </span>
+      <span class="text-phone">
+        &#x2022; 夜間模式<br>
+        &#x2022; 護眼模式<br>
+        &#x2022; 多平台
+      </span>
+      <button onclick="location.href=''">隨機探索 <i class="fa-solid fa-shuffle"></i></button>
+    </header>
+
+    <div class="rank">
+      <span class="tit">熱門免費書籍</span>
+      <div class="rank-shell">
+        <div class="rank-bl" onclick="location.href=''">
+          <span>01</span>
+          <div>
+            <font>清潔工</font>
+            <p>251131395
+            <p>
+          </div>
+        </div>
+        <div class="rank-bl" onclick="location.href=''">
+          <span>02</span>
+          <div>
+            <font>11/F</font>
+            <p>251131395
+            <p>
+          </div>
+        </div>
+      </div>
+      <div class="rank-shell">
+        <div class="rank-bl">
+          <span>03</span>
+          <div>
+            <font>???</font>
+            <p>???
+            <p>
+          </div>
+        </div>
+        <div class="rank-bl">
+          <span>04</span>
+          <div>
+            <font>???</font>
+            <p>???
+            <p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <span class="tit">小說</span>
+      <div class="bookshelf">
+        <div class="area">
+          <span class="space"></span>
+          <div class="block">
+            <div class="book" id="tc" onclick="location.href=''">
+              <span></span>
+            </div>
+            <span class="name">清潔工</span>
+            <span class="date">26/06/2024</span>
+          </div>
+          <div class="block">
+            <div class="book" id="f11" onclick="location.href=''">
+              <span></span>
+            </div>
+            <span class="name">11/F</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="info">
+      <div class="info-L">
+        <span class="info-title">B00K是什麼？</span>
+        <span>B00k 是一個電子書閱讀平台，現已上載超過1.0000000本藏書。B00K 內容豐富，質量上乘，絕對是您選擇電子書的不二之選。</span>
+      </div>
+      <div class="info-R">
+        <span class="info-title">連結</span>
+        <span onclick="location.href='https://space.bilibili.com/470999012'">Bilibili</span>
+      </div>
+    </div>
+  </footer>
+
+</html>
