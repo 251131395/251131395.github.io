@@ -86,6 +86,12 @@
   z-index:10;
 }
 
+@media screen and (max-width: 768px) {
+  .content {
+  height: calc(100vh - 80px);
+}
+}
+
 .content span {
   display: block;
   font-weight: bold;
@@ -284,7 +290,6 @@ direLeftBtn.addEventListener('click', function() {
   contentDiv.style.textOrientation = 'mixed';
   
 });
-
 
 </script>
 
