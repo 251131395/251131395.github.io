@@ -7,7 +7,7 @@
   <title>B00K - 清潔工</title>
 
   <style>
-    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+	  @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
   body {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -43,6 +43,15 @@
 .mode {
   padding: 10px;
   font-size: 14px;
+  z-index:15;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+
+@media screen and (max-width: 768px) {
+  .mode {
+    font-size: 16px;
+  }
 }
 
 #color {
@@ -69,6 +78,7 @@
 }
 
 .content {
+  pointer-events: none;
   position: fixed;
   top: 30px;
   right: 0;
@@ -76,6 +86,7 @@
   height: calc(100vh - 60px);
   padding: 0 20px 0;
   overflow: auto;
+  z-index:15;
 }
 
 .content span {
@@ -248,8 +259,10 @@
 </p>
   </div>
 
+</body>
+  
 <script>
-  // 获取按钮和内容元素
+	// 获取按钮和内容元素
 var direDownBtn = document.getElementById('dire-down');
 var direLeftBtn = document.getElementById('dire-left');
 var contentDiv = document.querySelector('.content');
@@ -277,7 +290,5 @@ direLeftBtn.addEventListener('click', function() {
 
 
 </script>
-  
-</body>
 
 </html>
