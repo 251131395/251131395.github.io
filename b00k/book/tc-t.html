@@ -18,6 +18,8 @@
   margin: 0px;
   padding: 0px;
   position: relative;
+    
+  min-height:100vh;
 }
 
 .menu {
@@ -75,6 +77,32 @@
   cursor: pointer;
 }
 
+.hide{
+  display:block;
+  color:#333;
+  position:fixed;
+  top:60%;
+  left:-2px;
+  padding:5px 3px 5px;
+  z-index:20;
+  background-color: rgba(255,255,255,0.7);
+  font-size:10px;
+  border:1px #555 solid;
+  border-top-right-radius:10px;
+  border-bottom-right-radius:10px;
+  font-weight:bold;
+  writing-mode: vertical-lr;
+ text-orientation: mixed;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+
+@media screen and (min-width: 768px) {
+  .hide{
+    display:none;
+  }
+}
+
 .content {
   position: fixed;
   top: 30px;
@@ -86,11 +114,6 @@
   z-index:10;
 }
 
-@media screen and (max-width: 768px) {
-  .content {
-  height: 88vh;
-}
-}
 
 .content span {
   display: block;
@@ -140,19 +163,19 @@
     <span><i class="fa-regular fa-eye"></i> </span>
     <span><i class="fa-regular fa-lemon"></i> </span>
   </div>
-
   <div class="mode" id="font-size">
-    <font>字體大小：</font>
+    <font>字號：</font>
     <span><i class="fa-solid fa-minus"></i> </span>
     <span><i class="fa-solid fa-plus"></i> </span>
     <span><i class="fa-solid fa-arrow-rotate-right"></i> </span>
   </div>
-
   <div class="mode" id="dire">
     <font>文字方向：</font>
     <span id="dire-left"><i class="fa-solid fa-arrow-left-long"></i> </span>
     <span id="dire-down"><i class="fa-solid fa-arrow-down-long"></i> </span>
   </div>
+  
+  <span class="hide">按著此區域向上拖動<br>以隱藏工作列 <i class="fa-solid fa-arrow-up"></i> <i class="fa-solid fa-arrow-up"></i></span>
 
   <div class="content">
     <span>序</span>
@@ -290,7 +313,6 @@ direLeftBtn.addEventListener('click', function() {
   contentDiv.style.textOrientation = 'mixed';
   
 });
-
 </script>
 
 </html>
