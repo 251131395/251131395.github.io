@@ -96,11 +96,11 @@
   position:fixed;
   bottom:30px;
   right:-20px;
-  padding:40px 40px 10px;
+  padding:40px 50px 15px;
   z-index:20;
   font-size:20px;
   opacity:0.7;
-  border:1px red solid;
+  1border:1px red solid;
 }
 
 .hide:active{
@@ -180,9 +180,9 @@
   </div>
   <div class="mode" id="font-size">
     <font>字號：</font>
-    <span><i class="fa-solid fa-minus"></i> </span>
-    <span><i class="fa-solid fa-plus"></i> </span>
-    <span><i class="fa-solid fa-arrow-rotate-right"></i> </span>
+    <span id="fs-m"><i class="fa-solid fa-minus"></i> </span>
+    <span id="fs-p"><i class="fa-solid fa-plus"></i> </span>
+    <span id="fs-r"><i class="fa-solid fa-arrow-rotate-right"></i> </span>
   </div>
   <div class="mode" id="dire">
     <font>文字方向：</font>
@@ -194,7 +194,7 @@
 
   <div class="content">
     <span>序</span>
-    <p>一雙長著繭的手正快速翻動著書本，時而停下，撕下空白頁。身穿藍色制服的人影伏在地上，四周散落數十本一模一樣的黃色書本，封面用注目的紅色印著「清潔大全」，書本堆成一座座小山。<br>
+    <p class="word">一雙長著繭的手正快速翻動著書本，時而停下，撕下空白頁。身穿藍色制服的人影伏在地上，四周散落數十本一模一樣的黃色書本，封面用注目的紅色印著「清潔大全」，書本堆成一座座小山。<br>
       <br>
       身穿藍色制服的人張開手臂把地上破破爛爛的「清潔大全」全都推到一旁燃燒著熊熊烈火的房間內，傾頓間，那些書本便化為灰燼了。<br>
       <br>
@@ -210,7 +210,7 @@
     </p>
 
     <span>清潔工的日記本</span>
-    <p>
+    <p class="word">
       01今天終於做好了日記本，好開心。我就不寫日期了，實在不知道。太久沒執筆，都有些忘了怎麼寫字了。<br>
       <br>
       對了，這支筆是撿的。我也不知道為甚麼別的都不行，但是這個可以，不管了，反正能用。<br>
@@ -236,7 +236,7 @@
     </p>
 
     <span>片鹼和洗衣粉</span>
-    <p>
+    <p class="word">
       就這樣，清潔工走向了補充站。補充站沒有固定地點，只要清潔工缺了清潔用品，補充站就會出現在他的附近。<br>
       <br>
       補充站裏清潔用品應有盡有，相同的物品有序地排位著，像陣列一樣。清潔工拿了片鹼和洗衣粉，戴上了手套，將粉末以一比一的比例混合。然後撕下了一頁「清潔大全」捲成了漏斗狀，再將粉末灌進了噴壺內。隨後，清潔工取了些熱水倒進噴壺內輕輕搖晃，地板清潔劑便大功告成。<br>
@@ -255,7 +255,7 @@
     </p>
     
     <span>需要一點醋</span>
-    <p>
+    <p class="word">
       清潔工循著地上的線索來到了這個區域。這個區域的裝潢就像浴室，墻壁和地板都是白色的瓷磚。而且燈光昏暗，空中氤氲著霧氣，令人看不清盡頭，又有些悶熱。<br>
 <br>
 清潔工推著清潔車走了進去，抬頭向四周不停打量著。這個區域他從未來過，是新訪客吧？區域正中間放置了一個比正常尺寸更大的浴缸，清潔工想，如果有人進去洗澡，大概會淹死吧。<br>
@@ -278,9 +278,8 @@
 <br><br>
     </p>
 
-    
     <span>衣櫃</span>
-    <p>清潔工把清潔車停在入口外，提著驚青青走進了一個滿是衣櫃的區域。這裏看似無垠，地板和天花板在遠方融為一體。清潔工不敢走太遠，他怕自己會再也走不出去。<br>
+    <p class="word">清潔工把清潔車停在入口外，提著驚青青走進了一個滿是衣櫃的區域。這裏看似無垠，地板和天花板在遠方融為一體。清潔工不敢走太遠，他怕自己會再也走不出去。<br>
 <br>
 	清潔工挑了個暗木色櫃身、白色櫃門的衣櫃。這個衣櫃上方是雙開的櫃門，下方是三層拖拉的抽屜。清潔工把裝著驚青青的水桶放在地上。<br>
 <br>
@@ -329,6 +328,46 @@ direLeftBtn.addEventListener('click', function() {
   
 });
 
+
+
+// 获取span元素和.word元素
+const decreaseBtn = document.getElementById("fs-m");
+const increaseBtn = document.getElementById("fs-p");
+const resetBtn = document.getElementById("fs-r");
+const wordElements = document.querySelectorAll(".word");
+
+// 定义初始字体大小和最小/最大值
+let fontSize = 16;
+const minFontSize = 10;
+const maxFontSize = 36;
+
+// 减小字体大小的点击事件处理程序
+decreaseBtn.addEventListener("click", function() {
+  if (fontSize > minFontSize) {
+    fontSize -= 2;
+    for (let i = 0; i < wordElements.length; i++) {
+      wordElements[i].style.fontSize = fontSize + "px";
+    }
+  }
+});
+
+// 增大字体大小的点击事件处理程序
+increaseBtn.addEventListener("click", function() {
+  if (fontSize < maxFontSize) {
+    fontSize += 2;
+    for (let i = 0; i < wordElements.length; i++) {
+      wordElements[i].style.fontSize = fontSize + "px";
+    }
+  }
+});
+
+// 重置字体大小的点击事件处理程序
+resetBtn.addEventListener("click", function() {
+  fontSize = 16;
+  for (let i = 0; i < wordElements.length; i++) {
+    wordElements[i].style.fontSize = fontSize + "px";
+  }
+});
 </script>
 
 </html>
