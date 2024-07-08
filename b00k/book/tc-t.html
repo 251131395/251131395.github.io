@@ -48,7 +48,7 @@
   z-index:15;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .mode {
     font-size: 16px;
   }
@@ -58,6 +58,18 @@
   position: fixed;
   top: 0;
   left: 0;
+}
+
+#color font{
+  position:fixed;
+  top:80px;
+  right:10px;
+  color:#aaa;
+  font-size:12px;
+  padding:0;
+  margin:0;
+  writing-mode: vertical-rl;
+ text-orientation: mixed;
 }
 
 #font-size {
@@ -82,22 +94,24 @@
   display:block;
   color:#777;
   position:fixed;
-  top:-2px;
-  left:120px;
-  padding:10px 5px 15px;
-  width:calc(100vw - 180px);
+  top:10px;
+  right:30px;
+  padding:20px;
   z-index:20;
-  background-color: rgba(255,255,255,0.3);
-  font-size:10px;
-  border:1.5px #ccc dashed;
-  border-bottom-left-radius:10px;
-  border-bottom-right-radius:10px;
-  font-weight:bold;
-  mix-blend-mode: multiply;
+  font-size:20px;
+  opacity:0.7;
 }
 
-@media screen and (min-width: 768px) {
+.hide:active{
+  background-color: rgba(222,222,222,0.8);
+}
+
+@media screen and (min-width: 900px) {
   .hide{
+    display:none;
+  }
+  
+  #color font{
     display:none;
   }
 }
@@ -161,6 +175,7 @@
     <span><i class="fa-regular fa-moon"></i> </span>
     <span><i class="fa-regular fa-eye"></i> </span>
     <span><i class="fa-regular fa-lemon"></i> </span>
+    <font>先按著貓掌上下拖動再向上拖動以隱藏工作列</font>
   </div>
   <div class="mode" id="font-size">
     <font>字號：</font>
@@ -174,7 +189,7 @@
     <span id="dire-down"><i class="fa-solid fa-arrow-down-long"></i> </span>
   </div>
   
-  <span class="hide"><i class="fa-solid fa-arrow-up"></i> <i class="fa-solid fa-arrow-up"></i> <i class="fa-solid fa-arrow-up"></i> 按著此區域向上拖動以隱藏工作列 <i class="fa-solid fa-arrow-up"></i> <i class="fa-solid fa-arrow-up"></i> <i class="fa-solid fa-arrow-up"></i></span>
+  <span class="hide"><i class="fa-solid fa-paw"></i></span>
 
   <div class="content">
     <span>序</span>
