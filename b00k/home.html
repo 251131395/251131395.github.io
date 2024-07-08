@@ -158,8 +158,8 @@ header button{
 
 
 .rank{
-  background-color: #fcfcfc;
-background: linear-gradient(0deg, rgba(0,0,0,0.07) 0%, rgba(255,255,255,0) 30%);
+  background-color: #fafafa;
+background: linear-gradient(0deg, rgba(0,0,0,0.07) 0%, rgba(255,255,255,0) 40%);
   padding-bottom:15px;
   overflow:auto;
 }
@@ -229,13 +229,8 @@ background: linear-gradient(0deg, rgba(0,0,0,0.07) 0%, rgba(255,255,255,0) 30%);
 
 
 
-
-
-
-
-
 .main{
-  min-height:100vh;
+  background-color: #fcfcfc;
   background: linear-gradient(0deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0) 20%);
 }
 
@@ -293,8 +288,6 @@ body .book {
   margin: 10px;
 }
 
-
-
 .name {
   margin: 10px 0px 0px;
   font-size: 14px;
@@ -318,6 +311,77 @@ body .book {
   font-weight:bold;
   font-size:20px;
 }
+
+
+
+.eplmo{
+  min-height:150px;
+  background-color: #fefefe;
+  background: linear-gradient(0deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0) 20%);
+  padding-bottom:20px;
+}
+
+.epl-shell{
+  text-align:center;
+}
+
+.elp-bl{
+  padding:10px;
+  margin:0 15px 15px;
+  min-height:120px;
+  border-radius:10px;
+  text-align:left;
+  position:relative;
+  overflow:hidden;
+}
+
+.elp-bg{
+  background: linear-gradient(0deg, rgba(0,0,0,0) 30%, rgba(33,33,33,1) 100%);
+  position:absolute;
+  height:100%;
+  width:100%;
+  right:0;
+  top:0;
+  z-index:10;
+}
+
+.elp-bl span{
+  position:relative;
+  color:#fff;
+  padding:2px;
+  font-weight:bold;
+  font-size:14px;
+  z-index:15;
+}
+
+.elp-bl p{
+  color:#fff;
+  padding:2px;
+  margin:0;
+  font-size:12px;
+  position:absolute;
+  right:4px;
+  bottom:4px;
+}
+
+
+@media screen and (min-width: 368px) {
+  .eplmo{
+  padding-bottom:40px;
+}
+  
+  .elp-bl{
+  padding:10px;
+  vertical-align: top;
+  display:inline-block;
+  width:calc(50% - 50px);
+  margin:0 5px 0;
+  min-height:150px;
+  border-radius:10px;
+  text-align:left;
+}
+}
+
 
 
 
@@ -397,11 +461,24 @@ footer hr {
   background-size: cover;
   background-position: center;
 }
+
+#epl-tc {
+  background-image: url("https://251131395.github.io/b00k/media/image/65da3c1d-43db-4fa5-8a74-5873741c06f1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+#epl-f11 {
+  background-image: url("https://251131395.github.io/b00k/media/image/WhatsApp Image 2024-06-30 at 2.36.13 PM.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
   </style>
 </head>
 
-<body>
-  <span class="menu" onclick="openNav()"><i class="fa-solid fa-house"></i></span>
+<body></body>
 
   <div style="min-height:100vh">
     <header>
@@ -548,6 +625,23 @@ footer hr {
             <span class="name">???</span>
             <span class="date">??/??/????</span>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="eplmo">
+      <span class="tit">探索更多</span>
+      <div class="epl-shell">
+        <div class="elp-bl" id="epl-tc">
+          <div class="elp-bg"></div>
+          <span>沒有時間流逝、沒有門、沒有飢餓的空間</span>
+          <p>編輯精選</p>
+        </div>
+        <div class="elp-bl" id="epl-f11">
+          <div class="elp-bg"></div>
+          <span>時間停滯在末日前的一天</span>
+          <p>編輯精選</p>
         </div>
       </div>
     </div>
