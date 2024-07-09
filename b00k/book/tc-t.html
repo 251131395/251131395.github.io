@@ -22,6 +22,15 @@
   min-height:100vh;
 }
 
+html{
+  transition:all 0.5s;
+  
+  filter:invert(0) sepia(0) brightness(1) saturate(1)  hue-rotate(0deg);
+  -webkit-filter:invert(0) sepia(0) brightness(1) saturate(1)  hue-rotate(0deg);
+}
+
+
+
 .menu {
   position: fixed;
   padding: 10px;
@@ -36,7 +45,7 @@
 }
 
 .menu:hover {
-  color: #eee;
+  color: #aaa;
   mix-blend-mode: normal;
   -webkit-text-stroke: 0.5px lightgray;
   text-stroke: 0.5px lightgray;
@@ -61,6 +70,7 @@
 }
 
 #color font{
+  pointer-events:none;
   position:fixed;
   top:40px;
   right:5px;
@@ -104,7 +114,7 @@
 }
 
 .hide:active{
-  color:#ddd;
+  color:#aaa;
 }
 
 @media screen and (min-width: 900px) {
@@ -172,10 +182,10 @@
   <span class="menu" onclick="location.href='https://251131395.github.io/b00k/home.html'"><i class="fa-solid fa-house"></i></span>
 
   <div class="mode" id="color">
-    <span><i class="fa-regular fa-sun"></i> </span>
-    <span><i class="fa-regular fa-moon"></i> </span>
-    <span><i class="fa-regular fa-eye"></i> </span>
-    <span><i class="fa-regular fa-lemon"></i> </span>
+    <span id="color-day" onclick="setDayColor()"><i class="fa-regular fa-sun"></i> </span>
+    <span id="color-night" onclick="setNightColor()"><i class="fa-regular fa-moon"></i> </span>
+    <span id="color-eye" onclick="setEyeColor()"><i class="fa-regular fa-eye"></i> </span>
+    <span id="color-lemon" onclick="setLemonColor()"><i class="fa-regular fa-lemon"></i> </span>
     <font>請隱藏工作列，或先按著貓掌上下拖動再向上拖動以隱藏工作列</font>
   </div>
   <div class="mode" id="font-size">
@@ -368,6 +378,26 @@ resetBtn.addEventListener("click", function() {
     wordElements[i].style.fontSize = fontSize + "px";
   }
 });
+
+    function setDayColor() {
+      document.documentElement.style.filter = 'invert(0) sepia(0) brightness(1) saturate(1) hue-rotate(0deg)';
+      document.documentElement.style.webkitFilter = 'invert(0) sepia(0) brightness(1) saturate(1) hue-rotate(0deg)';
+    }
+    
+    function setNightColor() {
+      document.documentElement.style.filter = 'invert(1) sepia(0) brightness(1) saturate(1) hue-rotate(0deg)';
+      document.documentElement.style.webkitFilter = 'invert(1) sepia(0) brightness(1) saturate(1) hue-rotate(0deg)';
+    }
+    
+    function setEyeColor() {
+      document.documentElement.style.filter = 'invert(0) sepia(1) brightness(0.8) saturate(3) hue-rotate(40deg)';
+      document.documentElement.style.webkitFilter = 'invert(0) sepia(1) brightness(0.8) saturate(3) hue-rotate(40deg)';
+    }
+    
+    function setLemonColor() {
+      document.documentElement.style.filter = 'invert(0) sepia(1) brightness(0.8) saturate(1.8) hue-rotate(-8deg)';
+      document.documentElement.style.webkitFilter = 'invert(0) sepia(1) brightness(0.8) saturate(1.8) hue-rotate(-8deg)';
+    }
 </script>
 
 </html>
