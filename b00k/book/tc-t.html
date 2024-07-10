@@ -14,7 +14,7 @@
   -ms-user-select: none;
   user-select: none;
   font-family: "Noto Sans TC", sans-serif;
-  background-color: #f9f9f9;
+  background-color: #eee;
   margin: 0px;
   padding: 0px;
   position: relative;
@@ -385,18 +385,18 @@ resetBtn.addEventListener("click", function() {
     }
     
     function setNightColor() {
-      document.documentElement.style.filter = 'invert(1) sepia(0) brightness(1) saturate(1) hue-rotate(0deg)';
-      document.documentElement.style.webkitFilter = 'invert(1) sepia(0) brightness(1) saturate(1) hue-rotate(0deg)';
+      document.documentElement.style.filter = 'invert(1) sepia(0) brightness(1) saturate(1) hue-rotate(180deg)';
+      document.documentElement.style.webkitFilter = 'invert(1) sepia(0) brightness(1) saturate(1) hue-rotate(180deg)';
     }
     
     function setEyeColor() {
-      document.documentElement.style.filter = 'invert(0) sepia(1) brightness(0.8) saturate(3) hue-rotate(40deg)';
-      document.documentElement.style.webkitFilter = 'invert(0) sepia(1) brightness(0.8) saturate(3) hue-rotate(40deg)';
+      document.documentElement.style.filter = 'invert(0) sepia(1) brightness(0.9) saturate(3) hue-rotate(40deg)';
+      document.documentElement.style.webkitFilter = 'invert(0) sepia(1) brightness(0.9) saturate(3) hue-rotate(40deg)';
     }
     
     function setLemonColor() {
-      document.documentElement.style.filter = 'invert(0) sepia(1) brightness(0.8) saturate(1.8) hue-rotate(-8deg)';
-      document.documentElement.style.webkitFilter = 'invert(0) sepia(1) brightness(0.8) saturate(1.8) hue-rotate(-8deg)';
+      document.documentElement.style.filter = 'invert(0) sepia(1) brightness(0.9) saturate(1.8) hue-rotate(-8deg)';
+      document.documentElement.style.webkitFilter = 'invert(0) sepia(1) brightness(0.9) saturate(1.8) hue-rotate(-8deg)';
     }
 </script>
 
