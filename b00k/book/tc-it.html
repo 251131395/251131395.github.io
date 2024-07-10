@@ -22,6 +22,59 @@
   min-height: 100vh;
 }
 
+
+#loading {
+  font-weight:bold;
+  position: fixed;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  text-align: center;
+  opacity: 0.7;
+  background-color: #fff;
+  z-index: 99;
+  pointer-events:none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#loading div div {
+  display:inline-block;
+  width:20vw;
+  border-bottom:3px #555 solid;
+  animation: write 5s infinite;
+}
+
+@keyframes write {
+  0%{
+  width:20vw;
+  }
+  100%{
+  width:60vw;
+  }
+}
+
+#loading i{
+  display:inline-block;
+}
+
+#loading span{
+  display:block;
+}
+
+#loading-image {
+  position: absolute;
+  top: 100px;
+  left: 240px;
+  z-index: 100;
+}
+
+
+
 .menu {
   position: fixed;
   padding: 10px;
@@ -251,6 +304,18 @@ img {
 <body>
 
   <span class="menu" onclick="location.href='https://251131395.github.io/b00k/home.html'"><i class="fa-solid fa-house"></i></span>
+  
+  
+  <div id="loading">
+    <div><nobr>
+    <div></div>
+    <i class="fa-solid fa-pencil"></i>
+    <span>圖像加載中</span>
+      </nobr>
+      </div>
+  </div>
+  
+  
 
   <div class="mode" id="color">
     <span id="color-day" onclick="setDayColor()"><i class="fa-regular fa-sun"></i> </span>
@@ -258,7 +323,7 @@ img {
     <span id="color-eye" onclick="setEyeColor()"><i class="fa-regular fa-eye"></i> </span>
     <span id="color-lemon" onclick="setLemonColor()"><i class="fa-regular fa-lemon"></i> </span>
     <p>長按圖片以查看大圖</p>
-    <font>請隱藏工作列，或先將文字方向轉橫向模式，再按著文字向上推，以隱藏工作列。</font>
+    <font>請隱藏工作列，或按著頁首向上推，以隱藏工作列。</font>
   </div>
   <div class="mode" id="font-size">
     <font>字號：</font>
@@ -509,6 +574,12 @@ document.getElementById("color-lemon").addEventListener("click", function () {
   );
 });
 
+</script>
+  <script>
+    window.addEventListener('load', function() {
+      var loadingElement = document.getElementById('loading');
+      loadingElement.style.display = 'none';
+    });
 </script>
 
 </html>
