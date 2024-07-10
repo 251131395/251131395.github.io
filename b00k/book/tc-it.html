@@ -1,0 +1,512 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <title>B00K - 清潔工 (圖文版)</title>
+
+  <style>
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+  body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #eee;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+
+  min-height: 100vh;
+}
+
+.menu {
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  color: lightgray;
+  mix-blend-mode: difference;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.menu:hover {
+  color: #aaa;
+  mix-blend-mode: normal;
+  -webkit-text-stroke: 0.5px lightgray;
+  text-stroke: 0.5px lightgray;
+}
+
+.mode {
+  padding: 10px;
+  font-size: 14px;
+  z-index: 15;
+}
+
+@media screen and (max-width: 900px) {
+  .mode {
+    font-size: 16px;
+  }
+}
+
+#color {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+#color p {
+  display: inline-block;
+  color: #aaa;
+  font-size: 12px;
+  padding: 0;
+  margin: 0 -5px 0;
+}
+
+#color font {
+  pointer-events: none;
+  position: fixed;
+  top: 40px;
+  right: 5px;
+  color: #aaa;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  z-index: 5;
+}
+
+#font-size {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+#dire {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.mode span {
+  margin-right: 7px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 900px) {
+  #color font {
+    display: none;
+  }
+}
+
+.content {
+  text-align: center;
+  position: fixed;
+  top: 30px;
+  right: 0;
+  display: block;
+  height: calc(100vh - 60px);
+  padding: 0 20px 0;
+  overflow: auto;
+  z-index: 10;
+}
+
+.content span {
+  text-align: left;
+  display: block;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 0;
+  margin: 5px 0 5px;
+}
+
+.content p {
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.content p i {
+  color: #777;
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+
+img {
+  height: 100%;
+  position: relative;
+  z-index: 50;
+}
+
+@media screen and (max-width: 447px) {
+  img {
+    height: 50%;
+    position: relative;
+    z-index: 50;
+  }
+}
+
+.img-fix {
+  position: relative;
+  z-index: 30;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  cursor: zoom-out;
+}
+
+.img-fix span {
+  position: absolute;
+  color: #ddd;
+  bottom: 2px;
+  right: 10px;
+  font-size: 12px;
+  -webkit-text-stroke: 0.4px #555;
+  text-stroke: 0.4px #555;
+}
+
+#cloth-room {
+  background-image: url("https://251131395.github.io/b00k/media/image/65da3c1d-43db-4fa5-8a74-5873741c06f1.jpg");
+  background-position: center right;
+}
+
+#cloth {
+  background-image: url("https://251131395.github.io/b00k/media/image/%E7%84%A1%E6%A8%99%E9%A1%8C47_20240702222413%20-%20%E8%A4%87%E8%A3%BD.png");
+}
+
+#slime {
+  background-image: url("https://251131395.github.io/b00k/media/image/70DDA183-A4D8-4269-9BCF-49DDA631AEEF.png");
+  background-size: 400%;
+  background-position: 47% 67%;
+}
+
+#cloth-room:active,
+#cloth:active,
+#slime:active {
+  background-repeat: repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: zoom-in;
+
+  span {
+    color: transparent;
+    -webkit-text-stroke: 0px #555;
+    text-stroke: 0px #555;
+  }
+}
+
+.filter {
+  transition: all 0.5s;
+  transition: all 0.5s;
+  position: fixed;
+  z-index: 30;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  backdrop-filter: invert(0) sepia(0) brightness(1) saturate(1) hue-rotate(0deg);
+  -webkit-backdrop-filter: invert(0) sepia(0) brightness(1) saturate(1)
+    hue-rotate(0deg);
+}
+
+  </style>
+</head>
+
+<body>
+
+  <span class="menu" onclick="location.href='https://251131395.github.io/b00k/home.html'"><i class="fa-solid fa-house"></i></span>
+
+  <div class="mode" id="color">
+    <span id="color-day" onclick="setDayColor()"><i class="fa-regular fa-sun"></i> </span>
+    <span id="color-night" onclick="setNightColor()"><i class="fa-regular fa-moon"></i> </span>
+    <span id="color-eye" onclick="setEyeColor()"><i class="fa-regular fa-eye"></i> </span>
+    <span id="color-lemon" onclick="setLemonColor()"><i class="fa-regular fa-lemon"></i> </span>
+    <p>長按圖片以查看大圖</p>
+    <font>請隱藏工作列，或先將文字方向轉橫向模式，再按著文字向上推，以隱藏工作列。</font>
+  </div>
+  <div class="mode" id="font-size">
+    <font>字號：</font>
+    <span id="fs-m"><i class="fa-solid fa-minus"></i> </span>
+    <span id="fs-p"><i class="fa-solid fa-plus"></i> </span>
+    <span id="fs-r"><i class="fa-solid fa-arrow-rotate-right"></i> </span>
+  </div>
+  <div class="mode" id="dire">
+    <font>文字方向：</font>
+    <span id="dire-left"><i class="fa-solid fa-arrow-left-long"></i> </span>
+    <span id="dire-down"><i class="fa-solid fa-arrow-down-long"></i> </span>
+  </div>
+
+  <div class="content">
+
+    <div class="filter"></div>
+
+    <span>清潔工</span>
+    <p class="word"><i class="fa-solid fa-camera-retro"></i> 攝影 / <i class="fa-solid fa-tachograph-digital"></i> 後製 / <i class="fa-solid fa-pen"></i> 作者 / <i class="fa-solid fa-image"></i> 插圖 / <i class="fa-solid fa-wand-magic-sparkles"></i> CGI / <i class="fa-solid fa-grip"></i> 排版 : 251131395 <i class="fa-solid fa-fish-fins"></i><br><br>
+    </p>
+
+    <img src="https://251131395.github.io/b00k/media/image/u2ntitled.png">
+    <img src="https://251131395.github.io/b00k/media/image/unti2tled.png"><br><br>
+
+    <span>序</span>
+    <p class="word">一雙長著繭的手正快速翻動著書本，時而停下，撕下空白頁。身穿藍色制服的人影伏在地上，四周散落數十本一模一樣的黃色書本，封面用注目的紅色印著「清潔大全」，書本堆成一座座小山。<br>
+      <br>
+      身穿藍色制服的人張開手臂把地上破破爛爛的「清潔大全」全都推到一旁燃燒著熊熊烈火的房間內，傾頓間，那些書本便化為灰燼了。<br>
+      <br>
+      隨後，他走向不遠處的清潔車，拿出了除塵轆補充裝和剪刀，再次伏於地上，將除塵轆補充紙剪成細長的紙條，利用它的黏性把紙張製成小本子。<br>
+      <br>
+      「太好了，終於做出來了。我一直都想要一本日記本。」他笑了笑。<br>
+      <br>
+      這位身穿藍色制服的人曾對訪客説過，他忘了名字，如果你想，可以叫他清潔工。<br>
+      <br>
+      清潔工已經滯留在這個空間很久了，別的訪客無論逗留的時間有多長總會有離開或消失的一天，而他逗留的時間已經久到他忘了自己的名字。<br>
+      <br>
+      這個空間沒有人知道是哪裏，而訪客們都稱這裏為「這裏」。這裏時間不會流動，人不會飢餓，而且也沒有門。這裏由不同訪客的經歷共同塑造，區域內的東西不能拿出該區域。新訪客的區域是具像的，逗留得越久，便會變得越抽象。就像剛才那個紅紅烈火的房間來説，也許那個訪客是個消防員吧。總而言之，這裏是個很奇怪的空間。<br><br>
+    </p>
+
+    <span>清潔工的日記本</span>
+    <p class="word">
+      01今天終於做好了日記本，好開心。我就不寫日期了，實在不知道。太久沒執筆，都有些忘了怎麼寫字了。<br>
+      <br>
+      對了，這支筆是撿的。我也不知道為甚麼別的都不行，但是這個可以，不管了，反正能用。<br>
+      <br>
+      <br>
+      02我是一名清潔工。<br>
+      <br>
+      我已經忘了自己身處在這個空間多久了。怎麼也死不去，一切都很無趣。這裏前前後後也來了很多訪客，他們有些逗留了很久，有些和我也做了一段時間的朋友呢，但最終都會離我而去。<br>
+      <br>
+      我記不起自己的過去，也看不到自己的未來。也許當個清潔工是我的責任，為甚麼這樣説？因為自從我有記憶以來，就身穿這套藍色清潔工服、手執地拖，方圓完十米總會有一部清潔手推車，所有清潔用品應有盡有。當清潔用品消耗完的時候，身旁便會發現到一個補充站。<br>
+      <br>
+      這裏時不時會出現幾具屍體，我總會收拾打理乾淨，這對我來說，就像是根植於內心的潛意識，我也不知道為何。<br>
+      <br>
+      除了我以外，我在這裏沒有看到過其他清潔工，也許這是我特殊的地方？<br>
+      <br>
+      <br>
+      03今天走廊的地板比平常更肮髒，黏黏的，像半乾的漿糊一樣，不知道為甚麼。<br>
+      <br>
+      <br>
+      04啊啊啊啊啊啊啊啊！<br>
+      <br>
+      地板越來越黏了，我要找出罪魁禍首。<br><br>
+    </p>
+
+    <img src="https://251131395.github.io/b00k/media/image/22637D41-BD14-48E5-AF9C-6A5ECAE49B8D.png">
+    <img src="https://251131395.github.io/b00k/media/image/3E0AB4CC-9664-4522-A0CB-021E55311627.png"><br><br>
+
+    <span>片鹼和洗衣粉</span>
+    <p class="word">
+      就這樣，清潔工走向了補充站。補充站沒有固定地點，只要清潔工缺了清潔用品，補充站就會出現在他的附近。<br>
+      <br>
+      補充站裏清潔用品應有盡有，相同的物品有序地排位著，像陣列一樣。清潔工拿了片鹼和洗衣粉，戴上了手套，將粉末以一比一的比例混合。然後撕下了一頁「清潔大全」捲成了漏斗狀，再將粉末灌進了噴壺內。隨後，清潔工取了些熱水倒進噴壺內輕輕搖晃，地板清潔劑便大功告成。<br>
+      <br>
+      清潔工收拾好行裝，將噴壺放進了清潔車上，準備一邊清洗地板，一邊追蹤黏液的源頭。<br>
+      <br>
+      呈綠色的黏液滲進了地板的縫隙之中，邊緣開始乾涸、泛白，經過風乾，四周散落些許白色的粉末和碎塊。仔細察看，黏液似乎還分層了，滲出了微黃的油漬。<br>
+      <br>
+      清潔工把清潔劑均勻地用噴壺噴於地上，等待了不一會兒，油泥便開始分解。清潔工的力氣不大，扛不起裝滿水的水桶，所以他把清潔車上的水桶一腳推倒了。一瀉千里的水頓時清洗掉大半的綠色粘液，餘下的要用刷子才能刷乾淨。<br>
+      <br>
+      清潔工用力地刷洗著磚縫，怎料泡沫卻越來越多。「奇怪，洗衣粉不應該有這麼多泡沫的。」他疑惑地道。<br>
+      <br>
+      清潔工走過長長的走廊，一路上清洗著地板，隨著他的腳步，黏液的痕跡漸漸減少。他感到一絲舒暢，似乎清理掉了某種困擾。走得越遠，地上的黏液也更濕潤，看來是最近留下的。<br>
+      <br>
+      隨著逐漸遠離熊熊烈火燃燒的房間，清潔工改用拖把吸取地上的廢水，並將其收集在水桶中。他打算在返回時，將水桶中的廢水一次性倒入燃燒著熊熊烈火的房間內。<br><br>
+    </p>
+
+    <img src="https://251131395.github.io/b00k/media/image/2d9f7402-b204-4f11-bd5d-430a2ba33b2d.jpg">
+    <img src="https://251131395.github.io/b00k/media/image/E596C0B5-EAEA-486E-934B-5FACC831DCCB.png"><br><br>
+
+    <span>需要一點醋</span>
+    <p class="word">
+      清潔工循著地上的線索來到了這個區域。這個區域的裝潢就像浴室，墻壁和地板都是白色的瓷磚。而且燈光昏暗，空中氤氲著霧氣，令人看不清盡頭，又有些悶熱。<br>
+      <br>
+      清潔工推著清潔車走了進去，抬頭向四周不停打量著。這個區域他從未來過，是新訪客吧？區域正中間放置了一個比正常尺寸更大的浴缸，清潔工想，如果有人進去洗澡，大概會淹死吧。<br>
+      <br>
+      走近浴缸一看，清潔工發現這個浴缸充滿著水垢，斑駁的棕色和灰色覆蓋在表面。這讓清潔工皺起眉頭，不過水垢不難清理，只需要一點醋就可以解決。<br>
+      <br>
+      由於噴壺已經裝了片堿和洗衣粉的混合物，所以清潔工將醋倒在百潔布。浴缸對清潔工來説太大了，於是他爬進了進去，將醋均勻地塗抹於浴缸上，再靜候十分鐘。雖然氣味很難聞，但是清潔工認為這是值得的，因為他不喜歡水垢。<br>
+      <br>
+      在等待的期間，清潔工打算四處走走，找出地板弄髒的罪魁禍首。清潔工此刻才發現，空氣彌漫著一股異樣的氣味，不是醋的味道……就像是青蘋果？<br>
+      <br>
+      清潔工走遍這個區域了，這裏看來暫時與一般正常浴室沒有分別，也許真的是新訪客吧。清潔工走得有些累了，這裏熱得他頭昏腦脹。他重新回到浴缸旁，倚靠著坐。有些困了，便閉上眼假寐。<br>
+      <br>
+      不知過了多久後，嗯……青蘋果的氣味越發濃烈了。清潔工驟然睜開眼，發現了浴缸的動靜。他站了起來，看到原本空無一物的浴缸內裝滿了黃綠色黏液。半透明的渾濁液體包裹着像血管一樣的暗紅色細絲，不停湧動著。清潔工看著這一切，嗯……又要再洗一遍了，腰會疼。<br><br>
+    </p>
+
+    <img style="height:20%;" src="https://251131395.github.io/b00k/media/image/無標題45_20240630163138.png">
+    <img style="height:20%;" src="https://251131395.github.io/b00k/media/image/無標題45_20240630163138.png">
+    <img style="height:20%;" src="https://251131395.github.io/b00k/media/image/無標題45_20240630163138.png">
+    <img style="height:20%;" src="https://251131395.github.io/b00k/media/image/無標題45_20240630163138.png">
+
+    <p class="word">
+      <br>
+      忽然，兩顆眼珠從缸底浮了上水面，渾濁泛白，像魚目一樣的瞳孔直直地盯著清潔工。一張嘴從黏液長了出來，大聲喊：「救命！救救我！」。清潔工似乎有些不知所措，定定地看著黏液的嘴巴一張一合，焦急地喊：「快救我，我的身體快從排水口流完了！」水位以肉眼可見的速度下降，清潔工旋即從清潔車取出了水桶，撈起了黏液的兩個眼珠和部分黏液。來不及了，他眼睜睜看著剩下黏液消失在排水口。<br>
+      <br>
+      隨著黏液流失，原本正常大小的眼珠，萎縮成黃豆般大。眼白的部分由黑色取替，如同麻雀的眼睛。黏液悲傷地看向自己剩余的身體。<br>
+      <br>
+      清潔工看向自己被弄髒了袖口，方才他沒有戴手套，粘液滲進了布料的纖维，該怎樣才能洗掉呢？
+      <br><br>
+    </p>
+
+    <div class="img-fix" id="cloth-room">
+      <span><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+    </div>
+
+    <div class="img-fix" id="cloth"><span><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span></div><br><br>
+
+    <span>衣櫃</span>
+    <p class="word">清潔工把清潔車停在入口外，提著驚青青走進了一個滿是衣櫃的區域。這裏看似無垠，地板和天花板在遠方融為一體。清潔工不敢走太遠，他怕自己會再也走不出去。<br>
+      <br>
+      清潔工挑了個暗木色櫃身、白色櫃門的衣櫃。這個衣櫃上方是雙開的櫃門，下方是三層拖拉的抽屜。清潔工把裝著驚青青的水桶放在地上。<br>
+      <br>
+      「你乾嘛？」驚青青疑惑地問道。「我想睡覺。」清潔工答。他拉開櫃門鑽了進去，他很累。<br>
+      <br>
+      關上櫃門後，一絲光也透不進來。清潔工抱膝而坐，他喜歡這種被柔軟布料擦過皮膚、被洗衣液香氣縈繞的感覺，他覺得很安心。眼皮越來越重，清潔工進入夢鄉了。<br>
+      <br>
+      在夢中，他想奮力地奔跑，但是腳卻提不起勁來，他只能乏力地飄盪在空中。他想看清每個人臉孔，但只看到突兀的光暈。他看到的東西就像抽了幀的錄像帶一樣，模糊且不連續。<br>
+      <br>
+      「快醒醒，這裏變得很不對勁，快帶我走！」睡夢中的清潔工被驚青青焦急的聲音喚醒。<br>
+      <br>
+      清潔工睜開眼，發現衣櫃變得很大，原本坐著的他躺了下來，櫃門正逐漸加速遠離他。沒有時間遲疑了，清潔工奮力地向著櫃門奔跑。千鈞一髮間，清潔工奪門而出，他重重地滾落到地上。清潔工跌跌撞撞地爬了起身，顧不上身上的疼痛，眼疾手快地提起了驚青青朝著出口奔跑。<br>
+      <br>
+      兩旁的衣櫃向清潔工逼近，身後的空間坍塌，正方的路正在擴張。清潔工加快了腳步，但身後坍塌的速度更快。眼看要被追上，清潔工終於看到出口的亮光，他縱身一躍，及時逃了出來。<br>
+      <br>
+      不過驚青青的情況就慘一些了，他又掉了些黏液。清潔工看到驚青青的模樣，不禁十分愧疚。<br><br>
+    </p>
+
+    <div class="img-fix" id="slime"><span><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+    </div><br><br>
+
+  </div>
+
+</body>
+
+<script>
+  // 获取按钮和内容元素
+var direDownBtn = document.getElementById("dire-down");
+var direLeftBtn = document.getElementById("dire-left");
+var contentDiv = document.querySelector(".content");
+
+// 监听按钮点击事件
+direDownBtn.addEventListener("click", function () {
+  // 修改内容元素的CSS样式
+  contentDiv.style.width = "";
+  contentDiv.style.overflowX = "";
+  contentDiv.style.writingMode = "";
+  contentDiv.style.textOrientation = "";
+});
+
+direLeftBtn.addEventListener("click", function () {
+  // 修改内容元素的CSS样式
+  contentDiv.style.width = "100vw";
+  contentDiv.style.overflowX = "scroll";
+  contentDiv.style.writingMode = "vertical-rl";
+  contentDiv.style.textOrientation = "mixed";
+});
+
+// 获取span元素和.word元素
+const decreaseBtn = document.getElementById("fs-m");
+const increaseBtn = document.getElementById("fs-p");
+const resetBtn = document.getElementById("fs-r");
+const wordElements = document.querySelectorAll(".word");
+
+// 定义初始字体大小和最小/最大值
+let fontSize = 16;
+const minFontSize = 10;
+const maxFontSize = 36;
+
+// 减小字体大小的点击事件处理程序
+decreaseBtn.addEventListener("click", function () {
+  if (fontSize > minFontSize) {
+    fontSize -= 2;
+    for (let i = 0; i < wordElements.length; i++) {
+      wordElements[i].style.fontSize = fontSize + "px";
+    }
+  }
+});
+
+// 增大字体大小的点击事件处理程序
+increaseBtn.addEventListener("click", function () {
+  if (fontSize < maxFontSize) {
+    fontSize += 2;
+    for (let i = 0; i < wordElements.length; i++) {
+      wordElements[i].style.fontSize = fontSize + "px";
+    }
+  }
+});
+
+// 重置字体大小的点击事件处理程序
+resetBtn.addEventListener("click", function () {
+  fontSize = 16;
+  for (let i = 0; i < wordElements.length; i++) {
+    wordElements[i].style.fontSize = fontSize + "px";
+  }
+});
+
+function setFilterStyle(filterValue) {
+  const filterElements = document.getElementsByClassName("filter");
+  for (let i = 0; i < filterElements.length; i++) {
+    filterElements[i].style.backdropFilter = filterValue;
+    filterElements[i].style.webkitBackdropFilter = filterValue;
+  }
+}
+
+document.getElementById("color-day").addEventListener("click", function () {
+  setFilterStyle(
+    "invert(0) sepia(0) brightness(1) saturate(1) hue-rotate(180deg)"
+  );
+});
+
+document.getElementById("color-night").addEventListener("click", function () {
+  setFilterStyle(
+    "invert(1) sepia(0) brightness(1) saturate(1) hue-rotate(0deg)"
+  );
+});
+
+document.getElementById("color-eye").addEventListener("click", function () {
+  setFilterStyle(
+    "invert(0) sepia(1) brightness(0.8) saturate(3) hue-rotate(40deg)"
+  );
+});
+
+document.getElementById("color-lemon").addEventListener("click", function () {
+  setFilterStyle(
+    "invert(0) sepia(1) brightness(0.8) saturate(1.8) hue-rotate(-8deg)"
+  );
+});
+
+</script>
+
+</html>
