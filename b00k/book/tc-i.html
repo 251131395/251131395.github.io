@@ -25,44 +25,46 @@
   top: 0;
   right: 0;
   z-index: 997;
-  color:lightgray;
+  color: lightgray;
   mix-blend-mode: difference;
   font-size: 20px;
   cursor: pointer;
-  opacity:0.8;
+  opacity: 0.8;
 }
 
-.menu:hover{
-  color:#eee;
+.menu:hover {
+  color: #eee;
   mix-blend-mode: normal;
   -webkit-text-stroke: 0.5px lightgray;
   text-stroke: 0.5px lightgray;
 }
 
-
-.viewer-360{
-  height:80vh;
-  overflow:hidden;
+.viewer-360 {
+  height: 80vh;
+  overflow: hidden;
+  background-color: #444;
 }
 
-.viewer-360-shell{
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  position:relative;
-  border:0;
+.viewer-360-shell {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  border: 0;
+  background-color: #444;
 }
 
-.viewer-360 iframe{
-  position:absolute;
-  right:0;
-  top:0;
-  padding:0;
-  margin:0;
-  width:calc(100% + 60px);
-  height:100%;
-  border:0;
+.viewer-360 iframe {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  width: calc(100% + 60px);
+  height: 100%;
+  border: 0;
   z-index: 50;
+  background-color: #444;
 }
 
 .area3 {
@@ -70,12 +72,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position:relative;
+  position: relative;
   z-index: 50;
 }
 
 .grid_container {
-  columns: 4 150px;
+  columns: 4 250px;
   column-gap: 0;
   margin: 0;
 }
@@ -93,7 +95,7 @@
 }
 
 .grid_container img {
-  z-index:880;
+  z-index: 880;
   width: 150px;
   margin: 0 0 -5px;
   display: inline-block;
@@ -102,16 +104,80 @@
   padding: 0;
   position: relative;
   overflow: hidden;
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255, 255, 255, 1);
 }
 
+.file {
+  text-align: center;
+  width: 80px;
+  text-align: center;
+  border-radius: 2px;
+}
 
+.file:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
 
+.file-name {
+  font-size: 12px;
+  color: white;
+  display: block;
+  font-weight: bold;
+  -webkit-text-stroke: 0.5px black;
+  text-stroke: 0.5px black;
+  text-shadow: 0px 0px 2px black;
+  margin: 10px 0 0;
+  font-family: "Noto Sans TC", sans-serif;
+}
 
-.bank{
-  height:500vh;
-background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
-  position:relative;
+.icon-game {
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: -5px;
+  background-size: 400%;
+  background-position: 10% 40%;
+  background-image: url("https://251131395.github.io/iveai/media/image/B921E344-FEA0-4C10-AD75-08D5BFE95118.png");
+  background-color: #3e403c;
+  border-radius: 3px;
+  position: relative;
+}
+
+.icon-game:after {
+  content: "↗";
+  color: #357ec7;
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  bottom: -3px;
+  left: -3px;
+  border-radius: 1px;
+  border: 1.5px lightgray solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#m1 {
+  position: absolute;
+  top: 100vh;
+  left: 50vw;
+}
+
+.bank {
+  height: 500vh;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  position: relative;
   z-index: 39;
 }
 
@@ -306,98 +372,175 @@ progress::-webkit-progress-value {
   border: 1.5px black solid;
 }
 
-.green{
-  position:absolute;
+.green {
+  position: absolute;
   z-index: 30;
-  bottom:30vh;
-  left:0;
-  height:60vh;
-  margin:0 0 -30vh;
-  width:100%;
-  background: rgb(255,255,0);
-background: linear-gradient(0deg, rgba(255,255,0,1) 0%, rgba(5,161,14,1) 1%, rgba(4,176,12,1) 4%, rgba(255,255,0,1) 6%, rgba(145,193,9,1) 10%, rgba(231,235,230,1) 14%, rgba(7,116,20,1) 15%, rgba(255,0,255,1) 18%, rgba(4,184,11,1) 19%, rgba(133,29,142,1) 22%, rgba(255,0,255,1) 23%, rgba(3,196,9,1) 25%, rgba(9,77,26,1) 27%, rgba(0,255,0,1) 28%, rgba(255,0,255,1) 32%, rgba(10,57,29,1) 38%, rgba(7,116,20,1) 41%, rgba(255,255,255,1) 42%, rgba(16,224,38,1) 47%, rgba(7,126,19,1) 51%, rgba(255,255,0,1) 52%, rgba(255,255,0,1) 53%, rgba(5,155,14,1) 57%, rgba(2,223,5,1) 60%, rgba(12,233,227,1) 64%, rgba(6,129,18,1) 66%, rgba(255,0,255,1) 74%, rgba(255,0,255,1) 74%, rgba(6,129,18,1) 78%, rgba(6,128,18,1) 84%, rgba(5,148,15,1) 86%, rgba(6,128,18,1) 88%, rgba(255,255,0,1) 89%, rgba(9,230,166,1) 90%, rgba(173,19,180,1) 90%, rgba(6,129,18,1) 92%, rgba(7,126,19,1) 95%, rgba(19,201,64,1) 96%);
+  bottom: 30vh;
+  left: 0;
+  height: 60vh;
+  margin: 0 0 -30vh;
+  width: 100%;
+  background: rgb(255, 255, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 0, 1) 0%,
+    rgba(5, 161, 14, 1) 1%,
+    rgba(4, 176, 12, 1) 4%,
+    rgba(255, 255, 0, 1) 6%,
+    rgba(145, 193, 9, 1) 10%,
+    rgba(231, 235, 230, 1) 14%,
+    rgba(7, 116, 20, 1) 15%,
+    rgba(255, 0, 255, 1) 18%,
+    rgba(4, 184, 11, 1) 19%,
+    rgba(133, 29, 142, 1) 22%,
+    rgba(255, 0, 255, 1) 23%,
+    rgba(3, 196, 9, 1) 25%,
+    rgba(9, 77, 26, 1) 27%,
+    rgba(0, 255, 0, 1) 28%,
+    rgba(255, 0, 255, 1) 32%,
+    rgba(10, 57, 29, 1) 38%,
+    rgba(7, 116, 20, 1) 41%,
+    rgba(255, 255, 255, 1) 42%,
+    rgba(16, 224, 38, 1) 47%,
+    rgba(7, 126, 19, 1) 51%,
+    rgba(255, 255, 0, 1) 52%,
+    rgba(255, 255, 0, 1) 53%,
+    rgba(5, 155, 14, 1) 57%,
+    rgba(2, 223, 5, 1) 60%,
+    rgba(12, 233, 227, 1) 64%,
+    rgba(6, 129, 18, 1) 66%,
+    rgba(255, 0, 255, 1) 74%,
+    rgba(255, 0, 255, 1) 74%,
+    rgba(6, 129, 18, 1) 78%,
+    rgba(6, 128, 18, 1) 84%,
+    rgba(5, 148, 15, 1) 86%,
+    rgba(6, 128, 18, 1) 88%,
+    rgba(255, 255, 0, 1) 89%,
+    rgba(9, 230, 166, 1) 90%,
+    rgba(173, 19, 180, 1) 90%,
+    rgba(6, 129, 18, 1) 92%,
+    rgba(7, 126, 19, 1) 95%,
+    rgba(19, 201, 64, 1) 96%
+  );
 }
 
-.green:hover{
-  background: rgb(255,255,0);
-background: linear-gradient(0deg, rgba(255,255,0,1) 0%, rgba(145,193,9,1) 5%, rgba(255,255,0,1) 6%, rgba(255,0,255,1) 7%, rgba(231,235,230,1) 14%, rgba(7,116,20,1) 15%, rgba(255,0,255,1) 18%, rgba(4,184,11,1) 19%, rgba(133,29,142,1) 22%, rgba(255,0,255,1) 23%, rgba(6,129,18,1) 27%, rgba(0,255,0,1) 28%, rgba(255,0,255,1) 29%, rgba(6,129,18,1) 33%, rgba(19,201,64,1) 33%, rgba(5,155,14,1) 33%, rgba(6,129,18,1) 35%, rgba(10,57,29,1) 38%, rgba(16,224,38,1) 47%, rgba(255,0,255,1) 47%, rgba(7,126,19,1) 51%, rgba(255,255,0,1) 52%, rgba(255,255,0,1) 53%, rgba(255,255,255,1) 54%, rgba(4,176,12,1) 57%, rgba(2,223,5,1) 60%, rgba(2,223,5,1) 60%, rgba(12,233,227,1) 70%, rgba(255,255,0,1) 77%, rgba(5,161,14,1) 78%, rgba(3,196,9,1) 83%, rgba(6,128,18,1) 84%, rgba(5,148,15,1) 86%, rgba(6,128,18,1) 88%, rgba(9,230,166,1) 90%, rgba(173,19,180,1) 90%, rgba(7,116,20,1) 91%, rgba(9,77,26,1) 94%, rgba(7,126,19,1) 95%);
+.green:hover {
+  background: rgb(255, 255, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 0, 1) 0%,
+    rgba(145, 193, 9, 1) 5%,
+    rgba(255, 255, 0, 1) 6%,
+    rgba(255, 0, 255, 1) 7%,
+    rgba(231, 235, 230, 1) 14%,
+    rgba(7, 116, 20, 1) 15%,
+    rgba(255, 0, 255, 1) 18%,
+    rgba(4, 184, 11, 1) 19%,
+    rgba(133, 29, 142, 1) 22%,
+    rgba(255, 0, 255, 1) 23%,
+    rgba(6, 129, 18, 1) 27%,
+    rgba(0, 255, 0, 1) 28%,
+    rgba(255, 0, 255, 1) 29%,
+    rgba(6, 129, 18, 1) 33%,
+    rgba(19, 201, 64, 1) 33%,
+    rgba(5, 155, 14, 1) 33%,
+    rgba(6, 129, 18, 1) 35%,
+    rgba(10, 57, 29, 1) 38%,
+    rgba(16, 224, 38, 1) 47%,
+    rgba(255, 0, 255, 1) 47%,
+    rgba(7, 126, 19, 1) 51%,
+    rgba(255, 255, 0, 1) 52%,
+    rgba(255, 255, 0, 1) 53%,
+    rgba(255, 255, 255, 1) 54%,
+    rgba(4, 176, 12, 1) 57%,
+    rgba(2, 223, 5, 1) 60%,
+    rgba(2, 223, 5, 1) 60%,
+    rgba(12, 233, 227, 1) 70%,
+    rgba(255, 255, 0, 1) 77%,
+    rgba(5, 161, 14, 1) 78%,
+    rgba(3, 196, 9, 1) 83%,
+    rgba(6, 128, 18, 1) 84%,
+    rgba(5, 148, 15, 1) 86%,
+    rgba(6, 128, 18, 1) 88%,
+    rgba(9, 230, 166, 1) 90%,
+    rgba(173, 19, 180, 1) 90%,
+    rgba(7, 116, 20, 1) 91%,
+    rgba(9, 77, 26, 1) 94%,
+    rgba(7, 126, 19, 1) 95%
+  );
 }
-.eyes{
-  position:relative;
-  background-color:#000;
-  height:200vh;
+.eyes {
+  position: relative;
+  background-color: #000;
+  height: 200vh;
   background-image: url("https://251131395.github.io/b00k/media/image/%E7%84%A1%E6%A8%99%E9%A1%8C45_20240630163138.png");
   background-size: 100px;
   background-position: center;
-   z-index:10;
+  z-index: 10;
 }
 
-.eyes .mask{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:50vh;
-  background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-  z-index:20;
+.eyes .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+  z-index: 20;
 }
 
-.green-mask{
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:30vh;
-  background-color:rgba(0,255,0,0.7);
-  backdrop-filter:invert(1) sepia(1) brightness(0.5) saturate(3) hue-rotate(40deg);
-  -webkit-backdrop-filter:invert(1) sepia(1) brightness(0.5) saturate(3) hue-rotate(40deg);
+.green-mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30vh;
+  background-color: rgba(0, 255, 0, 0.7);
+  backdrop-filter: invert(1) sepia(1) brightness(0.5) saturate(3)
+    hue-rotate(40deg);
+  -webkit-backdrop-filter: invert(1) sepia(1) brightness(0.5) saturate(3)
+    hue-rotate(40deg);
 }
 
-.blur{
-  position:fixed;
-  z-index:40;
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
+.blur {
+  position: fixed;
+  z-index: 40;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-#b-1{
-  left:0;
-  top:40%;
-  width:30vw;
-  height:20vh;
+#b-1 {
+  left: 0;
+  top: 40%;
+  width: 30vw;
+  height: 20vh;
 }
 
-#b-2{
-  right:0;
-  top:10%;
-  width:12vw;
-  height:50vh;
+#b-2 {
+  right: 0;
+  top: 10%;
+  width: 12vw;
+  height: 50vh;
 }
 
-.green-line-hr{
-  width:100%;
-  position:fixed;
-  z-index:40;
-  border-bottom:1px rgb(0,255,0) solid;
+.green-line-hr {
+  width: 100%;
+  position: fixed;
+  z-index: 40;
+  border-bottom: 1px rgb(0, 255, 0) solid;
 }
 
-#g-1{
-  top:30%;
+#g-1 {
+  top: 30%;
 }
 
-#g-1-1{
-  top:31%;
+#g-1-1 {
+  top: 31%;
 }
 
-#g-2{
-  bottom:20%;
+#g-2 {
+  bottom: 20%;
 }
-
-
-
-
-
-
 
 footer {
   font-family: "Noto Sans TC", sans-serif;
@@ -462,37 +605,11 @@ footer hr {
   }
 }
 
-
-#tc {
-  background-image: url("https://251131395.github.io/b00k/media/image/u2ntitled.png");
-  background-size: cover;
-  background-position: center;
-}
-
-#f11 {
-  background-image: url("https://251131395.github.io/b00k/media/image/WhatsApp Image 2024-06-30 at 2.36.13 PM.jpeg");
-  background-size: cover;
-  background-position: center;
-}
-
-#epl-tc {
-  background-image: url("https://251131395.github.io/b00k/media/image/65da3c1d-43db-4fa5-8a74-5873741c06f1.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat;
-}
-
-#epl-f11 {
-  background-image: url("https://251131395.github.io/b00k/media/image/WhatsApp Image 2024-06-30 at 2.36.13 PM.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat;
-}
   </style>
 </head>
 
 <body>
-  <span class="menu" onclick="location.href='https://251131395.github.io/b00k/home.html'"><i class="fa-solid fa-house"></i></span>
+  <span class="menu" onclick="location.href = document.referrer; return false;"><i class="fa-solid fa-arrow-left"></i></span>
   
   <div class="viewer-360">
     <div class="viewer-360-shell">
@@ -566,6 +683,11 @@ footer hr {
   <div class="eyes">
     <div class="mask"></div>
     <div class="green-mask"></div>
+    
+        <div class="file" id="m1" title="Type: Game&#013;Size: 12 GB" onclick="location.href='https://251131395.github.io/iveai/music/monster.html'">
+      <div class="icon-game"></div>
+      <span class="file-name">M.O.N.S.T.E.R.</span>
+    </div>
   </div>
 
   <footer>
