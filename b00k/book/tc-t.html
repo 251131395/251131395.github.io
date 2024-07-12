@@ -158,7 +158,7 @@ html {
 </head>
 
 <body>
-  <span class="menu" onclick="location.href='https://251131395.github.io/b00k/home.html'"><i class="fa-solid fa-house"></i></span>
+  <span class="menu" onclick="location.href = document.referrer; return false;"><i class="fa-solid fa-arrow-left"></i></span>
 
   <div class="mode" id="color">
     <span id="color-day" onclick="setDayColor()"><i class="fa-regular fa-sun"></i> </span>
