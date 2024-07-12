@@ -1,0 +1,612 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <title>B00K - 清潔工</title>
+
+  <style>
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+  body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #444;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.menu {
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  right: 0;
+  z-index: 997;
+  color:lightgray;
+  mix-blend-mode: difference;
+  font-size: 20px;
+  cursor: pointer;
+  opacity:0.8;
+}
+
+.menu:hover{
+  color:#eee;
+  mix-blend-mode: normal;
+  -webkit-text-stroke: 0.5px lightgray;
+  text-stroke: 0.5px lightgray;
+}
+
+
+.viewer-360{
+  height:80vh;
+  overflow:hidden;
+}
+
+.viewer-360-shell{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  position:relative;
+  border:0;
+}
+
+.viewer-360 iframe{
+  position:absolute;
+  right:0;
+  top:0;
+  padding:0;
+  margin:0;
+  width:calc(100% + 60px);
+  height:100%;
+  border:0;
+  z-index: 50;
+}
+
+.area3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position:relative;
+  z-index: 50;
+}
+
+.grid_container {
+  columns: 4 150px;
+  column-gap: 0;
+  margin: 0;
+}
+
+#two .grid_container {
+  columns: 2 340px;
+  column-gap: 0;
+  margin: 0;
+}
+
+#three .grid_container {
+  columns: 3 340px;
+  column-gap: 0;
+  margin: 0;
+}
+
+.grid_container img {
+  z-index:880;
+  width: 150px;
+  margin: 0 0 -5px;
+  display: inline-block;
+  width: 100%;
+  border: none;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255,255,255,0.7);
+}
+
+
+
+
+.bank{
+  height:500vh;
+background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+  position:relative;
+  z-index: 39;
+}
+
+.crt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-size: 5px;
+  background-repeat: repeat;
+  background-position: center;
+  background-image: url("https://251131395.github.io/iveai/media/image/AB8DFAA9-EA6E-4BE9-863F-EE5640F6C3A6.png");
+  z-index: 45;
+  mix-blend-mode: soft-light;
+  filter: blur(0.6px);
+  -webkit-filter: blur(0.6px);
+  backdrop-filter: blur(0.6px) saturate(1.2) contrast(1.3);
+  backdrop--webkit-filter: blur(0.6px) saturate(1.2) contrast(1.3);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 41;
+  pointer-events: none;
+}
+
+#start {
+  display: none;
+}
+
+#end {
+  display: none;
+}
+
+.mess {
+  pointer-events: auto;
+  font-family: "Noto Sans TC", sans;
+  min-width: 240px;
+  border-top: 2px #fbfaf6 solid;
+  border-left: 2px #fbfaf6 solid;
+  border-bottom: 2px #535353 solid;
+  border-right: 2px #535353 solid;
+  background-color: #d4d0c5;
+  overflow: hidden;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.mess:after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 3px);
+  height: calc(100% + 3px);
+  top: -2px;
+  left: -2px;
+  border-top: 1px #d4d0c5 solid;
+  border-left: 1px #d4d0c5 solid;
+}
+
+.mess span,
+.head span {
+  font-size: 12px;
+  display: inline-block;
+  padding: 10px 10px 0;
+}
+
+.head span {
+  font-size: 12px;
+  display: block;
+  padding: 2px;
+}
+
+#progress {
+  margin-right: -25px;
+}
+
+.head {
+  color: white;
+  background-color: blue;
+  background: linear-gradient(90deg, blue 0%, #71e3e6 100%);
+  font-weight: bold;
+  position: relative;
+}
+
+.sure,
+.close {
+  cursor: pointer;
+  font-size: 10px;
+  color: black;
+  padding: 2px;
+  border-top: 2px #fbfaf6 solid;
+  border-left: 2px #fbfaf6 solid;
+  border-bottom: 2px #535353 solid;
+  border-right: 2px #535353 solid;
+  background-color: #d4d0c5;
+  position: relative;
+}
+
+.sure:active,
+.close:active {
+  border-bottom: 2px #fbfaf6 solid;
+  border-right: 2px #fbfaf6 solid;
+  border-top: 2px #535353 solid;
+  border-left: 2px #535353 solid;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 16px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 1px;
+  top: 2px;
+  z-index: 999;
+}
+
+progress {
+  width: calc(100% - 20px);
+  height: 25px;
+  margin: 10px 10px 10px;
+  border: 0;
+  border-radius: 3px;
+  color: blue;
+  position: relative;
+  border: 1px #999 solid;
+}
+
+progress:after {
+  content: "";
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #aaa;
+  border-radius: 3px;
+}
+progress::-webkit-progress-value {
+  background-color: #17e610;
+  border-radius: 3px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sure {
+  font-weight: bold;
+  padding: 1px 15px 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 10px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.sure:after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 3px);
+  height: calc(100% + 2px);
+  top: -2.5px;
+  left: -3px;
+  border: 1.5px black solid;
+}
+
+.green{
+  position:absolute;
+  z-index: 30;
+  bottom:30vh;
+  left:0;
+  height:60vh;
+  margin:0 0 -30vh;
+  width:100%;
+  background: rgb(255,255,0);
+background: linear-gradient(0deg, rgba(255,255,0,1) 0%, rgba(5,161,14,1) 1%, rgba(4,176,12,1) 4%, rgba(255,255,0,1) 6%, rgba(145,193,9,1) 10%, rgba(231,235,230,1) 14%, rgba(7,116,20,1) 15%, rgba(255,0,255,1) 18%, rgba(4,184,11,1) 19%, rgba(133,29,142,1) 22%, rgba(255,0,255,1) 23%, rgba(3,196,9,1) 25%, rgba(9,77,26,1) 27%, rgba(0,255,0,1) 28%, rgba(255,0,255,1) 32%, rgba(10,57,29,1) 38%, rgba(7,116,20,1) 41%, rgba(255,255,255,1) 42%, rgba(16,224,38,1) 47%, rgba(7,126,19,1) 51%, rgba(255,255,0,1) 52%, rgba(255,255,0,1) 53%, rgba(5,155,14,1) 57%, rgba(2,223,5,1) 60%, rgba(12,233,227,1) 64%, rgba(6,129,18,1) 66%, rgba(255,0,255,1) 74%, rgba(255,0,255,1) 74%, rgba(6,129,18,1) 78%, rgba(6,128,18,1) 84%, rgba(5,148,15,1) 86%, rgba(6,128,18,1) 88%, rgba(255,255,0,1) 89%, rgba(9,230,166,1) 90%, rgba(173,19,180,1) 90%, rgba(6,129,18,1) 92%, rgba(7,126,19,1) 95%, rgba(19,201,64,1) 96%);
+}
+
+.green:hover{
+  background: rgb(255,255,0);
+background: linear-gradient(0deg, rgba(255,255,0,1) 0%, rgba(145,193,9,1) 5%, rgba(255,255,0,1) 6%, rgba(255,0,255,1) 7%, rgba(231,235,230,1) 14%, rgba(7,116,20,1) 15%, rgba(255,0,255,1) 18%, rgba(4,184,11,1) 19%, rgba(133,29,142,1) 22%, rgba(255,0,255,1) 23%, rgba(6,129,18,1) 27%, rgba(0,255,0,1) 28%, rgba(255,0,255,1) 29%, rgba(6,129,18,1) 33%, rgba(19,201,64,1) 33%, rgba(5,155,14,1) 33%, rgba(6,129,18,1) 35%, rgba(10,57,29,1) 38%, rgba(16,224,38,1) 47%, rgba(255,0,255,1) 47%, rgba(7,126,19,1) 51%, rgba(255,255,0,1) 52%, rgba(255,255,0,1) 53%, rgba(255,255,255,1) 54%, rgba(4,176,12,1) 57%, rgba(2,223,5,1) 60%, rgba(2,223,5,1) 60%, rgba(12,233,227,1) 70%, rgba(255,255,0,1) 77%, rgba(5,161,14,1) 78%, rgba(3,196,9,1) 83%, rgba(6,128,18,1) 84%, rgba(5,148,15,1) 86%, rgba(6,128,18,1) 88%, rgba(9,230,166,1) 90%, rgba(173,19,180,1) 90%, rgba(7,116,20,1) 91%, rgba(9,77,26,1) 94%, rgba(7,126,19,1) 95%);
+}
+.eyes{
+  position:relative;
+  background-color:#000;
+  height:200vh;
+  background-image: url("https://251131395.github.io/b00k/media/image/%E7%84%A1%E6%A8%99%E9%A1%8C45_20240630163138.png");
+  background-size: 100px;
+  background-position: center;
+   z-index:10;
+}
+
+.eyes .mask{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:50vh;
+  background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+  z-index:20;
+}
+
+.green-mask{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:30vh;
+  background-color:rgba(0,255,0,0.7);
+  backdrop-filter:invert(1) sepia(1) brightness(0.5) saturate(3) hue-rotate(40deg);
+  -webkit-backdrop-filter:invert(1) sepia(1) brightness(0.5) saturate(3) hue-rotate(40deg);
+}
+
+.blur{
+  position:fixed;
+  z-index:40;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+
+#b-1{
+  left:0;
+  top:40%;
+  width:30vw;
+  height:20vh;
+}
+
+#b-2{
+  right:0;
+  top:10%;
+  width:12vw;
+  height:50vh;
+}
+
+.green-line-hr{
+  width:100%;
+  position:fixed;
+  z-index:40;
+  border-bottom:1px rgb(0,255,0) solid;
+}
+
+#g-1{
+  top:30%;
+}
+
+#g-1-1{
+  top:31%;
+}
+
+#g-2{
+  bottom:20%;
+}
+
+
+
+
+
+
+
+footer {
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: rgba(0, 0, 0, 1);
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.info {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  color: lightgray;
+  z-index: 5;
+}
+
+.info-title {
+  font-weight: bold;
+  color: white;
+}
+
+.info-L {
+  flex: 70%;
+}
+
+.info-R {
+  flex: 30%;
+}
+
+.info span {
+  display: block;
+  font-size: 14px;
+  padding: 2px 10px 2px;
+  text-align: justify;
+}
+
+footer hr {
+  border: 0.5px rgba(255, 255, 255, 0.4) solid;
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+
+
+#tc {
+  background-image: url("https://251131395.github.io/b00k/media/image/u2ntitled.png");
+  background-size: cover;
+  background-position: center;
+}
+
+#f11 {
+  background-image: url("https://251131395.github.io/b00k/media/image/WhatsApp Image 2024-06-30 at 2.36.13 PM.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+#epl-tc {
+  background-image: url("https://251131395.github.io/b00k/media/image/65da3c1d-43db-4fa5-8a74-5873741c06f1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+#epl-f11 {
+  background-image: url("https://251131395.github.io/b00k/media/image/WhatsApp Image 2024-06-30 at 2.36.13 PM.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+  </style>
+</head>
+
+<body>
+  <span class="menu" onclick="location.href='https://251131395.github.io/b00k/home.html'"><i class="fa-solid fa-house"></i></span>
+  
+  <div class="viewer-360">
+    <div class="viewer-360-shell">
+    <iframe allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" src="https://panoraven.com/en/embed/mEnXZ4TcMY"></iframe>
+      </div>
+  </div>
+
+  <div style="min-height:100vh">
+      <div class="area3">
+        <div class="grid_container">
+          <img src='https://251131395.github.io/b00k/media/image/u2ntitled.png' alt=''>
+          <img src='https://251131395.github.io/b00k/media/image/unti2tled.png' alt=''>
+          <img src='https://251131395.github.io/b00k/media/image/DSC_0000103.jpg' alt=''>
+          <img src='https://251131395.github.io/b00k/media/image/sleep.png' alt=''>
+          <img src='https://251131395.github.io/b00k/media/image/65da3c1d-43db-4fa5-8a74-5873741c06f1.jpg' alt=''>
+          <img src='https://251131395.github.io/b00k/media/image/2d9f7402-b204-4f11-bd5d-430a2ba33b2d.jpg' alt=''>
+          <img src='https://251131395.github.io/b00k/media/image/E596C0B5-EAEA-486E-934B-5FACC831DCCB.png' alt=''>
+          <img src='https://251131395.github.io/b00k/media/image/un333titled.png' alt=''>
+          <img src='https://251131395.github.io/b00k/media/image/3E0AB4CC-9664-4522-A0CB-021E55311627.png' alt=''>
+          <img src='https://251131395.github.io/b00k/media/image/22637D41-BD14-48E5-AF9C-6A5ECAE49B8D.png' alt=''>
+          <img src='https://251131395.github.io/b00k/media/image/無標題45_20240630163138.png' alt=''>
+          <img src='https://251131395.github.io/b00k/media/image/70DDA183-A4D8-4269-9BCF-49DDA631AEEF.png' alt=''>
+          <img src='https://251131395.github.io/b00k/media/image/boom.png' alt=''>
+          <img src='https://251131395.github.io/b00k/media/image/20240701_134456.jpg' alt=''>
+          <img src='https://251131395.github.io/b00k/media/image/無標題40_20240626223101.png' alt=''>
+          
+          
+          
+
+        </div>
+      </div>
+  </div>
+  
+  <div class="bank">
+    <div class="green"></div>
+  </div>
+  
+  <div class="crt"></div>
+  
+  <div class="window">
+    <div class="mess" id="start">
+      <div class="head">
+        <span>Download Progress</span>
+        <button class="close">&times;</button>
+      </div>
+
+      <span>the-cleander.exe downloading now (-8092.27 TB) ..</span><span id="progress">0%</span>
+      <progress max="100" value="0"></progress>
+    </div>
+    <div class="mess" id="end">
+      <div class="head">
+        <span>The Cleander</span>
+        <button class="close" onclick="hideEnd()">&times;</button>
+      </div>
+
+      <span>Download has been completed.</span>
+      <div style="height:20px;"></div>
+      <div class="center">
+        <button class="sure" onclick="hideEnd()">OK</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="blur" id="b-1"></div>
+  <div class="blur" id="b-2"></div>
+  
+  <div class="green-line-hr" id="g-1"></div>
+  <div class="green-line-hr" id="g-1-1"></div>
+  <div class="green-line-hr" id="g-2"></div>
+  
+  <div class="eyes">
+    <div class="mask"></div>
+    <div class="green-mask"></div>
+  </div>
+
+  <footer>
+    <div class="info">
+      <div class="info-L">
+        <span class="info-title">B00K是什麼？</span>
+        <span>B00k 是一個電子書閱讀平台，現已上載超過1.0000000本藏書。B00K 內容豐富，質量上乘，絕對是您選擇電子書的不二之選。</span>
+      </div>
+      <div class="info-R">
+        <span class="info-title">連結</span>
+        <span onclick="location.href='https://space.bilibili.com/470999012'">Bilibili</span>
+      </div>
+    </div>
+  </footer>
+ 
+    <script>
+    function hideEnd() {
+      document.getElementById("end").style.display = "none";
+    }
+    window.addEventListener("load", function() {
+      setTimeout(function() {
+        document.getElementById("start").style.display = "block";
+      }, 5000);
+      setTimeout(function() {
+        var progressElement = document.querySelector("progress");
+        var progressSpan = document.getElementById("progress");
+        var value = 0;
+        var intervalId = setInterval(function() {
+          value++;
+          progressElement.value = value;
+          progressSpan.textContent = value + "%";
+          if (value >= 100) {
+            clearInterval(intervalId);
+            document.getElementById("start").style.display = "none";
+            document.getElementById("end").style.display = "block";
+          }
+        }, 60);
+      }, 1000);
+    });
+  </script>
+  
+  </body>
+
+</html>
