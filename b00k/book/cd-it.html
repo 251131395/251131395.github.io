@@ -1,0 +1,474 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <title>B00K - 罐頭日記 (圖文版)</title>
+
+  <style>
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+  body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #eee;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+
+  min-height: 100vh;
+}
+
+
+#loading {
+  font-weight:bold;
+  position: fixed;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  text-align: center;
+  opacity: 0.7;
+  background-color: #fff;
+  z-index: 99;
+  pointer-events:none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#loading div div {
+  display:inline-block;
+  width:20vw;
+  border-bottom:3px #555 solid;
+  animation: write 5s infinite;
+}
+
+@keyframes write {
+  0%{
+  width:20vw;
+  }
+  100%{
+  width:60vw;
+  }
+}
+
+#loading i{
+  display:inline-block;
+}
+
+#loading span{
+  display:block;
+}
+
+#loading-image {
+  position: absolute;
+  top: 100px;
+  left: 240px;
+  z-index: 100;
+}
+
+
+
+.menu {
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  color: lightgray;
+  mix-blend-mode: difference;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.menu:hover {
+  color: #aaa;
+  mix-blend-mode: normal;
+  -webkit-text-stroke: 0.5px lightgray;
+  text-stroke: 0.5px lightgray;
+}
+
+.mode {
+  padding: 10px;
+  font-size: 14px;
+  z-index: 15;
+}
+
+@media screen and (max-width: 900px) {
+  .mode {
+    font-size: 16px;
+  }
+}
+
+#color {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+#color p {
+  display: inline-block;
+  color: #aaa;
+  font-size: 12px;
+  padding: 0;
+  margin: 0 -5px 0;
+}
+
+#color font {
+  pointer-events: none;
+  position: fixed;
+  top: 40px;
+  right: 5px;
+  color: #aaa;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  z-index: 5;
+}
+
+#font-size {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+#dire {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.mode span {
+  margin-right: 7px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 900px) {
+  #color font {
+    display: none;
+  }
+}
+
+.content {
+  text-align: center;
+  position: fixed;
+  top: 30px;
+  right: 0;
+  display: block;
+  height: calc(100vh - 60px);
+  padding: 0 20px 0;
+  overflow: auto;
+  z-index: 10;
+}
+
+.content span {
+  text-align: left;
+  display: block;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 0;
+  margin: 5px 0 5px;
+}
+
+.content p {
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.content p i {
+  color: #777;
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+
+img {
+  width:auto;
+  height: 100%;
+  position: relative;
+  z-index: 50;
+}
+
+@media screen and (max-width: 450px) {
+  img {
+    width:100%;
+    height: auto;
+    position: relative;
+    z-index: 50;
+  }
+}
+
+.img-fix {
+  position: relative;
+  z-index: 30;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  cursor: zoom-out;
+}
+
+.img-fix span {
+  position: absolute;
+  color: #ddd;
+  bottom: 2px;
+  right: 10px;
+  font-size: 12px;
+  -webkit-text-stroke: 0.4px #555;
+  text-stroke: 0.4px #555;
+}
+
+#cloth-room {
+  background-image: url("https://251131395.github.io/b00k/media/image/65da3c1d-43db-4fa5-8a74-5873741c06f1.jpg");
+  background-position: center right;
+}
+
+#cloth {
+  background-image: url("https://251131395.github.io/b00k/media/image/%E7%84%A1%E6%A8%99%E9%A1%8C47_20240702222413%20-%20%E8%A4%87%E8%A3%BD.png");
+}
+
+#slime {
+  background-image: url("https://251131395.github.io/b00k/media/image/70DDA183-A4D8-4269-9BCF-49DDA631AEEF.png");
+  background-size: 400%;
+  background-position: 47% 67%;
+}
+
+#cloth-room:active,
+#cloth:active,
+#slime:active {
+  background-repeat: repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: zoom-in;
+
+  span {
+    color: transparent;
+    -webkit-text-stroke: 0px #555;
+    text-stroke: 0px #555;
+  }
+}
+
+.filter {
+  transition: all 0.5s;
+  transition: all 0.5s;
+  position: fixed;
+  z-index: 30;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  backdrop-filter: invert(0) sepia(0) brightness(1) saturate(1) hue-rotate(0deg);
+  -webkit-backdrop-filter: invert(0) sepia(0) brightness(1) saturate(1)
+    hue-rotate(0deg);
+}
+
+  </style>
+</head>
+
+<body>
+
+  <span class="menu" onclick="location.href = document.referrer; return false;"><i class="fa-solid fa-arrow-left"></i></span>
+  
+  
+  <div id="loading">
+    <div><nobr>
+    <div></div>
+    <i class="fa-solid fa-pencil"></i>
+    <span>圖像加載中</span>
+      </nobr>
+      </div>
+  </div>
+  
+  
+
+  <div class="mode" id="color">
+    <span id="color-day" onclick="setDayColor()"><i class="fa-regular fa-sun"></i> </span>
+    <span id="color-night" onclick="setNightColor()"><i class="fa-regular fa-moon"></i> </span>
+    <span id="color-eye" onclick="setEyeColor()"><i class="fa-regular fa-eye"></i> </span>
+    <span id="color-lemon" onclick="setLemonColor()"><i class="fa-regular fa-lemon"></i> </span>
+    <p>長按圖片以查看大圖</p>
+    <font>請隱藏工作列，或按著頁首向上推，以隱藏工作列。</font>
+  </div>
+  <div class="mode" id="font-size">
+    <font>字號：</font>
+    <span id="fs-m"><i class="fa-solid fa-minus"></i> </span>
+    <span id="fs-p"><i class="fa-solid fa-plus"></i> </span>
+    <span id="fs-r"><i class="fa-solid fa-arrow-rotate-right"></i> </span>
+  </div>
+  <div class="mode" id="dire">
+    <font>文字方向：</font>
+    <span id="dire-left"><i class="fa-solid fa-arrow-left-long"></i> </span>
+    <span id="dire-down"><i class="fa-solid fa-arrow-down-long"></i> </span>
+  </div>
+
+  <div class="content">
+
+    <div class="filter"></div>
+
+    <span>罐頭日記</span>
+    <p class="word"><i class="fa-solid fa-camera-retro"></i> 攝影 / <i class="fa-solid fa-tachograph-digital"></i> 後製 / <i class="fa-solid fa-pen"></i> 作者 / <i class="fa-solid fa-image"></i> 插圖 / <i class="fa-solid fa-wand-magic-sparkles"></i> CGI / <i class="fa-solid fa-grip"></i> 排版 : 251131395 <i class="fa-solid fa-fish-fins"></i><br><br>
+    </p>
+    
+    <span>00</span>
+    <p class="word">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget ultricies justo, vitae vestibulum dolor. Morbi aliquet consectetur justo, vitae elementum odio tristique nec. Morbi sed neque porta, maximus sem non, convallis lorem. Ut placerat fringilla ligula ac viverra. Curabitur ut orci ullamcorper, tempus nulla eget, vestibulum massa. Nulla vitae metus posuere, porta purus nec, finibus dolor. Morbi magna mi, semper quis sapien eget, ultricies finibus turpis. Fusce lobortis vitae leo ac volutpat. Sed rutrum leo et dignissim consectetur. Nullam id nisl ut diam efficitur porta.
+
+Nunc sodales tellus velit, vitae pellentesque enim laoreet in. Sed sed vehicula ante. Vestibulum vulputate ex et velit dignissim luctus. Nunc dictum diam eu cursus interdum. In hac habitasse platea dictumst. Praesent finibus, neque non mattis aliquam, nulla ex varius tellus, ac feugiat enim felis vel sapien. Integer nec ante vel arcu ultrices aliquam at et enim. Sed venenatis risus justo, eu auctor ante interdum nec. Sed pharetra velit a tellus blandit aliquam eu vitae arcu. Maecenas tincidunt semper lacus, eget fermentum nisl efficitur eu.
+
+Aliquam erat volutpat. Donec accumsan mollis odio, eu cursus diam mollis ac. Donec a augue sodales, pharetra ante sit amet, feugiat est. Aenean vitae lectus dolor. Suspendisse vel augue sodales urna dictum dapibus fringilla maximus neque. Vivamus posuere sapien odio, in feugiat nulla feugiat at. Duis varius dictum ligula sed tristique. Suspendisse non erat vitae tellus lacinia ornare sit amet non leo. Mauris semper odio vitae feugiat fermentum. Curabitur in convallis ligula. Proin luctus nisl nec turpis commodo congue. Cras ultricies sodales mollis.<br><br></p>
+    
+    <span>01</span>
+    <p class="word">18/04/2024 乘車有感<br>一棟棟高樓大廈就像是城市的脊骨，支撐起這片天空，但又像是石屎森林中的墓碑。<br><br></p> 
+    
+    <span>02</span>
+    <p class="word">13/07/2024<br>有些甜言蜜語就像炎炎夏日掉在地上的糖果，只招蒼蠅喜歡，令人討厭。<br><br></p>
+    
+        <span></span>
+    <p class="word"><br><br></p>
+    
+    
+    </div><br><br>
+
+  </div>
+
+</body>
+
+<script>
+  // 获取按钮和内容元素
+var direDownBtn = document.getElementById("dire-down");
+var direLeftBtn = document.getElementById("dire-left");
+var contentDiv = document.querySelector(".content");
+
+// 监听按钮点击事件
+direDownBtn.addEventListener("click", function () {
+  // 修改内容元素的CSS样式
+  contentDiv.style.width = "";
+  contentDiv.style.overflowX = "";
+  contentDiv.style.writingMode = "";
+  contentDiv.style.textOrientation = "";
+});
+
+direLeftBtn.addEventListener("click", function () {
+  // 修改内容元素的CSS样式
+  contentDiv.style.width = "100vw";
+  contentDiv.style.overflowX = "scroll";
+  contentDiv.style.writingMode = "vertical-rl";
+  contentDiv.style.textOrientation = "mixed";
+});
+
+// 获取span元素和.word元素
+const decreaseBtn = document.getElementById("fs-m");
+const increaseBtn = document.getElementById("fs-p");
+const resetBtn = document.getElementById("fs-r");
+const wordElements = document.querySelectorAll(".word");
+
+// 定义初始字体大小和最小/最大值
+let fontSize = 16;
+const minFontSize = 10;
+const maxFontSize = 36;
+
+// 减小字体大小的点击事件处理程序
+decreaseBtn.addEventListener("click", function () {
+  if (fontSize > minFontSize) {
+    fontSize -= 2;
+    for (let i = 0; i < wordElements.length; i++) {
+      wordElements[i].style.fontSize = fontSize + "px";
+    }
+  }
+});
+
+// 增大字体大小的点击事件处理程序
+increaseBtn.addEventListener("click", function () {
+  if (fontSize < maxFontSize) {
+    fontSize += 2;
+    for (let i = 0; i < wordElements.length; i++) {
+      wordElements[i].style.fontSize = fontSize + "px";
+    }
+  }
+});
+
+// 重置字体大小的点击事件处理程序
+resetBtn.addEventListener("click", function () {
+  fontSize = 16;
+  for (let i = 0; i < wordElements.length; i++) {
+    wordElements[i].style.fontSize = fontSize + "px";
+  }
+});
+
+function setFilterStyle(filterValue) {
+  const filterElements = document.getElementsByClassName("filter");
+  for (let i = 0; i < filterElements.length; i++) {
+    filterElements[i].style.backdropFilter = filterValue;
+    filterElements[i].style.webkitBackdropFilter = filterValue;
+  }
+}
+
+document.getElementById("color-day").addEventListener("click", function () {
+  setFilterStyle(
+    "invert(0) sepia(0) brightness(1) saturate(1) hue-rotate(180deg)"
+  );
+});
+
+document.getElementById("color-night").addEventListener("click", function () {
+  setFilterStyle(
+    "invert(1) sepia(0) brightness(1) saturate(1) hue-rotate(0deg)"
+  );
+});
+
+document.getElementById("color-eye").addEventListener("click", function () {
+  setFilterStyle(
+    "invert(0) sepia(1) brightness(0.8) saturate(3) hue-rotate(40deg)"
+  );
+});
+
+document.getElementById("color-lemon").addEventListener("click", function () {
+  setFilterStyle(
+    "invert(0) sepia(1) brightness(0.8) saturate(1.8) hue-rotate(-8deg)"
+  );
+});
+
+</script>
+  <script>
+    window.addEventListener('load', function() {
+      var loadingElement = document.getElementById('loading');
+      loadingElement.style.display = 'none';
+    });
+</script>
+
+</html>
