@@ -293,6 +293,7 @@ body .book {
   box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.25),
     2px 2px 2px rgba(0, 0, 0, 0.05);
   cursor: pointer;
+  position:relative;
 }
 
 .book span {
@@ -301,6 +302,8 @@ body .book {
   writing-mode: vertical-rl;
   text-orientation: upright;
   margin: 10px;
+  position:relative;
+  z-index:15;
 }
 
 .name {
@@ -480,16 +483,63 @@ footer hr {
   background-image: url("https://251131395.github.io/b00k/media/image/65da3c1d-43db-4fa5-8a74-5873741c06f1.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: repeat;
 }
 
 #epl-f11 {
   background-image: url("https://251131395.github.io/b00k/media/image/WhatsApp Image 2024-06-30 at 2.36.13 PM.jpeg");
   background-size: cover;
   background-position: center;
-  background-repeat: repeat;
 }
 
+#justcan{
+  background-image: url("https://251131395.github.io/b00k/media/image/imyjustacan.gif");
+  background-size: cover;
+  background-position: center;
+}
+
+#justcan span{
+  letter-spacing:5px;
+  color:#000;
+  margin-top:23px;
+}
+
+.book-filter{
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  backdrop-filter:grayscale(1);
+  -webkit-backdrop-filter:grayscale(1);
+  z-index:5;
+}
+
+.justcan-book-filter{
+  background-color:#EB5B00;
+  mix-blend-mode: overlay;
+  
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:10;
+  overflow:hidden;
+  
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.justcan-book-filter font{
+  padding:0;
+  margin:0;
+  color:#fff;
+  font-size:150px;
+  display:block;
+  margin-left:-18px;
+  margin-bottom:-8px;
+}
   </style>
 </head>
 
@@ -543,8 +593,8 @@ footer hr {
         <div class="rank-bl">
           <span>03</span>
           <div>
-            <font>???</font>
-            <p>???
+            <font>罐頭日記</font>
+            <p>251131395
             <p>
           </div>
         </div>
@@ -576,6 +626,98 @@ footer hr {
               <span></span>
             </div>
             <span class="name">11/F</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
+            <span class="date">??/??/????</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <span class="tit">非小說</span>
+      <div class="bookshelf">
+        <div class="area">
+          <span class="space"></span>
+          <div class="block">
+            <div class="book" id="justcan" onclick="location.href=''">
+              <div class="book-filter"></div>
+              <div class="justcan-book-filter">
+                <font>
+                  <i class="fa-solid fa-burst"></i>
+                </font>
+              </div>
+              <span>罐頭日記</span>
+            </div>
+            <span class="name">罐頭日記</span>
+            <span class="date">13/07/2024</span>
+          </div>
+          <div class="block">
+            <div class="book" id="" onclick="location.href=''">
+              <span>?</span>
+            </div>
+            <span class="name">???</span>
             <span class="date">??/??/????</span>
           </div>
           <div class="block">
