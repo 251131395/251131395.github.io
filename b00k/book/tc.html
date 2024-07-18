@@ -52,13 +52,19 @@
 }
 
 .top{
+  transition:all 0.2s;
   position:relative;
   height:30vh;
-  background: linear-gradient(0deg, rgba(255,255,255,0.8) 0%, rgba(0,0,0,0) 60%);
+  background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+}
+
+.top:hover{
+  transition:all 0.5s;
+  height:50vh;
 }
 
 .top span{
-  color:#000;
+  color:#fff;
   position:absolute;
   font-size:40px;
   font-weight:bold;
@@ -68,7 +74,7 @@
 }
 
 .top font{
-  color:#333;
+  color:#aaa;
   position:absolute;
   font-size:16px;
   right:0;
@@ -78,14 +84,14 @@
 
 .main{
   padding:15px;
-  background-color:#eee;
+  background-color:#222;
   min-height:70vh;
-  background: linear-gradient(180deg, #eee 0%, #fff 70px);
+  background: linear-gradient(180deg, rgba(25,25,25,1) 0%, rgba(10,10,10,1) 70px);
 }
 
 .title{
   display:block;
-  color:#000;
+  color:#fff;
   font-size:20px;
   font-weight:bold;
   margin-bottom:10px;
@@ -123,7 +129,7 @@
   font-size:16px;
   padding:20px 0 30px;
   display:block;
-  color:#000;
+  color:#fff;
   line-height:1.5;
 }
 
@@ -148,14 +154,14 @@
 }
 
 .book-bnt-group:hover{
-  background-color:#eee;
+  background-color:#222;
 }
 
 .book-bnt-group span{
   display:block;
   font-weight: bold;
   font-size:16px;
-  color:#000;
+  color:#fff;
 }
 
 .book-bnt-group font{
@@ -204,7 +210,7 @@
 }
 
 #tbc span{
-  color:#ccc;
+  color:#555;
 }
 
 #oth-poster{
@@ -217,14 +223,14 @@
 
 #oth-g-web{
   background-image: url("https://251131395.github.io/iveai/media/image/64D5C8D3-499C-4704-AB03-DA05CABD941E.png");
-  border:1px #ddd solid;
+  filter:invert(0.8) hue-rotate(180deg);
+  -webkit-filter:invert(0.8) hue-rotate(180deg);
 }
 
 .oth-bnt-group span{
-  font-weight: bold;
   width:120px;
   display:block;
-  color:#000;
+  color:#fff;
   padding:5px 0 0;
   text-align:center;
   font-size:14px;
@@ -239,7 +245,7 @@
   padding:0;
   margin:0 0 30px;
   display:block;
-  color:#000;
+  color:#fff;
   line-height:1.15;
 }
 
