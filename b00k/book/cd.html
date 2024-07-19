@@ -7,7 +7,7 @@
   <title>B00K - 罐頭日記</title>
 
   <style>
-    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+        @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
   body {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -40,60 +40,76 @@
   text-stroke: 0.5px lightgray;
 }
 
-.top {
-  padding: 40px 20px 15px;
-  text-align: center;
-  position: relative;
-}
 
-.book-img {
-  vertical-align: top;
-  width: calc(100vw - 40px);
-  height: calc(135vw - 54px);
-  margin: 0 0 10px;
-  border-radius: 5px;
+.bg-img{
+  position:fixed;
+  width:100vw;
+  height:50vh;
   background-image: url("https://251131395.github.io/b00k/media/image/imyjustacan.gif");
   background-size: cover;
-  background-position: center;
-  display: inline-block;
+  background-position: 30% center;
+  z-index:-999;
 }
 
-.book-info {
-  text-align: left;
-  margin-left: 0px;
-  vertical-align: top;
-  display: inline-block;
+.top{
+  transition:all 0.2s;
+  position:relative;
+  height:30vh;
+  background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
 }
 
-.book-info .tit {
-  font-size: 25px;
-  font-weight: bold;
-  padding: 0;
-  margin: 0 0 2px;
-  display: block;
+.top:hover{
+  transition:all 0.5s;
+  height:50vh;
 }
 
-.book-info font {
-  padding: 0;
-  margin: 0;
-  margin-right: 5px;
-  font-size: 14px;
+.top span{
+  color:#fff;
+  position:absolute;
+  font-size:40px;
+  font-weight:bold;
+  left:0;
+  bottom:0;
+  margin:5px 10px 5px;
 }
 
-.book-info p {
-  display: block;
-  padding: 0;
-  margin: 0 0 15px;
+.top font{
+  color:#aaa;
+  position:absolute;
+  font-size:16px;
+  right:0;
+  bottom:0;
+  margin:5px 10px 5px;
 }
 
-.review {
-  display: block;
-  padding: 0 20px 20px;
-  margin: 0 0 100px;
+.main{
+  padding:15px;
+  background-color:#222;
+  min-height:70vh;
+  background: linear-gradient(180deg, rgba(25,25,25,1) 0%, rgba(10,10,10,1) 70px);
 }
+
+.title{
+  display:block;
+  color:#fff;
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.book-info{
+  padding:5px 0px 10px;
+}
+
+.book-info font{
+  color:#888;
+  font-size:14px;
+  margin-right:15px;
+}
+
 
 .book-info-bnt {
-  padding: 20px 0 0;
+  padding: 0 20px 0;
 }
 
 .book-info-bnt button {
@@ -109,40 +125,131 @@
   cursor: pointer;
 }
 
-@media screen and (min-width: 500px) {
-  .top {
-    padding: 50px 50px 5px;
-    text-align: left;
-  }
-
-  .book-img {
-    vertical-align: top;
-    width: 200px;
-    height: 270px;
-  }
-
-  .book-info {
-    text-align: left;
-    margin-left: 15px;
-    vertical-align: top;
-    display: inline-block;
-  }
-
-  .book-info-bnt button {
-    font-size: 14px;
-    margin-right: 7px;
-    margin-bottom: 9px;
-    padding: 7px 15px 7px;
-  }
-
-  .review {
-    padding: 0 50px 20px;
-  }
-  .warning {
-    padding: 20px;
-    margin: -100px 50px 100px;
-  }
+.review{
+  font-size:16px;
+  padding:20px 0 30px;
+  display:block;
+  color:#fff;
+  line-height:1.5;
 }
+
+
+
+
+
+.book-bnt{
+  padding:0 0 30px;
+}
+
+.book-bnt-group{
+  min-width:150px;
+  border:1px #aaa solid;
+  border-radius:5px;
+  display: inline-block;
+  padding:10px;
+  position:relative;
+  margin:0 10px 10px;
+  margin-left:0;
+  cursor: pointer;
+}
+
+.book-bnt-group:hover{
+  background-color:#222;
+}
+
+.book-bnt-group span{
+  display:block;
+  font-weight: bold;
+  font-size:16px;
+  color:#fff;
+}
+
+.book-bnt-group font{
+  display:block;
+  font-size:12px;
+  color:#888;
+}
+
+@media screen and (max-width: 610px) {
+  .book-bnt-group{
+  width:calc(100% - 20px);
+  margin:0 0 10px;
+}
+}
+
+
+
+
+
+.oth-bnt{
+  padding:0 15px 10px;  
+  white-space: nowrap;
+  overflow: auto;
+  margin:0 -15px 20px;
+}
+
+.oth-bnt-group{
+  display:inline-block;
+  margin-right:10px;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.oth-bnt-group-img{
+  width:120px;
+  height:120px;
+  background-size: cover;
+  background-position: center;
+}
+
+#tbc{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+#tbc span{
+  color:#555;
+}
+
+#oth-poster{
+  background-image: url("https://251131395.github.io/b00k/media/image/22637D41-BD14-48E5-AF9C-6A5ECAE49B8D.png");
+}
+
+#oth-p-360{
+  background-image: url("https://251131395.github.io/b00k/media/image/65da3c1d-43db-4fa5-8a74-5873741c06f1.jpg");
+}
+
+#oth-g-web{
+  background-image: url("https://251131395.github.io/iveai/media/image/64D5C8D3-499C-4704-AB03-DA05CABD941E.png");
+  filter:invert(0.8) hue-rotate(180deg);
+  -webkit-filter:invert(0.8) hue-rotate(180deg);
+}
+
+.oth-bnt-group span{
+  width:120px;
+  display:block;
+  color:#fff;
+  padding:5px 0 0;
+  text-align:center;
+  font-size:14px;
+  white-space: normal;
+}
+
+
+.warning{
+  height:150px;
+  overflow:auto;
+  font-size:12px;
+  padding:0;
+  margin:0 0 30px;
+  display:block;
+  color:#fff;
+  line-height:1.15;
+}
+
+
 
 footer {
   background-color: rgba(0, 0, 0, 1);
@@ -206,45 +313,21 @@ footer hr {
   }
 }
 
-#tc {
-  background-image: url("https://251131395.github.io/b00k/media/image/u2ntitled.png");
-  background-size: cover;
-  background-position: center;
-}
-
-#f11 {
-  background-image: url("https://251131395.github.io/b00k/media/image/WhatsApp Image 2024-06-30 at 2.36.13 PM.jpeg");
-  background-size: cover;
-  background-position: center;
-}
-
-#epl-tc {
-  background-image: url("https://251131395.github.io/b00k/media/image/65da3c1d-43db-4fa5-8a74-5873741c06f1.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat;
-}
-
-#epl-f11 {
-  background-image: url("https://251131395.github.io/b00k/media/image/WhatsApp Image 2024-06-30 at 2.36.13 PM.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat;
-}
-
   </style>
 </head>
 
 <body>
   <span class="menu" onclick="location.href='https://251131395.github.io/b00k/home.html'"><i class="fa-solid fa-house"></i></span>
 
+  <div class="bg-img"></div>
+
   <div style="min-height:100vh">
     <div class="top">
-      <div class="book-img"></div>
+      <span>罐頭日記</span>
+      <font>作者：251131395</font>
+    </div>
+    <div class="main">
       <div class="book-info">
-        <span class="tit">罐頭日記</span>
-        <p>作者：251131395</p>
-
         <nobr>
           <font><i class="fa-solid fa-file-invoice"></i> 未定篇幅</font>
         </nobr>
@@ -255,21 +338,23 @@ footer hr {
           <font><i class="fa-solid fa-file-pen"></i> 不定期更新</font>
         </nobr>
         <nobr>
-          <font><i class="fa-solid fa-eye"></i> 1.00000次觀看</font>
-        </nobr>
-        <nobr>
           <font><i class="fa-solid fa-pen-nib"></i> 日記</font>
         </nobr>
-
-        <div class="book-info-bnt">
-          <button onclick="location.href='https://251131395.github.io/b00k/book/cd-it.html'">閱讀圖文版</button>
+        <nobr>
+          <font style="margin-right:0;"><i class="fa-solid fa-eye"></i> 1.00000次觀看</font>
+        </nobr>
+      </div>
+      
+      <span class="review">一個罐頭的日記</span>
+      
+      <span class="title">閱讀模式</span>
+      <div class="book-bnt">
+        <div class="book-bnt-group" onclick="location.href='https://251131395.github.io/b00k/book/cd-it.html'">
+            <span>圖文版</span>
+            <font>豐富的圖像，更佳的閱讀體驗</font>
         </div>
       </div>
-
     </div>
-
-    <span class="review">一個罐頭的日記</span>
-
   </div>
 
   <footer>
