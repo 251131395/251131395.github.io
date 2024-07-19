@@ -7,7 +7,7 @@
   <title>B00K</title>
 
   <style>
-    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+      @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
   body {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -41,116 +41,22 @@
 }
 
 header {
-  height: 70vh;
+  transition:all 0.2s;
   background-color: #000;
   position: relative;
-  overflow: hidden;
-}
-
-.bg-filter{
-  width:100%;
-  height:100%;
-  position:absolute;
-  top:0;
-  left:0;
-  z-index: 10;
-  backdrop-filter:blur(5px);
-  
-  background-size: 3px;
-  background-repeat: repeat;
+  padding:20px;
+    background-size: cover;
   background-position: center;
-  background-image: url("https://251131395.github.io/iveai/media/image/AB8DFAA9-EA6E-4BE9-863F-EE5640F6C3A6.png");
-  mix-blend-mode: soft-light;
-}
-
-.bg {
-  color: rgba(0,0,0,0.94);
-  font-weight: bold;
-  position: absolute;
-  z-index: 0;
-  text-shadow:0px 0px 30px #77E4C8,0px 0px 5px #4535C1;
-  mix-blend-mode: hard-light;
-}
-
-#B {
-  font-size: 400px;
-  left: 0;
-  bottom: -150px;
-}
-
-#oo {
-  font-size: 400px;
-  left: -20px;
-  top: -180px;
-}
-
-#K {
-  font-size: 450px;
-  right: -70px;
-  top: 10%;
+  background-image: url("https://images.unsplash.com/photo-1650800544011-3db64ec79bc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjEzOTQ1OTl8&ixlib=rb-4.0.3&q=80&w=400");
 }
 
 .title {
   color: #fff;
   mix-blend-mode: difference;
   display: block;
-  font-size: 60px;
-  position: absolute;
+  font-size: 40px;
+  position: relative;
   z-index: 20;
-  left: 30px;
-  top: 20px;
-}
-
-.text {
-  color: #fff;
-  display: block;
-  position: absolute;
-  z-index: 20;
-  width: 40%;
-  right: 30px;
-  top: 30px;
-}
-
-.text-phone {
-  color: #fff;
-  font-size: 14px;
-  letter-spacing: 1px;
-  display: none;
-  position: absolute;
-  z-index: 20;
-  right: 30px;
-  top: 75px;
-  line-height: 1.5;
-}
-
-@media screen and (max-width: 665px) {
-  header {
-    min-height: 300px;
-    height: 50vh;
-  }
-  .text {
-    display: none;
-  }
-  .text-phone {
-    display: block;
-  }
-}
-
-header p {
-  color: #fff;
-  display: block;
-  padding: 0;
-  margin: 0;
-  line-height: 1.5;
-  padding-right: 140px;
-  font-size: 14px;
-}
-
-.script {
-  position: absolute;
-  z-index: 10;
-  bottom: 25px;
-  left: 30px;
 }
 
 header button {
@@ -159,21 +65,20 @@ header button {
   padding: 10px 15px 10px;
   position: absolute;
   z-index: 10;
-  bottom: 25px;
-  right: 30px;
-  background-color: rgba(177,177,177,0.7);
-  mix-blend-mode: difference;
-  color: #000;
+  bottom: -20px;
+  right: 20px;
+  background-color: #666;
+  color: #fff;
   border: none;
   border-radius: 30px;
 }
 
 .rank {
-  background-color: #fafafa;
+    background-color: #1e1e1e;
   background: linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.07) 0%,
-    rgba(255, 255, 255, 0) 40%
+    #111 0%,
+    #1e1e1e 20%
   );
   padding-bottom: 15px;
   overflow: auto;
@@ -197,7 +102,7 @@ header button {
 }
 
 .rank-bl:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 @media screen and (max-width: 368px) {
@@ -224,6 +129,7 @@ header button {
   font-size: 20px;
   padding: 0;
   padding-right: 10px;
+  color:#fff;
 }
 
 .rank-bl font {
@@ -231,6 +137,7 @@ header button {
   font-size: 14px;
   padding: 0;
   margin: 0;
+  color:#fff;
 }
 
 .rank-bl p {
@@ -241,11 +148,11 @@ header button {
 }
 
 .main {
-  background-color: #fcfcfc;
+  background-color: #1e1e1e;
   background: linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(255, 255, 255, 0) 20%
+    #111 0%,
+    #1e1e1e 20%
   );
 }
 
@@ -287,7 +194,7 @@ body .book {
   width: 110px;
   min-height: 150px;
   background-color: gray;
-  border: 0.7px gray solid;
+  border: 0.7px #444 solid;
   border-radius: 3px;
   text-align: center;
   box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.25),
@@ -310,7 +217,7 @@ body .book {
   margin: 10px 0px 0px;
   font-size: 14px;
   display: block;
-  color: #000;
+  color: #fff;
 }
 
 .date {
@@ -325,15 +232,16 @@ body .book {
   display: block;
   font-weight: bold;
   font-size: 20px;
+  color:#fff;
 }
 
 .eplmo {
   min-height: 150px;
-  background-color: #fefefe;
+    background-color: #1e1e1e;
   background: linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(255, 255, 255, 0) 20%
+    #111 0%,
+    #1e1e1e 20%
   );
   padding-bottom: 20px;
 }
@@ -351,7 +259,7 @@ body .book {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.25),
+  box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5), 0px 4px 8px rgba(0, 0, 0, 0.7),
     2px 2px 2px rgba(0, 0, 0, 0.05);
 }
 
@@ -474,7 +382,7 @@ footer hr {
 }
 
 #f11 {
-  background-image: url("https://251131395.github.io/b00k/media/image/無標題5_20240713214619.png");
+  background-image: url("https://images.unsplash.com/photo-1525956058128-f1ab919ba1a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjEzOTE3MTN8&ixlib=rb-4.0.3&q=80&w=400");
   background-size: cover;
   background-position: center;
 }
@@ -548,24 +456,6 @@ footer hr {
   <div style="min-height:100vh">
     <header>
       <span class="title">B 0 0 K</span>
-      <div class="bg-filter"></div>
-      <span class="bg" id="B">B</span>
-      <span class="bg" id="oo">00</span>
-      <span class="bg" id="K">K</span>
-      <div class="script">
-        <p>電子書閱讀平台 B00K 現已上載超過1.0000000本藏書！！！<br>
-          內容豐富，質量上乘，絕對是您選擇電子書的不二之選。</p>
-      </div>
-      <span class="text">
-        便捷的閱讀體驗： B00K 平台提供多種閱讀模式，您可以根據自己的喜好選擇適合的閱讀方式，例如：夜間模式、護眼模式、翻頁模式等等。<br><br>
-        個性化推薦： B00K 平台會根據我的閱讀偏好為您推薦合適的書籍，讓您輕鬆發現更多精彩的書籍。<br><br>
-        多平台支持： B00K 平台支持多種設備，包括手機、平板電腦、電腦等等，讓您隨時隨地都能享受閱讀的樂趣。
-      </span>
-      <span class="text-phone">
-        夜間模式<br>
-        翻頁模式<br>
-        多平台
-      </span>
       <button onclick="location.href='https://251131395.github.io/b00k/book/tc.html'">隨機探索 <i class="fa-solid fa-shuffle"></i></button>
     </header>
 
@@ -626,7 +516,7 @@ footer hr {
               <span></span>
             </div>
             <span class="name">11/F</span>
-            <span class="date">??/??/????</span>
+            <span class="date">敬請期待</span>
           </div>
           <div class="block">
             <div class="book" id="" onclick="location.href=''">
