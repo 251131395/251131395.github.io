@@ -1,0 +1,484 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="https://251131395.github.io/media/image/keski-fish-head.png" rel="shortcut icon"/>
+  <title>無能為力的凱斯基</title>
+
+  <style>
+@import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+  body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #000;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center bottom;
+  background-image: url("https://251131395.github.io/media/image/keski-fish_no-light.png");
+  z-index: 0;
+
+  
+  animation: day 600s ease-in-out infinite;
+}
+
+@keyframes day{
+  0%{
+  filter: contrast(0.8) brightness(1.5) sepia(0) saturate(1); 
+    -webkit-filter: contrast(0.8) brightness(1.5) sepia(0) saturate(1);
+  }
+  25%{
+    filter: contrast(0.9) brightness(1.3) sepia(1) saturate(1.8);
+    -webkit-filter: contrast(0.9) brightness(1.3) sepia(1) saturate(1.8);
+  }
+  50%{
+    filter: contrast(1) brightness(1) sepia(0) saturate(1);
+    -webkit-filter: contrast(1) brightness(1) sepia(0) saturate(1);
+  }
+  75%{
+    filter: contrast(0.7) brightness(0.4) sepia(0) saturate(0);
+    -webkit-filter: contrast(0.7) brightness(0.4) sepia(0) saturate(0);
+  }
+  100%{
+    filter: contrast(0.8) brightness(1.5) sepia(0) saturate(1); 
+    -webkit-filter: contrast(0.8) brightness(1.5) sepia(0) saturate(1); 
+  }
+}
+
+.lv {
+  position: fixed;
+  top: 10px;
+  left: -1px;
+  width: 140px;
+  height: 40px;
+  border: 1px #555 solid;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+  background-size: 120%;
+  background-position: -215% 42%;
+  background-image: url("https://251131395.github.io/media/image/keski-fish-head.png");
+}
+
+.lv font {
+  color: rgba(222, 222, 222, 0.6);
+  font-size: 12.5px;
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  font-family: "Noto Serif TC", serif;
+  z-index: 10;
+}
+
+.lv span {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 2px;
+  left: 5px;
+  z-index: 10;
+}
+
+.envelope{
+  position: fixed;
+  top: 65px;
+  left: 10px;
+  font-size: 12px;
+}
+
+.envelope span{
+  color:#aaa;
+  margin-right:10px;
+  cursor: pointer;
+}
+
+.envelope span:active{
+  color:#777;
+}
+
+#music{
+  color:#555;
+}
+
+.coin {
+  position: fixed;
+  top: 13px;
+  right: 10px;
+  border: 1px #555 solid;
+  border-radius: 5px;
+  width: 80px;
+  padding: 3px;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.coin font {
+  color: #aaa;
+  background-color: #222;
+  padding: 6px;
+  margin: 0;
+  position: absolute;
+  top: -2px;
+  left: -1px;
+}
+
+.coin span {
+  color: #ddd;
+  float: right;
+}
+
+.coin span i {
+  color: #aaa;
+  float: right;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 1px;
+}
+
+.mic {
+  position: absolute;
+  bottom: 90px;
+  left: 20px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  z-index: 10;
+}
+
+.mic:active {
+  color: #aaa;
+}
+
+.mic i {
+  font-size: 20px;
+}
+
+.mic span {
+  font-size: 12px;
+}
+
+.say-shell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.say {
+  display: inline-block;
+  min-width: 100px;
+  max-width: 200px;
+  padding: 10px;
+  position: relative;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 30vw;
+}
+
+.say:before {
+  position: absolute;
+  content: "";
+  bottom: 11px;
+  left: calc(50% - 11px);
+  bottom: -10px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid rgba(255, 255, 255, 0.6);
+}
+
+.say span {
+  color: #000;
+  font-size: 14px;
+}
+
+.cook-button-shell {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  padding: 20px;
+  font-family: "Noto Serif TC", serif;
+}
+
+.cook-button-shell div:active {
+  transform: scale(1.05);
+}
+
+.end-bnt-bg {
+  display: inline-block;
+  width: 65px;
+  height: 65px;
+  border: 1px #aaa solid;
+  border-radius: 50%;
+  margin-left: 10px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(243, 254, 184, 0.5);
+  text-shadow: 2px 2px 2px #ffb22c;
+  background-size: 250%;
+  background-position: center;
+  background-image: url("https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjE0Nzc1MDV8&ixlib=rb-4.0.3&q=80&w=400");
+  filter: grayscale(1);
+  -webkit-filter: grayscale(0.5);
+  transition: all 0.4s;
+}
+
+.end-bnt-bg:hover {
+  filter: grayscale(0);
+  -webkit-filter: grayscale(0);
+  transition: all 0.1s;
+}
+
+.end-bnt-bg:active {
+  filter: grayscale(0);
+  -webkit-filter: grayscale(0);
+  transition: all 0.1s;
+}
+
+.end-bnt-bg:before {
+  width: 103%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px rgba(255, 178, 44, 0.7) dashed;
+  filter: blur(0.5px);
+  -webkit-filter: blur(0.5px);
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -5px;
+}
+
+.end-bnt-bg:after {
+  width: 106%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px rgba(243, 254, 184, 0.6) dashed;
+  filter: blur(0.5px);
+  -webkit-filter: blur(0.5px);
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+}
+
+.end-bnt-bg span {
+  color: #fff;
+  font-size: 24px;
+  qfont-weight: bold;
+  position: absolute;
+}
+
+.end-bnt-bg span:nth-child(1) {
+  top: 12px;
+  left: 8px;
+}
+
+.end-bnt-bg span:nth-child(2) {
+  bottom: 12px;
+  right: 8px;
+}
+
+.c-b-bg {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 1px #aaa solid;
+  border-radius: 50%;
+  margin-left: 5px;
+  position: relative;
+  cursor: pointer;
+  z-index: 0;
+  box-shadow: 3px 1px 10px rgba(243, 254, 184, 0.3);
+  background-color: #000;
+}
+
+.c-b-bg:nth-child(1) div {
+  width: 30px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0px;
+  left: 15px;
+  background-size: 260%;
+  background-position: center 35%;
+  background-image: url("https://images.unsplash.com/photo-1608571423539-e951b9b3871e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjE0NjkxNzV8&ixlib=rb-4.0.3&q=80&w=400");
+  filter: grayscale(1) invert() contrast(10);
+  -webkit-filter: grayscale(1) invert() contrast(10);
+  z-index: 10;
+}
+
+.c-b-bg:nth-child(2) div {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://images.unsplash.com/photo-1505413687799-90481dfc0203?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjE0NzU5MTl8&ixlib=rb-4.0.3&q=80&w=400");
+  filter: grayscale(1) invert(0) contrast(3);
+  -webkit-filter: grayscale(1) invert(0) contrast(3);
+}
+
+.c-b-bg:nth-child(3) div {
+  width: 100%;
+  height: 50px;
+  border-radius: 50%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background-size: cover;
+  background-position: center bottom;
+  background-image: url("https://images.unsplash.com/photo-1481660148723-b77ee9184660?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjE0NzYxMDN8&ixlib=rb-4.0.3&q=80&w=400");
+  filter: grayscale(1) invert(0) contrast(2);
+  -webkit-filter: grayscale(1) invert(0) contrast(2);
+  z-index: 10;
+}
+
+.c-b-bg span {
+  color: #fff;
+  font-size: 14px;
+  position: absolute;
+  bottom: -2px;
+  left: 2px;
+  background-color: rgba(22, 22, 22, 0.7);
+  padding: 1px 5px 1px;
+  letter-spacing: 2px;
+  z-index: 15;
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="bg-img"onclick="showRandomMessage()"></div>
+
+  <div class="lv">
+    <font>舍不得吃了</font>
+    <span>Lv.80</span>
+  </div>
+  
+  <div class="envelope">
+    <span><i class="fa-solid fa-envelope"></i></span>
+    <span><i class="fa-solid fa-user-group"></i></span>
+    <span id="music"><i class="fa-solid fa-music"></i></span>
+    </div>
+  
+  
+<audio id="audioPlayer" src="https://251131395.github.io/media/audio/%E7%84%A1%E8%83%BD%E7%82%BA%E5%8A%9B%E7%9A%84%E5%87%B1%E6%96%AF%E5%9F%BA.mp3" loop></audio>
+
+  <div class="coin">
+    <font><i class="fa-solid fa-coins"></i></font>
+    <span>0 <i class="fa-solid fa-plus"></i></span>
+  </div>
+
+  <div class="mic"><i class="fa-solid fa-microphone-lines"></i><br><span>談天</span></div>
+
+  <div class="cook-button-shell">
+    <nobr>
+      <div class="c-b-bg">
+        <div></div><span>油炸</span>
+      </div>
+      <div class="c-b-bg">
+        <div></div><span>水煮</span>
+      </div>
+      <div class="c-b-bg">
+        <div></div><span>鹽烤</span>
+      </div>
+
+      <div class="end-bnt-bg"><span>放</span><span>生</span></div>
+    </nobr>
+  </div>
+
+  <div class="say-shell">
+    <div class="say">
+      <span id="word">作為一個小魚mo，怎麼逃得過被吃的命運呢？</span>
+    </div>
+  </div>
+
+<script>
+  function showRandomMessage() {
+      var messages = [
+        "作為一條小魚mo，怎麼逃得過被吃的命運呢？",
+        "嗯，你説吧。",
+        "……",
+        "累。",
+        "有事嗎？我在聽。",
+        "想睡覺了。",
+        "你要吃我嗎？其實我沒有多少肉。",
+        "我需要水……",
+        "你好。",
+        "你還會吃我嗎？",
+        "要和我聊聊天嗎？",
+        "嗯。"
+      ];
+
+      var randomIndex = Math.floor(Math.random() * messages.length);
+      var message = messages[randomIndex];
+      document.getElementById("word").textContent = message;
+      document.querySelector(".say").style.display = "block";
+
+      setTimeout(function() {
+        document.querySelector(".say").style.display = "none";
+      }, 5000);
+    }
+
+ window.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById('audioPlayer');
+    var musicSpan = document.getElementById('music');
+
+    musicSpan.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        musicSpan.style.color = '#aaa';
+      } else {
+        audio.pause();
+        musicSpan.style.color = '#555';
+      }
+    });
+  });
+</script>
+
+</body>
+
+</html>
