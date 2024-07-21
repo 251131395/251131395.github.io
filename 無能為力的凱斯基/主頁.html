@@ -62,6 +62,30 @@
   }
 }
 
+.window{
+  position:fixed;
+  z-index:15;
+  width:100vw;
+  height:100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  pointer-events:none;
+}
+.window span{
+  color:#fff;
+  font-size:12px;
+  background-color: rgba(50,50,50,0.8);
+  padding:5px 10px 5px;
+  box-shadow:0px 0px 10px rgba(0,0,0,0.4);
+  margin-bottom:-10px;
+  transition: all 1s ease-out;
+  display:none;
+}
+
+ 
+
 .lv {
   position: fixed;
   z-index: 10;
@@ -98,14 +122,15 @@
 
 .envelope {
   position: fixed;
-  top: 65px;
+  top: 60px;
   left: 10px;
-  font-size: 12px;
   z-index: 10;
 }
 .envelope span {
+  font-size: 14px;
   color: #aaa;
-  margin-right: 10px;
+  padding: 5px;
+  margin-right:5px;
   cursor: pointer;
 }
 .envelope span:active {
@@ -178,8 +203,8 @@
   background-size: cover;
   background-position: center;
   background-image: url("https://images.unsplash.com/photo-1609347744403-2306e8a9ae27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjE1NDI3NDV8&ixlib=rb-4.0.3&q=80&w=400");
-  filter: blur(7px) brightness(0.9);
-  -webkit-filter: blur(7px) brightness(0.9);
+  filter: blur(5px) brightness(0.9);
+  -webkit-filter: blur(5px) brightness(0.9);
   z-index: -10;
 }
 .recipe .tit {
@@ -256,7 +281,7 @@ rgba(255, 222, 77,0.3) 16%, rgba(0,0,0,0) 52%);
 .recipe-name font{
   color:#F3FEB8;
   position:absolute;
-  top:4px;
+  top:6px;
   left:8px;
   font-size:24px;
   font-family: "Noto Serif TC", serif;
@@ -267,8 +292,6 @@ rgba(255, 222, 77,0.3) 16%, rgba(0,0,0,0) 52%);
   -webkit-filter:grayscale(1);
   color:#555;
 }
-
-
 
 .collect {
   width: 100vw;
@@ -344,8 +367,8 @@ rgba(255, 222, 77,0.3) 16%, rgba(0,0,0,0) 52%);
   background-color: rgba(50, 50, 50, 0.25);
 }
 .coin font {
-  color: #666;
-  background-color: #aaa;
+  color: #aaa;
+  background-color: #666;
   padding: 6px;
   margin: 0;
   position: absolute;
@@ -506,16 +529,29 @@ rgba(255, 222, 77,0.3) 16%, rgba(0,0,0,0) 52%);
   z-index: 0;
   box-shadow: 3px 1px 10px rgba(243, 254, 184, 0.3);
   background-color: #000;
+  animation: move 8s ease-in-out infinite;
 }
+@keyframes move{
+  0%{
+    transform: translate(0, 1px);
+  }
+  50%{
+    transform: translate(0, -1px);
+  }
+  100%{
+    transform: translate(0, 1px);
+  }
+}
+
 .c-b-bg:nth-child(1) div {
-  width: 30px;
+  width: 50px;
   height: 50px;
   border-radius: 50%;
   position: absolute;
-  bottom: 0px;
-  left: 15px;
-  background-size: 260%;
-  background-position: center 35%;
+  bottom: 0;
+  left: 0;
+  background-size: 200%;
+  background-position: 40% 35%;
   background-image: url("https://images.unsplash.com/photo-1608571423539-e951b9b3871e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjE0NjkxNzV8&ixlib=rb-4.0.3&q=80&w=400");
   filter: grayscale(1) invert() contrast(10);
   -webkit-filter: grayscale(1) invert() contrast(10);
@@ -533,6 +569,9 @@ rgba(255, 222, 77,0.3) 16%, rgba(0,0,0,0) 52%);
   background-image: url("https://images.unsplash.com/photo-1505413687799-90481dfc0203?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjE0NzU5MTl8&ixlib=rb-4.0.3&q=80&w=400");
   filter: grayscale(1) invert(0) contrast(3);
   -webkit-filter: grayscale(1) invert(0) contrast(3);
+}
+.c-b-bg:nth-child(2) {
+  animation-delay: -4s;
 }
 .c-b-bg:nth-child(3) div {
   width: 100%;
@@ -558,6 +597,7 @@ rgba(255, 222, 77,0.3) 16%, rgba(0,0,0,0) 52%);
   padding: 1px 5px 1px;
   letter-spacing: 2px;
   z-index: 15;
+  pointer-events:none;
 }
 
 @media screen and (min-width: 768px) {
@@ -594,9 +634,10 @@ rgba(255, 222, 77,0.3) 16%, rgba(0,0,0,0) 52%);
 
   <div class="envelope">
     <span><i class="fa-solid fa-envelope"></i></span>
-    <span><i class="fa-solid fa-user-group"></i></span>
+    <span id="friend"><i class="fa-solid fa-user-group"></i></span>
     <span id="music"><i class="fa-solid fa-music"></i></span>
   </div>
+  <div class="window" id="fri-window"><span>你沒有朋友</span></div>
 
   <audio id="audioPlayer" src="https://251131395.github.io/media/audio/%E7%84%A1%E8%83%BD%E7%82%BA%E5%8A%9B%E7%9A%84%E5%87%B1%E6%96%AF%E5%9F%BA.mp3" loop></audio>
 
@@ -605,11 +646,12 @@ rgba(255, 222, 77,0.3) 16%, rgba(0,0,0,0) 52%);
       <i class="fa-solid fa-book"></i>
       <span>食譜</span>
     </div>
-    <div class="left-bnt">
+    <div class="left-bnt" id="left-bnt-fish">
       <i class="fa-solid fa-fish-fins"></i>
       <span>標本牆</span>
     </div>
   </div>
+  <div class="window" id="fish-window"><span>暫未開啟</span></div>
   
   <div class="recipe">
     <span class="recipe-back"><i class="fa-solid fa-chevron-left"></i></span>
@@ -675,6 +717,7 @@ rgba(255, 222, 77,0.3) 16%, rgba(0,0,0,0) 52%);
   </div>
 
   <div class="mic"><i class="fa-solid fa-microphone-lines"></i><br><span>談天</span></div>
+  <div class="window" id="mic-window"><span>凱斯基目前心情不佳，請稍後再試。</span></div>
 
   <div class="cook-button-shell">
     <nobr>
@@ -698,8 +741,8 @@ rgba(255, 222, 77,0.3) 16%, rgba(0,0,0,0) 52%);
     </div>
   </div>
 
-<script>
-    function showRandomMessage() {
+  <script>
+      function showRandomMessage() {
       var messages = [
         "作為一條小魚mo，怎麼逃得過被吃的命運呢？",
         "嗯，你説吧。",
@@ -725,17 +768,6 @@ rgba(255, 222, 77,0.3) 16%, rgba(0,0,0,0) 52%);
       }, 5000);
     }
 
-
-
-
-
-
-
-
-
-
-
-
  window.addEventListener('DOMContentLoaded', function() {
     var audio = document.getElementById('audioPlayer');
     var musicSpan = document.getElementById('music');
@@ -751,7 +783,6 @@ rgba(255, 222, 77,0.3) 16%, rgba(0,0,0,0) 52%);
     });
   });
 
-  
 document.getElementById('left-bnt-recipe').addEventListener('click', function() {
       var recipeDiv = document.getElementsByClassName('recipe')[0];
       recipeDiv.style.display = 'block';
@@ -761,8 +792,50 @@ document.getElementById('left-bnt-recipe').addEventListener('click', function() 
       var recipeDiv = document.getElementsByClassName('recipe')[0];
       recipeDiv.style.display = 'none';
     });
-</script>
-  
+
+document.getElementById('friend').addEventListener('click', function() {
+      var friWindowSpan = document.querySelectorAll('#fri-window span');
+      friWindowSpan.forEach(function(span) {
+        span.style.display = 'inline-block';
+        span.style.marginBottom = '10px';
+      });
+
+      setTimeout(function() {
+        friWindowSpan.forEach(function(span) {
+          span.style.display = 'none';
+        });
+      }, 1000);
+    });
+
+    document.querySelector('.mic').addEventListener('click', function() {
+      var micWindowSpan = document.querySelectorAll('#mic-window span');
+      micWindowSpan.forEach(function(span) {
+        span.style.display = 'inline-block';
+        span.style.marginBottom = '10px';
+      });
+
+      setTimeout(function() {
+        micWindowSpan.forEach(function(span) {
+          span.style.display = 'none';
+        });
+      }, 1000);
+    });
+
+    document.getElementById('left-bnt-fish').addEventListener('click', function() {
+      var fishWindowSpan = document.querySelectorAll('#fish-window span');
+      fishWindowSpan.forEach(function(span) {
+        span.style.display = 'inline-block';
+        span.style.marginBottom = '10px';
+      });
+
+      setTimeout(function() {
+        fishWindowSpan.forEach(function(span) {
+          span.style.display = 'none';
+        });
+      }, 1000);
+    });
+  </script>
+
 </body>
 
 </html>
