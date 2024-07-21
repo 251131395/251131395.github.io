@@ -7,12 +7,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
-  <link href="https://251131395.github.io/media/image/keski-fish-head.png" rel="shortcut icon"/>
+  <link href="https://251131395.github.io/media/image/keski-fish-head.png" rel="shortcut icon" />
   <title>無能為力的凱斯基</title>
 
   <style>
-@import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
-  body {
+    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
+ body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -23,6 +23,7 @@
   padding: 0px;
   position: relative;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .bg-img {
@@ -36,35 +37,34 @@
   background-image: url("https://251131395.github.io/media/image/keski-fish_no-light.png");
   z-index: 0;
 
-  
   animation: day 600s ease-in-out infinite;
 }
-
-@keyframes day{
-  0%{
-  filter: contrast(0.8) brightness(1.5) sepia(0) saturate(1); 
+@keyframes day {
+  0% {
+    filter: contrast(0.8) brightness(1.5) sepia(0) saturate(1);
     -webkit-filter: contrast(0.8) brightness(1.5) sepia(0) saturate(1);
   }
-  25%{
+  25% {
     filter: contrast(0.9) brightness(1.3) sepia(1) saturate(1.8);
     -webkit-filter: contrast(0.9) brightness(1.3) sepia(1) saturate(1.8);
   }
-  50%{
+  50% {
     filter: contrast(1) brightness(1) sepia(0) saturate(1);
     -webkit-filter: contrast(1) brightness(1) sepia(0) saturate(1);
   }
-  75%{
+  75% {
     filter: contrast(0.7) brightness(0.4) sepia(0) saturate(0);
     -webkit-filter: contrast(0.7) brightness(0.4) sepia(0) saturate(0);
   }
-  100%{
-    filter: contrast(0.8) brightness(1.5) sepia(0) saturate(1); 
-    -webkit-filter: contrast(0.8) brightness(1.5) sepia(0) saturate(1); 
+  100% {
+    filter: contrast(0.8) brightness(1.5) sepia(0) saturate(1);
+    -webkit-filter: contrast(0.8) brightness(1.5) sepia(0) saturate(1);
   }
 }
 
 .lv {
   position: fixed;
+  z-index: 10;
   top: 10px;
   left: -1px;
   width: 140px;
@@ -77,7 +77,6 @@
   background-position: -215% 42%;
   background-image: url("https://251131395.github.io/media/image/keski-fish-head.png");
 }
-
 .lv font {
   color: rgba(222, 222, 222, 0.6);
   font-size: 12.5px;
@@ -87,7 +86,6 @@
   font-family: "Noto Serif TC", serif;
   z-index: 10;
 }
-
 .lv span {
   color: #fff;
   font-size: 14px;
@@ -98,29 +96,243 @@
   z-index: 10;
 }
 
-.envelope{
+.envelope {
   position: fixed;
   top: 65px;
   left: 10px;
   font-size: 12px;
+  z-index: 10;
 }
-
-.envelope span{
-  color:#aaa;
-  margin-right:10px;
+.envelope span {
+  color: #aaa;
+  margin-right: 10px;
   cursor: pointer;
 }
-
-.envelope span:active{
-  color:#777;
+.envelope span:active {
+  color: #777;
 }
 
-#music{
+#music {
+  color: #555;
+}
+
+.left-bnt-shell {
+  position: fixed;
+  z-index: 10;
+  right: 10px;
+  top: 65px;
+}
+
+.left-bnt {
+  text-align: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+  color: #eee;
+}
+.left-bnt i {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.left-bnt span {
+  display: block;
+  font-size: 12px;
+}
+.left-bnt:active {
+  color: #aaa;
+}
+
+.recipe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 100vw;
+  height: 100vh;
+  background-color: #888;
+
+  display: none;
+}
+
+.recipe-back{
+  position:fixed;
+  z-index:30;
+  top:0;
+  right:0;
+  padding:18px;
+  color:#fff;
+  font-weight:bold;
+  cursor: pointer;
+  text-shadow:1px 1px 5px rgba(0,0,0,0.3);
+}
+.recipe-back:active{
+  color:#ddd;
+}
+
+.recipe-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://images.unsplash.com/photo-1609347744403-2306e8a9ae27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjE1NDI3NDV8&ixlib=rb-4.0.3&q=80&w=400");
+  filter: blur(7px) brightness(0.9);
+  -webkit-filter: blur(7px) brightness(0.9);
+  z-index: -10;
+}
+.recipe .tit {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: "Noto Serif TC", serif;
+  margin: 5px 15px 0;
+  letter-spacing: 3px;
+  color: #fff;
+  position: relative;
+  text-shadow: 2px 1px 8px rgba(0, 0, 0, 0.3);
+}
+.recipe .tit:before {
+  display: block;
+  content: "recipe";
+  width: 100%;
+  position: absolute;
+  bottom: -5px;
+  right: -20px;
+  font-size: 16px;
+  letter-spacing: 3px;
+  color: #ffb22c;
+  z-index: -1;
+}
+
+.recipe-name-shell{
+  width:100vw;
+  height:calc(100vh - 152px);
+  position:fixed;
+  top:50px;
+  left:0;
+  overflow:auto;
+  padding:20px 0 20px;
+}
+.recipe-name:before{
+  content:'';
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  background-size: cover;
+  background-position: right top;
+  background-image: url("https://images.unsplash.com/photo-1615568864493-b60ab4b01c89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjE1NDc4MTl8&ixlib=rb-4.0.3&q=80&w=400");
+  opacity:0.1;
+  z-index: -1;
+}
+.recipe-name{
+  border:1px #F3FEB8 solid;
+  margin:0 40px 20px;
+  min-height:60px;
+  position:relative;
+  overflow:hidden;
+  background: linear-gradient(325deg, 
+rgba(255, 222, 77,0.3) 16%, rgba(0,0,0,0) 52%);
+  box-shadow:-7px 7px 10px rgba(255, 178, 44, 0.3),
+    -7px 7px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.recipe-name:active{
+  transform: scale(1.01);
+}
+.recipe-name span{
+  color:#fff;
+  position:absolute;
+  bottom:5px;
+  right:5px;
+  font-size:18px;
+  font-weight:bold;
+  font-family: "Noto Serif TC", serif;
+  letter-spacing:1px;
+}
+.recipe-name font{
+  color:#F3FEB8;
+  position:absolute;
+  top:4px;
+  left:8px;
+  font-size:24px;
+  font-family: "Noto Serif TC", serif;
+  letter-spacing:1px;
+}
+#lock{
+  filter:grayscale(1);
+  -webkit-filter:grayscale(1);
   color:#555;
+}
+
+
+
+.collect {
+  width: 100vw;
+}
+.collect-bar {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+  width: calc(100% - 90px);
+  height: 7px;
+  box-shadow:1px 2px 10px rgba(0,0,0,0.4);
+}
+.collect-bar[value] {
+  --color: #ffb22c; /* the progress color */
+  --background: rgba(255, 255, 255, 0.5); /* the background color */
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px #fff solid;
+  border-radius: 5px;
+  background: var(--background);
+}
+.collect-bar[value]::-webkit-progress-bar {
+  border-radius: 5px;
+  background: var(--background);
+}
+.collect-bar[value]::-webkit-progress-value {
+  border-radius: 5px;
+  background: var(--color);
+}
+.collect-bar[value]::-moz-progress-bar {
+  border-radius: 5px;
+  background: var(--color);
+}
+
+.collect-text {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: inline-block;
+  text-align: center;
+  float: right;
+  padding: 10px;
+}
+.collect-text span {
+  display: block;
+  color: #fff;
+  font-size: 18px;
+}
+.collect-text font {
+  display: block;
+  color: #fff;
+  font-size: 12px;
+  margin-top:-3px;
+  margin-right:-4px;
+  letter-spacing:2px;
 }
 
 .coin {
   position: fixed;
+  z-index: 10;
   top: 13px;
   right: 10px;
   border: 1px #555 solid;
@@ -129,25 +341,23 @@
   padding: 3px;
   font-size: 12px;
   overflow: hidden;
+  background-color: rgba(50, 50, 50, 0.25);
 }
-
 .coin font {
-  color: #aaa;
-  background-color: #222;
+  color: #666;
+  background-color: #aaa;
   padding: 6px;
   margin: 0;
   position: absolute;
   top: -2px;
   left: -1px;
 }
-
 .coin span {
-  color: #ddd;
+  color: #eee;
   float: right;
 }
-
 .coin span i {
-  color: #aaa;
+  color: #ddd;
   float: right;
   cursor: pointer;
   margin-left: 5px;
@@ -163,15 +373,12 @@
   text-align: center;
   z-index: 10;
 }
-
 .mic:active {
   color: #aaa;
 }
-
 .mic i {
   font-size: 20px;
 }
-
 .mic span {
   font-size: 12px;
 }
@@ -182,18 +389,17 @@
   justify-content: center;
   height: 100vh;
 }
-
 .say {
   display: inline-block;
   min-width: 100px;
   max-width: 200px;
   padding: 10px;
   position: relative;
+  z-index: 10;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.6);
   margin-bottom: 30vw;
 }
-
 .say:before {
   position: absolute;
   content: "";
@@ -204,7 +410,6 @@
   border-right: 8px solid transparent;
   border-top: 10px solid rgba(255, 255, 255, 0.6);
 }
-
 .say span {
   color: #000;
   font-size: 14px;
@@ -212,12 +417,12 @@
 
 .cook-button-shell {
   position: fixed;
+  z-index: 10;
   bottom: 0px;
   right: 0px;
   padding: 20px;
   font-family: "Noto Serif TC", serif;
 }
-
 .cook-button-shell div:active {
   transform: scale(1.05);
 }
@@ -240,19 +445,16 @@
   -webkit-filter: grayscale(0.5);
   transition: all 0.4s;
 }
-
 .end-bnt-bg:hover {
   filter: grayscale(0);
   -webkit-filter: grayscale(0);
   transition: all 0.1s;
 }
-
 .end-bnt-bg:active {
   filter: grayscale(0);
   -webkit-filter: grayscale(0);
   transition: all 0.1s;
 }
-
 .end-bnt-bg:before {
   width: 103%;
   height: 100%;
@@ -265,7 +467,6 @@
   top: -3px;
   left: -5px;
 }
-
 .end-bnt-bg:after {
   width: 106%;
   height: 100%;
@@ -278,19 +479,16 @@
   bottom: -4px;
   right: -4px;
 }
-
 .end-bnt-bg span {
   color: #fff;
   font-size: 24px;
   qfont-weight: bold;
   position: absolute;
 }
-
 .end-bnt-bg span:nth-child(1) {
   top: 12px;
   left: 8px;
 }
-
 .end-bnt-bg span:nth-child(2) {
   bottom: 12px;
   right: 8px;
@@ -309,7 +507,6 @@
   box-shadow: 3px 1px 10px rgba(243, 254, 184, 0.3);
   background-color: #000;
 }
-
 .c-b-bg:nth-child(1) div {
   width: 30px;
   height: 50px;
@@ -324,7 +521,6 @@
   -webkit-filter: grayscale(1) invert() contrast(10);
   z-index: 10;
 }
-
 .c-b-bg:nth-child(2) div {
   width: 100%;
   height: 100%;
@@ -338,7 +534,6 @@
   filter: grayscale(1) invert(0) contrast(3);
   -webkit-filter: grayscale(1) invert(0) contrast(3);
 }
-
 .c-b-bg:nth-child(3) div {
   width: 100%;
   height: 50px;
@@ -353,7 +548,6 @@
   -webkit-filter: grayscale(1) invert(0) contrast(2);
   z-index: 10;
 }
-
 .c-b-bg span {
   color: #fff;
   font-size: 14px;
@@ -391,21 +585,89 @@
 </head>
 
 <body>
-  <div class="bg-img"onclick="showRandomMessage()"></div>
+  <div class="bg-img" onclick="showRandomMessage()"></div>
 
   <div class="lv">
     <font>舍不得吃了</font>
     <span>Lv.80</span>
   </div>
-  
+
   <div class="envelope">
     <span><i class="fa-solid fa-envelope"></i></span>
     <span><i class="fa-solid fa-user-group"></i></span>
     <span id="music"><i class="fa-solid fa-music"></i></span>
+  </div>
+
+  <audio id="audioPlayer" src="https://251131395.github.io/media/audio/%E7%84%A1%E8%83%BD%E7%82%BA%E5%8A%9B%E7%9A%84%E5%87%B1%E6%96%AF%E5%9F%BA.mp3" loop></audio>
+
+  <div class="left-bnt-shell">
+    <div class="left-bnt" id="left-bnt-recipe">
+      <i class="fa-solid fa-book"></i>
+      <span>食譜</span>
     </div>
+    <div class="left-bnt">
+      <i class="fa-solid fa-fish-fins"></i>
+      <span>標本牆</span>
+    </div>
+  </div>
   
-  
-<audio id="audioPlayer" src="https://251131395.github.io/media/audio/%E7%84%A1%E8%83%BD%E7%82%BA%E5%8A%9B%E7%9A%84%E5%87%B1%E6%96%AF%E5%9F%BA.mp3" loop></audio>
+  <div class="recipe">
+    <span class="recipe-back"><i class="fa-solid fa-chevron-left"></i></span>
+    
+    <div class="recipe-bg-img"></div>
+    <span class="tit">食譜</span>
+    
+    <div class="recipe-name-shell">
+      <div class="recipe-name">
+        <font><i class="fa-solid fa-flag-checkered"></i></font>
+        <span>橙汁魚片</span>
+      </div>
+      <div class="recipe-name">
+        <font><i class="fa-solid fa-star"></i></font>
+        <span>炸小魚乾</span>
+      </div>
+      <div class="recipe-name">
+        <font><i class="fa-solid fa-flag-checkered"></i></font>
+        <span>泡菜炒鮭魚塊</span>
+      </div>
+      <div class="recipe-name">
+        <font><i class="fa-solid fa-flag-checkered"></i></font>
+        <span>薑絲魚片湯</span>
+      </div>
+      <div class="recipe-name">
+        <font><i class="fa-solid fa-flag-checkered"></i></font>
+        <span>糖醋魚片</span>
+      </div>
+      <div class="recipe-name">
+        <font><i class="fa-solid fa-flag-checkered"></i></font>
+        <span>五柳蒸魚</span>
+      </div>
+      <div class="recipe-name">
+        <font><i class="fa-solid fa-flag-checkered"></i></font>
+        <span>泰式酸辣醬烤魚</span>
+      </div>
+      <div class="recipe-name" id="lock">
+        <font id="lock"><i class="fa-solid fa-lock"></i></font>
+        <span id="lock">醋溜魚片</span>
+      </div>
+      <div class="recipe-name" id="lock">
+        <font id="lock"><i class="fa-solid fa-lock"></i></font>
+        <span id="lock">蔥燒白北魚</span>
+      </div>
+      <div class="recipe-name" id="lock">
+        <font id="lock"><i class="fa-solid fa-lock"></i></font>
+        <span id="lock">椒麻鯖魚</span>
+      </div>
+    </div>
+    
+    <div class="collect">
+      <progress class="collect-bar" max="56" value="7"></progress>
+      <div class="collect-text">
+        <span>07 / 56</span>
+        <font>收集進度</font>
+      </div>
+    </div>
+  </div>
 
   <div class="coin">
     <font><i class="fa-solid fa-coins"></i></font>
@@ -437,7 +699,7 @@
   </div>
 
 <script>
-  function showRandomMessage() {
+    function showRandomMessage() {
       var messages = [
         "作為一條小魚mo，怎麼逃得過被吃的命運呢？",
         "嗯，你説吧。",
@@ -463,6 +725,17 @@
       }, 5000);
     }
 
+
+
+
+
+
+
+
+
+
+
+
  window.addEventListener('DOMContentLoaded', function() {
     var audio = document.getElementById('audioPlayer');
     var musicSpan = document.getElementById('music');
@@ -477,8 +750,19 @@
       }
     });
   });
-</script>
 
+  
+document.getElementById('left-bnt-recipe').addEventListener('click', function() {
+      var recipeDiv = document.getElementsByClassName('recipe')[0];
+      recipeDiv.style.display = 'block';
+    });
+
+    document.getElementsByClassName('recipe-back')[0].addEventListener('click', function() {
+      var recipeDiv = document.getElementsByClassName('recipe')[0];
+      recipeDiv.style.display = 'none';
+    });
+</script>
+  
 </body>
 
 </html>
