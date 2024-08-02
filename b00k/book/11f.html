@@ -7,8 +7,7 @@
   <title>B00K - 11/F</title>
 
   <style>
-        @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
-  body {
+    body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -32,7 +31,6 @@
   cursor: pointer;
   opacity: 0.8;
 }
-
 .menu:hover {
   color: #eee;
   mix-blend-mode: normal;
@@ -40,29 +38,25 @@
   text-stroke: 0.5px lightgray;
 }
 
-
 .bg-img{
   position:fixed;
   width:100vw;
   height:50vh;
-  background-image: url("https://251131395.github.io/b00k/media/image/2aeca6a4-770e-4993-bc17-49643ad436d2.jpg");
-  background-size: 190%;
-  background-position: 40% 65%;
+  background-image: url("https://images.unsplash.com/photo-1507717209132-72636ee1f49b?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjI2MDY1MDV8&ixlib=rb-4.0.3&q=85");
+  background-size: cover;
+  background-position: top center;
   z-index:-999;
 }
-
 .top{
   transition:all 0.2s;
   position:relative;
   height:30vh;
   background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
 }
-
 .top:hover{
   transition:all 0.5s;
   height:50vh;
 }
-
 .top span{
   color:#fff;
   position:absolute;
@@ -72,7 +66,6 @@
   bottom:0;
   margin:5px 10px 5px;
 }
-
 .top font{
   color:#aaa;
   position:absolute;
@@ -100,18 +93,15 @@
 .book-info{
   padding:5px 0px 10px;
 }
-
 .book-info font{
   color:#888;
   font-size:14px;
   margin-right:15px;
 }
 
-
 .book-info-bnt {
   padding: 0 20px 0;
 }
-
 .book-info-bnt button {
   color: #000;
   padding: 7px 10px 7px;
@@ -124,7 +114,6 @@
   margin-bottom: 5px;
   cursor: pointer;
 }
-
 .review{
   font-size:16px;
   padding:20px 0 30px;
@@ -133,50 +122,36 @@
   line-height:1.5;
 }
 
-
-
-
-
 .book-bnt{
-  padding:0 0 30px;
+  max-height:300px;
+  overflow-x:hidden;
+  overflow-y:scroll;
 }
-
 .book-bnt-group{
-  min-width:150px;
+  width:calc(100% - 22px);
   border:1px #aaa solid;
   border-radius:5px;
   display: inline-block;
   padding:10px;
   position:relative;
-  margin:0 10px 10px;
+  margin:0 0 10px;
   margin-left:0;
   cursor: pointer;
 }
-
 .book-bnt-group:hover{
   background-color:#222;
 }
-
 .book-bnt-group span{
   display:block;
   font-weight: bold;
   font-size:16px;
   color:#fff;
 }
-
 .book-bnt-group font{
   display:block;
   font-size:12px;
   color:#888;
 }
-
-@media screen and (max-width: 610px) {
-  .book-bnt-group{
-  width:calc(100% - 20px);
-  margin:0 0 10px;
-}
-}
-
 
 
 
@@ -187,56 +162,18 @@
   overflow: auto;
   margin:0 -15px 20px;
 }
-
 .oth-bnt-group{
   display:inline-block;
   margin-right:10px;
   vertical-align: top;
   cursor: pointer;
 }
-
 .oth-bnt-group-img{
   width:120px;
   height:120px;
   background-size: cover;
   background-position: center;
 }
-
-#tbc{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: default;
-}
-
-#tbc span{
-  color:#555;
-}
-
-#oth-poster{
-  background-image: url("https://251131395.github.io/b00k/media/image/22637D41-BD14-48E5-AF9C-6A5ECAE49B8D.png");
-}
-
-#oth-p-360{
-  background-image: url("https://251131395.github.io/b00k/media/image/65da3c1d-43db-4fa5-8a74-5873741c06f1.jpg");
-}
-
-#oth-g-web{
-  background-image: url("https://251131395.github.io/iveai/media/image/64D5C8D3-499C-4704-AB03-DA05CABD941E.png");
-  filter:invert(0.8) hue-rotate(180deg);
-  -webkit-filter:invert(0.8) hue-rotate(180deg);
-}
-
-.oth-bnt-group span{
-  width:120px;
-  display:block;
-  color:#fff;
-  padding:5px 0 0;
-  text-align:center;
-  font-size:14px;
-  white-space: normal;
-}
-
 
 .warning{
   height:150px;
@@ -249,8 +186,6 @@
   line-height:1.15;
 }
 
-
-
 footer {
   background-color: rgba(0, 0, 0, 1);
   padding: 20px;
@@ -259,7 +194,6 @@ footer {
   position: relative;
   overflow: hidden;
 }
-
 .info {
   text-align: left;
   display: flex;
@@ -267,27 +201,22 @@ footer {
   color: lightgray;
   z-index: 5;
 }
-
 .info-title {
   font-weight: bold;
   color: white;
 }
-
 .info-L {
   flex: 70%;
 }
-
 .info-R {
   flex: 30%;
 }
-
 .info span {
   display: block;
   font-size: 14px;
   padding: 2px 10px 2px;
   text-align: justify;
 }
-
 footer hr {
   border: 0.5px rgba(255, 255, 255, 0.4) solid;
 }
@@ -347,13 +276,17 @@ footer hr {
       
       <span class="review">末日來臨，喪屍橫行，泥坪樓十一樓陷入了時空的循環，僥倖逃過一劫。這場炎難來得毫無先兆，而泥坪樓十一樓的的時間停止在末日前的一天，不停循環。在足夠的資源下，泥坪樓十一樓的住戶能否過上安逸、和平的日子呢？</span>
       
-      <span class="title">閱讀模式</span>
+      <span class="title">分集</span>
       <div class="book-bnt">
-        <div class="book-bnt-group"  style="border:0.5px #666 solid;">
-            <span style="color:#666">純文字版</span>
-            <font style="color:#666">簡潔地閱讀</font>
+        <div class="book-bnt-group" onclick="location.href='https://251131395.github.io/b00k/book/11f/00-%E5%BA%8F%E7%AB%A0.html'">
+            <span>00 序章</span>
+            <font>城市雨夜</font>
         </div>
-      </div>
+        <div class="book-bnt-group"  style="border:0.5px #666 solid;">
+            <span style="color:#666">?? 終章</span>
+            <font style="color:#666">回到原點</font>
+        </div>
+        </div>
       
       <span class="title">聲明</span>
       <span class="warning">
