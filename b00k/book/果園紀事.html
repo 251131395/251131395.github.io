@@ -1,0 +1,325 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <title>B00K - 果園紀事</title>
+
+  <style>
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #f9f9f9;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu {
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  right: 0;
+  z-index: 997;
+  color: lightgray;
+  mix-blend-mode: difference;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.menu:hover {
+  color: #eee;
+  mix-blend-mode: normal;
+  -webkit-text-stroke: 0.5px lightgray;
+  text-stroke: 0.5px lightgray;
+}
+
+.bg-img{
+  position:fixed;
+  width:100vw;
+  height:50vh;
+  background-image: url("https://images.unsplash.com/photo-1661137162009-030ab010ed65?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjI2ODM5MTB8&ixlib=rb-4.0.3&q=85");
+  background-size: cover;
+  background-position: top center;
+  z-index:-999;
+}
+.top{
+  transition:all 0.2s;
+  position:relative;
+  height:30vh;
+  background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
+}
+.top:active{
+  transition:all 0.5s;
+  height:50vh;
+}
+.top span{
+  color:#fff;
+  position:absolute;
+  font-size:40px;
+  font-weight:bold;
+  left:0;
+  bottom:0;
+  margin:5px 10px 5px;
+}
+.top font{
+  color:#aaa;
+  position:absolute;
+  font-size:16px;
+  right:0;
+  bottom:0;
+  margin:5px 10px 5px;
+}
+
+.main{
+  padding:15px;
+  background-color:#222;
+  min-height:70vh;
+  background: linear-gradient(180deg, rgba(25,25,25,1) 0%, rgba(10,10,10,1) 70px);
+}
+
+.title{
+  display:block;
+  color:#fff;
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.book-info{
+  padding:5px 0px 10px;
+}
+.book-info font{
+  color:#888;
+  font-size:14px;
+  margin-right:15px;
+}
+
+.book-info-bnt {
+  padding: 0 20px 0;
+}
+.book-info-bnt button {
+  color: #000;
+  padding: 7px 10px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #ddd;
+  border: 0.5px #bbb solid;
+  border-radius: 20px;
+  margin-right: 0px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.review{
+  font-size:16px;
+  padding:20px 0 30px;
+  display:block;
+  color:#fff;
+  line-height:1.5;
+}
+
+.book-bnt{
+  max-height:300px;
+  overflow:auto;
+  margin-bottom:30px;
+}
+.dot{
+  display:block;
+  color:#fff;
+  margin-bottom:10px;
+  margin-left:15px;
+  border-left:3px #aaa dotted;
+  height:25px;
+}
+.book-bnt-group{
+  border:1px #aaa solid;
+  border-radius:5px;
+  padding:10px;
+  position:relative;
+  margin:0 0 10px;
+  margin-left:0;
+  cursor: pointer;
+}
+.book-bnt-group:hover{
+  background-color:#222;
+}
+.book-bnt-group span{
+  display:block;
+  font-weight: bold;
+  font-size:16px;
+  color:#fff;
+}
+.book-bnt-group font{
+  display:block;
+  font-size:12px;
+  color:#888;
+}
+
+.oth-bnt{
+  padding:0 15px 10px;  
+  white-space: nowrap;
+  overflow: auto;
+  margin:0 -15px 20px;
+}
+.oth-bnt-group{
+  display:inline-block;
+  margin-right:10px;
+  vertical-align: top;
+  cursor: pointer;
+}
+.oth-bnt-group-img{
+  width:120px;
+  height:120px;
+  background-size: cover;
+  background-position: center;
+}
+
+.warning{
+  height:150px;
+  overflow:auto;
+  font-size:12px;
+  padding:0;
+  margin:0 0 30px;
+  display:block;
+  color:#fff;
+  line-height:1.15;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 1);
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.info {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  color: lightgray;
+  z-index: 5;
+}
+.info-title {
+  font-weight: bold;
+  color: white;
+}
+.info-L {
+  flex: 70%;
+}
+.info-R {
+  flex: 30%;
+}
+.info span {
+  display: block;
+  font-size: 14px;
+  padding: 2px 10px 2px;
+  text-align: justify;
+}
+footer hr {
+  border: 0.5px rgba(255, 255, 255, 0.4) solid;
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <span class="menu" onclick="location.href='https://251131395.github.io/b00k/home.html'"><i class="fa-solid fa-house"></i></span>
+
+  <div class="bg-img"></div>
+
+  <div style="min-height:100vh">
+    <div class="top">
+      <span>果園紀事</span>
+      <font>作者：251131395</font>
+    </div>
+    <div class="main">
+      <div class="book-info">
+        <nobr>
+          <font><i class="fa-solid fa-file-invoice"></i> 未定篇幅</font>
+        </nobr>
+        <nobr>
+          <font><i class="fa-regular fa-hourglass-half"></i> 連載中</font>
+        </nobr>
+        <nobr>
+          <font><i class="fa-solid fa-file-pen"></i> 不定期更新</font>
+        </nobr>
+        <nobr>
+          <font><i class="fa-solid fa-pen-nib"></i> 童話</font>
+        </nobr>
+        <nobr>
+          <font style="margin-right:0;"><i class="fa-solid fa-eye"></i> 1.00000次觀看</font>
+        </nobr>
+      </div>
+
+      <span class="review">人類意外發現會說話且體型巨大的草莓。它們看起來真誘人，哦不，我是說——好人……</span>
+
+      <span class="title">分集</span>
+      <div class="book-bnt">
+        <div class="book-bnt-group" onclick="location.href='https://251131395.github.io/b00k/book/11f/00.html'">
+          <span>00 果園紀事</span>
+          <font>這是一首廣泛流傳於草莓之間的歌曲。</font>
+        </div>
+      </div>
+
+      <span class="title">聲明</span>
+      <span class="warning">
+        <i class="fa-solid fa-triangle-exclamation"></i> 本小說包含血腥、暴力和危險情節，可能不適合所有讀者。這些情節僅為故事發展和角色塑造的一部分，並非鼓勵或美化暴力行為。我們強烈建議閱讀本書的讀者保持理性。<br>
+        <br>
+        閱讀本書時，請注意以下事項：<br>
+        1. 小說中的血腥描寫可能包括傷害、傷口、流血等情節，可能對某些讀者造成不適感。<br>
+        <br>
+        2. 暴力情節可能包括打鬥、戰鬥、爭吵等場景，但這些情節僅為故事推進的一部分，並非鼓勵或推崇暴力行為。<br>
+        <br>
+        3. 危險情節可能包括危險的環境、追逐、迫在眉睫的威脅等，這些情節旨在營造緊張的氛圍。<br>
+        <br>
+        閱讀本書是自願行為，讀者應自行判斷是否適合閱讀此類內容。請注意，本聲明特別強調：請不要在現實生活中模仿小說中的情節。書中的故事和行為僅為虛構，並不代表現實世界的行為準則。<br>
+        <br>
+        如果您對血腥、暴力或危險情節感到不適，建議您選擇其他閱讀材料。我們對閱讀者的情緒和感受非常重視，並希望每位讀者都能享受閱讀過程。<br>
+        <br>
+        謝謝您的理解和支持。
+      </span>
+    </div>
+  </div>
+
+  <footer>
+    <div class="info">
+      <div class="info-L">
+        <span class="info-title">B00K是什麼？</span>
+        <span>B00k 是一個電子書閱讀平台，現已上載超過1.0000000本藏書。B00K 內容豐富，質量上乘，絕對是您選擇電子書的不二之選。</span>
+      </div>
+      <div class="info-R">
+        <span class="info-title">連結</span>
+        <span onclick="location.href='https://space.bilibili.com/470999012'">Bilibili</span>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
