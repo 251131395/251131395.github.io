@@ -3,11 +3,13 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
   <title>B00K</title>
 
   <style>
-      @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
   body {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -18,6 +20,7 @@
   margin: 0px;
   padding: 0px;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .menu {
@@ -32,7 +35,6 @@
   cursor: pointer;
   opacity: 0.8;
 }
-
 .menu:hover {
   color: #eee;
   mix-blend-mode: normal;
@@ -41,24 +43,69 @@
 }
 
 header {
-  transition:all 0.2s;
+  cursor: pointer;
+  height: 200px;
+  transition: all 0.2s;
   background-color: #000;
   position: relative;
-  padding:20px;
-    background-size: cover;
+  padding: 20px;
+  background-size: cover;
   background-position: center;
-  background-image: url("https://images.unsplash.com/photo-1650800544011-3db64ec79bc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjEzOTQ1OTl8&ixlib=rb-4.0.3&q=80&w=400");
+  background-repeat: repeat;
+  background-image: url("https://251131395.github.io/b00k/media/image/DSC_0000103.jpg");
 }
-
-.title {
-  color: #fff;
-  mix-blend-mode: difference;
-  display: block;
-  font-size: 40px;
-  position: relative;
-  z-index: 20;
+.header-cover {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  height: 150px;
+  width: 100%;
+  background: linear-gradient(0deg, transparent 0%, #000 100%);
+  opacity: 0.8;
 }
-
+.header-eyes {
+  opacity: 0;
+  position: absolute;
+  z-index: 10;
+  bottom: 0px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  transform: rotate(45deg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  background-image: url("https://251131395.github.io/b00k/media/image/%E7%84%A1%E6%A8%99%E9%A1%8C45_20240630163138.png");
+  transition: all 2s;
+}
+.header-eyes:hover {
+  opacity: 1;
+  transition: all 0.2s;
+}
+.header-mon {
+  opacity: 0;
+  transform: scale(1.1);
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center 37%;
+  background-image: url("https://251131395.github.io/iveai/media/image/B921E344-FEA0-4C10-AD75-08D5BFE95118.png");
+  transition: all 2s;
+  backdrop-filter: blur(0px) brightness(1);
+  -webkit-backdrop-filter: blur(0px) brightness(1);
+}
+.header-mon:hover {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.2s;
+  backdrop-filter: blur(10px) brightness(0.4);
+  -webkit-backdrop-filter: blur(10px) brightness(0.4);
+}
 header button {
   cursor: pointer;
   font-weight: bold;
@@ -72,23 +119,24 @@ header button {
   border: none;
   border-radius: 30px;
 }
+header span {
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  position: relative;
+  z-index: 20;
+}
 
 .rank {
-    background-color: #1e1e1e;
-  background: linear-gradient(
-    0deg,
-    #111 0%,
-    #1e1e1e 20%
-  );
+  background-color: #1e1e1e;
+  background: linear-gradient(0deg, #111 0%, #1e1e1e 20%);
   padding-bottom: 15px;
   overflow: auto;
 }
-
 .rank-shell {
   padding: 0 20px 20px;
   display: flex;
 }
-
 .rank-bl {
   flex: 50%;
   margin: -10px 5px 0;
@@ -100,11 +148,9 @@ header button {
   align-items: center;
   flex-direction: row;
 }
-
 .rank-bl:hover {
   background-color: rgba(255, 255, 255, 0.05);
 }
-
 @media screen and (max-width: 368px) {
   .rank-shell {
     display: block;
@@ -120,26 +166,22 @@ header button {
     padding-bottom: 30px;
   }
 }
-
 .rank-bl div {
   display: inline-block;
 }
-
 .rank-bl span {
   font-size: 20px;
   padding: 0;
   padding-right: 10px;
-  color:#fff;
+  color: #fff;
 }
-
 .rank-bl font {
   font-weight: bold;
   font-size: 14px;
   padding: 0;
   margin: 0;
-  color:#fff;
+  color: #fff;
 }
-
 .rank-bl p {
   font-size: 12px;
   color: gray;
@@ -149,11 +191,7 @@ header button {
 
 .main {
   background-color: #1e1e1e;
-  background: linear-gradient(
-    0deg,
-    #111 0%,
-    #1e1e1e 20%
-  );
+  background: linear-gradient(0deg, #111 0%, #1e1e1e 20%);
 }
 
 .bookshelf {
@@ -161,7 +199,6 @@ header button {
   margin: -15px 0 0;
   background-color: clack;
 }
-
 .area {
   white-space: nowrap;
   scroll-snap-type: x;
@@ -172,7 +209,6 @@ header button {
   border: none;
   text-align: left;
 }
-
 .block {
   vertical-align: top;
   white-space: normal;
@@ -180,11 +216,9 @@ header button {
   margin: 15px;
   text-align: left;
 }
-
 .space {
   padding: 7px;
 }
-
 body .book {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -200,26 +234,23 @@ body .book {
   box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.25),
     2px 2px 2px rgba(0, 0, 0, 0.05);
   cursor: pointer;
-  position:relative;
+  position: relative;
 }
-
 .book span {
   font-size: 18px;
   color: white;
   writing-mode: vertical-rl;
   text-orientation: upright;
   margin: 10px;
-  position:relative;
-  z-index:15;
+  position: relative;
+  z-index: 15;
 }
-
 .name {
   margin: 10px 0px 0px;
   font-size: 14px;
   display: block;
   color: #fff;
 }
-
 .date {
   font-size: 12px;
   color: gray;
@@ -232,24 +263,18 @@ body .book {
   display: block;
   font-weight: bold;
   font-size: 20px;
-  color:#fff;
+  color: #fff;
 }
 
 .eplmo {
   min-height: 150px;
-    background-color: #1e1e1e;
-  background: linear-gradient(
-    0deg,
-    #111 0%,
-    #1e1e1e 20%
-  );
+  background-color: #1e1e1e;
+  background: linear-gradient(0deg, #111 0%, #1e1e1e 20%);
   padding-bottom: 20px;
 }
-
 .epl-shell {
   text-align: center;
 }
-
 .elp-bl {
   padding: 10px;
   margin: 0 25px 18px;
@@ -262,7 +287,6 @@ body .book {
   box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5), 0px 4px 8px rgba(0, 0, 0, 0.7),
     2px 2px 2px rgba(0, 0, 0, 0.05);
 }
-
 .elp-bg {
   background: linear-gradient(
     0deg,
@@ -276,7 +300,6 @@ body .book {
   top: 0;
   z-index: 10;
 }
-
 .elp-bl span {
   position: relative;
   color: #fff;
@@ -285,7 +308,6 @@ body .book {
   font-size: 14px;
   z-index: 15;
 }
-
 .elp-bl p {
   color: #fff;
   padding: 2px;
@@ -295,7 +317,6 @@ body .book {
   right: 4px;
   bottom: 4px;
 }
-
 @media screen and (min-width: 368px) {
   .eplmo {
     padding-bottom: 40px;
@@ -321,7 +342,6 @@ footer {
   position: relative;
   overflow: hidden;
 }
-
 .info {
   text-align: left;
   display: flex;
@@ -329,27 +349,22 @@ footer {
   color: lightgray;
   z-index: 5;
 }
-
 .info-title {
   font-weight: bold;
   color: white;
 }
-
 .info-L {
   flex: 70%;
 }
-
 .info-R {
   flex: 30%;
 }
-
 .info span {
   display: block;
   font-size: 14px;
   padding: 2px 10px 2px;
   text-align: justify;
 }
-
 footer hr {
   border: 0.5px rgba(255, 255, 255, 0.4) solid;
 }
@@ -380,9 +395,23 @@ footer hr {
   background-size: cover;
   background-position: center;
 }
-
 #f11 {
   background-image: url("https://images.unsplash.com/photo-1525956058128-f1ab919ba1a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjEzOTE3MTN8&ixlib=rb-4.0.3&q=80&w=400");
+  background-size: cover;
+  background-position: center;
+}
+#oc {
+  background-image: url("https://images.unsplash.com/photo-1642646806325-6ed5108bc92f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjI2NjYxODh8&ixlib=rb-4.0.3&q=80&w=400");
+  background-size: 270%;
+  background-position: 15% 75%;
+}
+#pk {
+  background-image: url("https://251131395.github.io/media/image/keski-fish-head.png");
+  background-size: 200%;
+  background-position: left center;
+}
+#nw {
+  background-image: url("https://images.unsplash.com/photo-1719917226618-a4a415f477e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjI2Njg3NTN8&ixlib=rb-4.0.3&q=80&w=400");
   background-size: cover;
   background-position: center;
 }
@@ -392,70 +421,72 @@ footer hr {
   background-size: cover;
   background-position: center;
 }
-
 #epl-f11 {
-  background-image: url("https://251131395.github.io/b00k/media/image/WhatsApp Image 2024-06-30 at 2.36.13 PM.jpeg");
-  background-size: cover;
-  background-position: center;
+  background-image: url("https://images.unsplash.com/photo-1634038508232-188dc3e1ee4d?q=80&w=1885&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: 200%;
+  background-position: center 58%;
+  filter: grayscale(0.8);
+  -webkit-filter: grayscale(0.8);
 }
 
-#justcan{
+#justcan {
   background-image: url("https://251131395.github.io/b00k/media/image/imyjustacan.gif");
   background-size: cover;
   background-position: center;
 }
-
-#justcan span{
-  letter-spacing:5px;
-  color:#000;
-  margin-top:23px;
+#justcan span {
+  letter-spacing: 5px;
+  color: #000;
+  margin-top: 23px;
+  font-family: "Noto Serif TC", serif;
 }
-
-.book-filter{
-  width:100%;
-  height:100%;
-  position:absolute;
-  top:0;
-  left:0;
-  backdrop-filter:grayscale(1);
-  -webkit-backdrop-filter:grayscale(1);
-  z-index:5;
+.book-filter {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: grayscale(1);
+  -webkit-backdrop-filter: grayscale(1);
+  z-index: 5;
 }
-
-.justcan-book-filter{
-  background-color:#EB5B00;
+.justcan-book-filter {
+  background-color: #eb5b00;
   mix-blend-mode: overlay;
-  
-  width:100%;
-  height:100%;
-  position:absolute;
-  top:0;
-  left:0;
-  z-index:10;
-  overflow:hidden;
-  
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  overflow: hidden;
+
   display: flex;
   align-items: center;
   flex-direction: row;
 }
-
-.justcan-book-filter font{
-  padding:0;
-  margin:0;
-  color:#fff;
-  font-size:150px;
-  display:block;
-  margin-left:-18px;
-  margin-bottom:-8px;
+.justcan-book-filter font {
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  font-size: 150px;
+  display: block;
+  margin-left: -18px;
+  margin-bottom: -8px;
 }
+
   </style>
 </head>
 
 <body>
 
   <div style="min-height:100vh">
-    <header>
-      <span class="title">B 0 0 K</span>
+    <header onclick="location.href='https://251131395.github.io/b00k/book/tc.html'">
+      <span>今期流行</span>
+      <div class="header-cover"></div>
+      <div class="header-mon"></div>
+      <div class="header-eyes"></div>
       <button onclick="location.href='https://251131395.github.io/b00k/book/tc.html'">隨機探索 <i class="fa-solid fa-shuffle"></i></button>
     </header>
 
@@ -516,28 +547,28 @@ footer hr {
               <span></span>
             </div>
             <span class="name">11/F</span>
+            <span class="date">02/08/2024</span>
+          </div>
+          <div class="block">
+            <div class="book" id="oc" onclick="location.href=''">
+              <span></span>
+            </div>
+            <span class="name">果園紀事</span>
             <span class="date">敬請期待</span>
           </div>
           <div class="block">
-            <div class="book" id="" onclick="location.href=''">
-              <span>?</span>
+            <div class="book" id="pk" onclick="location.href=''">
+              <span></span>
             </div>
-            <span class="name">???</span>
-            <span class="date">??/??/????</span>
+            <span class="name">無能為力的凱斯基</span>
+            <span class="date">敬請期待</span>
           </div>
           <div class="block">
-            <div class="book" id="" onclick="location.href=''">
-              <span>?</span>
+            <div class="book" id="nw" onclick="location.href=''">
+              <span></span>
             </div>
-            <span class="name">???</span>
-            <span class="date">??/??/????</span>
-          </div>
-          <div class="block">
-            <div class="book" id="" onclick="location.href=''">
-              <span>?</span>
-            </div>
-            <span class="name">???</span>
-            <span class="date">??/??/????</span>
+            <span class="name">希望新城鎮</span>
+            <span class="date">敬請期待</span>
           </div>
           <div class="block">
             <div class="book" id="" onclick="location.href=''">
@@ -687,7 +718,7 @@ footer hr {
         </div>
         <div class="elp-bl" id="epl-f11" onclick="location.href='https://251131395.github.io/b00k/book/11f.html'">
           <div class="elp-bg"></div>
-          <span>時間停滯在末日前的一天</span>
+          <span>面對討厭的鄰居，我拿出了這個……</span>
           <p>編輯精選</p>
         </div>
       </div>
