@@ -11,7 +11,7 @@
   <title>B00K - 11/F 序章</title>
 
   <style>
-  body {
+    body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -87,6 +87,20 @@
   background-color: #050505;
   mix-blend-mode: multiply;
 }
+.rain{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -990;
+  mix-blend-mode: exclusion;  
+  background-image: url("https://cdn.pixabay.com/animation/2023/09/22/11/32/11-32-56-671_512.gif");
+  background-size: 900px;
+  background-position: top center;
+  filter: brightness(0.4);
+  -webkit-filter: brightness(0.4);
+}
 .bg-img-cover-mask {
   width: calc(100vw - 100px);
   height: calc(100vh - 100px);
@@ -148,6 +162,8 @@
 
 .content {
   padding: 20px 10px 20px;
+  
+  min-height:calc(100vh - 200px);
 }
 .content span {
   color: #fff;
@@ -272,12 +288,13 @@ footer hr {
   <audio id="audioPlayer" src="https://251131395.github.io/media/audio/%E5%9F%8E%E5%B8%82%E9%9B%A8%E5%A4%9C.mp3" loop></audio>
   <span class="menu" onclick="location.href = document.referrer; return false;"><i class="fa-solid fa-arrow-left"></i></span>
 
-  <div class="bg-img"></div>
+  <div class="crt"></div>
   <div class="bg-img-cover">
     <div class="bg-img-cover-mask"></div>
   </div>
-  <div class="crt"></div>
-
+  <div class="rain"></div>
+  <div class="bg-img"></div>
+  
   <div style="min-height:100vh; padding:20px;">
     <div class="chapter">
       <span>00</span>
@@ -296,7 +313,7 @@ footer hr {
 
     <div class="next-cht"><div class="statement">
       <span><i class="fa-solid fa-triangle-exclamation"></i> 背景音樂使用人工智能技術合成。</span>
-      <span><i class="fa-solid fa-hand-holding-heart"></i> 背景圖片由unsplash.com提供。</span>
+      <span><i class="fa-solid fa-hand-holding-heart"></i> 背景圖片由unsplash.com及pixabay.com提供。</span>
     </div>
       <div class="next-cht-shell" onclick="location.href=''">
         <span>下一章</span>
@@ -322,7 +339,7 @@ footer hr {
   </footer>
 
   <script>
-   window.addEventListener('DOMContentLoaded', function() {
+     window.addEventListener('DOMContentLoaded', function() {
     var audio = document.getElementById('audioPlayer');
     var musicSpan = document.getElementById('music');
 
