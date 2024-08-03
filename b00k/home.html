@@ -10,7 +10,7 @@
   <title>B00K</title>
 
   <style>
-  body {
+    body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -43,6 +43,7 @@
 }
 
 header {
+  overflow:hidden;
   cursor: pointer;
   height: 200px;
   transition: all 0.2s;
@@ -106,25 +107,30 @@ header {
   backdrop-filter: blur(10px) brightness(0.4);
   -webkit-backdrop-filter: blur(10px) brightness(0.4);
 }
-header button {
-  cursor: pointer;
-  font-weight: bold;
-  padding: 10px 15px 10px;
-  position: absolute;
-  z-index: 10;
-  bottom: -20px;
-  right: 20px;
-  background-color: #666;
-  color: #fff;
-  border: none;
-  border-radius: 30px;
-}
 header span {
   color: #fff;
   font-size: 30px;
   font-weight: bold;
   position: relative;
   z-index: 20;
+}
+  
+.random-bnt-shell{
+  position:relative;
+}
+  
+.random-bnt {
+  position:absolute;
+  right:20px;
+  margin:-20px 0 0;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px 10px;
+  z-index: 10;
+  background-color: #666;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
 }
 
 .rank {
@@ -487,9 +493,12 @@ footer hr {
       <div class="header-cover"></div>
       <div class="header-mon"></div>
       <div class="header-eyes"></div>
-      <button onclick="location.href='https://251131395.github.io/b00k/book/tc.html'">隨機探索 <i class="fa-solid fa-shuffle"></i></button>
     </header>
 
+    <div class="random-bnt-shell">
+    <button class="random-bnt" onclick="location.href='https://251131395.github.io/b00k/book/tc.html'">隨機探索 <i class="fa-solid fa-shuffle"></i></button>
+      </div>
+    
     <div class="rank">
       <span class="tit">熱門免費書籍</span>
       <div class="rank-shell">
