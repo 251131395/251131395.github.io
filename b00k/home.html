@@ -43,7 +43,7 @@
 }
 
 header {
-  overflow:hidden;
+  overflow: hidden;
   cursor: pointer;
   height: 200px;
   transition: all 0.2s;
@@ -63,30 +63,9 @@ header {
   height: 150px;
   width: 100%;
   background: linear-gradient(0deg, transparent 0%, #000 100%);
-  opacity: 0.8;
+  opacity: 0.85;
 }
-.header-eyes {
-  opacity: 0;
-  position: absolute;
-  z-index: 10;
-  bottom: 0px;
-  left: 20px;
-  width: 100px;
-  height: 100px;
-  transform: rotate(45deg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat;
-  background-image: url("https://251131395.github.io/b00k/media/image/%E7%84%A1%E6%A8%99%E9%A1%8C45_20240630163138.png");
-  transition: all 2s;
-}
-.header-eyes:hover {
-  opacity: 1;
-  transition: all 0.2s;
-}
-.header-mon {
-  opacity: 0;
-  transform: scale(1.1);
+.header-glass {
   position: absolute;
   z-index: 10;
   top: 0;
@@ -94,18 +73,26 @@ header {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center 37%;
-  background-image: url("https://251131395.github.io/iveai/media/image/B921E344-FEA0-4C10-AD75-08D5BFE95118.png");
-  transition: all 2s;
-  backdrop-filter: blur(0px) brightness(1);
-  -webkit-backdrop-filter: blur(0px) brightness(1);
+  background-position: top center;
+  background-repeat: repeat;
+  background-image: url("https://images.unsplash.com/photo-1544365558-35aa4afcf11f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjI3NDIyNzZ8&ixlib=rb-4.0.3&q=80&w=400");
+  mix-blend-mode: multiply;
+  filter: contrast(1) grayscale(1) invert(1);
+  -webkit-filter: contrast(1) grayscale(1) invert(1);
 }
-.header-mon:hover {
-  opacity: 1;
-  transform: scale(1);
-  transition: all 0.2s;
-  backdrop-filter: blur(10px) brightness(0.4);
-  -webkit-backdrop-filter: blur(10px) brightness(0.4);
+.header-ant {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center 37.8%;
+  background-image: url("https://i.gifer.com/7ZQF.gif");
+  filter: contrast(1.7) blur(2px);
+  -webkit-filter: contrast(1.7) blur(2px);
+  mix-blend-mode: multiply;
 }
 header span {
   color: #fff;
@@ -114,15 +101,15 @@ header span {
   position: relative;
   z-index: 20;
 }
-  
-.random-bnt-shell{
-  position:relative;
+
+.random-bnt-shell {
+  position: relative;
 }
-  
+
 .random-bnt {
-  position:absolute;
-  right:20px;
-  margin:-20px 0 0;
+  position: absolute;
+  right: 20px;
+  margin: -20px 0 0;
   cursor: pointer;
   font-weight: bold;
   padding: 10px 15px 10px;
@@ -198,6 +185,27 @@ header span {
 .main {
   background-color: #1e1e1e;
   background: linear-gradient(0deg, #111 0%, #1e1e1e 20%);
+
+  @media screen and (min-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      border: none;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(102, 102, 102, 0.5);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(66, 66, 66, 0.5);
+    }
+  }
 }
 
 .bookshelf {
@@ -375,27 +383,6 @@ footer hr {
   border: 0.5px rgba(255, 255, 255, 0.4) solid;
 }
 
-@media screen and (min-width: 768px) {
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    border: none;
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: rgba(102, 102, 102, 0.5);
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(66, 66, 66, 0.5);
-  }
-}
-
 #tc {
   background-image: url("https://251131395.github.io/b00k/media/image/u2ntitled.png");
   background-size: cover;
@@ -491,14 +478,14 @@ footer hr {
     <header onclick="location.href='https://251131395.github.io/b00k/book/tc.html'">
       <span>今期流行</span>
       <div class="header-cover"></div>
-      <div class="header-mon"></div>
-      <div class="header-eyes"></div>
+      <div class="header-ant"></div>
+      <div class="header-glass"></div>
     </header>
 
     <div class="random-bnt-shell">
-    <button class="random-bnt" onclick="location.href='https://251131395.github.io/b00k/book/tc.html'">隨機探索 <i class="fa-solid fa-shuffle"></i></button>
-      </div>
-    
+      <button class="random-bnt" onclick="location.href='https://251131395.github.io/b00k/book/tc.html'">隨機探索 <i class="fa-solid fa-shuffle"></i></button>
+    </div>
+
     <div class="rank">
       <span class="tit">熱門免費書籍</span>
       <div class="rank-shell">
@@ -520,19 +507,19 @@ footer hr {
         </div>
       </div>
       <div class="rank-shell">
-        <div class="rank-bl" onclick="location.href='https://251131395.github.io/b00k/book/cd.html'">
+        <div class="rank-bl" onclick="location.href='https://251131395.github.io/b00k/book/%E6%9E%9C%E5%9C%92%E7%B4%80%E4%BA%8B.html'">
           <span>03</span>
           <div>
-            <font>罐頭日記</font>
+            <font>果園紀事</font>
             <p>251131395
             <p>
           </div>
         </div>
-        <div class="rank-bl">
+        <div class="rank-bl" onclick="location.href='https://251131395.github.io/b00k/book/%E5%B8%8C%E6%9C%9B%E6%96%B0%E5%9F%8E%E9%8E%AE.html'">
           <span>04</span>
           <div>
-            <font>???</font>
-            <p>???
+            <font>希望新城鎮</font>
+            <p>251131395
             <p>
           </div>
         </div>
@@ -722,7 +709,7 @@ footer hr {
       <div class="epl-shell">
         <div class="elp-bl" id="epl-tc" onclick="location.href='https://251131395.github.io/b00k/book/tc.html'">
           <div class="elp-bg"></div>
-          <span>沒有時間流逝、沒有門、沒有飢餓的空間</span>
+          <span>進去衣櫃睡一覺……</span>
           <p>編輯精選</p>
         </div>
         <div class="elp-bl" id="epl-f11" onclick="location.href='https://251131395.github.io/b00k/book/11f.html'">
@@ -746,5 +733,6 @@ footer hr {
       </div>
     </div>
   </footer>
+</body>
 
 </html>
