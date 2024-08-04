@@ -1,0 +1,385 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <title>B00K - 清潔工 後記</title>
+
+  <style>
+    html {
+  filter: invert(1);
+  -webkit-filter: invert(1);
+}
+
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu {
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  right: 0;
+  z-index: 997;
+  color: lightgray;
+  mix-blend-mode: difference;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.menu:hover {
+  color: #eee;
+  mix-blend-mode: normal;
+  -webkit-text-stroke: 0.5px lightgray;
+  text-stroke: 0.5px lightgray;
+}
+#music {
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  color: #555;
+  mix-blend-mode: difference;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+#music font {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 10px;
+  z-index: -1;
+}
+
+.light{
+  position:fixed;
+  z-index:-950;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100%;
+  filter:blur(10px) invert(1) contrast(1.3);
+  -webkit-filter:blur(10px) invert(1) contrast(1.3);
+  mix-blend-mode: color-burn;
+    background-image: url("https://img.freepik.com/free-photo/light-leak-effect-black-background_53876-142963.jpg?t=st=1722757219~exp=1722760819~hmac=d9b7681ee52052a3467999d30ef06cc1bc2170fc63a1f0651b55c9897481354f&w=360");
+  background-size: cover;
+  background-position: top center;
+  opacity:0.4;
+}
+.bg-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjI3NTU0NDN8&ixlib=rb-4.0.3&q=80&w=400");
+  background-size: cover;
+  background-position: center;
+  z-index: -999;
+  filter: brightness(0.5) invert(0);
+  -webkit-filter: brightness(0.5) invert(0);
+}
+.bg-img-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -980;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #050505;
+  mix-blend-mode: multiply;
+}
+.rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -990;
+  mix-blend-mode: exclusion;
+  background-image: url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWQ4cnpmaTFnOXh4OTN2cnE3NW13bWd2aHAyMmdxcnMzNWtuMzQzMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26n6G8lRMOrYC6rFS/giphy.webp");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.9) invert(1);
+  -webkit-filter: brightness(0.9) invert(1);
+}
+.bg-img-cover-mask {
+  width: calc(100vw - 100px);
+  height: calc(100vh - 100px);
+  background-color: #888;
+  filter: blur(50px);
+  -webkit-filter: blur(50px);
+}
+.crt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-size: 5px;
+  background-repeat: repeat;
+  background-position: center;
+  background-image: url("https://251131395.github.io/iveai/media/image/AB8DFAA9-EA6E-4BE9-863F-EE5640F6C3A6.png");
+  z-index: -970;
+  mix-blend-mode: soft-light;
+  filter: blur(0.6px);
+  -webkit-filter: blur(0.6px);
+  backdrop-filter: blur(0.6px) saturate(1.2) contrast(1.3);
+  backdrop-webkit-filter: blur(0.6px) saturate(1.2) contrast(1.3);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.chapter {
+  border-bottom: 1px #ddd solid;
+  padding: 3px;
+  margin-top: 20px;
+  font-size: 18px;
+  position: relative;
+}
+.chapter:before {
+  content: "B00K - 251131395";
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 8px;
+  padding: 2px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  z-index: -1;
+}
+.chapter span {
+  color: #aaa;
+  padding-right: 10px;
+  border-right: 1px #999 solid;
+}
+.chapter font {
+  color: #fff;
+  padding-left: 5px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-family: "Noto Serif TC", serif;
+}
+
+.content {
+  padding: 20px 10px 20px;
+
+  min-height: calc(100vh - 220px);
+}
+.content span {
+  color: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.next-cht {
+  border-top: 1px #ddd solid;
+  padding: 3px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  position: relative;
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+}
+.next-cht-shell {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  padding-right: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+.next-cht-shell:hover {
+  color: #ccc;
+}
+.next-cht-shell:active {
+  transform: scale(1.04);
+}
+.next-cht-shell span {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: "Noto Serif TC", serif;
+}
+.next-cht-shell i {
+  color: #aaa;
+  font-size: 12px;
+  padding-left: 5px;
+  vertical-align: middle;
+}
+
+.statement {
+  display: inline-block;
+  width: calc(100% - 70px);
+  overflow: auto;
+  white-space: nowrap;
+}
+.statement span {
+  font-size: 12px;
+  display: inline-block;
+  background-color: rgba(111, 111, 111, 0.3);
+  color: #aaa;
+  margin: 3px 3px 5px;
+  padding: 3px 5px 3px;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 1);
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.info {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  color: lightgray;
+  z-index: 5;
+}
+.info-title {
+  font-weight: bold;
+  color: white;
+}
+.info-L {
+  flex: 70%;
+}
+.info-R {
+  flex: 30%;
+}
+.info span {
+  display: block;
+  font-size: 14px;
+  padding: 2px 10px 2px;
+  text-align: justify;
+}
+footer hr {
+  border: 0.5px rgba(255, 255, 255, 0.4) solid;
+}
+
+  </style>
+</head>
+
+<body>
+  <span id="music">
+    <i class="fa-solid fa-music"></i>
+    <font>原子花園</font>
+  </span>
+  <audio id="audioPlayer" src="https://251131395.github.io/media/audio/%E5%8E%9F%E5%AD%90%E8%8A%B1%E5%9C%92.mp3" loop></audio>  
+  <span class="menu" onclick="location.href = document.referrer; return false;"><i class="fa-solid fa-arrow-left"></i></span>
+
+  <div class="light">  </div>
+  <div class="crt"></div>
+  <div class="bg-img-cover">
+    <div class="bg-img-cover-mask"></div>
+  </div>
+  <div class="rain"></div>
+  <div class="bg-img"></div>
+  
+  <div style="min-height:calc(100vh - 40px); padding:20px;">
+    <div class="chapter">
+      <span>??</span>
+      <font>後記</font>
+    </div>
+
+    <div class="content">
+      <span>
+        &emsp;&emsp;祂分出了七成的祂組成了核心的部分，而清潔工分出了三成的他組成了剩下的部分，二合為一的他們負責管理這裹。<br>
+<br>
+&emsp;&emsp;殘缺的他們步出了門，去到了清潔工的家鄉度假。在這裏，祂不再是全知全能的神，祂也會有手足無措的時候。在這裏，清潔工也不再是清潔工。他們去看了晨間花瓣上的露水、看完了一整座圖書館的書、在某間大型連鎖快餐店的後廚看了一整天，他們把頭埋進牆裏……<br>
+<br>
+&emsp;&emsp;時候不早了，他們再次回到了這裹。祂再次做回掌管這裹的祂，清潔工則步出了門，開啟他新的人生。<br>
+<br>
+&emsp;&emsp;之後，清潔工也多次地回到這裏，不過再也沒有清潔車伴他左右了。一開始祂也心存幻想，期待清潔工會記起祂。但是祂都知道，這些都是奢求，能一直看到他，也很好了。<br>
+<br>
+&emsp;&emsp;在之後的之後，無論是世界之外的世界，還是世界之內的世界都要消失了。包裹着這些世界的外殼，向著中心的一點縮進。組成世間萬物的顆粒開始溶解，所有的資訊都平鋪在空氣中。外殼最終坍塌成一點，清潔工想起了全部的過往，而清潔工和祂終於永遠地在一起了。
+
+      </span>
+    </div>
+
+    <div class="next-cht"><div class="statement">
+      <span><i class="fa-solid fa-triangle-exclamation"></i> 背景音樂使用人工智能技術合成。</span>
+      <span><i class="fa-solid fa-hand-holding-heart"></i> 背景圖片由unsplash.com及freepik.com及pixabay.com提供。</span>
+    </div>
+      <div class="next-cht-shell" onclick="location.href=''">
+        <span>下一章</span>
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+    </div>
+    
+  </div>
+
+  </div>
+
+  <footer>
+    <div class="info">
+      <div class="info-L">
+        <span class="info-title">B00K是什麼？</span>
+        <span>B00k 是一個電子書閱讀平台，現已上載超過1.0000000本藏書。B00K 內容豐富，質量上乘，絕對是您選擇電子書的不二之選。</span>
+      </div>
+      <div class="info-R">
+        <span class="info-title">連結</span>
+        <span onclick="location.href='https://space.bilibili.com/470999012'">Bilibili</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+     window.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById('audioPlayer');
+    var musicSpan = document.getElementById('music');
+
+    musicSpan.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        musicSpan.style.color = '#aaa';
+      } else {
+        audio.pause();
+        musicSpan.style.color = '#555';
+      }
+    });
+  });
+  </script>
+</body>
+
+</html>
