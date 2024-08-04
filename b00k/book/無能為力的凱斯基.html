@@ -82,6 +82,27 @@
   background-color:#222;
   min-height:70vh;
   background: linear-gradient(180deg, rgba(25,25,25,1) 0%, rgba(10,10,10,1) 70px);
+  
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
 }
 
 .title{
@@ -224,27 +245,6 @@ footer {
 }
 footer hr {
   border: 0.5px rgba(255, 255, 255, 0.4) solid;
-}
-
-@media screen and (min-width: 768px) {
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    border: none;
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: rgba(102, 102, 102, 0.5);
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(66, 66, 66, 0.5);
-  }
 }
   </style>
 </head>
