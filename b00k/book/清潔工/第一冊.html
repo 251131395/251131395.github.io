@@ -1,0 +1,484 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="https://251131395.github.io/media/image/keski-fish-head.png" rel="shortcut icon" />
+  <title>B00K - 11/F 序章</title>
+
+  <style>
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+hr{
+  border:1px rgba(255,255,255,0.2) dashed;
+}
+
+.menu {
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  right: 0;
+  z-index: 997;
+  color: lightgray;
+  mix-blend-mode: difference;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.menu:hover {
+  color: #eee;
+  mix-blend-mode: normal;
+  -webkit-text-stroke: 0.5px lightgray;
+  text-stroke: 0.5px lightgray;
+}
+#music {
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  color: #555;
+  mix-blend-mode: difference;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+#music font{
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 10px;
+  z-index: -1;
+}
+
+.bg-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://251131395.github.io/b00k/media/image/2d9f7402-b204-4f11-bd5d-430a2ba33b2d.jpg");
+  background-size: cover;
+  background-position: center 80%;
+  z-index: -999;
+  filter: brightness(0.8);
+  -webkit-filter: brightness(0.8);
+}
+.bg-img-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -980;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #050505;
+  mix-blend-mode: multiply;
+}
+.rain{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -990;
+  mix-blend-mode: exclusion;  
+  background-image: url("https://i.makeagif.com/media/5-08-2016/ghoglx.gif");
+  background-size: cover;
+  background-position: right top;
+  filter: brightness(0.4);
+  -webkit-filter: brightness(0.4);
+}
+.light-parti{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -980;
+  mix-blend-mode: exclusion;  
+  background-image: url("https://i.gifer.com/h01.gif");
+  background-size: 500px;
+  background-position: center;
+  filter: brightness(0.3) grayscale(1);
+  -webkit-filter: brightness(0.3) grayscale(1);
+}
+.bg-img-cover-mask {
+  width: calc(100vw - 100px);
+  height: calc(100vh - 100px);
+  background-color: #fff;
+  filter: blur(50px);
+  -webkit-filter: blur(50px);
+}
+.crt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-size: 5px;
+  background-repeat: repeat;
+  background-position: center;
+  background-image: url("https://251131395.github.io/iveai/media/image/AB8DFAA9-EA6E-4BE9-863F-EE5640F6C3A6.png");
+  z-index: -970;
+  mix-blend-mode: soft-light;
+  filter: blur(0.6px);
+  -webkit-filter: blur(0.6px);
+  backdrop-filter: blur(0.6px) saturate(1.2) contrast(1.3);
+  backdrop-webkit-filter: blur(0.6px) saturate(1.2) contrast(1.3);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.chapter {
+  border-bottom: 1px #ddd solid;
+  padding: 3px;
+  margin-top: 20px;
+  font-size: 18px;
+  position: relative;
+}
+.chapter:before {
+  content: "B00K - 251131395";
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 8px;
+  padding: 2px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  z-index: -1;
+}
+.chapter span {
+  color: #aaa;
+  padding-right: 10px;
+  border-right: 1px #999 solid;
+}
+.chapter font {
+  color: #fff;
+  padding-left: 5px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-family: "Noto Serif TC", serif;
+}
+
+.content {
+  padding: 20px 10px 20px;
+  
+  min-height:calc(100vh - 220px);
+}
+.content span {
+  color: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.img-eyes{
+  qborder:1px red solid;
+  margin:-40px 3px -35px;
+  margin-left:8px;
+  width:80px;  
+  transform: rotate(43deg);
+  transition:0.2s;
+}
+
+.img-eyes:hover{
+  qborder:1px red solid;
+  transform: rotate(223deg) scale(0.5);
+  transition:0.5s;
+  filter: brightness(2.8) contrast(4) invert(1) blur(2px) hue-rotate(180deg);
+  -webkit-filter: brightness(2.8) contrast(4) invert(1) blur(2px) hue-rotate(180deg);
+}
+
+.next-cht {
+  border-top: 1px #ddd solid;
+  padding: 3px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  position: relative;
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+}
+.next-cht-shell{
+  display:inline-block;
+  position:absolute;
+  right:0;
+  padding-right:5px;
+  cursor: pointer;
+  color:#fff;
+}
+.next-cht-shell:hover{
+  color:#ccc;
+}
+.next-cht-shell:active{
+  transform: scale(1.04);
+}
+.next-cht-shell span{
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: "Noto Serif TC", serif;
+}
+.next-cht-shell i{
+  color:#aaa;
+  font-size: 12px;
+  padding-left:5px;
+  vertical-align: middle;
+}
+
+.statement{
+  display:inline-block;
+  width:calc(100% - 70px);
+  overflow:auto;
+  white-space: nowrap;
+}
+.statement span{
+  font-size:12px;
+  display:inline-block;
+  background-color: rgba(111,111,111,0.3);
+  color:#aaa;
+  margin:3px 3px 5px;
+  padding:3px 5px 3px;
+  border-radius:5px;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 1);
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.info {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  color: lightgray;
+  z-index: 5;
+}
+.info-title {
+  font-weight: bold;
+  color: white;
+}
+.info-L {
+  flex: 70%;
+}
+.info-R {
+  flex: 30%;
+}
+.info span {
+  display: block;
+  font-size: 14px;
+  padding: 2px 10px 2px;
+  text-align: justify;
+}
+footer hr {
+  border: 0.5px rgba(255, 255, 255, 0.4) solid;
+}
+
+  </style>
+</head>
+
+<body>
+  <span id="music">
+    <i class="fa-solid fa-music"></i>
+    <font>溫暖舊夢</font>
+  </span>
+  <audio id="audioPlayer" src="https://251131395.github.io/media/audio/%E6%BA%AB%E6%9A%96%E8%88%8A%E5%A4%A2.mp3" loop></audio>
+  <span class="menu" onclick="location.href = document.referrer; return false;"><i class="fa-solid fa-arrow-left"></i></span>
+
+  <div class="crt"></div>
+  <div class="bg-img-cover">
+    <div class="bg-img-cover-mask"></div>
+  </div>
+  <div class="light-parti"></div>
+  <div class="rain"></div>
+  <div class="bg-img"></div>
+
+  <div style="min-height:calc(100vh - 40px); padding:20px;">
+    <div class="chapter">
+      <font>序</font>
+    </div>
+    <div class="content">
+      <span>
+        &emsp;&emsp;一雙長著繭的手正快速翻動著書本，時而停下，撕下空白頁。身穿藍色制服的人影伏在地上，四周散落數十本一模一樣的黃色書本，封面用注目的紅色印著「清潔大全」，書本堆成一座座小山。<br>
+        <br>
+        &emsp;&emsp;身穿藍色制服的人張開手臂把地上破破爛爛的「清潔大全」全都推到一旁燃燒著熊熊烈火的房間內，傾頓間，那些書本便化為灰燼了。<br>
+        <br>
+        &emsp;&emsp;隨後，他走向不遠處的清潔車，拿出了除塵轆補充裝和剪刀，再次伏於地上，將除塵轆補充紙剪成細長的紙條，利用它的黏性把紙張製成小本子。<br>
+        <br>
+        &emsp;&emsp;「太好了。」他説。<br>
+        <br>
+        &emsp;&emsp;這位身穿藍色制服的人曾對訪客説過，他忘了名字，如果你想，可以叫他清潔工。<br>
+        <br>
+        &emsp;&emsp;清潔工已經滯留在這個空間很久了，別的訪客無論逗留的時間有多長總會有離開或消失的一天，而他逗留的時間已經久到他忘了自己的名字。<br>
+        <br>
+        &emsp;&emsp;這個空間沒有人知道是哪裏，而訪客們都稱這裏為「這裏」。這裏時間不會流動，人不會飢餓，而且也沒有門。這裏似乎是由不同訪客的經歷共同塑造，區域內的東西不能拿出該區域。新訪客的區域是具像的，逗留得越久，便會變得越抽象。就像剛才那個紅紅烈火的房間來説，也許那個訪客是個消防員吧。總而言之，這裏是個很奇怪的空間。
+      </span>
+    </div>
+
+    <div class="chapter">
+      <font>清潔工的日記本</font>
+    </div>
+    <div class="content">
+      <span>
+        01<br>
+        &emsp;&emsp;今天終於做好了日記本，好開心。我就不寫日期了，實在不知道。太久沒執筆，都有些忘了怎麼寫字了。<br>
+        <br>
+        &emsp;&emsp;對了，這支筆是撿的。我也不知道為甚麼別的都不行，但是這個可以，不管了，反正能用。<br><hr>
+        02<br>
+        &emsp;&emsp;我是一名清潔工。<br>
+        <br>
+        &emsp;&emsp;我已經忘了自己身處在這個空間多久了。怎麼也死不去，一切都很無趣。這裏前前後後也來了很多訪客，他們有些逗留了很久，有些和我也做了一段時間的朋友呢，但最終都會離我而去。<br>
+        <br>
+        &emsp;&emsp;我記不起自己的過去，也看不到自己的未來。也許當個清潔工是我的責任，為甚麼這樣説？因為自從我有記憶以來，就身穿這套藍色清潔工服、手執地拖，方圓完十米總會有一部清潔手推車，所有清潔用品應有盡有。當清潔用品消耗完的時候，身旁便會發現到一個補充站。<br>
+        <br>
+        &emsp;&emsp;這裏時不時會出現幾具屍體，我總會收拾打理乾淨，這對我來說，就像是根植於內心的潛意識，我也不知道為何。<br>
+        <br>
+        &emsp;&emsp;除了我以外，我在這裏沒有看到過其他清潔工，也許這是我特殊的地方？
+        <br><hr>
+        03<br>
+        &emsp;&emsp;今天走廊的地板比平常更肮髒，黏黏的，像半乾的漿糊一樣，不知道為甚麼。
+        <br><hr>
+        04<br>
+        &emsp;&emsp;地板越來越黏了，我需要找出罪魁禍首。
+      </span>
+    </div>
+    
+    <div class="chapter">
+      <font>片鹼和洗衣粉</font>
+    </div>
+    <div class="content">
+      <span>
+        &emsp;&emsp;就這樣，清潔工走向了補充站。補充站沒有固定地點，只要清潔工缺了清潔用品，補充站就會出現在他的附近。<br>
+<br>
+	&emsp;&emsp;補充站裏清潔用品應有盡有，相同的物品有序地排位著，像陣列一樣。清潔工拿了片鹼和洗衣粉，戴上了手套，將粉末以一比一的比例混合。然後撕下了一頁「清潔大全」捲成了漏斗狀，再將粉末灌進了噴壺內。隨後，清潔工取了些熱水倒進噴壺內輕輕搖晃，地板清潔劑便大功告成。<br>
+<br>
+	&emsp;&emsp;清潔工收拾好行裝，將噴壺放進了清潔車上，準備一邊清洗地板，一邊追蹤黏液的源頭。<br>
+<br>
+	&emsp;&emsp;呈綠色的黏液滲進了地板的縫隙之中，邊緣開始乾涸、泛白，經過風乾，四周散落些許白色的粉末和碎塊。仔細察看，黏液似乎還分層了，滲出了微黃的油漬。<br>
+<br>
+	&emsp;&emsp;清潔工把清潔劑均勻地用噴壺噴於地上，等待了不一會兒，油泥便開始分解。清潔工的力氣不大，扛不起裝滿水的水桶，所以他把清潔車上的水桶一腳推倒了。一瀉千里的水頓時清洗掉大半的綠色粘液，餘下的要用刷子才能刷乾淨。<br>
+<br>
+	&emsp;&emsp;清潔工用力地刷洗著磚縫，怎料泡沫卻越來越多。「奇怪，洗衣粉不應該有這麼多泡沫的。」他疑惑地道。<br>
+<br>
+	&emsp;&emsp;清潔工走過長長的走廊，一路上清洗著地板，隨著他的腳步，黏液的痕跡漸漸減少。他感到一絲舒暢，似乎清理掉了某種困擾。走得越遠，地上的黏液也更濕潤，看來是最近留下的。<br>
+<br>
+	&emsp;&emsp;隨著逐漸遠離熊熊烈火燃燒的房間，清潔工改用拖把吸取地上的廢水，並將其收集在水桶中。他打算在返回時，將水桶中的廢水一次性倒入燃燒著熊熊烈火的房間內。
+
+      </span>
+    </div>
+    
+    <div class="chapter">
+      <font>需要一點醋</font>
+    </div>
+    <div class="content">
+      <span>
+        &emsp;&emsp;清潔工循著地上的線索來到了這個區域。這個區域的裝潢就像浴室，墻壁和地板都是白色的瓷磚。而且燈光昏暗，空中氤氲著霧氣，令人看不清盡頭，又有些悶熱。<br>
+<br>
+&emsp;&emsp;清潔工推著清潔車走了進去，抬頭向四周不停打量著。這個區域他從未來過，是新訪客吧？區域正中間放置了一個比正常尺寸更大的浴缸，清潔工想，如果有人進去洗澡，大概會淹死吧。<br>
+<br>
+&emsp;&emsp;走近浴缸一看，清潔工發現這個浴缸充滿著水垢，斑駁的棕色和灰色覆蓋在表面。這讓清潔工皺起眉頭，不過水垢不難清理，只需要一點醋就可以解決。<br>
+<br>
+&emsp;&emsp;由於噴壺已經裝了片堿和洗衣粉的混合物，所以清潔工將醋倒在百潔布。浴缸對清潔工來説太大了，於是他爬進了進去，將醋均勻地塗抹於浴缸上，再靜候十分鐘。雖然氣味很難聞，但是清潔工認為這是值得的，因為他不喜歡水垢。<br>
+<br>
+&emsp;&emsp;在等待的期間，清潔工打算四處走走，找出地板弄髒的罪魁禍首。清潔工此刻才發現，空氣彌漫著一股異樣的氣味，不是醋的味道……就像是青蘋果？<br>
+<br>
+&emsp;&emsp;清潔工走遍這個區域了，這裏看來暫時與一般正常浴室沒有分別，也許真的是新訪客吧。清潔工走得有些累了，這裏熱得他頭昏腦脹。他重新回到浴缸旁，倚靠著坐。有些困了，便閉上眼假寐。<br>
+<br>
+&emsp;&emsp;不知過了多久後，嗯……青蘋果的氣味越發濃烈了。清潔工驟然睜開眼，發現了浴缸的動靜。他站了起來，看到原本空無一物的浴缸內裝滿了黃綠色黏液。半透明的渾濁液體包裹着像血管一樣的暗紅色細絲，不停湧動著。清潔工看著這一切，嗯……又要再洗一遍了，腰會疼。<br>
+<br>
+&emsp;&emsp;忽然，兩顆眼珠從缸底浮了上水面，渾濁泛白，像魚目一樣的瞳孔直直地盯著清潔工。一張嘴從黏液長了出來，大聲喊：「救命！救救我！」。清潔工似乎有些不知所措，定定地看著黏液的嘴巴一張一合，焦急地喊：「快救我，我的身體快從排水口流完了！」水位以肉眼可見的速度下降，清潔工旋即從清潔車取出了水桶，撈起了黏液的兩個眼珠和部分黏液。來不及了，他眼睜睜看著剩下黏液消失在排水口。<br>
+<br>
+&emsp;&emsp;隨著黏液流失，原本正常大小的眼珠<img class="img-eyes" src="https://251131395.github.io/b00k/media/image/%E7%84%A1%E6%A8%99%E9%A1%8C45_20240630163138.png">，萎縮成黃豆般大。眼白的部分由黑色取替，如同麻雀的眼睛。黏液悲傷地看向自己剩余的身體。<br>
+<br>
+&emsp;&emsp;清潔工看向自己被弄髒了袖口，方才他沒有戴手套，粘液滲進了布料的纖维，該怎樣才能洗掉呢？
+      </span>
+    </div>
+
+    <div class="next-cht">
+      <div class="statement">
+        <span><i class="fa-solid fa-triangle-exclamation"></i> 背景音樂使用人工智能技術合成。</span>
+        <span><i class="fa-solid fa-hand-holding-heart"></i> 煙霧動圖由makeagif.com提供。</span>
+        <span><i class="fa-solid fa-hand-holding-heart"></i> 光粒子動圖由gifer.com提供。</span>
+      </div>
+      <div class="next-cht-shell" onclick="location.href=''">
+        <span>下一章</span>
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+    </div>
+    
+    <div style="height:100vh;"></div>
+  </div>
+
+  </div>
+
+  <footer>
+    <div class="info">
+      <div class="info-L">
+        <span class="info-title">B00K是什麼？</span>
+        <span>B00k 是一個電子書閱讀平台，現已上載超過1.0000000本藏書。B00K 內容豐富，質量上乘，絕對是您選擇電子書的不二之選。</span>
+      </div>
+      <div class="info-R">
+        <span class="info-title">連結</span>
+        <span onclick="location.href='https://space.bilibili.com/470999012'">Bilibili</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+ window.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById('audioPlayer');
+    var musicSpan = document.getElementById('music');
+
+    musicSpan.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        musicSpan.style.color = '#aaa';
+      } else {
+        audio.pause();
+        musicSpan.style.color = '#555';
+      }
+    });
+  });
+  </script>
+</body>
+
+</html>
