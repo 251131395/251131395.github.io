@@ -1,0 +1,834 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+  <title>微光閃爍</title>
+
+  <style>
+    body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu {
+  position: fixed;
+  padding: 0;
+  top: 20px;
+  right: 15px;
+  z-index: 997;
+  color: #ccc;
+  font-size: 16px;
+  cursor: pointer;
+}
+.menu:hover {
+  color: #555;
+  mix-blend-mode: normal;
+  -webkit-text-stroke: 0.5px lightgray;
+  text-stroke: 0.5px lightgray;
+}
+
+.bg-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1641232458416-feace752b346?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQyOTIzMDJ8&ixlib=rb-4.0.3&q=80&w=400");
+  background-size: cover;
+  background-position: center;
+  z-index: -999;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+.bg-img-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -980;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #222;
+  mix-blend-mode: multiply;
+}
+.bg-img-cover-mask {
+  width: calc(100vw - 100px);
+  height: calc(100vh - 100px);
+  background-color: #fff;
+  filter: blur(50px);
+  -webkit-filter: blur(50px);
+}
+.rain {
+  position: fixed;
+  top: 0;
+  left: -10vw;
+  width: 80vw;
+  height: 100vh;
+  z-index: -980;
+  mix-blend-mode: screen;
+  background-image: url("https://i.gifer.com/19Nx.gif");
+  background-size: 150%;
+  background-position: top 90%;
+  filter: brightness(0.3) blur(3px) hue-rotate(20deg);
+  -webkit-filter: brightness(0.3) blur(3px) hue-rotate(20deg);
+}
+.light-parti {
+  position: fixed;
+  bottom: 0;
+  right: -55vw;
+  width: 100vw;
+  height: 50vh;
+  z-index: -980;
+  mix-blend-mode: screen;
+  background-image: url("https://i.gifer.com/19Nx.gif");
+  background-size: cover;
+  background-position: bottom right;
+  filter: brightness(0.3) blur(1px) hue-rotate(20deg);
+  -webkit-filter: brightness(0.3) blur(1px) hue-rotate(20deg);
+}
+
+.title {
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Serif TC", serif;
+  white-space: nowrap;
+  position: fixed;
+  top: 15px;
+  left: 20px;
+}
+.title:before {
+  content: "";
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background-color: orange;
+  filter: blur(7px);
+  -webkit-filter: blur(7px);
+  opacity: 0.4;
+  z-index: -1;
+}
+.title font {
+  font-family: "Cedarville Cursive", cursive;
+  font-weight: 400;
+  font-size: 14px;
+  position: absolute;
+  bottom: -10px;
+  left: 3px;
+  z-index: -10;
+  color: #cd5c08;
+  letter-spacing: 1px;
+  opacity: 0.4;
+}
+#tit-top {
+  display: inline-block;
+  margin-right: -5px;
+  background: linear-gradient(
+    0deg,
+    rgba(164, 151, 147, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 24px;
+}
+#tit-bottom {
+  display: inline-block;
+  transform: translate(0px, 3px);
+  background: linear-gradient(
+    0deg,
+    rgba(164, 151, 147, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 26px;
+}
+
+.window-shell {
+  display: none;
+  z-index:999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      border: none;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(102, 102, 102, 0.5);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(66, 66, 66, 0.5);
+    }
+  }
+}
+.empty-click {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 886;
+}
+.window-close {
+  color: #ccc;
+  font-size: 10px;
+  margin: 0;
+  padding: 3px;
+}
+
+.question {
+  position: fixed;
+  padding: 2px 8px 2px;
+  padding-left: 5px;
+  bottom: 20px;
+  left: -1px;
+  color: #aaa;
+  border: 1px #444 solid;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.2);
+  z-index:999;
+}
+.mess-box {
+  display: none;
+  position: relative;
+  overflow: auto;
+  z-index: 888;
+  width: 300px;
+  max-width: calc(100% - 40px);
+  height: 75vh;
+  border: 1px #eee solid;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  background-image: url("https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQzMDc3NTJ8&ixlib=rb-4.0.3&q=85");
+  background-size: cover;
+  background-position: center;
+}
+.mess-box span {
+  display: block;
+  margin: 5px 10px 20px;
+  font-size: 12px;
+}
+.mess-box-tit {
+  margin: 10px 10px 2px;
+  position: relative;
+}
+.mess-box-tit:before {
+  content: "";
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  border-bottom: 1px #777 solid;
+}
+.mess-box-tit:after {
+  content: "";
+  width: 80%;
+  height: 100%;
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  border-bottom: 1px #777 dashed;
+}
+.mess-box-tit span {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Noto Serif TC", serif;
+}
+
+.message-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 5px 16px 5px;
+  filter: brightness(0.9);
+  -webkit-filter: brightness(0.9);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.message-btn span {
+  font-size: 14px;
+  color: #eee;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-family: "Noto Serif TC", serif;
+  position: relative;
+}
+.message-btn span font {
+  position: absolute;
+  right: -7px;
+  bottom: -5px;
+  z-index: -1;
+  opacity: 0.2;
+}
+.mess-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: skewX(-6deg);
+  border-radius: 5px;
+  border: 1px #aaa solid;
+  overflow: hidden;
+}
+.mess-bg div {
+  position:absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://images.unsplash.com/photo-1541140134513-85a161dc4a00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQzMDQ5MzR8&ixlib=rb-4.0.3&q=80&w=400");
+  background-position: bottom right;
+  background-size: 190%;
+  mix-blend-mode: overlay;
+
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+  opacity: 0.3;
+}
+.mess-bg span{
+  position:absolute;
+  top:0;
+  left:0;
+  display:block;
+  width: 15%;
+  height: 100%;
+  background-color:rgba(255, 238, 169,0.3);
+  transform: skewX(-15deg);
+  filter:blur(3px);
+  -webkit-filter:blur(10px);
+  animation: move 4s linear infinite;
+  mix-blend-mode: exclusion;
+}
+@keyframes move{
+  0%{
+  left:-60%;
+  width: 15%;
+  }
+  50%{
+  left:50%;
+  width: 20%;
+  }
+  100%{
+  left:160%;
+  width: 5%;
+  }
+}
+
+.mail-box {
+  display: none;
+  padding: 10px;
+  font-size: 12px;
+  position: relative;
+  overflow: auto;
+  z-index: 888;
+  width: 300px;
+  max-width: calc(100% - 60px);
+  border: 1px #eee solid;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  background-image: url("https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQzMDc3NTJ8&ixlib=rb-4.0.3&q=85");
+  background-size: cover;
+  background-position: center;
+}
+#name,#message {
+  display: block;
+  min-width: calc(100% - 5px);
+  max-width: calc(100% - 5px);
+}
+#message {
+  min-height: 150px;
+  max-height: calc(100vh - 200px);
+}
+.submit {
+  color: #fff;
+  font-size: 12px;
+  margin: 5px 0 0;
+  padding: 1px 12px 2px;
+  border: 1px #fff solid;
+  border-radius: 15px;
+  background-color: #777;
+  background: linear-gradient(0deg, #aaa 0%, #888 89%);
+  float: right;
+  cursor: pointer;
+}
+
+.choice-shell{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align:center;
+  background-color:rgba(0,0,0,0.4);
+  z-index:777;
+}
+.choice-shell font{
+  display:block;
+  font-size:18px;
+  color:#fff;
+  margin:20px;
+  text-shadow:0px 0px 3px #9E6F21,0px 0px 4px rgba(255, 184, 76,0.5);
+}
+.choice div{
+  display:inline-block;
+  width:80px;
+  height:80px;
+  padding:10px;
+  margin:10px;
+  font-size:12px;
+  border:1px #fff solid;
+  border-radius:50%;
+  position:relative;
+  qvertical-align: top;
+  cursor: pointer;
+  box-shadow: inset 0px 0px 10px rgba(255,255,255,0.5);
+  overflow:hidden;
+  transition:all 0.5s;
+}
+.choice div:hover{
+  background-color:rgba(255,255,255,0.1);
+  transition:all 0.1s;
+}
+.choice div span{
+  color:#fff;
+  positive:avsolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  text-shadow:0px 0px 3px #9E6F21,0px 0px 4px rgba(255, 184, 76,0.5);
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cho-no-web{
+  animation: float 8s ease-in-out infinite;
+}
+.cho-ys{
+  animation-delay: -3s;
+  animation: float 6s ease-in-out infinite;
+}
+.cho-no-mail{
+  animation: float 7s ease-in-out infinite;
+}
+@keyframes float{
+  0%{
+    transform: translate(0, 1px);
+  }
+  50%{
+    transform: translate(0, -1px);
+  }
+  100%{
+    transform: translate(0, 1px);
+  }
+}
+
+.words-1,.words-2{
+  height: 100vh;
+  display:none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align:center;
+  position:relative;
+  1pointer-events:none;
+}
+.words-1 span,.words-2 span{
+  color:#fff;
+  display:block;
+  margin:10px 20px 10px;
+  text-shadow:0px 0px 3px #9E6F21,0px 0px 4px rgba(255, 184, 76,0.5);
+  font-size:16px;
+  font-weight:bold;
+  font-family: "Noto Serif TC", serif;
+}
+.words-1 i,.words-2 i{
+  color:#fff;
+  position:absolute;
+  bottom:70px;
+  right:20px;
+  opacity:0.5;
+  animation: float-arrow 3s ease-in-out infinite;
+}
+@keyframes float-arrow {
+  0% {
+    transform: translate(0, 2px);
+  }
+  50% {
+    transform: translate(0, -2px);
+  }
+  100% {
+    transform: translate(0, 2px);
+  }
+}
+
+.mess-card-shell-shell{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align:center;
+  position: relative;
+  margin:60px 20px 0;
+  height:calc(100vh - 120px);
+  @media screen and (min-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      border: none;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(102, 102, 102, 0.5);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(66, 66, 66, 0.5);
+    }
+  }
+}
+/*change to 3 or 4*/
+.mess-card-shell{
+  columns: 3 250px;
+  column-gap: 0;
+  overflow:auto;
+}
+.mess-card{
+  text-align:left;
+  padding:5px 10px 5px;
+  margin:10px;
+  color:#fff;
+  display:inline-block;
+  width:180px;
+  min-height:100px;
+  border:1.5px rgba(255,255,255,0.6) solid;
+  border-radius:2px;
+  position:relative;
+  background: linear-gradient(0deg, rgba(246,243,214,0.4) 0%, rgba(0,0,0,0) 42%);
+}
+.mess-card:after{
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:13px;
+  left:-16px;
+  background-color:rgba(145, 79, 30,0.6);
+  mix-blend-mode: multiply;
+  z-index:-1;
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+}
+.mess-card:before{
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background-image: url("https://images.unsplash.com/photo-1482977036925-e8fcaa643657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ0MjA3Nzl8&ixlib=rb-4.0.3&q=80&w=400");
+  background-size: cover;
+  background-position: bottom right;
+  z-index:-1;
+  mix-blend-mode: multiply;
+}
+.mess-card span{
+  display:inline-block;
+  color: #fff;
+  font-size:16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin:0;
+  padding: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(164, 151, 147, 1) 0%,
+    rgba(255, 255, 255, 1) 50%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Noto Serif TC", serif;
+  position:relative;
+}
+.mess-card span:before{
+  content:'';
+  position:absolute;
+  width:calc(100% + 10px);
+  height:40%;
+  bottom:10%;
+  left:-4px;
+  background-color:rgba(205, 92, 8,0.5);
+  z-index:-1;
+}
+.mess-card p{
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-size:12px;
+}
+  </style>
+</head>
+
+<body>
+  <span class="title">
+    <span id="tit-top">微光</span>
+    <span id="tit-bottom">閃爍</span>
+    <font>Shimmering Light</font>
+  </span>
+  <span class="menu" onclick="location.href = document.referrer; return false;"><i class="fa-solid fa-chevron-left"></i></span>
+  <span class="question">活動詳情 <i class="fa-regular fa-circle-question"></i></span>
+  <div class="message-btn">
+    <span>送出生日寄語<font><i class="fa-solid fa-pen-fancy"></i></font></span>
+    <div class="mess-bg">
+      <div></div>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="bg-img-cover">
+    <div class="bg-img-cover-mask"></div>
+  </div>
+  <div class="light-parti"></div>
+  <div class="rain"></div>
+  <div class="bg-img"></div>
+  
+  <div class="window-shell">
+    <div class="mess-box">
+      <div class="mess-box-tit">
+        <span>微光閃爍</span>
+      </div>
+      <span>微光閃爍是由 251131395 發起的非牟利活動，希望能為所有流覽這個網頁及生日的人，送上溫暖的祝福。<br><br>251131395 亦想用這個網頁連繫大家，令人們記得生活中的小確幸，並向他人傳遞溫暖。</span>
+
+      <div class="mess-box-tit">
+        <span>製作屬於你的蛋糕</span>
+      </div>
+      <span>滾動網頁挑選蛋糕胚及餡料，製作屬於你的生日蛋糕。</span>
+
+      <div class="mess-box-tit">
+        <span>送出生日寄語</span>
+      </div>
+      <span>為屏幕後的陌生人送上衷心的生日祝福吧。<br><br>點擊頁面右下角的"送出生日寄語"按鈕，可以使用電郵撰寫留言，留言被挑選後會顯示在網頁上。</span>
+
+      <div class="mess-box-tit">
+        <span>網頁前身</span>
+      </div>
+      <span>網頁前身為 <a href="https://251131395.github.io/Y/%E7%94%9F%E6%97%A5%E8%B3%80%E5%8D%A1.html" target="_blank">生日賀卡</a> ，如有興趣，歡迎瀏覽。</span>
+
+      <div class="mess-box-tit">
+        <span>鳴謝</span>
+      </div>
+      <span>感謝 unsplash.com 及 gifer.com 提供的素材。<br><br>
+        包括:<br><img height="50px" src="https://images.unsplash.com/photo-1641232458416-feace752b346?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQyOTIzMDJ8&ixlib=rb-4.0.3&q=80&w=400">
+        <img height="50px" src="https://images.unsplash.com/photo-1541140134513-85a161dc4a00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQzMDQ5MzR8&ixlib=rb-4.0.3&q=80&w=400">
+        <img height="50px" src="https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQzMDc3NTJ8&ixlib=rb-4.0.3&q=85">
+        <img height="50px" src="https://images.unsplash.com/photo-1482977036925-e8fcaa643657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ0MjA3Nzl8&ixlib=rb-4.0.3&q=80&w=400">
+        <img height="50px" src="https://i.gifer.com/19Nx.gif">
+      </span>
+
+    </div>
+    <div class="mail-box">
+      <form id="contactForm">
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="message">留言內容:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <input type="submit" value="提交" class="submit">
+      </form>
+    </div>
+    
+    <div class="empty-click"></div>
+    <p class="window-close">點擊空白處關閉</p>
+  </div>
+
+  <div class="choice-shell">
+    <font>你好，今天是你的生日嗎？</font>
+    <div class="choice">
+      <div class="cho-no-web"><span>不是，但我想看看這個網站</span></div>
+      <div class="cho-ys"><span style="font-size:14px;">是的</span></div>
+      <div class="cho-no-mail"><span>不是，但我想撰寫生日寄語</span></div>
+    </div>
+  </div>
+  
+  <div class="words-1">
+    <span id="dateMessage">又到<font class="month"></font>月<font class="day"></font>日了，不知道你今年過得怎樣、今天又做了什麼呢？</span>
+    <span style="font-size:18px;">不管怎樣，祝你生日快樂。</span>
+    <i class="fa-solid fa-angles-down"></i>
+  </div>
+  <div class="words-2">
+    <span>大家準備了一些驚喜給你，來看看吧。</span>
+    <i class="fa-solid fa-angles-down"></i>
+  </div>
+  
+  <div class="mess-card-shell-shell">
+    <div class="mess-card-shell">
+      <div class="mess-card">
+      <span>无敌のOO人</span>
+      <p>祝你生日快乐！在最好的今天做最棒的自己！！</p>
+    </div>
+      <div class="mess-card">
+      <span>蔬菜咸咸</span>
+      <p>你勇敢一点，能面对自己孤独的生日，还有什么困难会阻挡你呢？</p>
+    </div>
+      <div class="mess-card">
+      <span>251131395</span>
+      <p>生日快樂！祝你能充實地過每一天，不虛度光陰，成為更好的自己 :)</p>
+    </div>
+      </div>
+  </div>
+    
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const question = document.querySelector(".question");
+  const MessageBtn = document.querySelector(".message-btn");
+
+  const WindowShell = document.querySelector(".window-shell");
+  const EmptyClick = document.querySelector(".empty-click");
+
+  const MessBox = document.querySelector(".mess-box");
+  const MailBox = document.querySelector(".mail-box");
+
+  const ChoiceShell = document.querySelector(".choice-shell");
+  const ChoNoWeb = document.querySelector(".cho-no-web");
+  const ChoYs = document.querySelector(".cho-ys");
+  const ChoNoMail = document.querySelector(".cho-no-mail");
+  
+  const words1 = document.querySelector(".words-1");
+  const words2 = document.querySelector(".words-2");
+  
+  const MessCardShellShell = document.querySelector(".mess-card-shell-shell");
+
+  question.addEventListener("click", function () {
+    WindowShell.style.display = "flex";
+    MessBox.style.display = "block";
+    MailBox.style.display = "none";
+  });
+  MessageBtn.addEventListener("click", function () {
+    WindowShell.style.display = "flex";
+    MailBox.style.display = "block";
+    MessBox.style.display = "none";
+  });
+  EmptyClick.addEventListener("click", function () {
+    WindowShell.style.display = "none";
+    MessBox.style.display = "none";
+    MailBox.style.display = "none";
+  });
+  
+  ChoNoMail.addEventListener("click", function () {
+    WindowShell.style.display = "flex";
+    MailBox.style.display = "block";
+    MessBox.style.display = "none";
+    ChoiceShell.style.display = "none";
+    MessCardShellShell.style.display = "flex";
+  });
+  ChoNoWeb.addEventListener("click", function () {
+    ChoiceShell.style.display = "none";
+    MessCardShellShell.style.display = "flex";
+  });
+  ChoYs.addEventListener("click", function () {
+    ChoiceShell.style.display = "none";
+    words1.style.display = "flex";
+  });
+  
+  words1.addEventListener("click", function () {
+    words1.style.display = "none";
+    words2.style.display = "flex";
+  });
+  words2.addEventListener("click", function () {
+    words2.style.display = "none";
+    MessCardShellShell.style.display = "flex";
+  });
+
+});
+
+document
+  .getElementById("contactForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    var name = document.getElementById("name").value;
+    var message = document.getElementById("message").value;
+
+    var subject = "[" + name + "]於微光閃爍網站傳送了生日寄語";
+    var body = "姓名: " + name + "\n";
+    body += "留言內容: " + message;
+
+    var mailLink = document.createElement("a");
+    mailLink.href =
+      "mailto:251131395y@gmail.com?subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(body);
+    mailLink.click();
+  });
+
+
+// Get the current date
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth() + 1; // Months are zero-based
+    const currentDay = currentDate.getDate();
+// Update the HTML with the current date
+    document.getElementById('dateMessage').innerHTML = `又到<font class="month">${currentMonth}</font>月<font class="day">${currentDay}</font>日了，不知道你今年過得怎樣、今天又做了什麼呢？`;
+  </script>
+</body>
+
+</html>
