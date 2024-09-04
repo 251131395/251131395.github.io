@@ -1,0 +1,294 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+  <title>二五牌罐頭廠</title>
+
+  <style>
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bg-img-cover {
+  pointer-events:none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 980;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #333;
+  mix-blend-mode: multiply;
+}
+.bg-img-cover-mask {
+  width: calc(100vw - 20px);
+  height: calc(100vh - 20px);
+  background-color: #fff;
+  filter: blur(30px);
+  -webkit-filter: blur(30px);
+  border-radius: 20%;
+}
+
+.go{
+  position:fixed;
+  top:20px;
+  left:20px;
+  z-index:999;
+  pointer-events:none;
+  color:#ccc;
+  text-shadow:0px 0px 10px #000;
+  font-size:16px;
+  qfont-weight: bold;
+  letter-spacing: 2px;
+  font-family: "Noto Serif TC", serif;
+}
+
+.home,.cannery,.other{
+  cursor: pointer;
+  position:fixed;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width:calc(100% / 3);
+  height:100vh;
+  text-align:center;
+  overflow:hidden;
+}
+.home span,.cannery span,.other span{
+  pointer-events:none;
+  margin:30vh 0 10px;
+  color:#fff;
+  text-shadow:0px 0px 10px #000;
+  text-align:center;
+  font-size:18px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: "Noto Serif TC", serif;
+}
+.home p,.cannery p,.other p{
+  pointer-events:none;
+  margin:0 6px 0;
+  padding:0;
+  color:#fff;
+  text-shadow:0px 0px 10px #000;
+  text-align:center;
+  font-size:12px;
+  max-width:220px;
+}
+.home div,.cannery div,.other div{
+  position:absolute;
+  z-index:-1;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  transition: all 0.5s ease-out;
+}
+.home div:hover,.cannery div:hover,.other div:hover{
+  filter: brightness(1) grayscale(0);
+  -webkit-filter: brightness(1) grayscale(0);
+  transition: all 0.2s ease-in;
+  transform: scale(1.05);
+}
+
+.home{
+  left:0;
+}
+.cannery{
+  left:calc(100% / 3);
+  right:calc(100% / 3);
+}
+.other{
+  right:0;
+}
+
+.home div{
+  left:0;
+  background-image: url("https://images.unsplash.com/photo-1505916349660-8d91a99c3e23?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjU0NDE2NjZ8&ixlib=rb-4.0.3&q=85");
+  background-size: cover;
+  background-position: center;
+  
+  filter: brightness(0.8) grayscale(0.8) sepia(0.3);
+  -webkit-filter: brightness(0.8) grayscale(0.8) sepia(0.3);
+}
+.cannery div{
+  left:0;
+  right:0;
+  background-image: url("https://images.unsplash.com/photo-1719227166020-55541781739f?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjU0NDE3NDd8&ixlib=rb-4.0.3&q=85");
+  background-size: cover;
+  background-position: center;
+  
+  filter: brightness(1.1) grayscale(0.6) sepia(0.3);
+  -webkit-filter: brightness(1.1) grayscale(0.6) sepia(0.3);
+}
+.other div{
+  right:0;
+  background-image: url("https://images.unsplash.com/photo-1723653508269-7b2abc5d8e74?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjU0NDE3OTR8&ixlib=rb-4.0.3&q=85");
+  background-size: cover;
+  background-position: center;
+  
+  filter: brightness(0.8) grayscale(0.8);
+  -webkit-filter: brightness(0.8) grayscale(0.8);
+}
+
+.message-btn {
+  position: fixed;
+  z-index: 999;
+  bottom: 20px;
+  right: 20px;
+  padding: 5px 16px 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.message-btn:hover {
+  transform: scale(1.05);
+.mess-bg {
+  background-color:rgba(255,255,255,0.1);
+  }
+}
+.message-btn:active {
+  transform: scale(1);
+}
+.message-btn span {
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-family: "Noto Serif TC", serif;
+  position: relative;
+}
+.mess-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: skewX(-6deg);
+  border-radius: 5px;
+  border: 1px #aaa solid;
+  overflow: hidden;
+}
+.mess-bg div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://images.unsplash.com/photo-1541140134513-85a161dc4a00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQzMDQ5MzR8&ixlib=rb-4.0.3&q=80&w=400");
+  background-position: bottom right;
+  background-size: 190%;
+  mix-blend-mode: overlay;
+
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+  opacity: 0.3;
+}
+.mess-bg span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 15%;
+  height: 100%;
+  background-color: rgba(241, 211, 206, 0.4);
+  transform: skewX(-15deg);
+  filter: blur(3px);
+  -webkit-filter: blur(10px);
+  animation: move 4s linear infinite;
+  mix-blend-mode: multiply;
+}
+@keyframes move {
+  0% {
+    left: -60%;
+    width: 15%;
+  }
+  50% {
+    left: 50%;
+    width: 20%;
+  }
+  100% {
+    left: 160%;
+    width: 5%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="bg-img-cover">
+    <div class="bg-img-cover-mask"></div>
+  </div>
+
+  <span class="go">你要前往...</span>
+  <div class="home" onclick="location.href=''">
+    <span><i class="fa-solid fa-caret-left"></i> 泉澤鎮</span>
+    <p>你的家在小鎮內。小鎮不大，但是你很喜歡，因為這裏的鄰居很友善。</p>
+    <div></div>
+  </div>
+  <div class="cannery" onclick="location.href=''">
+    <span>罐頭廠</span>
+    <p>你工作的地方，三面環海，離你家有一段距離。你暫時住在罐頭廠的宿舍。</p>
+    <div></div>
+  </div>
+  <div class="other" onclick="location.href=''">
+    <span>其他 <i class="fa-solid fa-caret-right"></i></span>
+    <p>你很少離開小鎮，你不了解外面的世界，也不好奇。</p>
+    <div></div>
+  </div>
+
+  <div class="message-btn" onclick="location.href=''">
+    <span>開始劇情</span>
+    <div class="mess-bg">
+      <div></div>
+      <span></span>
+    </div>
+  </div>
+
+  <script>
+  </script>
+</body>
+
+</html>
