@@ -24,7 +24,7 @@
 }
 
 .bg-img-cover {
-  pointer-events:none;
+  pointer-events: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -47,7 +47,7 @@
   border-radius: 20%;
 }
 .rain {
-  pointer-events:none;
+  pointer-events: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -81,104 +81,113 @@
   pointer-events: none;
 }
 
-.go{
-  position:fixed;
-  top:20px;
-  left:20px;
-  z-index:999;
-  pointer-events:none;
-  color:#ccc;
-  text-shadow:0px 0px 10px #000;
-  font-size:16px;
-  qfont-weight: bold;
+.go {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+  pointer-events: none;
+  color: #ccc;
+  text-shadow: 0px 0px 10px #000;
+  font-size: 16px;
   letter-spacing: 2px;
   font-family: "Noto Serif TC", serif;
 }
 
-.home,.cannery,.other{
+.home,
+.cannery,
+.other {
   cursor: pointer;
-  position:fixed;
+  position: fixed;
   display: flex;
   align-items: center;
   flex-direction: column;
-  width:calc(100% / 3);
-  height:100vh;
-  text-align:center;
-  overflow:hidden;
+  width: calc(100% / 3);
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
 }
-.home span,.cannery span,.other span{
-  pointer-events:none;
-  margin:30vh 0 10px;
-  color:#fff;
-  text-shadow:0px 0px 10px #000;
-  text-align:center;
-  font-size:18px;
+.home span,
+.cannery span,
+.other span {
+  pointer-events: none;
+  margin: 30vh 0 10px;
+  color: #fff;
+  text-shadow: 0px 0px 10px #000;
+  text-align: center;
+  font-size: 18px;
   font-weight: bold;
   letter-spacing: 2px;
   font-family: "Noto Serif TC", serif;
 }
-.home p,.cannery p,.other p{
-  pointer-events:none;
-  margin:0 6px 0;
-  padding:0;
-  color:#fff;
-  text-shadow:0px 0px 10px #000;
-  text-align:center;
-  font-size:12px;
-  max-width:220px;
+.home p,
+.cannery p,
+.other p {
+  pointer-events: none;
+  margin: 0 6px 0;
+  padding: 0;
+  color: #fff;
+  text-shadow: 0px 0px 10px #000;
+  text-align: center;
+  font-size: 12px;
+  max-width: 220px;
 }
-.home div,.cannery div,.other div{
-  position:absolute;
-  z-index:-1;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+.home div,
+.cannery div,
+.other div {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   transition: all 0.5s ease-out;
 }
-.home div:hover,.cannery div:hover,.other div:hover{
+.home div:hover,
+.cannery div:hover,
+.other div:hover {
   filter: brightness(1) grayscale(0);
   -webkit-filter: brightness(1) grayscale(0);
   transition: all 0.2s ease-in;
   transform: scale(1.05);
 }
 
-.home{
-  left:0;
+.home {
+  left: 0;
 }
-.cannery{
-  left:calc(100% / 3);
-  right:calc(100% / 3);
+.cannery {
+  left: calc(100% / 3);
+  right: calc(100% / 3);
 }
-.other{
-  right:0;
+.other {
+  right: 0;
 }
 
-.home div{
-  left:0;
+.home div {
+  left: 0;
   background-image: url("https://images.unsplash.com/photo-1505916349660-8d91a99c3e23?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjU0NDE2NjZ8&ixlib=rb-4.0.3&q=85");
   background-size: cover;
   background-position: center;
-  
+
   filter: brightness(0.8) grayscale(0.8) sepia(0.3);
   -webkit-filter: brightness(0.8) grayscale(0.8) sepia(0.3);
 }
-.cannery div{
-  left:0;
-  right:0;
+.cannery div {
+  left: 0;
+  right: 0;
   background-image: url("https://images.unsplash.com/photo-1719227166020-55541781739f?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjU0NDE3NDd8&ixlib=rb-4.0.3&q=85");
   background-size: cover;
   background-position: center;
-  
+
   filter: brightness(1.1) grayscale(0.6) sepia(0.3);
   -webkit-filter: brightness(1.1) grayscale(0.6) sepia(0.3);
 }
-.other div{
-  right:0;
+.other div {
+  right: 0;
   background-image: url("https://images.unsplash.com/photo-1723653508269-7b2abc5d8e74?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjU0NDE3OTR8&ixlib=rb-4.0.3&q=85");
   background-size: cover;
   background-position: center;
-  
+
   filter: brightness(0.8) grayscale(0.8);
   -webkit-filter: brightness(0.8) grayscale(0.8);
 }
@@ -186,8 +195,8 @@
 .message-btn {
   position: fixed;
   z-index: 999;
-  bottom: 20px;
-  right: 20px;
+  bottom: 25px;
+  right: 25px;
   padding: 5px 16px 5px;
   cursor: pointer;
   white-space: nowrap;
@@ -196,15 +205,15 @@
 }
 .message-btn:hover {
   transform: scale(1.05);
-.mess-bg {
-  background-color:rgba(255,255,255,0.1);
+  .mess-bg {
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }
 .message-btn:active {
   transform: scale(1);
 }
 .message-btn span {
-  font-size: 14px;
+  font-size: 16px;
   color: #fff;
   letter-spacing: 1px;
   font-weight: bold;
