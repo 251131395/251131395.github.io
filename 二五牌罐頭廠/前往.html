@@ -11,7 +11,7 @@
   <title>二五牌罐頭廠</title>
 
   <style>
-body {
+    body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -45,6 +45,40 @@ body {
   filter: blur(30px);
   -webkit-filter: blur(30px);
   border-radius: 20%;
+}
+.rain {
+  pointer-events:none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 111;
+  mix-blend-mode: screen;
+  background-image: url("https://i.gifer.com/W2NV.gif");
+  background-size: 150%;
+  background-position: top 90%;
+  filter: brightness(0.2);
+  -webkit-filter: brightness(0.2);
+}
+.crt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-size: 5px;
+  background-repeat: repeat;
+  background-position: center;
+  background-image: url("https://251131395.github.io/iveai/media/image/AB8DFAA9-EA6E-4BE9-863F-EE5640F6C3A6.png");
+  z-index: 1111;
+  mix-blend-mode: soft-light;
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+  backdrop-filter: blur(0.4px) saturate(1.2) contrast(1.3);
+  backdrop--webkit-filter: blur(0.4px) saturate(1.2) contrast(1.3);
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .go{
@@ -261,6 +295,8 @@ body {
   <div class="bg-img-cover">
     <div class="bg-img-cover-mask"></div>
   </div>
+  <div class="rain"></div>
+  <div class="crt"></div>  
 
   <span class="go">你要前往...</span>
   <div class="home" onclick="location.href=''">
