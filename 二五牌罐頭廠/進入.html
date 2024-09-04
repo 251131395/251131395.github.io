@@ -1,0 +1,436 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+  <title>二五牌罐頭廠</title>
+
+  <style>
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  cursor: not-allowed;
+}
+
+.shell {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.bg-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQzMDc3NTJ8&ixlib=rb-4.0.3&q=85");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  z-index: -999;
+}
+.bg-img-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -980;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #777;
+  mix-blend-mode: multiply;
+}
+.bg-img-cover-mask {
+  width: calc(100vw - 60px);
+  height: calc(100vh - 60px);
+  background-color: #fff;
+  filter: blur(60px);
+  -webkit-filter: blur(60px);
+  border-radius: 20%;
+}
+
+.window-shell {
+  display: none;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  cursor: default;
+}
+.empty-click {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 886;
+}
+.window-close {
+  color: #888;
+  font-size: 10px;
+  margin: 0;
+  padding: 3px;
+}
+
+.question,
+.message-btn {
+  opacity: 0.7;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 16px;
+  padding: 15px;
+  margin: -15px;
+  cursor: pointer;
+  z-index: 888;
+  text-align: center;
+}
+.question:after {
+  content: "詳情";
+  font-size: 10px;
+  display: block;
+}
+.mess-box {
+  display: none;
+  position: relative;
+  overflow: auto;
+  z-index: 888;
+  width: 300px;
+  max-width: calc(100% - 40px);
+  height: 75vh;
+  border: 1px #eee solid;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+.mess-box span {
+  display: block;
+  margin: 5px 10px 20px;
+  font-size: 12px;
+}
+.mess-box-tit {
+  margin: 10px 10px 2px;
+  position: relative;
+}
+.mess-box-tit:before {
+  content: "";
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  border-bottom: 1px #777 solid;
+}
+.mess-box-tit:after {
+  content: "";
+  width: 80%;
+  height: 100%;
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  border-bottom: 1px #777 dashed;
+}
+.mess-box-tit span {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Noto Serif TC", serif;
+}
+
+.message-btn {
+  top: 60px;
+}
+.message-btn:after {
+  content: "反饋";
+  font-size: 10px;
+  display: block;
+}
+.mail-box {
+  display: none;
+  padding: 10px;
+  font-size: 12px;
+  position: relative;
+  overflow: auto;
+  z-index: 888;
+  width: 300px;
+  max-width: calc(100% - 60px);
+  border: 1px #eee solid;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+}
+#name,
+#message {
+  display: block;
+  min-width: calc(100% - 5px);
+  max-width: calc(100% - 5px);
+}
+#message {
+  min-height: 150px;
+  max-height: calc(100vh - 220px);
+}
+#contactForm span {
+  font-size: 10px;
+  color: #a02334;
+}
+.submit {
+  color: #fff;
+  font-size: 12px;
+  margin: 5px 0 0;
+  padding: 1px 12px 2px;
+  border: 1px #fff solid;
+  border-radius: 15px;
+  background-color: #777;
+  background: linear-gradient(0deg, #aaa 0%, #888 89%);
+  float: right;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 26px;
+  color: #000;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Serif TC", serif;
+  white-space: nowrap;
+}
+
+.sentence {
+  padding: 40px;
+  font-size: 14px;
+  font-family: "Noto Serif TC", serif;
+  line-height: 1.5;
+  text-align: center;
+  max-height: 60vh;
+  overflow: auto;
+}
+.sentence span:hover {
+  color: #c80036;
+  cursor: help;
+}
+
+.change01 {
+  position: relative;
+}
+.change01 font {
+  opacity: 0;
+  position: absolute;
+  color: #fff;
+  background-color: #c80036;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+}
+.change01 font:active {
+  opacity: 1;
+  transition: all 5s ease-in;
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+}
+
+.start {
+  position: relative;
+  z-index: 999;
+  font-size: 18px;
+  color: #555;
+  font-weight: bold;
+  font-family: "Noto Serif TC", serif;
+  cursor: wait;
+  padding: 20px;
+  margin: -20px;
+}
+.start:hover {
+  color: #c80036;
+}
+
+.bottom {
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 2px;
+  opacity: 0.3;
+  z-index: 1000;
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="bg-img-cover">
+    <div class="bg-img-cover-mask"></div>
+  </div>
+  <div class="bg-img"></div>
+
+  <span class="question"><i class="fa-solid fa-circle-exclamation"></i></span>
+  <sapn class="message-btn"><i class="fa-solid fa-pen-to-square"></i></sapn>
+  <div class="window-shell">
+    <div class="mess-box">
+      <div class="mess-box-tit">
+        <span>聲明</span>
+      </div>
+      <span>本網站包含血腥、暴力和危險情節，可能不適合所有瀏覽者。這些情節僅為故事發展和角色塑造的一部分，並非鼓勵或美化暴力行為。我們強烈建議瀏覽者保持理性。<br>
+        <br>
+        瀏覽本網站時，請注意以下事項：<br>
+        1. 網站中的血腥描寫可能包括傷害、傷口、流血等情節，可能對某些瀏覽者造成不適感。<br>
+        <br>
+        2. 暴力情節可能包括打鬥、戰鬥、爭吵等場景，但這些情節僅為故事推進的一部分，並非鼓勵或推崇暴力行為。<br>
+        <br>
+        3. 危險情節可能包括危險的環境、追逐、迫在眉睫的威脅等，這些情節旨在營造緊張的氛圍。<br>
+        <br>
+        瀏覽本網站是自願行為，瀏覽者應自行判斷是否適合閱讀此類內容。請注意，本聲明特別強調：請不要在現實生活中模仿網站中的情節。網站中的故事和行為僅為虛構，並不代表現實世界的行為準則。<br>
+        <br>
+        如果您對血腥、暴力或危險情節感到不適，建議您選擇其他閱讀材料。我們對瀏覽者的情緒和感受非常重視，並希望每位瀏覽者都能享受瀏覽過程。<br>
+        <br>
+        謝謝您的理解和支持。</span>
+
+      <div class="mess-box-tit">
+        <span>鳴謝</span>
+      </div>
+      <span>感謝 unsplash.com 提供的素材。<br><br>
+        包括:<br><img height="50px" src="https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQzMDc3NTJ8&ixlib=rb-4.0.3&q=85">
+      </span>
+    </div>
+    <div class="mail-box">
+      <form id="contactForm">
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="message">留言內容:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <span>* 注意，你可以在點擊 '提交' 按鈕後及頁面跳轉到電郵應用程序時，插入更多附件，例如: 圖片及視像。</span>
+        <input type="submit" value="提交" class="submit">
+      </form>
+    </div>
+
+    <div class="empty-click"></div>
+    <p class="window-close">點擊空白處關閉</p>
+  </div>
+
+  <div class="shell">
+    <span class="title">二五牌罐頭廠</span>
+
+    <div class="sentence">
+      <span>邪惡和陰謀</span>總是存在的，我們需要保持<span>警覺和理智</span>，
+      以防止類似的事情再次發生。<br><br>
+
+      <span class="change01">勇氣和行動<font>邪惡和陰謀</font></span>固然重要的，我們需要保持<span>謹慎和智慧</span>，
+      不要輕易將自己置於危險中。
+    </div>
+
+    <div class="start">進入</div>
+  </div>
+  
+  <span class="bottom">網站由251131395製作  04/09/2024</span>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const question = document.querySelector(".question");
+  const MessageBtn = document.querySelector(".message-btn");
+  const WindowShell = document.querySelector(".window-shell");
+  const EmptyClick = document.querySelector(".empty-click");
+  const MessBox = document.querySelector(".mess-box");
+  const MailBox = document.querySelector(".mail-box");
+  
+  question.addEventListener("click", function () {
+    WindowShell.style.display = "flex";
+    MessBox.style.display = "block";
+    MailBox.style.display = "none";
+  });
+  MessageBtn.addEventListener("click", function () {
+    WindowShell.style.display = "flex";
+    MailBox.style.display = "block";
+    MessBox.style.display = "none";
+  });
+  EmptyClick.addEventListener("click", function () {
+    WindowShell.style.display = "none";
+    MessBox.style.display = "none";
+    MailBox.style.display = "none";
+  });
+});
+
+document
+  .getElementById("contactForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    var name = document.getElementById("name").value;
+    var message = document.getElementById("message").value;
+
+    var subject = "[" + name + "]於二五牌罐頭廠網站傳送了反饋";
+    var body = "姓名: " + name + "\n";
+    body += "留言內容: " + message;
+
+    var mailLink = document.createElement("a");
+    mailLink.href =
+      "mailto:251131395y@gmail.com?subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(body);
+    mailLink.click();
+  });
+
+  </script>
+</body>
+
+</html>
