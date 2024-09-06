@@ -1,0 +1,406 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+  <title>二五牌罐頭廠</title>
+
+  <style>
+    body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu {
+  position: fixed;
+  padding: 0;
+  top: 20px;
+  left: 18px;
+  z-index: 997;
+  color: #ccc;
+  font-size: 16px;
+  cursor: pointer;
+}
+.menu:hover {
+  color: #555;
+  mix-blend-mode: normal;
+  -webkit-text-stroke: 0.5px lightgray;
+  text-stroke: 0.5px lightgray;
+}
+
+#music {
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  color: #555;
+  mix-blend-mode: difference;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+#music font {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 10px;
+  z-index: -1;
+}
+
+.bg-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1720036237038-802f50cdfd9c?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjU0NDA3MzR8&ixlib=rb-4.0.3&q=85");
+  background-size: cover;
+  background-position: center left;
+  z-index: -999;
+  filter: brightness(1);
+  -webkit-filter: brightness(1);
+}
+.bg-img-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -980;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #555;
+  mix-blend-mode: multiply;
+}
+.rain {
+  position: fixed;
+  top: 0;
+  left: -10vw;
+  width: 80vw;
+  height: 100vh;
+  z-index: -980;
+  mix-blend-mode: exclusion;
+  background-image: url("https://i.gifer.com/19Nx.gif");
+  background-size: 150%;
+  background-position: top 90%;
+  filter: brightness(0.4) grayscale(0);
+  -webkit-filter: brightness(0.4) grayscale(0);
+}
+.light-parti {
+  position: fixed;
+  bottom: 0;
+  right: -55vw;
+  width: 100vw;
+  height: 50vh;
+  z-index: -980;
+  mix-blend-mode: exclusion;
+  background-image: url("https://i.gifer.com/19Nx.gif");
+  background-size: cover;
+  background-position: bottom right;
+  filter: brightness(0.9) grayscale(0) blur(1px);
+  -webkit-filter: brightness(0.9) grayscale(0) blur(1px);
+}
+.bg-img-cover-mask {
+  width: calc(100vw - 100px);
+  height: calc(100vh - 100px);
+  background-color: #fff;
+  filter: blur(50px);
+  -webkit-filter: blur(50px);
+}
+.crt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-size: 5px;
+  background-repeat: repeat;
+  background-position: center;
+  background-image: url("https://251131395.github.io/iveai/media/image/AB8DFAA9-EA6E-4BE9-863F-EE5640F6C3A6.png");
+  z-index: -970;
+  mix-blend-mode: soft-light;
+  filter: blur(0.6px);
+  -webkit-filter: blur(0.6px);
+  backdrop-filter: blur(0.6px) saturate(1.2) contrast(1.3);
+  backdrop-webkit-filter: blur(0.6px) saturate(1.2) contrast(1.3);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.group-shell {
+  position: fixed;
+  width: calc(100vw - 30px);
+  height: calc(100vh - 100px);
+  top: 50px;
+  left: 10px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.group {
+  min-height: 110px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 20px;
+  margin-bottom: 3px;
+}
+@media screen and (min-width: 405px) {
+  .group {
+    margin: 0 calc(50vw - 200px) 0;
+    margin-right: calc(50vw - 180px);
+    margin-bottom: 3px;
+  }
+}
+.line-shell {
+  height: 100%;
+  width: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.line {
+  height: 100%;
+  border-left: 1.5px #c40c0c dashed;
+}
+.line-shell span {
+  font-size: 14px;
+  color: #ef6b79;
+  text-shadow: 0px 0px 5px rgba(196, 12, 12, 1),
+    0px 0px 10px rgba(196, 12, 12, 1);
+  position: absolute;
+  padding-bottom: 25px;
+}
+.music-block {
+  padding: 10px 15px 10px;
+  border: 0.5px rgba(255, 255, 255, 0.1) solid;
+  border-left: 1.5px #ef6b79 solid;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    rgba(162, 49, 53, 0.7) 0%,
+    rgba(0, 0, 0, 0) 15px
+  );
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(3px) grayscale(0.3);
+  -webkit-backdrop-filter: blur(3px) grayscale(0.3);
+  box-shadow: 0px 0px 15px rgba(239, 106, 121, 0.3);
+  margin-left: 40px;
+  cursor: pointer;
+  position: relative;
+}
+.music-blc-shell {
+  animation: move 6s ease-in-out infinite;
+}
+@keyframes move {
+  0% {
+    transform: translate(0, 1px);
+  }
+  50% {
+    transform: translate(0, -1px);
+  }
+  100% {
+    transform: translate(0, 1px);
+  }
+}
+.music-block:hover {
+  transform: scale(1.01);
+  background-color: rgba(239, 107, 121, 0.2);
+  span {
+    color: #ffbdb0;
+  }
+  font {
+    color: #d6beba;
+  }
+}
+.music-block:active {
+  transform: scale(1);
+}
+@media screen and (max-width: 405px) {
+  .music-block {
+    padding: 5px 15px 5px;
+  }
+}
+.music-block:before {
+  content: "";
+  width: 60%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: url("https://images.unsplash.com/photo-1524214492382-0f1409f3973c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjMyNzY5NTV8&ixlib=rb-4.0.3&q=80&w=400");
+  background-size: 160%;
+  background-position: center left;
+  z-index: -1;
+  opacity: 0.5;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1)
+  );
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+.music-block:after {
+  content: "二五牌罐頭廠 251131395";
+  font-size: 5px;
+  letter-spacing: 2px;
+  color: #ddd;
+  opacity: 0.4;
+  position: absolute;
+  bottom: 2px;
+  right: 3px;
+}
+
+.num {
+  position: absolute;
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0 3px 0;
+  font-family: "Noto Serif TC", serif;
+  color: #444;
+  top: -5px;
+  right: 0;
+  opacity: 0.6;
+  mix-blend-mode: multiply;
+  z-index: -1;
+}
+.music-block span {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Serif TC", serif;
+}
+.music-block font {
+  color: #ddd;
+  font-size: 12px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.tbc {
+  color: #aaa;
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  margin: 0 60px 0px;
+  padding: 0;
+  font-family: "Noto Serif TC", serif;
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(66, 66, 66, 0.5);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <span class="menu" onclick="location.href = document.referrer; return false;"><i class="fa-solid fa-chevron-left"></i></span>
+
+  <div class="crt"></div>
+  <div class="bg-img-cover">
+    <div class="bg-img-cover-mask"></div>
+  </div>
+  <div class="light-parti"></div>
+  <div class="rain"></div>
+  <div class="bg-img"></div>
+
+  <div class="group-shell">
+    <div class="group">
+      <div class="line-shell">
+        <div class="line"></div>
+        <span><i class="fa-solid fa-location-crosshairs"></i></span>
+      </div>
+      <div class="music-blc-shell">
+        <div class="music-block" onclick="location.href=''">
+          <p class="num">01</p>
+          <span>困難</span>
+          <font>123銀杯杯3s銀月dsdv</font>
+        </div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="line-shell">
+        <div class="line"></div>
+        <span><i class="fa-solid fa-location-crosshairs"></i></span>
+      </div>
+      <div class="music-blc-shell" style="animation-delay:-3s;">
+        <div class="music-block" onclick="location.href=''" style="margin-left:50px;margin-right:-10px;">
+          <p class="num">02</p>
+          <span>二五牌罐頭廠</span>
+          <font>123123sdsdv</font>
+        </div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="line-shell">
+        <div class="line"></div>
+        <span><i class="fa-solid fa-location-crosshairs"></i></span>
+      </div>
+      <div class="music-blc-shell" style="animation-delay:2s;">
+        <div class="music-block" onclick="location.href=''" style="margin-left:60px;margin-right:-20px;">
+          <p class="num">03</p>
+          <span>陰謀</span>
+          <font>123123sdsdv</font>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="line-shell">
+        <div class="line"></div>
+        <span><i class="fa-solid fa-location-crosshairs"></i></span>
+      </div>
+      <span class="tbc">敬請期待</span>
+    </div>
+  </div>
+
+  <script>
+  </script>
+</body>
+
+</html>
