@@ -81,26 +81,41 @@
   font-size: 18px;
   font-weight: bold;
   margin: 15px 0 0;
+  padding: 0 20px 0;
 }
-.coc {
+.coc-shell {
+  top: 45px;
+  left: 20px;
   position: fixed;
   width: calc(100vw - 40px);
-  height: calc(100vh - 80px);
-  top: 40px;
-  left: 20px;
-  overflow: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.coc {
+  max-width: 500px;
+  border-radius: 3px;
   line-height: 1.5;
+  max-width: 500px;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.coc-sub-shell {
+  overflow: auto;
+  height: calc(100vh - 90px);
   mask-image: linear-gradient(
     0deg,
     transparent 0%,
-    #000 15px,
+    #000 20px,
     #000 calc(100% - 20px),
     transparent 100%
   );
 }
-.coc-sub-shell {
-  max-width: 500px;
-  margin: auto;
+.coc p {
+  padding: 0 20px 0;
 }
 .coc p font {
   display: block;
@@ -124,7 +139,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgba(102, 102, 102, 0.5);
+    background: rgba(102, 102, 102, 0.2);
     border-radius: 10px;
   }
 
@@ -140,25 +155,25 @@
   <span class="menu" onclick="location.href='https://251131395.github.io/%E4%BA%8C%E4%BA%94%E7%89%8C%E7%BD%90%E9%A0%AD%E5%BB%A0/%E5%89%8D%E5%BE%80/%E4%BA%8C%E4%BA%94%E7%89%8C%E7%BD%90%E9%A0%AD%E5%BB%A0.html'"><i class="fa-solid fa-chevron-left"></i></span>
 
   <div class="bg-img"></div>
-  
+
   <span class="tit">員工守則</span>
 
-  <div class="coc">
-    <div class="coc-sub-shell">
-      <span class="sub-tit">第二章 基本原則</span>
-      <p>
-        2.1遵紀守法原則 <br>
-        <span>2.1.1 如果你發現自己不知道罐頭廠的某些秘密或政策，請不要問問題，只要按照現有的指示和程序進行工作就可以了。</span>
-        <span>2.1.2 如果你發現任何員工想要逃離罐頭廠或揭露罐頭廠的秘密，請立即報告，因為他們可能會對罐頭廠造成威脅。</span>
-        <span>2.1.3 如果你發現自己對罐頭廠的產品或政策產生了疑問，請立即向廠長報告，但不要對外公開。</span>
-        <span>2.1.4 如果你發現任何人對罐頭廠的政策或行為提出批評或質疑，請不要理會，因為這些人可能是罐頭廠的敵人，他們的目的是破壞罐頭廠的形象和聲譽。</span>
-        <font>…</font>
-        2.4 保密原則
-        <span>2.4.1 所有員工必須遵守罐頭廠的保密協議，不得向外透露任何關於罐頭廠內部的信息，否則將受到嚴厲的懲罰。</span>
-        <span>2.4.2 所有員工必須服從廠長和管理層的命令，不得有任何違抗或反抗的行為，否則將受到嚴厲的懲罰。</span>
-        <font>…</font>
-      </p>
-      <div>
+  <div class="coc-shell">
+    <div class="coc">
+      <div class="coc-sub-shell">
+        <span class="sub-tit">第二章 基本原則</span>
+        <p>
+          2.1遵紀守法原則 <br>
+          <span>2.1.1 如果你發現自己不知道罐頭廠的某些秘密或政策，請不要問問題，只要按照現有的指示和程序進行工作就可以了。</span>
+          <span>2.1.2 如果你發現任何員工想要逃離罐頭廠或揭露罐頭廠的秘密，請立即報告，因為他們可能會對罐頭廠造成威脅。</span>
+          <span>2.1.3 如果你發現自己對罐頭廠的產品或政策產生了疑問，請立即向廠長報告，但不要對外公開。</span>
+          <span>2.1.4 如果你發現任何人對罐頭廠的政策或行為提出批評或質疑，請不要理會，因為這些人可能是罐頭廠的敵人，他們的目的是破壞罐頭廠的形象和聲譽。</span>
+          <font>…</font>
+          2.4 保密原則
+          <span>2.4.1 所有員工必須遵守罐頭廠的保密協議，不得向外透露任何關於罐頭廠內部的信息，否則將受到嚴厲的懲罰。</span>
+          <span>2.4.2 所有員工必須服從廠長和管理層的命令，不得有任何違抗或反抗的行為，否則將受到嚴厲的懲罰。</span>
+          <font>…</font>
+        </p>
       </div>
     </div>
   </div>
