@@ -29,10 +29,10 @@ header {
   z-index: 1000;
   top: 0;
   left: 0;
-  right:0;
+  right: 0;
   padding: 20px 20px 5px;
-  background-color: rgba(15,15,15,0.4);
-  
+  background-color: rgba(15, 15, 15, 0.4);
+
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -148,7 +148,7 @@ header span:hover {
 
 .quick-know {
   position: relative;
-  height: 90vh;
+  height: 85vh;
 }
 .qk-block-shell {
   height: 100%;
@@ -158,7 +158,7 @@ header span:hover {
 }
 .qk-block {
   position: relative;
-  padding: 10px;
+  padding: 10px 20px 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -173,7 +173,7 @@ header span:hover {
   position: relative;
   color: #fff;
   font-size: 18px;
-  font-weight:bold;
+  font-weight: bold;
   z-index: 11;
 }
 .qk-block-bg {
@@ -246,6 +246,10 @@ header span:hover {
   }
 }
 
+.money{
+  height:80vh;
+}
+
 @media screen and (min-width: 768px) {
   .top {
     padding: 20px 100px 20px;
@@ -266,12 +270,13 @@ header span:hover {
   }
 
   .quick-know {
-  height: 50vh;
-}
+    height: 50vh;
+  }
   .qk-block-shell {
     flex-direction: row;
   }
   .qk-block {
+    padding: 10px;
     height: 100%;
   }
 
@@ -353,7 +358,7 @@ footer {
     <span>作品</span>
     <span>$$$</span>
   </header>
-  
+
   <div class="top">
     <div class="top-bg"></div>
     <div class="top-bg-color"></div>
@@ -365,7 +370,7 @@ footer {
       <div>9<span>9</span></div>
       <div><span>5</span>5</div>
     </div>
-    
+
     <div class="top-text-shell" id="top-text-shell-none">
       <div>25<span>25</span></div>
       <div><span>1</span>1</div>
@@ -394,11 +399,11 @@ footer {
         <span>網頁製作</span>
         <div class="qk-block-bg"></div>
       </div>
-      <div class="qk-block" id="music">
+      <div class="qk-block" id="music" onclick="location.href=''">
         <span>音樂</span>
         <div class="qk-block-bg"></div>
       </div>
-      <div class="qk-block" id="edu-web">
+      <div class="qk-block" id="edu-web" onclick="window.open('https://0oxx-study-room.github.io/', '_blank')">
         <span>教育網站</span>
         <div class="qk-block-bg"></div>
       </div>
@@ -409,17 +414,22 @@ footer {
     </div>
   </div>
   
+  <div class="money">
+    123
+  </div>
 
   <footer>
     <div class="footer-container">
       <div class="footer-column">
         <h3>網站連結</h3>
         <ul>
-          <li><a href="#">首頁</a></li>
-          <li><a href="#">DSE 數學</a></li>
-          <li><a href="#">DSE M2</a></li>
-          <li><a href="#">初中數學基礎鞏固班</a></li>
-          <li><a href="#">M2預備班</a></li>
+          <li><a href="#">3D藝術</a></li>
+          <li><a href="#">繪畫</a></li>
+          <li><a href="#">音樂</a></li>
+          <li><a href="#">文字</a></li>
+          <li><a href="#">寫字</a></li>
+          <li><a href="#">網頁製作</a></li>
+          <li><a href="#">教育網站</a></li>
         </ul>
       </div>
 
@@ -443,13 +453,6 @@ footer {
   </footer>
 
   <script>
-    function openNav() {
-      document.getElementById("mySidenav").style.left = "0";
-    }
-
-    function closeNav() {
-      document.getElementById("mySidenav").style.left = "-280px";
-    }
   </script>
 </body>
 
