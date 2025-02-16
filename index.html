@@ -3,539 +3,454 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="">
-  <title>主頁</title>
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="" rel="shortcut icon" />
+  <title>251131395</title>
 
   <style>
-    @import url（https: //fonts.googleapis.com/earlyaccess/notosanstc.css）;
-  body {
+    body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   font-family: "Noto Sans TC", sans-serif;
-  background-color: black;
-  margin: 0px;
-  padding: 0px;
-}
-
-.menu {
-  position: fixed;
-  padding: 15px;
-  top: 0;
-  right: 0;
-  z-index: 997;
-  color: gray;
-  font-size: 24px;
-  cursor: pointer;
-  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.9);
-  font-weight: bold;
-}
-
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
-  overflow-x: hidden;
-  padding-top: 60px;
-}
-
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 20px;
-  color: white;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: gray;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 2px;
-  right: 7px;
-  font-size: 36px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
-  .sidenav a {
-    font-size: 18px;
-  }
+  margin: 0;
+  padding: 0;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  background-color: #fff;
 }
 
 header {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex;
-  overflow: hidden;
-  height: 100vh;
-  text-align: center;
-  background-color: black;
-  background-color: white;
-  z-index: 1;
-  overflow: hidden;
-}
-
-header img {
-  position: sticky;
-  height: 80vh;
-  top: 8vh;
-  right: 0;
-  left: 0;
-  opacity: 1;
-  z-index: -1;
-}
-
-@media screen and (max-width: 400px) {
-  header img {
-    position: sticky;
-    height: 60vh;
-    top: 12vh;
-  }
-}
-
-#title,#title-t,#title-b {
-  position: absolute;
-  top: calc(45% - 14vw);
-  left: 0;
-  right: 0;
-  font-size: 18vw;
-  font-weight: bold;
-  letter-spacing: 3px;
-  color: black;
-  z-index: -2;
-  line-height: 1.1;
-}
-
-#title-t,#title-b {
-  top: calc(45% - 14vw);
-  transform: translate(0px, -20vw);
-  z-index: -2;
-  color: transparent;
-  -webkit-text-stroke: 0.4vw gray;
-  text-stroke: 0.4vw gray;
-}
-
-#title-b {
-  top: calc(45% - 14vw);
-  transform: translate(0px, 20vw);
-}
-
-.bottom {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  width: 32%;
-}
-
-@media screen and (max-width: 400px) {
-  .bottom {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    width: calc(100% - 40px);
-  }
-  #title {
-    position: absolute;
-    top: calc(48% - 33vw);
-    line-height: 1.5;
-  }
-  #title-t {
-    top: calc(48% - 33vw);
-  transform: translate(0px, -25vw);
-}
-  
-}
-
-.bottom .script {
-  font-size: 12px;
-  font-weight: bold;
-  text-align: left;
-  display: inline-block;
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-.bottom button {
-  display: block;
-  color: white;
-  background-color: black;
-  border-radius: 15px;
-  border: none;
-  padding: 5px 15px 7px;
-  margin: 10px 0px 0px;
-  cursor: pointer;
-}
-
-.bookshelf {
-  padding: 20px 0px 20px;
-  background-color: clack;
-}
-
-.area {
-  white-space: nowrap;
-  scroll-snap-type: x;
-  overflow: auto;
-  min-height: 150px;
-  font-weight: bold;
-  color: black;
-  border: none;
-  text-align: left;
-}
-
-.block {
-  vertical-align: top;
-  white-space: normal;
-  display: inline-block;
-  margin: 15px;
-  text-align: left;
-}
-
-.space {
-  padding: 7px;
-}
-
-body .book {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  font-family: "Noto Sans TC", serif;
-  letter-spacing: 2px;
-  width: 110px;
-  min-height: 150px;
-  background-color: gray;
-  border: 0.7px gray solid;
-  border-radius: 3px;
-  text-align: center;
-  box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2), 0px 4px 8px rgba(0, 0, 0, 0.25),
-    2px 2px 2px rgba(0, 0, 0, 0.05);
-  cursor: pointer;
-}
-
-.book span {
-  font-size: 18px;
-  color: white;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  margin: 10px;
-}
-
-.title {
-  font-family: "Noto Sans TC", serif;
-  font-size: 20px;
-  letter-spacing: 2px;
-  font-weight: bold;
-  margin: 20px;
-  color: white;
-  mix-blend-mode: difference;
-}
-
-.name {
-  margin: 10px 0px 0px;
-  font-size: 14px;
-  display: block;
-  color: white;
-}
-
-.date {
-  font-size: 12px;
-  color: gray;
-  display: block;
-}
-
-.page {
-  padding: 20px;
-  background-image: url("https://images.unsplash.com/photo-1710976329448-a5bbda1b1a83?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ1Mzg1NDh8&ixlib=rb-4.0.3&q=85");
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  filter: hue-rotate(40deg);
-}
-
-.page-btn {
-  font-family: "Noto Sans TC", serif;
-  position: relative;
-  font-size: 18px;
-  letter-spacing: 2px;
-  color: black;
-  font-weight: bold;
-  background-color: transparent;
-  border: none;
-  padding: 20px;
-  z-index: 0;
-  cursor: pointer;
-}
-
-.page-btn::before {
-  content: "";
-  position: absolute;
+  position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
-  width: 70%;
-  height: 25%;
-  transform: translate(18px, 30px);
-  background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="white" fill-opacity="0.5" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
-  background-repeat: repeat;
-  background-size: 8px;
-  z-index: -1;
-  filter: hue-rotate(-40deg);
+  right:0;
+  padding: 20px 20px 5px;
+  background-color: rgba(15,15,15,0.4);
+  
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
-
-.page-btn:hover {
-  transform: scale(1.05);
+header font,
+header span {
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+  display: inline-block;
+  padding: 10px;
+  margin: -10px;
+  margin-right: 10px;
 }
-
-.work {
-  min-height: 300px;
-  background-color: white;
-}
-
-.area2 {
-  padding: 20px;
-  display: flex;
-  -webkit-display: box;
-  -moz-display: box;
-  -ms-display: flexbox;
-  -webkit-display: flex;
-  flex-wrap: wrap;
-}
-
-.box:hover {
-}
-
-.box {
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  color: rgba(255, 255, 255, 0.5);
-
+header span {
   cursor: pointer;
-  qbackground-image: url("https://images.unsplash.com/photo-1498654200943-1088dd4438ae?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTM1MDc1NjJ8&ixlib=rb-4.0.3&q=85");
-  background-size: cover;
-  background-position: center;
+}
+header span:last-child {
+  padding: 10px;
+  margin: -10px;
+  margin-right: -30px;
+}
+header span:hover {
+  color: #aaa;
+}
 
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
-  margin: 10px;
-  height: 200px;
+.top {
+  filter: invert(1) hue-rotate(190deg);
+  -webkit-filter: invert(1) hue-rotate(190deg);
+
+  position: relative;
+  padding: 20px;
+  height: calc(100vh - 40px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: row;
+  overflow: hidden;
+}
+.top-bg {
+  background-color: #eee;
+  z-index: -100;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.top-bg-color {
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+  z-index: 90;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  background-image: radial-gradient(circle, #aaa 50%, #fff 60%);
+  background-size: 3px 3px;
+  background-repeat: repeat;
+}
+.top-text-shell {
+  qborder: 1px red solid;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  width: 100%;
+  height: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+}
+#top-text-shell-none {
+  display: none;
+}
+.top-text-shell div {
+  transition: all 1s;
+  text-shadow: 0px 0px 10px #00c3aa, 0px 0px 5px blue, 0px 0px 2px blue;
+  position: relative;
+  color: #000;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  font-size: 90px;
+  font-weight: bold;
+}
+.top-text-shell div:active {
+  font-size: 98px;
+}
+.top-text-shell div span {
+  position: relative;
+  z-index: -1;
+  color: blue;
+  color: #000;
+  opacity: 0.7;
+  transform: scale(3, 1);
+  margin: 0;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+  mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  mask-repeat: repeat;
+  mask-size: 3px;
+}
+.top-text-shell div:nth-child(2n + 2) {
+  justify-content: right;
+}
+
+.quick-know {
+  position: relative;
+  height: 90vh;
+}
+.qk-block-shell {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.qk-block {
+  position: relative;
+  padding: 10px;
   width: 100%;
   display: flex;
-  @media (min-width: 40rem) {
-    width: calc(50% - 22px);
-    height: 230px;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.5s;
+  background-color: #000;
+  z-index: 1;
+}
+.qk-block span {
+  text-shadow: 0 0 10px #000;
+  pointer-events: none;
+  position: relative;
+  color: #fff;
+  font-size: 18px;
+  font-weight:bold;
+  z-index: 11;
+}
+.qk-block-bg {
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+  opacity: 0.8;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 10;
+}
+.qk-block-bg:hover {
+  filter: grayscale(0);
+  -webkit-filter: grayscale(0);
+  opacity: 1;
+}
+
+#three-d {
+  flex: 50%;
+  .qk-block-bg {
+    background-image: url("https://251131395.github.io/media/image/sun-rain.jpg");
   }
-  @media (min-width: 56rem) {
-    width: calc(33.3% - 22px);
-    height: 250px;
+}
+#drawing {
+  flex: 50%;
+  .qk-block-bg {
+    background-position: 50% 38%;
+    background-image: url("https://251131395.github.io/media/image/drawing.jpg");
+  }
+}
+#text {
+  flex: 50%;
+  .qk-block-bg {
+    background-position: 10% 50%;
+    background-image: url("https://251131395.github.io/media/image/novel.jpg");
+  }
+}
+#web {
+  flex: 40%;
+  .qk-block-bg {
+    background-position: 28% top;
+    background-image: url("https://images.unsplash.com/photo-1482062364825-616fd23b8fc1?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Mzk2ODI3NzZ8&ixlib=rb-4.0.3&q=85");
+  }
+}
+#music {
+  flex: 30%;
+  .qk-block-bg {
+    background-position: 34% 75%;
+    background-image: url("https://251131395.github.io/media/image/music.jpg");
+  }
+}
+#edu-web {
+  flex: 25%;
+  .qk-block-bg {
+    background-position: 10% 52%;
+    background-image: url("https://251131395.github.io/media/image/ooxx.jpg");
+  }
+}
+#writing {
+  flex: 20%;
+  .qk-block-bg {
+    background-position: 50% 17%;
+    background-image: url("https://251131395.github.io/media/image/writing.jpg");
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .top {
+    padding: 20px 100px 20px;
+  }
+  #top-text-shell-none {
+    display: flex;
+  }
+  .top-text-shell {
+    width: 60%;
+  }
+  .top-text-shell div {
+    faont-size: 25vh;
+  }
+  .top-text-shell div span {
+    transform: scale(6, 1);
+    margin: 0 150px 0;
+    mask-size: 1.5px;
+  }
+
+  .quick-know {
+  height: 50vh;
+}
+  .qk-block-shell {
+    flex-direction: row;
+  }
+  .qk-block {
+    height: 100%;
+  }
+
+  #three-d:hover,
+  #drawing:hover,
+  #text:hover,
+  #web:hover,
+  #music:hover,
+  #edu-web:hover,
+  #writing:hover {
+    flex: 70%;
+    transition: all 0.6s;
   }
 }
 
 footer {
-  background-color: black;
-  padding: 20px;
-  color: white;
-  text-align: center;
+  position: relative;
+  z-index: 1001;
+  filter: invert(0.95);
+  -webkit-filter: invert(0.95);
+  background-color: #eee;
+  color: #000;
+  padding: 20px 50px 20px;
 }
-
-.info {
-  text-align: left;
+.footer-container {
   display: flex;
   flex-wrap: wrap;
-  color: gray;
+  justify-content: space-between;
+  gap: 20px;
+}
+.footer-column {
+  flex: 1 1 200px; /* Adjust columns to fit smaller screens */
+  min-width: 150px; /* Minimum width for each column */
+}
+.footer-column h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #888;
+}
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-column ul li {
+  margin-bottom: 4px;
+}
+.footer-column ul li a {
+  text-decoration: none;
+  color: #111;
+  font-size: 13px;
+  transition: color 0.3s;
+}
+.footer-column ul li a:hover {
+  color: #999;
 }
 
-.info-title {
-  font-weight: bold;
-  color: white;
-}
-
-.info-L {
-  flex: 50%;
-}
-
-.info-R {
-  flex: 50%;
-}
-
-.info span {
-  display: block;
-  font-size: 14px;
-  padding: 2px 0px 2px;
-}
-
-footer hr {
-  border: 0.5px rgba(255, 255, 255, 0.4) solid;
-}
-
-@media screen and (min-width: 768px) {
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    display: inline;
   }
-
-  ::-webkit-scrollbar-track {
-    border: none;
-    border-radius: 10px;
+  .footer-column ul {
+    margin: 0 0 50px;
   }
-
-  ::-webkit-scrollbar-thumb {
-    background: rgba(102, 102, 102, 0.5);
-    border-radius: 10px;
+  .footer-column {
+    text-align: center;
   }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(66, 66, 66, 0.5);
-  }
-}
-
-#生日蛋糕 {
-  background-image: url("https://251131395.github.io/media/image/%E7%94%9F%E6%97%A5%E8%9B%8B%E7%B3%95.png");
-  background-size: cover;
-  background-position: center;
-}
-
-#生日賀卡 {
-  background-image: url("https://251131395.github.io/media/image/%E7%94%9F%E6%97%A5%E8%B3%80%E5%8D%A1.png");
-  background-size: cover;
-  background-position: top;
-}
-
-#閾限空間 {
-  background-image: url("https://251131395.github.io/media/image/liminal-space/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(1019).png");
-  background-size: 340%;
-  background-position: 71% 30%;
 }
 
   </style>
 </head>
 
 <body>
-  <span class="menu" onclick="openNav()">&#9776</span>
-
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="">主頁</a>
-    <a href="">學習日誌</a>
-    <a href="https://251131395.github.io/%E4%BD%9C%E5%93%81%E4%B8%80%E8%A6%BD.html">作品一覽</a>
-  </div>
-
   <header>
-    <div class="bottom">
-      <span class="script">我有很多興趣，喜歡不斷學習新技能。我會網站上分享我的作品和文章，希望讓更多的人知道我的見聞和心得。</span>
-      <button onclick="location.href=''">關於我</button>
-    </div>
-    <span id="title-t">251131395</span>
-    <span id="title">251131395</span>
-    <span id="title-b">251131395</span>
-    <img src="https://251131395.github.io/media/image/251131395.png">
+    <font>251131395</font>
+    <span>關於我</span>
+    <span>作品</span>
+    <span>$$$</span>
   </header>
-
-  <div class="bookshelf">
-    <span class="title">本期文章</span>
-    <div class="area">
-      <span class="space"></span>
-      <div class="block">
-        <div class="book" id="閾限空間" onclick="location.href='https://251131395.github.io/%E6%96%87%E7%AB%A0/%E9%96%BE%E9%99%90%E7%A9%BA%E9%96%93.html'">
-          <span>閾限空間</span>
-        </div>
-        <span class="name">251131395</span>
-        <span class="date">05/05/2024</span>
-      </div>
-      <div class="block">
-        <div class="book" id="" onclick="location.href=''">
-          <span>二．</span>
-        </div>
-        <span class="name">???</span>
-        <span class="date">??/??/2024</span>
-      </div>
-      <div class="block">
-        <div class="book" id="" onclick="location.href=''">
-          <span>三．</span>
-        </div>
-        <span class="name">???</span>
-        <span class="date">??/??/2024</span>
-      </div>
-      <div class="block">
-        <div class="book" id="" onclick="location.href=''">
-          <span> 四．</span>
-        </div>
-        <span class="name">???</span>
-        <span class="date">??/??/2024</span>
-      </div>
-      <div class="block">
-        <div class="book" id="" onclick="location.href=''">
-          <span>五．</span>
-        </div>
-        <span class="name">???</span>
-        <span class="date">??/??/2024</span>
-      </div>
-      <div class="block">
-        <div class="book" id="" onclick="location.href=''">
-          <span>六．</span>
-        </div>
-        <span class="name">???</span>
-        <span class="date">??/??/2024</span>
-      </div>
+  
+  <div class="top">
+    <div class="top-bg"></div>
+    <div class="top-bg-color"></div>
+    <div class="top-text-shell">
+      <div>25<span>25</span></div>
+      <div><span>1</span>1</div>
+      <div>13<span>13</span></div>
+      <div><span>13</span>13</div>
+      <div>9<span>9</span></div>
+      <div><span>5</span>5</div>
+    </div>
+    
+    <div class="top-text-shell" id="top-text-shell-none">
+      <div>25<span>25</span></div>
+      <div><span>1</span>1</div>
+      <div>13<span>13</span></div>
+      <div><span>13</span>13</div>
+      <div>9<span>9</span></div>
+      <div><span>5</span>5</div>
     </div>
   </div>
 
-  <div class="page">
-    <button class="page-btn" id="learn" onclick="location.href='https://251131395.github.io/%E5%AD%B8%E7%BF%92%E6%97%A5%E8%AA%8C.html'">學習日誌</button>
-    <button class="page-btn" id="workk" onclick="location.href='https://251131395.github.io/%E4%BD%9C%E5%93%81%E4%B8%80%E8%A6%BD.html'">作品一覽</button>
-  </div>
-
-  <div class="work">
-    <br><span class="title">作品</span>
-    <div class="area2">
-      <div class="box" id="生日蛋糕" onclick="location.href='https://www.bilibili.com/video/BV17r4y1C7fu/?spm_id_from=333.999.0.0'">Blender生日蛋糕</div>
-      <div class="box" id="生日賀卡" onclick="location.href='https://251131395.github.io/Y/%E7%94%9F%E6%97%A5%E8%B3%80%E5%8D%A1.html'">生日賀卡</div>
-      <div class="box" id=""></div>
-      <div class="box" id=""></div>
-      <div class="box" id=""></div>
-      <div class="box" id=""></div>
+  <div class="quick-know">
+    <div class="qk-block-shell">
+      <div class="qk-block" id="three-d">
+        <span>3D藝術</span>
+        <div class="qk-block-bg"></div>
+      </div>
+      <div class="qk-block" id="drawing">
+        <span>繪畫</span>
+        <div class="qk-block-bg"></div>
+      </div>
+      <div class="qk-block" id="text">
+        <span>文字</span>
+        <div class="qk-block-bg"></div>
+      </div>
+      <div class="qk-block" id="web">
+        <span>網頁製作</span>
+        <div class="qk-block-bg"></div>
+      </div>
+      <div class="qk-block" id="music">
+        <span>音樂</span>
+        <div class="qk-block-bg"></div>
+      </div>
+      <div class="qk-block" id="edu-web">
+        <span>教育網站</span>
+        <div class="qk-block-bg"></div>
+      </div>
+      <div class="qk-block" id="writing">
+        <span>寫字</span>
+        <div class="qk-block-bg"></div>
+      </div>
     </div>
   </div>
+  
 
   <footer>
-    <div class="info">
-      <div class="info-L">
-        <span class="info-title">需要幫忙？</span>
-        <span onclick="location.href=''">怎麽是？</span>
-        <span onclick="location.href=''">怎麽是？</span>
-        <span onclick="location.href=''">怎麽是？</span>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>網站連結</h3>
+        <ul>
+          <li><a href="#">首頁</a></li>
+          <li><a href="#">DSE 數學</a></li>
+          <li><a href="#">DSE M2</a></li>
+          <li><a href="#">初中數學基礎鞏固班</a></li>
+          <li><a href="#">M2預備班</a></li>
+        </ul>
       </div>
-      <div class="info-R">
-        <span class="info-title">社交平台</span>
-        <span onclick="location.href='https://space.bilibili.com/470999012?spm_id_from=333.1007.0.0'">Bilibili</span>
-        <span onclick="location.href=''">微博</span>
+
+      <div class="footer-column">
+        <h3>私補資訊</h3>
+        <ul>
+          <li><a href="#">課程資訊</a></li>
+          <li><a href="#">導師資訊</a></li>
+          <li><a href="#">定價</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>外部連結</h3>
+        <ul>
+          <li><a href="">IG</a></li>
+          <li><a href="">Bilibili</a></li>
+        </ul>
       </div>
     </div>
-    <hr>
-    <span>251131395</span>
-
   </footer>
 
   <script>
     function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("mySidenav").style.left = "0";
     }
 
     function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-      p
+      document.getElementById("mySidenav").style.left = "-280px";
     }
   </script>
+</body>
 
 </html>
