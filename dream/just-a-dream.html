@@ -1,0 +1,362 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="" rel="shortcut icon" />
+  <title>251131395</title>
+
+  <style>
+  body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  background-color: #111;
+
+  padding: 40px;
+  overflow-x: hidden;
+}
+
+.glass-broken {
+  display: none;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1110;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  mix-blend-mode: lighten;
+  filter: contrast(1.4);
+  -webkit-filter: contrast(1.4);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("https://251131395.github.io/media/image/BrokenGlass0048_1_350.jpg");
+  animation: distort 5s ease-in infinite;
+}
+@keyframes distort {
+  0% {
+    backdrop-filter: opacity(0.2) hue-rotate(90deg) saturate(7) brightness(3);
+    -webkit-backdrop-filter: opacity(0.2) hue-rotate(90deg) saturate(7)
+      brightness(3);
+  }
+  10% {
+    backdrop-filter: opacity(0.2) hue-rotate(90deg) saturate(5) brightness(1);
+    -webkit-backdrop-filter: opacity(0.2) hue-rotate(90deg) saturate(5)
+      brightness(1);
+  }
+  50% {
+    backdrop-filter: opacity(0.2) saturate(10) brightness(3);
+    -webkit-backdrop-filter: opacity(0.2) saturate(10) brightness(3);
+  }
+  60% {
+    backdrop-filter: opacity(0.2) saturate(7) brightness(2);
+    -webkit-backdrop-filter: opacity(0.2) saturate(7) brightness(2);
+  }
+  61% {
+    backdrop-filter: opacity(0.2) hue-rotate(-20deg) saturate(2) brightness(1);
+    -webkit-backdrop-filter: opacity(0.2) hue-rotate(-20deg) saturate(2)
+      brightness(1);
+  }
+  65% {
+    backdrop-filter: opacity(0.2) saturate(1) brightness(3);
+    -webkit-backdrop-filter: opacity(0.5) saturate(1) brightness(3);
+  }
+  100% {
+    backdrop-filter: opacity(0.2) hue-rotate(90deg) saturate(7) brightness(3);
+    -webkit-backdrop-filter: opacity(0.2) hue-rotate(90deg) saturate(7)
+      brightness(3);
+  }
+}
+.glass-broken div pre {
+  animation: move 20s linear infinite;
+  font-size: 30px;
+  color: red;
+  margin: -30px 0 0;
+}
+@keyframes move {
+  0% {
+    font-size: 10px;
+    transform: translate(0px, 0px);
+  }
+  10% {
+    transform: translate(-2px, 0px);
+  }
+  40% {
+    transform: translate(2px, 3px);
+  }
+  60% {
+    font-size: 30px;
+    transform: translate(-4px, -2px);
+  }
+  80% {
+    transform: translate(-2px, 3px);
+  }
+  100% {
+    font-size: 10px;
+    transform: translate(0px, 0px);
+  }
+}
+
+.bg-img-cover {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #333;
+  mix-blend-mode: multiply;
+  opacity: 1;
+}
+.bg-img-cover-mask {
+  width: calc(100vw - 40px);
+  height: calc(100vh - 40px);
+  background-color: #fff;
+  filter: blur(30px);
+  -webkit-filter: blur(30px);
+  border-radius: 10%;
+}
+.bg {
+  z-index: 1000;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.02;
+  pointer-events: none;
+
+  background-position: center;
+  background-image: url("");
+
+  filter: grayscale(0.5);
+  webkit-filter: grayscale(0.5);
+
+  background: linear-gradient(
+    0deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 197, 0, 1) 12%,
+    rgba(244, 255, 0, 1) 26%,
+    rgba(124, 255, 0, 1) 37%,
+    rgba(67, 255, 178, 1) 45%,
+    rgba(0, 255, 251, 1) 52%,
+    rgba(0, 171, 255, 1) 62%,
+    rgba(69, 0, 255, 1) 73%,
+    rgba(214, 0, 255, 1) 89%,
+    rgba(255, 0, 0, 1) 100%
+  );
+
+  background-size: 20px 60px;
+  background-repeat: repeat;
+}
+.crt {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-size: 5px;
+  background-repeat: repeat;
+  background-position: center;
+  background-image: url("https://251131395.github.io/iveai/media/image/AB8DFAA9-EA6E-4BE9-863F-EE5640F6C3A6.png");
+  z-index: 999;
+  mix-blend-mode: soft-light;
+  filter: blur(0.6px);
+  -webkit-filter: blur(0.6px);
+  backdrop-filter: blur(1px) saturate(1.2) brightness(1.8);
+  backdrop-webkit-filter: blur(1px) saturate(1.2) brightness(1.8);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.text {
+  color: orange;
+}
+.typing {
+  display: inline-block;
+  width: 10px;
+  height: 16px;
+  margin: 0 0 -2px;
+  background-color: orange;
+  filter: brightness(0.75);
+  webkit-filter: brightness(0.75);
+  animation: typing 1.5s infinite;
+}
+@keyframes typing {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  61% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.tit {
+  color: #111;
+  background-color: orange;
+  display: block;
+  font-weight: bold;
+  padding: 2px;
+  margin: 0 0 4px;
+  filter: brightness(0.75);
+  webkit-filter: brightness(0.75);
+}
+.text-shell {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.text-shell pre {
+  font-size: 18px;
+  display: block;
+  margin: -100px 0 0;
+  filter: brightness(0.75);
+  webkit-filter: brightness(0.75);
+}
+
+@media screen and (max-width: 600px) {
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="glass-broken">
+    <div class="text" style="text-align:center">
+      <pre>
+         .     *         
+               •   
+*   •      *      .
+    ▄▄▄▄▄▄▄▄▄▄▄    
+  * ▌░░░░░░░░░▐  * 
+    ▌░░█░░░█░░▐    
+.   ▌░░░░░░░░░▐  • 
+    ▌▀▄░░░░░▄▀▐    
+    ▌░░▀▀▀▀▀░░▐    
+    ▀▀▀▀▀▀▀▀▀▀▀    
+      </pre>
+    </div>
+  </div>
+
+  <div class="bg-img-cover">
+    <div class="bg-img-cover-mask"></div>
+  </div>
+  <div class="bg"></div>
+  <div class="crt"></div>
+
+  <div class="text-shell">
+    <div class="text" style="text-align:center">
+      <pre>
+         .     *         
+               •   
+*   •      *      .
+    ▄▄▄▄▄▄▄▄▄▄▄    
+  * ▌░░░░░░░░░▐  * 
+    ▌░░█░░░█░░▐    
+.   ▌░░░░░░░░░▐  • 
+    ▌▀▄░░░░░▄▀▐    
+    ▌░░▀▀▀▀▀░░▐    
+    ▀▀▀▀▀▀▀▀▀▀▀    
+      </pre>
+      <span>歡迎再次回來，用戶251131395！<br>這裏儲存了您近期的夢。<span>
+    </div>
+  </div>
+  <div class="text" style="cursor: text;">
+    <span class="tit">14-02-2025</span>
+    透明的魚絲線在陽光下隱隱反光，讓人知道那是假的，挂在樓間的綠色恐龍是假的。仔細看，它的材質也很假，沒有透光性，不像真的皮肉。<br>
+    <br>
+    偶然發現了一個可怕的真相，要立刻吐掉口中的芹菜。她說，芹菜是在老鼠尾巴裏剝下的。低頭，看到被剖開的老鼠尾巴，芹菜被拿了出來，鼠尾表層的內部是有序的深褐色球狀突起。抬頭，多個一人半高的巨大剖開鼠尾，在血海中向我衝來。<br>
+    <br>
+    呑了呑口水，一股腥臭味從喉中上來，我醒了。<br>
+    <br>
+    <br>
+    <span class="tit">18-02-2025</span>
+    貓雙手抱著白菜吃，牠似乎聽得懂人話。四人在道路緃橫交錯的山玻上坐車，於不知名的街道下車。<br>
+    <br>
+    像是醒了，卻又在夢中，然而，又發夢了。<br>
+    <br>
+    進入了一間不太尋常的房間，不知有沒有門。這裏有一排連續的窗戶，幾乎把房間從上而下分割起來。各種幾何結構推砌在一起，形成了這個房間。窗戶外，是巨大的廣告牌，但上面的資訊似乎都過時了，連顏色也褪色。<br>
+    <br>
+    還未來得及細看，我便醒了。<br>
+    <br>
+    <br>
+    <span class="tit">19-03-2025</span>
+    隨便選了一個站，便從巴士下車了，來到了一個熱鬧又頗大的商店。<br>
+    <br>
+    找到回家的路，我醒了。<br>
+    <br>
+    <br>
+    <span class="tit">20-03-2025</span>
+    並沒有地震，躺在床上，天花板卻在搖晃。似是習慣了一樣，很麻木。<br>
+    <br>
+    大家都躺在手術床上，坐起來，看到某人被開膛破肚，周圍是四零八落、像充了氣的內臟。很害怕、很氣憤，但改造是必須的。不用怕，都過去了。<br>
+    <br>
+    我醒了。<br>
+    <br>
+    <br>
+    <span class="tit">21-03-2025</span>
+    很平靜，我創建了一個房間，像建模一樣。<br>
+    <br>
+    巨大的眼睛在看我，那不是我創造的，但我能控制他。<br>
+    <br>
+    突然就被叫醒了。<br>
+    <br>
+    <br>
+    <span class="tit">22-03-2025</span>
+    商店、父子與創造。<br>
+    <br>
+    忘了很多事，但醒了。<br>
+    <br>
+    <br>
+    <span class="tit">23-03-2025</span>
+    傷害的說話比愛更早說出口，緊隨其後的是劇烈又無意義的爭吵。<br>
+    <br>
+    我們都是不懂道歉的人，然而，我醒了。
+    <span class="typing"></span>
+
+    <br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+
+  <script>
+    // Wait for 30 seconds after the page loads
+    setTimeout(() => {
+      const element = document.querySelector('.glass-broken');
+      if (element) {
+        element.style.display = 'flex'; // Change display to flex
+      }
+    }, 30000); // 30,000 milliseconds = 30 seconds
+  </script>
+</body>
+
+</html>
