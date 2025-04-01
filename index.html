@@ -8,452 +8,299 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
   <link href="" rel="shortcut icon" />
-  <title>251131395</title>
-
+  <title>???</title>
+  
   <style>
     body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  font-family: "Noto Sans TC", sans-serif;
   margin: 0;
-  padding: 0;
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
+  padding: 20px;
+  font-family: Arial, sans-serif;
   background-color: #fff;
 }
 
-header {
+.filter {
   position: fixed;
-  z-index: 1000;
   top: 0;
   left: 0;
   right: 0;
-  padding: 20px 20px 5px;
-  background-color: rgba(15, 15, 15, 0.4);
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-header font,
-header span {
-  color: #fff;
-  text-shadow: 0 0 10px #000;
-  display: inline-block;
-  padding: 10px;
-  margin: -10px;
-  margin-right: 10px;
-}
-header span {
-  cursor: pointer;
-}
-header span:last-child {
-  padding: 10px;
-  margin: -10px;
-  margin-right: -30px;
-}
-header span:hover {
-  color: #aaa;
-}
-
-.top {
-  filter: invert(1) hue-rotate(190deg);
-  -webkit-filter: invert(1) hue-rotate(190deg);
-
-  position: relative;
-  padding: 20px;
-  height: calc(100vh - 40px);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  flex-direction: row;
-  overflow: hidden;
-}
-.top-bg {
-  background-color: #eee;
-  z-index: -100;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
   bottom: 0;
-}
-.top-bg-color {
+  z-index: 888;
+  animation: distort 20s ease-in infinite;
   pointer-events: none;
-  mix-blend-mode: overlay;
-  opacity: 0.3;
-  z-index: 90;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  height: 100vh;
-  background-image: radial-gradient(circle, #aaa 50%, #fff 60%);
-  background-size: 3px 3px;
-  background-repeat: repeat;
-}
-.top-text-shell {
-  qborder: 1px red solid;
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
-  width: 100%;
-  height: calc(100% - 40px);
-  display: flex;
-  flex-direction: column;
-}
-#top-text-shell-none {
-  display: none;
-}
-.top-text-shell div {
-  transition: all 1s;
-  text-shadow: 0px 0px 10px #00c3aa, 0px 0px 5px blue, 0px 0px 2px blue;
-  position: relative;
-  color: #000;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  font-size: 90px;
-  font-weight: bold;
-}
-.top-text-shell div:active {
-  font-size: 98px;
-}
-.top-text-shell div span {
-  position: relative;
-  z-index: -1;
-  color: blue;
-  color: #000;
   opacity: 0.7;
-  transform: scale(3, 1);
-  margin: 0;
-  filter: blur(4px);
-  -webkit-filter: blur(4px);
-  mask-image: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0) 50%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  mask-repeat: repeat;
-  mask-size: 3px;
 }
-.top-text-shell div:nth-child(2n + 2) {
-  justify-content: right;
+@keyframes distort {
+  0% {
+    backdrop-filter: invert(0.2) opacity(0.2) hue-rotate(90deg) saturate(7)
+      brightness(3);
+    -webkit-backdrop-filter: invert(0.2) opacity(0.2) hue-rotate(90deg)
+      saturate(7) brightness(3);
+  }
+  10% {
+    backdrop-filter: opacity(0.2) hue-rotate(90deg) saturate(5) brightness(0.8);
+    -webkit-backdrop-filter: opacity(0.2) hue-rotate(90deg) saturate(5)
+      brightness(0.8);
+  }
+  50% {
+    backdrop-filter: opacity(0.2) saturate(10) brightness(2);
+    -webkit-backdrop-filter: opacity(0.2) saturate(10) brightness(2);
+  }
+  60% {
+    backdrop-filter: invert(0.3) opacity(0.7) saturate(7) brightness(0.2);
+    -webkit-backdrop-filter: invert(0.3) opacity(0.7) saturate(7)
+      brightness(0.2);
+  }
+  61% {
+    backdrop-filter: invert(0.3) opacity(0.2) hue-rotate(-20deg) saturate(2)
+      brightness(1);
+    -webkit-backdrop-filter: invert(0.3) opacity(0.2) hue-rotate(-20deg)
+      saturate(2) brightness(1);
+  }
+  65% {
+    backdrop-filter: opacity(0.5) saturate(1) brightness(3);
+    -webkit-backdrop-filter: opacity(0.5) saturate(1) brightness(3);
+  }
+  100% {
+    backdrop-filter: invert(0.2) opacity(0.2) hue-rotate(90deg) saturate(7)
+      brightness(3);
+    -webkit-backdrop-filter: invert(0.2) opacity(0.2) hue-rotate(90deg)
+      saturate(7) brightness(3);
+  }
 }
 
-.quick-know {
-  position: relative;
-  height: 85vh;
-}
-.qk-block-shell {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-.qk-block {
-  position: relative;
-  padding: 10px 20px 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  transition: all 0.5s;
-  background-color: #000;
-  z-index: 1;
-}
-.qk-block span {
-  text-shadow: 0 0 10px #000;
-  pointer-events: none;
-  position: relative;
-  color: #fff;
-  font-size: 18px;
-  font-weight: bold;
-  z-index: 11;
-}
-.qk-block-bg {
-  filter: grayscale(1);
-  -webkit-filter: grayscale(1);
-  opacity: 0.8;
-  position: absolute;
+.shell {
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  top: 0;
   bottom: 0;
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+.logo {
+  margin: -60px 0 0;
+  margin-bottom: 20px;
+  position: relative;
   z-index: 10;
 }
-.qk-block-bg:hover {
-  filter: grayscale(0);
-  -webkit-filter: grayscale(0);
-  opacity: 1;
+.logo img {
+  width: 350px;
+  height: auto;
 }
 
-#three-d {
-  flex: 50%;
-  .qk-block-bg {
-    background-image: url("https://251131395.github.io/media/image/sun-rain.jpg");
-  }
-}
-#drawing {
-  flex: 50%;
-  .qk-block-bg {
-    background-position: 50% 38%;
-    background-image: url("https://251131395.github.io/media/image/drawing.jpg");
-  }
-}
-#text {
-  flex: 50%;
-  .qk-block-bg {
-    background-position: 10% 50%;
-    background-image: url("https://251131395.github.io/media/image/novel.jpg");
-  }
-}
-#web {
-  flex: 40%;
-  .qk-block-bg {
-    background-position: 28% top;
-    background-image: url("https://images.unsplash.com/photo-1482062364825-616fd23b8fc1?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Mzk2ODI3NzZ8&ixlib=rb-4.0.3&q=85");
-  }
-}
-#music {
-  flex: 30%;
-  .qk-block-bg {
-    background-position: 34% 75%;
-    background-image: url("https://251131395.github.io/media/image/music.jpg");
-  }
-}
-#edu-web {
-  flex: 25%;
-  .qk-block-bg {
-    background-position: 10% 52%;
-    background-image: url("https://251131395.github.io/media/image/ooxx.jpg");
-  }
-}
-#writing {
-  flex: 20%;
-  .qk-block-bg {
-    background-position: 50% 17%;
-    background-image: url("https://251131395.github.io/media/image/writing.jpg");
-  }
-}
-
-.money{
-  height:80vh;
-}
-
-@media screen and (min-width: 768px) {
-  .top {
-    padding: 20px 100px 20px;
-  }
-  #top-text-shell-none {
-    display: flex;
-  }
-  .top-text-shell {
-    width: 60%;
-  }
-  .top-text-shell div {
-    faont-size: 25vh;
-  }
-  .top-text-shell div span {
-    transform: scale(6, 1);
-    margin: 0 150px 0;
-    mask-size: 1.5px;
-  }
-
-  .quick-know {
-    height: 50vh;
-  }
-  .qk-block-shell {
-    flex-direction: row;
-  }
-  .qk-block {
-    padding: 10px;
-    height: 100%;
-  }
-
-  #three-d:hover,
-  #drawing:hover,
-  #text:hover,
-  #web:hover,
-  #music:hover,
-  #edu-web:hover,
-  #writing:hover {
-    flex: 70%;
-    transition: all 0.6s;
-  }
-}
-
-footer {
-  position: relative;
-  z-index: 1001;
-  filter: invert(0.95);
-  -webkit-filter: invert(0.95);
-  background-color: #eee;
-  color: #000;
-  padding: 20px 50px 20px;
-}
-.footer-container {
+.search-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  aborder: 1px blue solid;
 }
-.footer-column {
-  flex: 1 1 200px; /* Adjust columns to fit smaller screens */
-  min-width: 150px; /* Minimum width for each column */
+.search-box-wrapper {
+  width: 100%;
+  position: relative;
+  aborder: 1px red solid;
 }
-.footer-column h3 {
+#search{
+  display:bock;
+  padding:0 9px 0;
+  font-size:14px;
+  color:#555;
+}
+#mic-n-cam{
+  display:bock;
+  margin:0 12px 0;
+  font-size:15px;
+  color:#555;
+  cursor: pointer;
+  position:relative;
+}
+#eye{
+  display:bock;
+  position:absolute;
+  top:0;
+  left:-1px;
+  background-color: #fff;
+  z-index: 888;
+  animation: eye 20s infinite;
+}
+@keyframes eye {
+  0% {
+    display:none;
+  }
+  49% {
+    display:none;
+  }
+  50% {
+    display:block;
+  }
+  51% {
+    display:block;
+  }
+  50% {
+    display:none;
+  }
+  100% {
+    display:none;
+  }
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(223, 225, 229, 1);
+  border-radius: 24px;
+  padding: 13px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(32, 33, 36, 0.2);
+  transition: box-shadow 0.2s ease-in-out;
+  overflow: hidden;
+  cursor: text;
+}
+.search-box:hover {
+  border: 1px solid rgba(223, 225, 229, 0.5);
+}
+.search-box:focus-within {
+  border: 1px solid rgba(223, 225, 229, 0.5);
+  box-shadow: 0 2px 5px rgba(32, 33, 36, 0.15);
+  border-radius: 0;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+.search-box input {
+  flex: 1;
+  width:100%;
+  border: none;
+  outline: none;
   font-size: 16px;
-  margin-bottom: 5px;
-  color: #888;
+  color: #202124;
 }
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #70757a;
+  font-size: 16px;
 }
-.footer-column ul li {
-  margin-bottom: 4px;
+.search-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
 }
-.footer-column ul li a {
-  text-decoration: none;
-  color: #111;
-  font-size: 13px;
-  transition: color 0.3s;
+.search-buttons button {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #3c4043;
+  background-color: #f6f6f6;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
-.footer-column ul li a:hover {
-  color: #999;
+.search-buttons button:hover {
+  border: 1px solid #dadce0;
+  box-shadow: 0 1px 1px rgba(32, 33, 36, 0.1);
 }
 
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    display: inline;
-  }
-  .footer-column ul {
-    margin: 0 0 50px;
-  }
-  .footer-column {
-    text-align: center;
-  }
+.history-dropdown {
+  display: none;
+  position: absolute;
+  top: 42px;
+  left: 1px;
+  right: 1px;
+  background: #fff;
+  border: 1px rgba(0, 0, 0, 0) solid;
+  border-radius: 0;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 5px 5px rgba(32, 33, 36, 0.2);
+  z-index: 100;
+  overflow: hidden;
+}
+.history-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  padding-right: 20px;
+}
+.history-dropdown li {
+  postion: relative;
+  padding: 12px 15px;
+  0padding-left: 56px;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #202124;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.history-dropdown li:hover {
+  background-color: #eee;
+}
+.history-dropdown li:hover:after {
+  color: #777;
+  content: "X";
+  position: absolute;
+  right: 36px;
+  transform: scale(1, 0.8);
+}
+.history-dropdown li i {
+  font-size: 12px;
+  margin-left: 4px;
+  margin-right: 18px;
+  color: #777;
+}
+.search-box:focus-within + .history-dropdown {
+  display: block;
 }
 
   </style>
 </head>
 
 <body>
-  <header>
-    <font>251131395</font>
-    <span>關於我</span>
-    <span>作品</span>
-    <span>$$$</span>
-  </header>
+  <div class="filter"></div>
 
-  <div class="top">
-    <div class="top-bg"></div>
-    <div class="top-bg-color"></div>
-    <div class="top-text-shell">
-      <div>25<span>25</span></div>
-      <div><span>1</span>1</div>
-      <div>13<span>13</span></div>
-      <div><span>13</span>13</div>
-      <div>9<span>9</span></div>
-      <div><span>5</span>5</div>
+  <div class="shell">
+    <div class="logo">
+      <img src="https://251131395.github.io/media/image/output_7NJL3h.gif">
     </div>
-
-    <div class="top-text-shell" id="top-text-shell-none">
-      <div>25<span>25</span></div>
-      <div><span>1</span>1</div>
-      <div>13<span>13</span></div>
-      <div><span>13</span>13</div>
-      <div>9<span>9</span></div>
-      <div><span>5</span>5</div>
-    </div>
-  </div>
-
-  <div class="quick-know">
-    <div class="qk-block-shell">
-      <div class="qk-block" id="three-d">
-        <span>3D藝術</span>
-        <div class="qk-block-bg"></div>
+    <div class="search-container">
+      <div class="search-box-wrapper">
+        <div class="search-box" tabindex="0">
+          <i id="search" class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="搜尋 ▒◙◙▄▐¿ 或輸入網址">
+          <i id="mic-n-cam" style="font-size:17px" class="fa-solid fa-microphone"></i>
+          <i id="mic-n-cam" class="fa-solid fa-camera"><i id="eye" class="fa-solid fa-eye"></i></i>
+        </div>
+        <div class="history-dropdown">
+          <ul>
+            <li onmousedown="location.href='https://251131395.github.io/dream/just-a-dream.html'">
+              <i class="fa-solid fa-clock-rotate-left"></i>...dream/just-a-dream.html
+            </li>
+            <li><i class="fa-solid fa-clock-rotate-left"></i>251131395</li>
+            <li><i class="fa-solid fa-clock-rotate-left"></i>0oXx</li>
+            <li><i class="fa-solid fa-clock-rotate-left"></i>五香魚頭罐頭</li>
+            <li onmousedown="location.href='https://the-cleaner-0oxx.github.io/index.html'"><i class="fa-solid fa-clock-rotate-left"></i>Here is Where?</li>
+          </ul>
+        </div>
       </div>
-      <div class="qk-block" id="drawing">
-        <span>繪畫</span>
-        <div class="qk-block-bg"></div>
-      </div>
-      <div class="qk-block" id="text">
-        <span>文字</span>
-        <div class="qk-block-bg"></div>
-      </div>
-      <div class="qk-block" id="web">
-        <span>網頁製作</span>
-        <div class="qk-block-bg"></div>
-      </div>
-      <div class="qk-block" id="music" onclick="location.href=''">
-        <span>音樂</span>
-        <div class="qk-block-bg"></div>
-      </div>
-      <div class="qk-block" id="edu-web" onclick="window.open('https://0oxx-study-room.github.io/', '_blank')">
-        <span>教育網站</span>
-        <div class="qk-block-bg"></div>
-      </div>
-      <div class="qk-block" id="writing">
-        <span>寫字</span>
-        <div class="qk-block-bg"></div>
+      <div class="search-buttons">
+        <button>▒◙◙▄▐¿ 搜尋</button>
+        <button>好▒氣</button>
       </div>
     </div>
   </div>
-  
-  <div class="money">
-    123
-  </div>
 
-  <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-        <h3>網站連結</h3>
-        <ul>
-          <li><a href="#">3D藝術</a></li>
-          <li><a href="#">繪畫</a></li>
-          <li><a href="#">音樂</a></li>
-          <li><a href="#">文字</a></li>
-          <li><a href="#">寫字</a></li>
-          <li><a href="#">網頁製作</a></li>
-          <li><a href="#">教育網站</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h3>私補資訊</h3>
-        <ul>
-          <li><a href="#">課程資訊</a></li>
-          <li><a href="#">導師資訊</a></li>
-          <li><a href="#">定價</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h3>外部連結</h3>
-        <ul>
-          <li><a href="">IG</a></li>
-          <li><a href="">Bilibili</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-  </script>
 </body>
 
 </html>
