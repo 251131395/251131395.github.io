@@ -301,6 +301,16 @@
     </div>
   </div>
 
+  <script>
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        const searchQuery = searchInput.value;
+        window.location.href = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+      }
+    });
+  </script>
+
 </body>
 
 </html>
