@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
   <link href="" rel="shortcut icon" />
-  <title>251131395 - wiki</title>
+  <title>251131395 - Wiki</title>
   
   <style>
     body {
@@ -17,7 +17,7 @@
   -ms-user-select: none;
   user-select: none;
   margin: 0;
-  padding:5px 25px 20px;
+  padding: 5px 25px 20px;
   font-family: Arial, sans-serif;
   background-color: #fff;
 }
@@ -36,33 +36,33 @@ a:visited {
 }
 
 header {
-  position:relative;
+  position: relative;
 }
 header .logo {
   transform: translate(0, 6px);
-  display:inline-block;
-  margin:0 10px 0;
+  display: inline-block;
+  margin: 0 10px 0;
 }
 .logo-top {
-  color:#444;
+  color: #444;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 .logo-bom {
-  color:#888;
+  color: #888;
 }
 header i,
-.top-bnt{
-  width:20px;
-  height:20px;
-  text-align:center;
-  font-size:20px;
-  color:rgb(32, 33, 34);
-  padding:10px;
-  margin:5px -10px 0;
-  margin-right:0;
+.top-bnt {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 20px;
+  color: rgb(32, 33, 34);
+  padding: 10px;
+  margin: 5px -10px 0;
+  margin-right: 0;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -70,56 +70,97 @@ header i,
   justify-content: center;
 }
 header i:hover,
-.top-bnt:hover{
+.top-bnt:hover {
   background-color: #eee;
-  border-radius:2px;
+  border-radius: 2px;
 }
-.header-right{
-  position:absolute;
-  top:0;
-  right:0;
+.header-right {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
-.header-right i{
-  margin-left:25px;
-  margin-right:-15px;
+.header-right i {
+  margin-left: 25px;
+  margin-right: -15px;
 }
 
-.top{
-  margin:35px 0 10px;
-  border-bottom:1px #999 solid;
+.header-phone{
+  display:none;
+  position:relative;
+  background-color: rgb(234, 236, 240);
+  color: rgb(66, 66, 66);
+  box-shadow: inset 0px -1px 3px rgba(0, 0, 0, 0.08) ;
+  margin:-15px -15px 0;
+  padding:15px;
 }
-.top span{
-  vertical-align: middle;
+.header-phone span{
   display:inline-block;
+  margin-left:10px;
+}
+#header-right{
+  position:absolute;
+  top:17px;
+  right:15px;
+}
+
+.top {
+  margin: 35px 0 10px;
+  border-bottom: 1px #999 solid;
+}
+.top span {
+  vertical-align: middle;
+  display: inline-block;
   color: rgb(16, 20, 24);
-  font-size:28.8px;
-  margin:0 0 -15px;
+  font-size: 28.8px;
+  margin: 0 0 -15px;
   margin-left: 20px;
-  line-height:1;
+  line-height: 1;
 }
-.top-bnt{
+.top-bnt {
   vertical-align: middle;
-  display:inline-block;
-  margin:0 -10px -15px;
+  display: inline-block;
+  margin: 0 -10px -15px;
+}
+
+.top-phone{
+  display: none;
+  border-bottom: 1px #999 solid;
+  padding:20px 0 0;
+}
+.top-phone span{
+  display: block;
+  font-size: 27.2px;
+  padding:0 0 10px;
+}
+.top-phone font{
+  color:#555;
+  font-weight:700;
+  display: inline-block;
+  font-size: 14px;
+  margin-right:10px;
+  padding:0 0 6px;
+}
+#under{
+  border-bottom: 1.5px #555 solid;
 }
 
 aside {
-  float:right;
+  float: right;
   margin-left: 10px;
   padding: 6px;
   width: 240px;
   border: 1px #999 solid;
-  line-height:1.8;
-  text-align:left;
+  line-height: 1.8;
+  text-align: left;
 }
 aside img {
-  display:block;
+  display: block;
   width: 100%;
 }
 aside span {
   display: block;
   padding: 1px 0 1px;
-  margin:0 0 3px;
+  margin: 0 0 3px;
   background-color: rgb(235, 235, 210);
   color: rgb(32, 33, 34);
   font-size: 16px;
@@ -128,11 +169,46 @@ aside span {
   text-align: center;
   text-indent: 0px;
 }
-aside ul{
-  margin:0 -15px 0;
+aside ul {
+  margin: 0 -15px 0;
 }
-aside li{
-  margin:0;
+aside li {
+  margin: 0;
+}
+
+.aside-phone {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    padding: 15px;
+  }
+  
+  header {
+    display: none;
+  }
+  
+  .top {
+    display: none;
+  }
+  .top-phone{
+    display: block;
+}
+  
+  aside {
+    display: none;
+  }
+  .aside-phone {
+    display: block;
+    float: none;
+    width: auto;
+    margin: 0 0 16px;
+  }
+  
+  .header-phone{
+  display:block;
+}
 }
 
   </style>
@@ -151,6 +227,11 @@ aside li{
       <i class="fa-solid fa-ellipsis"></i>
     </div>
   </header>
+  <div class="header-phone">
+    <i class="fa-solid fa-bars"></i>
+    <span>W▄σµ▄ßαi▓</span>
+    <i id="header-right" class="fa-solid fa-magnifying-glass"></i>
+  </div>
 
   <div class="top">
     <img class="top-bnt" src="https://zh.wikipedia.org/w/load.php?modules=skins.vector.icons&image=listBullet&format=original&lang=zh-tw&skin=vector-2022&version=1ym9z">
@@ -158,6 +239,11 @@ aside li{
 
     <p></p>
   </div>
+  <div class="top-phone">
+    <span>251131395</span>
+    <font id="under">條目</font><font>討論</font>
+  </div>
+  
   <aside>
     <span>251131395</span>
     <img src="xxx" style="height:100px;" alt="an image of 251131395">
@@ -181,13 +267,47 @@ aside li{
       <li>7fftg3</li>
     </ul>
 </aside>
-  <p><b>251131395</b> 是<a href="https://en.wikipedia.org/wiki/Hominidae">類人猿</a>，其特徵是<a href="https://en.wikipedia.org/wiki/Bipedality">雙足行走</a>。<a href="https://en.wikipedia.org/wiki/Human">人類</a>擁有較大的<a href="https://en.wikipedia.org/wiki/Human_brain">大腦</a>，從而具有更高級的<a href="https://en.wikipedia.org/wiki/Cognitive">認知</a>技能，可以成功適應不同的環境，但 251131395 不具有這種能力。<br>
-    <br>
+  <p><b>251131395</b> 是<a href="https://en.wikipedia.org/wiki/Hominidae">類人猿</a>，其特徵是<a href="https://en.wikipedia.org/wiki/Bipedality">雙足行走</a>。<a href="https://en.wikipedia.org/wiki/Human">人類</a>擁有較大的<a href="https://en.wikipedia.org/wiki/Human_brain">大腦</a>，從而具有更高級的<a href="https://en.wikipedia.org/wiki/Cognitive">認知</a>技能，可以成功適應不同的環境，但 251131395 不具有這種能力。
+  <aside class="aside-phone">
+    <span>251131395</span>
+    <img src="xxx" style="height:100px;" alt="an image of 251131395">
+    <center style="font-size:14px;">251131395的前視圖（左）及後視圖（右）</center>
+    <span><a href="https://zh.wikipedia.org/wiki/%E4%BF%9D%E6%8A%A4%E7%8A%B6%E5%86%B5">保護狀況</a></span>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Status_iucn3.1_LC_zh-hant.svg/330px-Status_iucn3.1_LC_zh-hant.svg.png">
+    <center><a href="https://zh.wikipedia.org/wiki/%E6%97%A0%E5%8D%B1%E7%89%A9%E7%A7%8D">無危</a>（<a href="https://zh.wikipedia.org/wiki/%E5%9C%8B%E9%9A%9B%E8%87%AA%E7%84%B6%E4%BF%9D%E8%AD%B7%E8%81%AF%E7%9B%9F%E7%80%95%E5%8D%B1%E7%89%A9%E7%A8%AE%E7%B4%85%E8%89%B2%E5%90%8D%E9%8C%84">IUCN 3.1</a>）</center>
+    <span><a href="https://zh.wikipedia.org/wiki/%E7%94%9F%E7%89%A9%E5%88%86%E7%B1%BB%E5%AD%A6">科學分類</a></span>
+    界：&emsp;<a href="https://zh.wikipedia.org/wiki/%E5%8A%A8%E7%89%A9%E7%95%8C">動物界</a> Animalia<br>
+    門：&emsp;<a href="https://zh.wikipedia.org/wiki/%E8%84%8A%E7%B4%A2%E5%8A%A8%E7%89%A9%E9%97%A8">脊索動物門</a> Chordata<br>
+    綱：&emsp;<a href="https://zh.wikipedia.org/wiki/%E5%93%BA%E4%B9%B3%E7%BA%B2">哺乳綱</a> Mammalia<br>
+    目：&emsp;<a href="https://zh.wikipedia.org/wiki/%E7%81%B5%E9%95%BF%E7%9B%AE">靈長目</a> Primates<br>
+    科：&emsp;<a href="https://zh.wikipedia.org/wiki/%E4%BA%BA%E7%A7%91">人科</a> Hominidae<br>
+    屬：&emsp;<a href="https://zh.wikipedia.org/wiki/%E4%BA%BA%E5%B1%9E">人屬</a> Homo<br>
+    種：&emsp;<a href="https://zh.wikipedia.org/wiki/%E4%BA%BA">人</a> H. sapiens
+    <span><a href="https://zh.wikipedia.org/wiki/%E7%95%B0%E5%90%8D">異名</a></span>
+    <ul>
+      <li>251131395.10</li>
+      <li>251131395</li>
+      <li>7fftg3.32</li>
+      <li>7fftg3</li>
+    </ul>
+</aside>
     與人類高度<a href="https://zh.wikipedia.org/wiki/%E7%A4%BE%E6%9C%83%E5%8C%96">社會化</a>的特性不同，251131395 的<a href="https://zh.wikipedia.org/wiki/%E7%A4%BE%E6%9C%83%E8%A1%8C%E7%82%BA">社會行為</a>似乎不發達。關於 251131395 是否表現出任何形式的<a href="https://zh.wikipedia.org/wiki/%E7%A4%BE%E4%BC%9A%E5%9B%A2%E4%BD%93">社會組織</a>、<a href="https://zh.wikipedia.org/wiki/%E5%90%88%E4%BD%9C">合作</a>或溝通，目前尚無定論。其<a href="https://zh.wikipedia.org/wiki/%E7%A4%BE%E6%9C%83%E8%A1%8C%E7%82%BA">社會行為</a>的本質和程度仍是一個有待深入研究的開放性問題。<br>
     <br>
     關於 251131395 的飲食習慣，初步觀察表明其可能具有<a href="https://zh.wikipedia.org/wiki/%E9%9B%9C%E9%A3%9F%E6%80%A7%E5%8B%95%E7%89%A9">雜食性</a>傾向，能夠攝取植物和動物來源的食物。然而，其具體的飲食組成、<a href="https://zh.wikipedia.org/wiki/%E8%A7%85%E9%A3%9F">覓食</a>策略以及對特定營養的需求仍不清楚。需要進一步的研究來確定 251131395 的營養需求及其在生態系統中的營養級別。<br>
     <br>
-    儘管與<a href="https://en.wikipedia.org/wiki/Human">人類</a>有一些表面上的相似之處，但 251131395 仍然是一個很大程度上是神秘的實體，需要進行更嚴謹的<a href="https://zh.wikipedia.org/wiki/%E7%A7%91%E5%AD%A6%E6%96%B9%E6%B3%95">科學研究</a>來充分理解其生物學、行為和在生命之樹中的位置。
+    儘管與<a href="https://en.wikipedia.org/wiki/Human">人類</a>有一些表面上的相似之處，但 251131395 仍然是一個很大程度上是神秘的實體，需要進行更嚴謹的<a href="https://zh.wikipedia.org/wiki/%E7%A7%91%E5%AD%A6%E6%96%B9%E6%B3%95">科學研究</a>來充分理解其生物學、行為和在生命之樹中的位置。<br><br>
+
+  251131395 墶壚奻妦姡，娍<a href="aaa">婂媉</a>嫏嬀孅宂，寀尌屔岓峊崄嵃嶈巇帋幍庎廌弚彃徏忇。憋瘪啵哺怖捗測掣襯撐忡沖搐觸戳揣川，穿椽傳船喘串瘡窗床闖創錘春椿醇唇純蠢戳綽疵茨，磁雌辭<a href="aaa">慈瓷</a>詞此刺賜。匆從叢囪琮湊粗猝醋簇促躥篡爨竄崔催脆萃啐，淬瘁<a href="aaa">粹翠村存</a>忖寸搓撮蹉嵯矬痤鹺錯搭達答。<br><br>
+  
+  瘩打大<a href="aaa">呆歹傣戴帶</a>殆代貸袋待逮。怠耽擔丹單鄲撣膽旦氮淡誕，彈蛋當擋黨蕩檔刀叨忉氘島，倒禱蹈到盜悼導稻纛得德的。251131395 等瞪凳鄧堤低滴迪敵笛狄滌翟嫡抵底地弟遞第蒂締睇掂顛巔滇碘點，典靛墊電佃甸店惦奠殿癜簟坫。墱壋奲妱姰娎婃媍嫐嬁孆它寁對展岒峋崅嵄<a href="aaa">嶉巈帎幏序</a>，廍弛彄徐忈蹩癟啵哺怖捗測掣襯撐忡沖搐。觸戳揣川穿椽傳船喘串瘡，窗床闖創錘春椿醇唇純蠢戳綽疵，茨磁雌辭慈瓷詞此刺賜匆從叢，囪琮湊粗猝醋簇促躥。<br><br>
+  
+  篡爨竄崔催，脆 251131395 <a href="aaa">萃啐</a>淬瘁粹翠村存忖寸，搓撮蹉嵯矬痤鹺錯搭達答瘩，打大呆歹傣戴帶殆代。貸袋待逮怠耽擔丹單鄲，撣膽旦氮淡誕彈蛋當擋，黨蕩檔刀叨忉氘島倒禱蹈 251131395 悼導稻纛得德的燈登。等瞪凳鄧堤低滴 251131395 迪敵笛狄滌翟嫡嫡抵，底地弟遞第蒂締睇掂，顛巔滇碘點典靛墊電佃甸店惦奠殿癜簟。<br><br>
+  
+  奀甮尐尒尣尫尬尭<a href="aaa">尮尯</a>尰尲尵尶，尷屃屄屇屌屍屐屒屔屖屗屘屙屚屛屜屝，屟屢屣層屧屨屩屪。屬屭屮屰屲屳屴屵，屶屷屸屺屻屼屽屾岀岅岆岇岈，<a href="aaa">岉岊岋岌岎岏岒岓岕</a>岝岞岟。岠岡岤岥岦岧岨岪岮岯岰岲，岴岶岹岺岻岼岾峀峂峃峅峆峇峈峉峊峌峍峎峏峐，峑峓峔峕峖峗峘峚。峛峜峝峞峟峠峢峣峧峩峫峬峮，峯峱峲峳峴峵島峷峸峹峺峼峽峾，峿崀崁崄<a href="aaa">崅崈崉崋</a>崌崍崏崐崑崒崓崕。崖崘崙崚 251131395 崜崝崟崠崡崢崣，崤崥崦崧崨崪崫崬崯崰崱崲崳崵崶。崷崸崹崺崼崿嵀嵁嵂嵃，嵄嵅嵆嵈嵉嵍嵎嵏嵐嵑嵒嵓嵔嵕<a href="aaa">嵖嵗嵙</a>，嵚嵛嵜嵞嵟嵠嵡嵢嵣嵤嵥嵦嵧嵨嵪。嵭嵮嵰嵱嵲嵳，嵵嵶嵷嵸嵹嵺嵻嵼嵽嵾嵿，嶀嶁嶃嶄嶅嶇嶈嶉嶊嶋嶌嶍嶎。嶏嶐嶑嶒嶓嶔嶕嶖嶗嶘嶙嶚嶛嶜嶞嶟嶠，嶡嶢嶣嶤嶥嶦嶧嶨嶩嶪。嶫嶬嶭嶮嶯嶰，嶱嶲嶳嶴嶵嶶嶸嶹嶺嶻嶼嶽嶾嶿，巀巁巂巃巄巆巇巈巉巊巋。巌巎巏巐巑巒巓巔巕巖 251131395 <a href="aaa">巗巘巙巚</a>巛巜巟巠巣巤。巪巬巭巰巵巶巹巺巻巼巿帀帄帇帉帊帋。帍帎帒帓帗帞帟帠帡帢帣帤帥帨，帩帪，帬師帱帯帰帴帵。帳帾帿幀幁幃幆幇幈，幉幊幋幍幎幏幐幑幒幓幖幗幘幙。幚幛幜幝幟幠幣幦幧幨幩幪，幫幬幭幮幯<a href="aaa">幰幱幵幷幹幾</a>庁。庂庅庈庉庌庎庒庘庛，庝庡庢庣庤庥庨。庩庪庫庬庮，庯庰庱庲庴庺庻庼庽庿廀廁廂廃廄廅。<br><br>
+  
+  廇廈廋廌廍<a href="aaa">廎廏廐廔</a>，廕廗廘廙廚廜廝廞廟廠廡，廢廣廤廥廦廧廨。廩廫廬廭，廮廯廰廱廲廳廵廸廹廻廼廽廾，弅弆弇弉弌弍弎弐弒弔弖弙弚，弜弝弞弡弢弣弤弨弫弬弮弰弲弳弴弶弸弻，弽弾弿彁彂彃彄彅彆，彇彋彍彏彑彔。彖彗彘彙彜彞，彟彠彡彣彧彨彫彮彯彲彴彵彶彸彺彽彾彿徂徃，徑従徆<a href="aaa">徇徉後徍徎徏徔</a>徖徚徛徜徝從徟徠徢徣徤徥徦徧復，徫徬徯徰徱徲徳徶徸徹徺徻，徾徿忀忁忂忇忈 251131395 忉忋忎忓忔忕，忚忛忟忢忣忥忦忨忩忬忯忰忲忳忴忶忷，忹忺忼怇怈怉怊怋怌怐怑怓怗怘，怚怞怟怢怣怤怬怭怮<a href="aaa">怯怰</a>怱怲怳怴怶怷怸，怹怺怽怾恀<a href="aaa">恄恅恆</a>恇恈恉恌恎恏，恑恓恔恖恗恘恛恜恞恟恠恡恥恦恮恱，恲恴恵恷恾恿悀悁悂悅悆悇悈悊悋悎悏悐悑悓悕悗悘悙悜悞悡，悢悤悥悧悩悪悮悳悵<a href="aaa">悶悷悹</a>悺悽悾惀，惁惂惃惄惇惈惉惌惍惎惏惐惒惓惔惖惗惙惛惞惡，惢惣惤惥惪惱惲惵惸<br><br>
+  
+  251131395 惻惽惾惿愂愃，<a href="aaa">愄愅愇愊</a>愋愌愐愑愒愓愔愖，愗愘愙愛愜愝愞愡愢愥。愨愩愪愬愭愮愯，愰愱愲愳愴愵愶愷愸愹，愺愻愼愽愾慀慁慂慃慄，<a href="aaa">慅慆慇</a>態慉慊慍，慏慐<a href="aaa">慒慓慔慖慗</a>慘慙，慚慛慜慞慟慠慡慣慤慥慦慩慪。慫慬慭慮慯慱慲慳慴慶慸慹慺慻，慼慽慾慿憀憁憃憄憅憆憇憈憉憊憌。憍憏憐憑憒憓憕憖憗憘，憙憚憛憜憝憞憟憠。憡憢憣憥憦憪憫憭憮，憯憰憱憲憳憴憵憶憸，憹憺憻憼憽憿懀懁懃懄懅懆，懇應懌懍懎懏懐懓懕懖懗懘懙懚，懛懜懝懞懟 251131395 懠懡懢懣懤懥懧懨懩懪懫懬懭懮<a href="aaa">懯懰</a>懱懲，懳懴懹懺懻懽。懾戁戂戃戄戅戇戉戓戔，戕戗戙戜戝戞戠戢戣戤戧戨戩戫戭戯戰戱戲戵，戹戺扂扄扅扆扊扏扐払扖扗扙扚，扜扝扞扠扡扢扤扥扨扱，扲扴扵扷扸扺扻扽抁。抂抃抅抆抇抈抋抌，<a href="aaa">抍抎</a>抏抐抔抙。抝抟択抣抦抧抩抪抭抮抯抰抲抳抴，抶抷抸抺抾拀拁拃拄担拝，拞拠拡拤拪拫拰拲拵拸拹拺拻拞拰拲，拵拸拹拺拻拞拰拲拵拸拹拺，拻拞拰拲拵<a href="aaa">拸拹拺拻拞</a>拰拲拵拸。拺拻拞拰拲拵拸拹拺拻。
 </p>
   
   <script>
