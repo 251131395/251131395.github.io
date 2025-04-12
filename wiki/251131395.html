@@ -21,7 +21,8 @@
   padding: 5px 25px 20px;
   font-family: Arial, sans-serif;
   background-color: #fff;
-  overflow-x:hidden;
+  
+  cursor: wait;
 }
 
 a {
@@ -41,21 +42,25 @@ header {
   position: relative;
   filter: hue-rotate(-160deg) brightness(10);
   -webkit-filter: hue-rotate(-160deg) brightness(10);
+  margin:0 -25px 0;
+  padding:0 25px 0;
 }
 iframe {
-  width: calc(100vw - 20px);
+  margin:0 -20px 0;
+  width: 100%;
   height: 80px;
-  margin: 0 -20px 0;
   border: none;
   pointer-events: none;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
 }
 .h-broken {
   position: absolute;
   z-index: 999;
   top: 0;
   bottom: 0;
-  left: -30px;
-  right: -30px;
+  left: 0;
+  right: 0;
   border: 1px red solid;
 
   mix-blend-mode: exclusion;
@@ -75,23 +80,6 @@ iframe {
     rgba(0, 0, 0, 0) 85%
   );
 }
-.blur-logo {
-  position: absolute;
-  z-index: 99;
-  height: 100%;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-#bl1 {
-  top: 0;
-  left: 27px;
-  width: 200px;
-}
-#bl2 {
-  top: 0;
-  right: 26px;
-  width: 200px;
-}
 
 .header-phone {
   display: none;
@@ -103,6 +91,7 @@ iframe {
   -webkit-filter: hue-rotate(-160deg) brightness(10);
   margin: -15px -15px 0;
   padding: 15px;
+  ovweflow:hidden;
 }
 .header-phone span {
   display: inline-block;
@@ -244,8 +233,6 @@ aside li {
 <body>
   <header>
     <div class="h-broken"></div>
-    <div id="bl1" class="blur-logo"></div>
-    <div id="bl2" class="blur-logo"></div>
     <iframe src="https://zh.wikipedia.org/wiki/%E4%BA%BA%E7%A7%91" sandbox="allow-same-origin allow-scripts allow-forms" scrolling="no" style="overflow: hidden"></iframe>  
   </header>
   <div class="header-phone">
