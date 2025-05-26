@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="" rel="shortcut icon" />
+  <title>251131395的抽屜</title>
+
+  <style>
+    body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+}
+
+#back-bnt {
+  position: fixed;
+  z-index: 1501;
+  top: 16px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+header {
+  position: relative;
+  z-index: 5;
+  background-color: #fff;
+  margin: 0;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://plus.unsplash.com/premium_photo-1739198859296-d7e5db1a54b3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIzfHx8ZW58MHx8fHx8");
+}
+.header-shell {
+  padding: 0 20px 10px;
+}
+header h1 {
+  position: relative;
+  z-index: 1000;
+  margin: 40px 0 0;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.header-bg-shell {
+  background-color: red;
+  position: sticky;
+  z-index: -10;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  margin: 0;
+  padding: 0;
+}
+.header-bg {
+  qfilter: saturate(80%);
+  q-webkit-filter: saturate(80%);
+  adisplay: none;
+  background-color: #888;
+  margin: 0;
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://plus.unsplash.com/premium_photo-1739198859296-d7e5db1a54b3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIzfHx8ZW58MHx8fHx8");
+}
+
+.main {
+  position: relative;
+  z-index: 10;
+  padding: 10px 20px 20px;
+  min-height: calc(100vh - 250px);
+  background-color: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(40px);
+}
+
+.description {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.tit {
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  opacity: 0;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  margin: -10px -20px -45px;
+  padding: 15px 0 15px;
+  apadding-left: 45px;
+  background-color: #4b6791;
+}
+
+#floating-div.visible {
+  opacity: 1;
+  /* Fully visible */
+  visibility: visible;
+  /* Ensure it is visible */
+}
+.top-tool-shell-fixed,
+.top-tool-shell {
+  margin: 10px 0 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.top-tool-shell-fixed {
+  position: relative;
+  z-index: 100;
+  margin: 0 0 -50px;
+  aborder: 1px blue solid;
+}
+.top-tool-shell {
+  position: sticky;
+  z-index: 1001;
+  top: 30px;
+  right: 0;
+  aborder: 1px red solid;
+  pointer-events: none;
+}
+
+#list-heart,
+#list-random,
+#list-play {
+  display: inline-block;
+  cursor: pointer;
+  pointer-events: auto;
+}
+#list-heart {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: #aaa;
+  font-size: 20px;
+}
+#list-heart.active {
+  color: #4e71ff;
+}
+#list-random {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: #aaa;
+  font-size: 28px;
+  margin: 0 52px 0;
+  margin-left: auto;
+}
+#list-random.active {
+  color: #4e71ff;
+}
+#list-random span {
+  display: inline-block;
+  transform: translate(0, -1px);
+}
+#list-play {
+  margin-left: auto;
+  position: relative;
+  color: #000;
+  z-index: 1001;
+  background-color: #4e71ff;
+  min-height: 45px;
+  min-width: 45px;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+#list-play span {
+  display: inline-block;
+}
+#list-play:active {
+  transform: scale(0.93);
+}
+#list-random:active,
+#list-heart:active {
+  color: #4e71ff;
+}
+
+.song-list {
+  padding: 0 0 100px;
+}
+.song-shell {
+  padding: 8px 0px 8px;
+  padding-right: 0px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+.song-shell:active {
+  transform: scale(0.99);
+}
+.song-shell.active .song-name {
+  color: #4e71ff;
+}
+.song-img {
+  background-size: cover;
+  background-position: center;
+  border-radius: 3px;
+  min-width: 38px;
+  min-height: 38px;
+  margin-right: 8px;
+}
+.song-left {
+  margin-right: auto;
+  width: calc(100% - 90px);
+  aborder: 1px red solid;
+}
+.song-name {
+  color: #fff;
+  font-size: 16px;
+  margin: 0 0 4px;
+}
+.song-artists {
+  color: #aaa;
+  font-size: 12px;
+}
+.song-time {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.player {
+  position: fixed;
+  z-index: 1500;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  aheight: 70px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 8px 12px 10px;
+  overflow: hidden;
+  background-color: #000;
+}
+.p-top-shell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.p-song-info {
+  width: calc(100% - 140px);
+}
+#p-song-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #fff;
+  font-size: 14px;
+  afont-weight: bold;
+  display: block;
+  margin: 0 0 2px;
+}
+#p-song-artists {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: rgba(199, 199, 199, 0.7);
+  font-size: 12px;
+  afont-weight: bold;
+  display: block;
+}
+.p-control span {
+  display: inline-block;
+  transform: translate(0, -2.5px);
+  font-size: 24px;
+  cursor: pointer;
+}
+#p-play {
+  margin: 0 20px 0;
+  display: inline-block;
+  width: 15px;
+}
+#p-cycle {
+  font-size: 16px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+.p-control span:active {
+  color: rgba(199, 199, 199, 0.7);
+}
+
+#timeline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  color: #fff;
+  font-size: 12px;
+}
+#current-time,
+#total-time {
+  text-align: center;
+}
+.slider {
+  flex-grow: 1;
+  border-radius: 2px;
+  margin: 0 10px;
+  position: relative;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+.progress {
+  border-radius: 2px;
+  position: relative;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.progress-bar {
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #4e71ff;
+  width: 0%;
+}
+.pin {
+  position: absolute;
+  top: -3px;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  transform: translateX(-50%);
+  cursor: grab;
+}
+.pin:active {
+  cursor: grabbing;
+  /* Changes cursor style when pin is being dragged */
+}
+#p-bg-color {
+  position: absolute;
+  z-index: -1;
+  top: -200px;
+  left: -200px;
+  right: -200px;
+  bottom: -200px;
+  opacity: 0.6;
+  filter: blur(200px);
+  -webkit-filter: blur(200px);
+  background-size: cover;
+  background-position: center;
+  background-image: url("");
+}
+
+#p-cycle.active {
+  color: #4e71ff;
+}
+
+  </style>
+</head>
+
+<body>
+  <button id="back-bnt"><i class="fa-solid fa-angle-left"></i></button>
+
+  <header>
+    <div class="header-bg-shell">
+      <div class="header-bg"></div>
+    </div>
+    <div class="header-shell">
+      <h1>251131395的抽屜</h1>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="tit" id="floating-div">
+      251131395的抽屜
+    </div>
+
+    <div class="description">這裏是251131395的音樂合集。</div>
+
+    <div class="top-tool-shell-fixed">
+      <button id="list-heart"><i class="fa-solid fa-heart"></i></button>
+      <button id="list-random"><span>☘</span></button>
+    </div>
+    <div class="top-tool-shell">
+      <button id="list-play"><span><i class="fa-solid fa-play" style="
+  transform: translate(1.5px, 0);"></i></span></button>
+    </div>
+
+    <div class="song-list" id="song-list">
+      <!-- Songs will be dynamically added here -->
+    </div>
+  </div>
+
+  <div class="player">
+    <div class="p-top-shell">
+      <div class="p-song-info">
+        <span id="p-song-name">:)</span>
+        <span id="p-song-artists">:)</span>
+      </div>
+      <div class="p-control">
+        <nobr>
+          <span id="p-previous">&#x23EE;</span>
+          <span id="p-play"><i class="fa-solid fa-play"></i></span>
+          <span id="p-next">&#x23ED;</span>
+          <span id="p-cycle"><i class="fa-solid fa-repeat"></i></span>
+        </nobr>
+      </div>
+    </div>
+    <div id="timeline">
+      <span id="current-time">--:--</span>
+      <div class="slider" id="progress-slider">
+        <div class="progress">
+          <div class="progress-bar" id="progress-bar"></div>
+          <div class="pin" id="progress-pin" data-method="rewind"></div>
+        </div>
+      </div>
+      <span id="total-time">--:--</span>
+    </div>
+    <div id="p-bg-color"></div>
+  </div>
+
+  <audio id="audio-player"></audio>
+
+  <script>
+    // JavaScript to show the floating div with fade-in effect when scrolled to 100px
+window.addEventListener("scroll", function () {
+  const floatingDiv = document.getElementById("floating-div");
+  if (window.scrollY > 215) {
+    // Add the "visible" class to trigger the fade-in
+    floatingDiv.classList.add("visible");
+  } else {
+    // Remove the "visible" class to hide the div
+    floatingDiv.classList.remove("visible");
+  }
+});
+// Music Player Implementation
+document.addEventListener("DOMContentLoaded", function () {
+  // Song data
+  const songs = [
+    {
+      name: "海洋搖籃曲 (如無意外)",
+      img:
+        "https://images.unsplash.com/photo-1545733099-152483684cb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDgxNzU3ODF8&ixlib=rb-4.1.0&q=80&w=400",
+      artists: "251131395",
+      song:
+        "https://251131395.github.io/media/audio/music/%E6%B5%B7%E6%B4%8B%E6%90%96%E7%B1%83%E6%9B%B2(%E5%A6%82%E7%84%A1%E6%84%8F%E5%A4%96).mp3",
+      duration: 135
+    },
+    {
+      name: "玩具舞會",
+      img:
+        "https://images.unsplash.com/photo-1695624997419-5082ac0ec1a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAwfHx0b3klMjBkYW5jaW5nJTIwcGFydHl8ZW58MHx8MHx8fDA%3D",
+      artists: "251131395",
+      song:
+        "https://251131395.github.io/media/audio/music/%E6%B5%B7%E6%B4%8B%E6%90%96%E7%B1%83%E6%9B%B2(%E5%A6%82%E7%84%A1%E6%84%8F%E5%A4%96).mp3",
+      duration: 135
+    },
+    {
+      name: "Falling Stars - 夜間田野",
+      img:
+        "https://images.unsplash.com/photo-1494179628276-420ae3a2842a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDgxNzYzMzF8&ixlib=rb-4.1.0&q=80&w=400",
+      artists: "251131395",
+      song:
+        "https://251131395.github.io/media/audio/music/Falling%20Stars-%E7%94%B0%E9%87%8E%E7%89%88.mp3",
+      duration: 135
+    },
+    {
+      name: "在過去暢想未來 - 音樂盒",
+      img:
+        "https://images.unsplash.com/photo-1622403718261-bd0e7dd01216?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGNoaWxkaG9vZHxlbnwwfHwwfHx8MA%3D%3D",
+      artists: "251131395",
+      song:
+        "https://251131395.github.io/media/audio/music/%E5%9C%A8%E9%81%8E%E5%8E%BB%E6%9A%A2%E6%83%B3%E6%9C%AA%E4%BE%86-music-box.mp3",
+      duration: 89
+    },
+    {
+      name: "最後的最後",
+      img:
+        "https://images.unsplash.com/photo-1583691028182-e8f01e74bfa2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDgxNzMxODZ8&ixlib=rb-4.1.0&q=80&w=400",
+      artists: "251131395",
+      song:
+        "https://pfst.cf2.poecdn.net/base/audio/c4bb32ee15164eba865cdab5416821916ef2295a47f1d260233089ccf8051770",
+      duration: 38
+    },
+    {
+      name: "最後的最後 - 伴奏",
+      img:
+        "https://images.unsplash.com/photo-1583691028182-e8f01e74bfa2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDgxNzMxODZ8&ixlib=rb-4.1.0&q=80&w=400",
+      artists: "251131395",
+      song:
+        "https://pfst.cf2.poecdn.net/base/audio/c536e33bae8198e9d245037153c7bf149cd77a08721359094a775e55e3fedffb",
+      duration: 38
+    },
+    {
+      name: "最後的最後 - 鋼琴",
+      img:
+        "https://images.unsplash.com/photo-1583691028182-e8f01e74bfa2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDgxNzMxODZ8&ixlib=rb-4.1.0&q=80&w=400",
+      artists: "251131395",
+      song:
+        "https://pfst.cf2.poecdn.net/base/audio/c41e65aee6bfd976153bd9ebd3063ab01d7a3630fe2c519ec2aa92124a6214d3",
+      duration: 38
+    },
+    {
+      name: "最後的最後 - 鋼琴伴奏",
+      img:
+        "https://images.unsplash.com/photo-1583691028182-e8f01e74bfa2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDgxNzMxODZ8&ixlib=rb-4.1.0&q=80&w=400",
+      artists: "251131395",
+      song:
+        "https://pfst.cf2.poecdn.net/base/audio/bf53a3956b551913b295f1af08314f860cb076a826b78ec36cb229a03f892303",
+      duration: 38
+    }
+  ];
+
+  let currentSongIndex = 0;
+  let isPlaying = false;
+  let isRandom = false;
+  let isFavorite = false;
+  let isRepeat = false; // false: no repeat, true: repeat current song
+  let audioPlayer = document.getElementById("audio-player");
+  let progressBar = document.getElementById("progress-bar");
+  let progressPin = document.getElementById("progress-pin");
+  let progressSlider = document.getElementById("progress-slider");
+  let currentTimeDisplay = document.getElementById("current-time");
+  let totalTimeDisplay = document.getElementById("total-time");
+  let playButton = document.getElementById("p-play");
+  let prevButton = document.getElementById("p-previous");
+  let nextButton = document.getElementById("p-next");
+  let cycleButton = document.getElementById("p-cycle");
+  let listPlayButton = document.getElementById("list-play");
+  let randomButton = document.getElementById("list-random");
+  let heartButton = document.getElementById("list-heart");
+  let songListContainer = document.getElementById("song-list");
+  let isDragging = false;
+
+  // Track playback history
+  let playHistory = [];
+
+  // Populate song list
+  function populateSongList() {
+    songListContainer.innerHTML = "";
+    songs.forEach((song, index) => {
+      const minutes = Math.floor(song.duration / 60);
+      const seconds = song.duration % 60;
+      const timeStr = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+      const songElement = document.createElement("div");
+      songElement.className = "song-shell";
+      songElement.dataset.index = index;
+      songElement.innerHTML = `
+            <div class="song-img" style="background-image: url('${song.img}')"></div>
+            <div class="song-left">
+              <div class="song-name">${song.name}</div>
+              <div class="song-artists">${song.artists}</div>
+            </div>
+            <div class="song-time">${timeStr}</div>
+          `;
+      songElement.addEventListener("click", () => {
+        playSong(index);
+      });
+      songListContainer.appendChild(songElement);
+    });
+  }
+
+  // Format time in seconds to MM:SS format
+  function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds}`;
+  }
+
+  // Update player UI with current song
+  function updatePlayerUI() {
+    const song = songs[currentSongIndex];
+    document.getElementById("p-song-name").textContent = song.name;
+    document.getElementById("p-song-artists").textContent = song.artists;
+    // Update background color with song image
+    document.getElementById(
+      "p-bg-color"
+    ).style.backgroundImage = `url('${song.img}')`;
+    // Update active song in list
+    document.querySelectorAll(".song-shell").forEach((el, i) => {
+      if (i === currentSongIndex) {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active");
+      }
+    });
+
+    // Update media session metadata for background playback
+    if ("mediaSession" in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: song.name,
+        artist: song.artists,
+        artwork: [{ src: song.img, sizes: "512x512", type: "image/jpeg" }]
+      });
+
+      // Set media session action handlers
+      navigator.mediaSession.setActionHandler("play", togglePlay);
+      navigator.mediaSession.setActionHandler("pause", togglePlay);
+      navigator.mediaSession.setActionHandler("previoustrack", playPrevious);
+      navigator.mediaSession.setActionHandler("nexttrack", playNext);
+    }
+  }
+
+  // Play a song by index
+  function playSong(index) {
+    if (index >= 0 && index < songs.length) {
+      // Add current song to history before changing
+      if (audioPlayer.src) {
+        playHistory.push(currentSongIndex);
+        // Keep history at a reasonable size
+        if (playHistory.length > 20) {
+          playHistory.shift();
+        }
+      }
+
+      currentSongIndex = index;
+      const song = songs[currentSongIndex];
+      audioPlayer.src = song.song;
+      audioPlayer.load();
+      audioPlayer
+        .play()
+        .then(() => {
+          isPlaying = true;
+          playButton.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+          listPlayButton.querySelector(
+            "span"
+          ).innerHTML = `<i class="fa-solid fa-pause" style="transform: translate(0, 0);"></i>`;
+          updatePlayerUI();
+        })
+        .catch((error) => {
+          console.log("Playback error:", error);
+        });
+    }
+  }
+
+  // Toggle play/pause
+  function togglePlay() {
+    if (audioPlayer.src) {
+      if (isPlaying) {
+        audioPlayer.pause();
+        isPlaying = false;
+        playButton.innerHTML = `<i class="fa-solid fa-play"></i>`;
+        listPlayButton.querySelector(
+          "span"
+        ).innerHTML = `<i class="fa-solid fa-play" style="transform: translate(2px, 0);"></i>`;
+
+        // Update media session state
+        if ("mediaSession" in navigator) {
+          navigator.mediaSession.playbackState = "paused";
+        }
+      } else {
+        audioPlayer
+          .play()
+          .then(() => {
+            isPlaying = true;
+            playButton.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+            listPlayButton.querySelector(
+              "span"
+            ).innerHTML = `<i class="fa-solid fa-pause"></i>`;
+
+            // Update media session state
+            if ("mediaSession" in navigator) {
+              navigator.mediaSession.playbackState = "playing";
+            }
+          })
+          .catch((error) => {
+            console.log("Playback error:", error);
+          });
+      }
+    } else if (songs.length > 0) {
+      playSong(0);
+    }
+  }
+
+  // Play next song
+  function playNext() {
+    let nextIndex;
+    if (isRandom) {
+      // Play a random song that's not the current one
+      do {
+        nextIndex = Math.floor(Math.random() * songs.length);
+      } while (nextIndex === currentSongIndex && songs.length > 1);
+    } else {
+      // Play the next song in sequence
+      nextIndex = (currentSongIndex + 1) % songs.length;
+    }
+    playSong(nextIndex);
+  }
+
+  // Play previous song
+  function playPrevious() {
+    // If we have history, play the last song from history
+    if (playHistory.length > 0) {
+      const prevIndex = playHistory.pop();
+      // Skip adding to history again
+      currentSongIndex = prevIndex;
+      const song = songs[currentSongIndex];
+      audioPlayer.src = song.song;
+      audioPlayer.load();
+      audioPlayer
+        .play()
+        .then(() => {
+          isPlaying = true;
+          playButton.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+          listPlayButton.querySelector(
+            "span"
+          ).innerHTML = `<i class="fa-solid fa-pause" style="transform: translate(0, 0);"></i>`;
+          updatePlayerUI();
+        })
+        .catch((error) => {
+          console.log("Playback error:", error);
+        });
+    } else {
+      // If no history, go to beginning of current song
+      if (audioPlayer.currentTime > 3) {
+        audioPlayer.currentTime = 0;
+      } else {
+        // Or go to previous song in the list
+        const prevIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+        playSong(prevIndex);
+      }
+    }
+  }
+
+  // Toggle random play mode
+  function toggleRandom() {
+    isRandom = !isRandom;
+    randomButton.classList.toggle("active", isRandom);
+  }
+
+  // Toggle favorite
+  function toggleFavorite() {
+    isFavorite = !isFavorite;
+    heartButton.classList.toggle("active", isFavorite);
+  }
+
+  // Toggle repeat mode (single song repeat)
+  function toggleRepeat() {
+    isRepeat = !isRepeat; // Toggle between repeat and no-repeat
+    cycleButton.classList.toggle("active", isRepeat);
+  }
+
+  // Handle song ending
+  function handleSongEnd() {
+    if (isRepeat) {
+      // Repeat current song: replay from the beginning
+      audioPlayer.currentTime = 0;
+      audioPlayer.play();
+    } else if (currentSongIndex < songs.length - 1 || isRandom) {
+      // No Repeat but not the last song or in random mode: play next song
+      playNext();
+    } else {
+      // No Repeat and last song - stop playing
+      isPlaying = false;
+      playButton.innerHTML = `<i class="fa-solid fa-play"></i>`;
+      listPlayButton.querySelector(
+        "span"
+      ).innerHTML = `<i class="fa-solid fa-play" style="transform: translate(2px, 0);"></i>`;
+    }
+  }
+
+  // Update progress bar based on current audio time
+  function updateProgress() {
+    if (!isDragging && audioPlayer.duration) {
+      const percent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+      progressBar.style.width = `${percent}%`;
+      progressPin.style.left = `${percent}%`;
+      currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
+    }
+  }
+
+  // Seek to position in song
+  function seek(event) {
+    const bounds = progressSlider.getBoundingClientRect();
+    const percent = (event.clientX - bounds.left) / bounds.width;
+    const seekTime = percent * audioPlayer.duration;
+    audioPlayer.currentTime = seekTime;
+    progressBar.style.width = `${percent * 100}%`;
+    progressPin.style.left = `${percent * 100}%`;
+  }
+
+  // Initialize progress slider dragging
+  function initProgressDrag(event) {
+    isDragging = true;
+    document.addEventListener("mousemove", handleProgressDrag);
+    document.addEventListener("mouseup", stopProgressDrag);
+    document.addEventListener("touchmove", handleProgressDrag);
+    document.addEventListener("touchend", stopProgressDrag);
+    // Handle the initial position
+    handleProgressDrag(event);
+  }
+
+  // Handle progress slider dragging
+  function handleProgressDrag(event) {
+    if (isDragging) {
+      const clientX =
+        event.clientX || (event.touches && event.touches[0].clientX);
+      if (clientX) {
+        const bounds = progressSlider.getBoundingClientRect();
+        let percent = (clientX - bounds.left) / bounds.width;
+        percent = Math.max(0, Math.min(1, percent));
+        progressBar.style.width = `${percent * 100}%`;
+        progressPin.style.left = `${percent * 100}%`;
+        currentTimeDisplay.textContent = formatTime(
+          percent * audioPlayer.duration
+        );
+      }
+    }
+  }
+
+  // Stop progress slider dragging
+  function stopProgressDrag(event) {
+    if (isDragging) {
+      const clientX =
+        event.clientX ||
+        (event.changedTouches && event.changedTouches[0].clientX);
+      if (clientX && audioPlayer.duration) {
+        const bounds = progressSlider.getBoundingClientRect();
+        let percent = (clientX - bounds.left) / bounds.width;
+        percent = Math.max(0, Math.min(1, percent));
+        audioPlayer.currentTime = percent * audioPlayer.duration;
+      }
+      isDragging = false;
+      document.removeEventListener("mousemove", handleProgressDrag);
+      document.removeEventListener("mouseup", stopProgressDrag);
+      document.removeEventListener("touchmove", handleProgressDrag);
+      document.removeEventListener("touchend", stopProgressDrag);
+    }
+  }
+
+  // Event Listeners
+  audioPlayer.addEventListener("timeupdate", updateProgress);
+  audioPlayer.addEventListener("loadedmetadata", () => {
+    totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
+    currentTimeDisplay.textContent = "0:00";
+    progressBar.style.width = "0%";
+    progressPin.style.left = "0%";
+  });
+  audioPlayer.addEventListener("ended", handleSongEnd);
+  playButton.addEventListener("click", togglePlay);
+  listPlayButton.addEventListener("click", togglePlay);
+  prevButton.addEventListener("click", playPrevious);
+  nextButton.addEventListener("click", playNext);
+  randomButton.addEventListener("click", toggleRandom);
+  heartButton.addEventListener("click", toggleFavorite);
+  cycleButton.addEventListener("click", toggleRepeat);
+  progressSlider.addEventListener("click", seek);
+  progressPin.addEventListener("mousedown", initProgressDrag);
+  progressPin.addEventListener("touchstart", initProgressDrag);
+
+  // Initialize the player
+  populateSongList();
+  if (songs.length > 0) {
+    updatePlayerUI();
+    audioPlayer.src = songs[0].song;
+    audioPlayer.load();
+    totalTimeDisplay.textContent = formatTime(songs[0].duration);
+
+    // Set the background color to the first song's image initially
+    document.getElementById(
+      "p-bg-color"
+    ).style.backgroundImage = `url('${songs[0].img}')`;
+  }
+});
+
+  </script>
+
+</body>
+
+</html>
