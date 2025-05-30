@@ -13,7 +13,7 @@
   <title>Oooi Wooi Pet</title>
 
   <style>
-body {
+    body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -29,16 +29,19 @@ body {
   font-variation-settings: "wdth" 100;
   height: 100vh;
   overflow: hidden;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .pet-container {
   position: fixed;
+  z-index:10;
   left: 0;
   right: 0;
   top: 250px;
   bottom: 50px;
   aborder: 1px red solid;
   qoverflow: hidden;
+  pointer-events: none;
 }
 .pet-wrapper {
   position: absolute;
@@ -50,6 +53,7 @@ body {
 }
 
 .main {
+  pointer-events: auto;
   display: inline-block;
   margin: 0 auto 0;
   width: 200px;
@@ -233,19 +237,19 @@ body {
 }
 @keyframes o-eyes-angry {
   0% {
-    transform: scale(0.9, 0.8);
+    transform: scale(0.9, 1.2);
   }
 
   30% {
-    transform: scale(0.8, 0.7);
+    transform: scale(0.8, 1);
   }
 
   60% {
-    transform: scale(0.9, 0.8);
+    transform: scale(0.9, 1.2);
   }
 
   100% {
-    transform: scale(0.9, 0.8);
+    transform: scale(0.9, 1.2);
   }
 }
 @keyframes o-eyes-sad {
@@ -317,15 +321,15 @@ body {
 }
 @keyframes o-mouth-angry {
   0% {
-    transform: scale(1.2, -0.5) rotate(0deg) translate(0, -5px);
+    transform: scale(1.2, -0.8) rotate(0deg) translate(0, -8px);
   }
 
   50% {
-    transform: scale(1.3, -0.4) rotate(3deg) translate(2px, -3px);
+    transform: scale(1, -0.6) rotate(3deg) translate(2px, -6px);
   }
 
   100% {
-    transform: scale(1.2, -0.5) rotate(0deg) translate(0, -5px);
+    transform: scale(1.2, -0.8) rotate(0deg) translate(0, -8px);
   }
 }
 @keyframes o-mouth-sad {
@@ -1451,7 +1455,7 @@ body {
   </div>
 
   <script>
-document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
   // Get DOM elements
   const petContainer = document.querySelector(".pet-container");
   const petWrapper = document.querySelector(".pet-wrapper");
