@@ -1,0 +1,3089 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="" rel="shortcut icon" />
+
+  <title>Oooi Wooi Pet</title>
+
+  <style>
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ecefca;
+  font-family: "Sour Gummy", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.pet-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 250px;
+  bottom: 50px;
+  aborder: 1px red solid;
+  qoverflow: hidden;
+}
+.pet-wrapper {
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: left 2s ease-in-out, bottom 2s ease-in-out;
+  /* Slower movement */
+}
+
+.main {
+  display: inline-block;
+  margin: 0 auto 0;
+  width: 200px;
+  height: 200px;
+  filter: hue-rotate(0deg) saturate(1) brightness(1.2) contrast(1);
+  transition: all 0.2s ease-out;
+  cursor: grab;
+  animation: o-squeeze 2s ease-in infinite;
+  transform: scale(1, 1);
+  transform-origin: center bottom;
+  position: relative;
+}
+
+/* Mood indicators via color tint */
+.mood-normal .main {
+  filter: hue-rotate(var(--hue, 0deg)) saturate(var(--saturation, 1))
+    brightness(var(--lightness, 1.2)) contrast(var(--contrast, 1));
+}
+.mood-sad .main {
+  filter: hue-rotate(var(--hue, 0deg)) saturate(var(--saturation, 1))
+    brightness(calc(var(--lightness, 1.2) * 0.8)) contrast(var(--contrast, 1))
+    grayscale(0.3);
+}
+.mood-depressed .main {
+  filter: hue-rotate(var(--hue, 0deg))
+    saturate(calc(var(--saturation, 1) * 0.7))
+    brightness(calc(var(--lightness, 1.2) * 0.6)) contrast(var(--contrast, 1))
+    grayscale(0.6);
+}
+.mood-angry .main {
+  filter: hue-rotate(calc(var(--hue, 0deg) + 10deg))
+    saturate(calc(var(--saturation, 1) * 1.3))
+    brightness(calc(var(--lightness, 1.2) * 1.1))
+    contrast(calc(var(--contrast, 1) * 1.2));
+}
+
+/* Death state */
+.pet-dead .main {
+  filter: grayscale(1) brightness(0.5);
+  transform: rotate(90deg);
+  animation: none;
+}
+
+/* Wall bump animation */
+.bumped .main {
+  animation: wall-bump 0.5s ease-out !important;
+}
+@keyframes wall-bump {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  25% {
+    transform: scale(0.85, 1.15) translateX(-10px);
+  }
+
+  50% {
+    transform: scale(0.9, 1.1);
+  }
+
+  75% {
+    transform: scale(1.1, 0.9) translateX(5px);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+.o-body {
+  z-index: 10;
+  background-image: url("https://251131395.github.io/media/image/Oooi-Wooi-Pet/body.png");
+  filter: drop-shadow(0 10px 3px rgba(0, 0, 0, 0.2));
+}
+.o-face {
+  animation: o-face 15s infinite;
+}
+
+/* Mood-based face animations */
+.mood-sad .o-face {
+  animation: o-face-sad 15s infinite;
+}
+.mood-depressed .o-face {
+  animation: o-face-depressed 20s infinite;
+}
+.mood-angry .o-face {
+  animation: o-face-angry 10s infinite;
+}
+@keyframes o-face-angry {
+  0% {
+    margin: 0 0 -5px;
+  }
+
+  30% {
+    margin: -5px 0 0;
+  }
+
+  60% {
+    margin: 0 -5px 0;
+  }
+
+  100% {
+    margin: 0 0 -5px;
+  }
+}
+@keyframes o-face-sad {
+  0% {
+    margin: 0 0 -10px;
+  }
+
+  30% {
+    margin: 0 0 -15px;
+  }
+
+  60% {
+    margin: 0 0 -10px;
+  }
+
+  100% {
+    margin: 0 0 -10px;
+  }
+}
+@keyframes o-face-depressed {
+  0% {
+    margin: 0 0 -15px;
+  }
+
+  50% {
+    margin: 0 0 -20px;
+  }
+
+  100% {
+    margin: 0 0 -15px;
+  }
+}
+@keyframes o-face {
+  0% {
+    margin: 0;
+  }
+
+  10% {
+    margin-left: -8px;
+    margin-right: 0px;
+  }
+
+  20% {
+    margin: 0 0 -10px;
+  }
+
+  30% {
+    margin: 0 0 -10px;
+  }
+
+  50% {
+    margin-left: 0px;
+    margin-right: -8px;
+  }
+
+  70% {
+    margin: -15px 0 0;
+  }
+
+  100% {
+    margin: 0;
+  }
+}
+.o-eyes {
+  z-index: 11;
+  background-image: url("https://251131395.github.io/media/image/Oooi-Wooi-Pet/eyes.png");
+  animation: o-eyes 5s ease-in infinite;
+}
+
+/* Mood-based eyes animations */
+.mood-sad .o-eyes {
+  animation: o-eyes-sad 7s ease-in infinite;
+}
+.mood-depressed .o-eyes {
+  animation: o-eyes-depressed 10s ease-in infinite;
+}
+.mood-angry .o-eyes {
+  animation: o-eyes-angry 4s ease-in infinite;
+}
+@keyframes o-eyes-angry {
+  0% {
+    transform: scale(0.9, 0.8);
+  }
+
+  30% {
+    transform: scale(0.8, 0.7);
+  }
+
+  60% {
+    transform: scale(0.9, 0.8);
+  }
+
+  100% {
+    transform: scale(0.9, 0.8);
+  }
+}
+@keyframes o-eyes-sad {
+  0% {
+    transform: scale(1, 0.8);
+  }
+
+  10% {
+    transform: scale(1, 0.7);
+  }
+
+  20% {
+    transform: scale(1, 0.8);
+  }
+
+  100% {
+    transform: scale(1, 0.8);
+  }
+}
+@keyframes o-eyes-depressed {
+  0% {
+    transform: scale(1, 0.6);
+  }
+
+  10% {
+    transform: scale(1, 0.5);
+  }
+
+  20% {
+    transform: scale(1, 0.6);
+  }
+
+  100% {
+    transform: scale(1, 0.6);
+  }
+}
+@keyframes o-eyes {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  5% {
+    transform: scale(1, 0.8);
+  }
+
+  10% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+.o-mouth {
+  z-index: 12;
+  background-image: url("https://251131395.github.io/media/image/Oooi-Wooi-Pet/mouth.png");
+  animation: o-mouth 5s infinite;
+}
+
+/* Mood-based mouth animations */
+.mood-sad .o-mouth {
+  animation: o-mouth-sad 8s infinite;
+}
+.mood-depressed .o-mouth {
+  animation: o-mouth-depressed 10s infinite;
+}
+.mood-angry .o-mouth {
+  animation: o-mouth-angry 5s infinite;
+}
+@keyframes o-mouth-angry {
+  0% {
+    transform: scale(1.2, -0.5) rotate(0deg) translate(0, -5px);
+  }
+
+  50% {
+    transform: scale(1.3, -0.4) rotate(3deg) translate(2px, -3px);
+  }
+
+  100% {
+    transform: scale(1.2, -0.5) rotate(0deg) translate(0, -5px);
+  }
+}
+@keyframes o-mouth-sad {
+  0% {
+    transform: scale(0.9, -0.7) rotate(-5deg) translate(0, -10px);
+  }
+
+  100% {
+    transform: scale(0.9, -0.7) rotate(-5deg) translate(0, -10px);
+  }
+}
+@keyframes o-mouth-depressed {
+  0% {
+    transform: scale(1, -0.5) rotate(-5deg) translate(0, -15px);
+  }
+
+  100% {
+    transform: scale(1, -0.5) rotate(-5deg) translate(0, -15px);
+  }
+}
+@keyframes o-mouth {
+  0% {
+    transform: scale(1, 1) rotate(0deg) translate(0, 0);
+  }
+
+  45% {
+    transform: scale(1, 1) rotate(0deg) translate(0, 0);
+  }
+
+  50% {
+    transform: scale(0.9, 1) rotate(-1deg) translate(0, -2px);
+  }
+
+  90% {
+    transform: scale(0.9, 1) rotate(-1deg) translate(0, -2px);
+  }
+
+  100% {
+    transform: scale(1, 1) rotate(0deg) translate(0, 0);
+  }
+}
+
+/* Speech bubble */
+.speech-bubble {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 15px;
+  padding: 10px 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 5000;
+  min-width: 120px;
+  max-width: 200px;
+}
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+}
+.speech-bubble.show {
+  opacity: 1;
+}
+
+/* Eating animation */
+.eating .o-mouth {
+  animation: o-eating 0.5s infinite;
+}
+@keyframes o-eating {
+  0% {
+    transform: scale(0.8, 1) rotate(0deg) translate(0, 3px);
+  }
+
+  50% {
+    transform: scale(1, 0.8) rotate(0deg) translate(0, 5px);
+  }
+
+  100% {
+    transform: scale(0.8, 1) rotate(0deg) translate(0, 3px);
+  }
+}
+
+/* Happy animation */
+.happy .o-mouth {
+  animation: o-happy 1s infinite;
+}
+@keyframes o-happy {
+  0% {
+    transform: scale(1.2, 1) rotate(0deg) translate(0, 0);
+  }
+
+  50% {
+    transform: scale(1.3, 0.8) rotate(0deg) translate(0, 3px);
+  }
+
+  100% {
+    transform: scale(1.2, 1) rotate(0deg) translate(0, 0);
+  }
+}
+
+/* Bath mode styles */
+.bathing-mode .main {
+  cursor: grab;
+}
+
+/* Custom bath cursor */
+.bathing-mode .main {
+  cursor: grab;
+}
+
+/* Custom bath cursor icon */
+.bath-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  font-size: 24px;
+  color: white;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.bathing-mode .bath-cursor {
+  display: block;
+}
+
+/* Bubbles effect */
+.bubble {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 15;
+  opacity: 0;
+  transform: scale(0);
+  animation: bubble-rise 1.5s ease-out forwards;
+}
+@keyframes bubble-rise {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(0);
+  }
+
+  20% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translateY(-100px);
+  }
+}
+
+/* Stars from wall bump */
+.star {
+  position: absolute;
+  color: gold;
+  font-size: 20px;
+  pointer-events: none;
+  z-index: 15;
+  animation: star-float 1.5s ease-out forwards;
+}
+@keyframes star-float {
+  0% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) translateX(var(--tx)) rotate(var(--rot));
+  }
+}
+
+/* Heart wrapper - moved outside the pet to avoid color filters */
+.heart-wrapper {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* Heart effect for petting */
+.heart {
+  position: absolute;
+  color: #ff4786;
+  font-size: 24px;
+  pointer-events: none;
+  z-index: 15;
+  animation: heart-float 1.5s ease-out forwards;
+}
+@keyframes heart-float {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scale(0.8) rotate(var(--rot));
+  }
+}
+
+/* Poop element - positioned with low z-index to be behind pet */
+.poop {
+  position: absolute;
+  font-size: 40px;
+  z-index: 1;
+  /* Ensure poop is behind other elements */
+  filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.3));
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.poop:hover {
+  transform: scale(1.1);
+}
+.poop:active {
+  transform: scale(0.9);
+}
+
+/* Food element - moved outside the pet container */
+.food-wrapper {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+}
+.food {
+  font-size: 30px;
+  transition: all 0.5s;
+  opacity: 0;
+  display: inline-block;
+}
+
+/* Status container moved to top */
+.status-container {
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 15px 20px 0;
+  padding-left: 30px;
+  z-index: 1;
+  display: flex;
+  justify-content: end;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Buttons container fixed at bottom */
+.buttons-container {
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 0 20px;
+  z-index: 100;
+}
+.status-bar {
+  width: 80px;
+  height: 6px;
+  background-color: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.status-bar-inner {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+    inset 1px 1px 1px rgba(255, 255, 255, 0.3),
+    inset -1px -1px 1px rgba(0, 0, 0, 0.1);
+}
+.hunger-bar .status-bar-inner {
+  background-color: #ff9800;
+}
+.cleanliness-bar .status-bar-inner {
+  background-color: #00bcd4;
+}
+.health-bar .status-bar-inner {
+  background-color: #91d611;
+}
+.intimacy-bar .status-bar-inner {
+  background-color: #ff4786;
+}
+.mood-bar .status-bar-inner {
+  background-color: #91d611;
+}
+
+/* Hide mood bar */
+.mood-bar,
+.mood-bar + .status-label,
+.mood-bar + .status-label + .status-group {
+  display: none;
+}
+
+/* Critical status warning */
+.status-critical .status-bar {
+  animation: critical-pulse 1s infinite;
+}
+@keyframes critical-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 5px rgba(255, 0, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
+.status-label {
+  color: #444;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.status-label i {
+  margin-right: 5px;
+}
+.status-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Control panel */
+.control-panel {
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  top: 20px;
+  left: -222px;
+  z-index: 1000;
+  width: 200px;
+  background: #eee;
+  border: 1.5px solid #aaa;
+  border-radius: 8px;
+  border-top-right-radius: 0;
+  padding: 10px;
+  box-shadow: inset 0 3px 3px #fff, inset 0 -3px 3px #bbb,
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+.control-panel.active {
+  left: 10px;
+}
+.control-panel label {
+  color: #555;
+  display: block;
+  margin: 0 4px 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+.control-panel input[type="range"] {
+  width: 100%;
+  margin: 0 0 15px;
+}
+.control-panel button {
+  margin: -8px 0 0;
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+  border: 1px #aaa solid;
+  border-radius: 5px;
+  color: #305107;
+  background-color: #91d611;
+  box-shadow: inset 0 1px 2px #fff, inset 0 -1px 2px #48750a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.control-panel button:active {
+  transform: scale(0.9);
+}
+.control-icon {
+  position: absolute;
+  top: -1.5px;
+  right: -32.5px;
+  width: 30px;
+  height: 60px;
+  font-size: 16px;
+  border: 1.5px #aaa solid;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  color: #305107;
+  background-color: #91d611;
+  box-shadow: inset 0 1px 2px #fff, inset 0 -1px 2px #48750a,
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transform-origin: left center;
+  transform: scale(1, 1);
+}
+.control-icon:active {
+  transform: scale(0.9, 1);
+}
+
+/* Action buttons */
+.action-buttons {
+  pointer-events: auto;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.action-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px #ccc solid;
+  background-color: #5d5cde;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+    inset 1px 2px 4px rgba(255, 255, 255, 0.8),
+    inset -1px -2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s;
+}
+.action-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3),
+    inset 1px 2px 4px rgba(255, 255, 255, 0.8),
+    inset -1px -2px 4px rgba(0, 0, 0, 0.5);
+}
+.action-button:active {
+  transform: translateY(0);
+}
+.feed-button {
+  background-color: #ff9800;
+}
+.bath-button {
+  background-color: #00bcd4;
+}
+.name-button {
+  background-color: #91d611;
+}
+.harm-button {
+  background-color: #e74c3c;
+}
+
+/* Active state for bath button */
+.bath-button.active {
+  background-color: #0097a7;
+  color: #ddd;
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), inset 1px 2px 4px rgba(0, 0, 0, 0.3),
+    inset -1px -2px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* Food items */
+.food-items {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+}
+.food-item {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  zbackground-color: rgba(255, 255, 255, 0.5);
+}
+.food-item:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.food-item:active {
+  transform: scale(0.9);
+}
+
+/* Weapon items */
+.weapon-items {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+}
+.weapon-item {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.weapon-item:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.weapon-item:active {
+  transform: scale(0.9);
+}
+
+/* Food tooltip - increased z-index to ensure it's always on top */
+.food-tooltip,
+.weapon-tooltip {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 5px;
+  padding: 8px 10px;
+  font-size: 12px;
+  width: 80px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 5000;
+  /* Increased z-index to be above all other elements */
+}
+.food-tooltip::after,
+.weapon-tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid rgba(0, 0, 0, 0.8);
+}
+.food-item:hover .food-tooltip,
+.weapon-item:hover .weapon-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Damage effect */
+.damaged {
+  animation: pet-damaged 0.5s ease-out !important;
+}
+@keyframes pet-damaged {
+  0% {
+    filter: brightness(1) hue-rotate(var(--hue, 0deg))
+      saturate(var(--saturation, 1));
+  }
+
+  25% {
+    filter: brightness(1.5) hue-rotate(calc(var(--hue, 0deg) + 20deg))
+      saturate(2);
+  }
+
+  50% {
+    filter: brightness(0.8) hue-rotate(var(--hue, 0deg))
+      saturate(var(--saturation, 1));
+  }
+
+  75% {
+    filter: brightness(1.2) hue-rotate(calc(var(--hue, 0deg) + 10deg))
+      saturate(1.5);
+  }
+
+  100% {
+    filter: brightness(1) hue-rotate(var(--hue, 0deg))
+      saturate(var(--saturation, 1));
+  }
+}
+
+/* Death screen */
+.death-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s;
+}
+.death-screen.show {
+  opacity: 1;
+  visibility: visible;
+}
+.death-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.death-message {
+  font-size: 18px;
+  margin-bottom: 30px;
+  max-width: 80%;
+}
+.restart-button {
+  padding: 12px 24px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px #555 solid;
+  box-shadow: inset 1px 2px 4px rgba(255, 255, 255, 0.8),
+    inset -1px -2px 4px rgba(0, 0, 0, 0.5);
+}
+.restart-button:hover {
+  color: #ccc;
+  background-color: #c0392b;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3),
+    inset 2px 3px 4px rgba(0, 0, 0, 0.4),
+    inset -2px -3px 4px rgba(255, 255, 255, 0.3);
+}
+.restart-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Name modal */
+.modal-overlay {
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal {
+  width: 90%;
+  max-width: 400px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-20px);
+  transition: transform 0.3s;
+}
+.modal-overlay.active .modal {
+  transform: translateY(0);
+}
+.modal-title {
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+.modal-input {
+  color: #555;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.modal-button {
+  padding: 6px 16px 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+.cancel-button {
+  font-weight: bold;
+  background-color: #f1f1f1;
+  color: #555;
+  border: 1px #aaa solid;
+  box-shadow: inset 0 2px 3px #fff, inset 0 -2px 3px #aaa;
+}
+.cancel-button:hover {
+  background-color: #e4e4e4;
+}
+.save-button {
+  font-weight: bold;
+  color: #305107;
+  border: 1px #aaa solid;
+  background-color: #91d611;
+  box-shadow: inset 0 2px 3px #fff, inset 0 -2px 3px #48750a;
+}
+.save-button:hover {
+  background-color: #7dba0b;
+}
+
+/* Base walking animation */
+.walking .main {
+  animation: o-walking 0.6s infinite !important;
+}
+
+/* Hyper animation */
+.pet-hyper.walking .main {
+  animation: o-walking-hyper 0.3s infinite !important;
+  /* Faster animation */
+}
+@keyframes o-walking-hyper {
+  0% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  25% {
+    transform: translateY(-5px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(0) rotate(2deg);
+  }
+
+  75% {
+    transform: translateY(-5px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+}
+@keyframes o-walking {
+  0% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  25% {
+    transform: translateY(-5px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(0) rotate(2deg);
+  }
+
+  75% {
+    transform: translateY(-5px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+}
+
+/* Click animation */
+.clicked {
+  animation: pet-clicked 0.5s ease-out !important;
+}
+@keyframes pet-clicked {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(0.85, 1.15);
+  }
+
+  75% {
+    transform: scale(1.1, 0.9);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+/* Normal squeezed animation (when not walking) */
+@keyframes o-squeeze {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  40% {
+    transform: scale(1, 1.025);
+  }
+
+  80% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.main div {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Effect indicators */
+.effect-indicator {
+  position: absolute;
+  top: -25px;
+  right: -15px;
+  font-size: 24px;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s;
+  animation: effect-pulse 1.5s infinite;
+  z-index: 100;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
+}
+@keyframes effect-pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+.effect-indicator.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Pet name display */
+.pet-name {
+  position: absolute;
+  top: -35px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- Status bars at top -->
+  <div class="status-container">
+    <div class="status-group">
+      <div class="status-label"><i class="fa-solid fa-drumstick-bite"></i> 飢餓度</div>
+      <div class="status-bar hunger-bar">
+        <div class="status-bar-inner" style="width: 100%;"></div>
+      </div>
+    </div>
+
+    <div class="status-group">
+      <div class="status-label"><i class="fa-solid fa-spray-can-sparkles"></i> 清潔度</div>
+      <div class="status-bar cleanliness-bar">
+        <div class="status-bar-inner" style="width: 100%;"></div>
+      </div>
+    </div>
+
+    <div class="status-group">
+      <div class="status-label"><i class="fa-solid fa-heart-pulse"></i> 健康度</div>
+      <div class="status-bar health-bar">
+        <div class="status-bar-inner" style="width: 100%;"></div>
+      </div>
+    </div>
+
+    <div class="status-group">
+      <div class="status-label"><i class="fa-solid fa-heart"></i> 親密度</div>
+      <div class="status-bar intimacy-bar">
+        <div class="status-bar-inner" style="width: 50%;"></div>
+      </div>
+    </div>
+
+    <div class="status-group" style="display: none;">
+      <div class="status-label"><i class="fa-solid fa-face-smile"></i> 心情</div>
+      <div class="status-bar mood-bar">
+        <div class="status-bar-inner" style="width: 80%;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pet-container">
+    <div class="pet-wrapper mood-normal">
+      <div class="pet-name">Oooi Wooi</div>
+      <div class="speech-bubble"></div>
+      <div class="effect-indicator"></div>
+      <div class="main">
+        <div class="o-body"></div>
+        <div class="o-face">
+          <div class="o-eyes"></div>
+          <div class="o-mouth"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action buttons at bottom -->
+  <div class="buttons-container">
+    <div class="action-buttons">
+      <button class="action-button feed-button">
+        <i class="fa-solid fa-utensils"></i>
+      </button>
+      <button class="action-button bath-button">
+        <i class="fa-solid fa-shower"></i>
+      </button>
+      <button class="action-button harm-button">
+        <i class="fa-solid fa-skull"></i>
+      </button>
+      <button class="action-button name-button">
+        <i class="fa-solid fa-pen"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Heart wrapper outside the pet element to avoid color filters -->
+  <div class="heart-wrapper"></div>
+
+  <!-- Custom bath cursor -->
+  <div class="bath-cursor">
+    <i class="fa-solid fa-hand-sparkles"></i>
+  </div>
+
+  <!-- Food wrapper outside the pet element to avoid color filters -->
+  <div class="food-wrapper">
+    <div class="food"></div>
+  </div>
+
+  <div class="food-items">
+    <div class="food-item" data-food="apple">
+      🍎
+      <div class="food-tooltip">
+        <strong>蘋果</strong><br>
+        健康食物：補充能量並提高健康度<br>
+        <p style="display:none;">能量 +20 | 健康度 +10 | 心情 +5</p>
+      </div>
+    </div>
+    <div class="food-item" data-food="pizza">
+      🍕
+      <div class="food-tooltip">
+        <strong>披薩</strong><br>
+        美味但油膩：能量高但可能加速排便<br>
+        <p style="display:none;">能量 +30 | 健康度 +5 | 心情 +10</p>
+      </div>
+    </div>
+    <div class="food-item" data-food="chicken">
+      🍗
+      <div class="food-tooltip">
+        <strong>雞腿</strong><br>
+        高蛋白：提供長久能量和高健康度<br>
+        <p style="display:none;">能量 +50 | 健康度 +15 | 心情 +15</p>
+      </div>
+    </div>
+    <div class="food-item" data-food="cake">
+      🍰
+      <div class="food-tooltip">
+        <strong>蛋糕</strong><br>
+        甜點：高能量但降低健康度<br>
+        <p style="display:none;">能量 +80 | 健康度 -10 | 心情 +20</p>
+      </div>
+    </div>
+    <div class="food-item" data-food="broccoli">
+      🥦
+      <div class="food-tooltip">
+        <strong>西蘭花</strong><br>
+        超健康：低能量，但大幅提高健康度<br>
+        <p style="display:none;">能量 +10 | 健康度 +25 | 心情 +0</p>
+      </div>
+    </div>
+    <div class="food-item" data-food="icecream">
+      🍦
+      <div class="food-tooltip">
+        <strong>雪糕</strong><br>
+        冰涼甜點：補充能量但降低健康度<br>
+        <p style="display:none;">能量 +40 | 健康度 -5 | 心情 +25</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="weapon-items">
+    <div class="weapon-item" data-weapon="stick">
+      🥢
+      <div class="weapon-tooltip">
+        <strong>筷子</strong><br>
+        輕微傷害，戳一下寵物<br>
+        <p style="display:none;">健康度 -5 | 心情 -5 | 親密度 -2</p>
+      </div>
+    </div>
+    <div class="weapon-item" data-weapon="pan">
+      🍳
+      <div class="weapon-tooltip">
+        <strong>平底鍋</strong><br>
+        中度傷害，會讓寵物生氣<br>
+        <p style="display:none;">健康度 -15 | 心情 -20 | 親密度 -10</p>
+      </div>
+    </div>
+    <div class="weapon-item" data-weapon="knife">
+      🔪
+      <div class="weapon-tooltip">
+        <strong>刀子</strong><br>
+        重度傷害，寵物會非常傷心<br>
+        <p style="display:none;">健康度 -30 | 心情 -40 | 親密度 -25</p>
+      </div>
+    </div>
+    <div class="weapon-item" data-weapon="bomb">
+      💣
+      <div class="weapon-tooltip">
+        <strong>炸彈</strong><br>
+        致命傷害，幾乎會讓寵物死亡<br>
+        <p style="display:none;">健康度 -70 | 心情 -50 | 親密度 -40</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="control-panel">
+    <div class="control-icon">
+      <i class="fa-solid fa-palette"></i>
+    </div>
+
+    <label for="hue">色調</label>
+    <input id="hue" type="range" min="0" max="360" value="0">
+    <label for="saturation">飽和度</label>
+    <input id="saturation" type="range" min="0" max="1.3" step="0.01" value="1">
+    <label for="lightness">亮度</label>
+    <input id="lightness" type="range" min="0.8" max="1.2" step="0.01" value="1">
+    <label for="contrast">對比度</label>
+    <input id="contrast" type="range" min="1" max="1.4" step="0.01" value="1">
+    <button id="randomize"><i class="fa-solid fa-shuffle"></i></button>
+  </div>
+
+  <!-- Name modal -->
+  <div class="modal-overlay">
+    <div class="modal">
+      <h3 class="modal-title">為你的寵物命名</h3>
+      <input type="text" class="modal-input" placeholder="輸入寵物名稱" maxlength="20">
+      <div class="modal-actions">
+        <button class="modal-button cancel-button">取消</button>
+        <button class="modal-button save-button">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Death screen -->
+  <div class="death-screen">
+    <h2 class="death-title">你的寵物離開了...</h2>
+    <p class="death-message">原因：未知</p>
+    <button class="restart-button">重新開始</button>
+  </div>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Get DOM elements
+  const petContainer = document.querySelector(".pet-container");
+  const petWrapper = document.querySelector(".pet-wrapper");
+  const petNameDisplay = document.querySelector(".pet-name");
+  const speechBubble = document.querySelector(".speech-bubble");
+  const effectIndicator = document.querySelector(".effect-indicator");
+  const mainElement = document.querySelector(".main");
+  const controlPanel = document.querySelector(".control-panel");
+  const controlIcon = document.querySelector(".control-icon");
+  const hueSlider = document.getElementById("hue");
+  const saturationSlider = document.getElementById("saturation");
+  const lightnessSlider = document.getElementById("lightness");
+  const contrastSlider = document.getElementById("contrast");
+  const randomizeButton = document.getElementById("randomize");
+  const feedButton = document.querySelector(".feed-button");
+  const bathButton = document.querySelector(".bath-button");
+  const nameButton = document.querySelector(".name-button");
+  const harmButton = document.querySelector(".harm-button");
+  const foodItems = document.querySelector(".food-items");
+  const foodItemButtons = document.querySelectorAll(".food-item");
+  const weaponItems = document.querySelector(".weapon-items");
+  const weaponItemButtons = document.querySelectorAll(".weapon-item");
+  const hungerBar = document.querySelector(".hunger-bar .status-bar-inner");
+  const cleanlinessBar = document.querySelector(
+    ".cleanliness-bar .status-bar-inner"
+  );
+  const healthBar = document.querySelector(".health-bar .status-bar-inner");
+  const intimacyBar = document.querySelector(".intimacy-bar .status-bar-inner");
+  const moodBar = document.querySelector(".mood-bar .status-bar-inner");
+  const hungerGroup = document.querySelector(".hunger-bar").parentNode;
+  const cleanlinessGroup = document.querySelector(".cleanliness-bar")
+    .parentNode;
+  const healthGroup = document.querySelector(".health-bar").parentNode;
+  const moodGroup = document.querySelector(".mood-bar")
+    ? document.querySelector(".mood-bar").parentNode
+    : null;
+  const foodWrapper = document.querySelector(".food-wrapper");
+  const foodElement = document.querySelector(".food");
+  const heartWrapper = document.querySelector(".heart-wrapper");
+  const bathCursor = document.querySelector(".bath-cursor");
+  const modalOverlay = document.querySelector(".modal-overlay");
+  const nameInput = document.querySelector(".modal-input");
+  const saveNameButton = document.querySelector(".save-button");
+  const cancelNameButton = document.querySelector(".cancel-button");
+  const deathScreen = document.querySelector(".death-screen");
+  const deathMessage = document.querySelector(".death-message");
+  const restartButton = document.querySelector(".restart-button");
+  // Wall bump messages
+  const wallBumpMessages = [
+    "哎呀！好痛！",
+    "碰！",
+    "嗚嗚...撞到了...",
+    "牆壁好硬...",
+    "啊！好痛！",
+    "頭好痛...",
+    "我暈暈的...",
+    "星星在旋轉..."
+  ];
+  // Foods data with special effects
+  const foods = {
+    apple: {
+      emoji: "🍎",
+      name: "蘋果",
+      hungerValue: 20,
+      intimacyValue: 5,
+      healthValue: 10,
+      moodValue: 5,
+      poopChance: 0.1,
+      message: "好吃！健康又美味！",
+      effect: "health",
+      effectIcon: "❤️",
+      effectDuration: 0 // No duration effect
+    },
+    pizza: {
+      emoji: "🍕",
+      name: "披薩",
+      hungerValue: 30,
+      intimacyValue: 8,
+      healthValue: 5,
+      moodValue: 10,
+      poopChance: 0.4,
+      message: "披薩！我感覺充滿力量！",
+      effect: "speed",
+      effectIcon: "⚡",
+      effectDuration: 30000 // 30 seconds of speed boost
+    },
+    chicken: {
+      emoji: "🍗",
+      name: "雞腿",
+      hungerValue: 50,
+      intimacyValue: 15,
+      healthValue: 15,
+      moodValue: 15,
+      poopChance: 0.2,
+      message: "哇！好大的雞腿！好飽足！我覺得充滿力量！",
+      effect: "endurance",
+      effectIcon: "💪",
+      effectDuration: 60000 // 60 seconds of hunger resistance
+    },
+    cake: {
+      emoji: "🍰",
+      name: "蛋糕",
+      hungerValue: 80,
+      intimacyValue: 15,
+      healthValue: -10,
+      moodValue: 20,
+      poopChance: 0.6,
+      message: "蛋糕！！！太美味了！我好興奮！",
+      effect: "hyper",
+      effectIcon: "🎂",
+      effectDuration: 40000 // 40 seconds of hyperactivity
+    },
+    broccoli: {
+      emoji: "🥦",
+      name: "西蘭花",
+      hungerValue: 10,
+      intimacyValue: 3,
+      healthValue: 25,
+      moodValue: 0,
+      poopChance: -0.3, // Reduces chance of pooping
+      message: "唔...西蘭花...感覺很健康...",
+      effect: "clean",
+      effectIcon: "✨",
+      effectDuration: 0 // No duration effect
+    },
+    icecream: {
+      emoji: "🍦",
+      name: "雪糕",
+      hungerValue: 40,
+      intimacyValue: 20,
+      healthValue: -5,
+      moodValue: 25,
+      poopChance: 0.2,
+      message: "雪糕！好冰涼！好開心！",
+      effect: "happy",
+      effectIcon: "🥰",
+      effectDuration: 20000 // 20 seconds of extreme happiness
+    }
+  };
+  // Weapons data
+  const weapons = {
+    stick: {
+      emoji: "🥢",
+      name: "筷子",
+      healthValue: -5,
+      intimacyValue: -2,
+      moodValue: -5,
+      message: "痛！為什麼要戳我？",
+      effect: "pain",
+      effectIcon: "😢",
+      damageClass: "damaged"
+    },
+    pan: {
+      emoji: "🍳",
+      name: "平底鍋",
+      healthValue: -15,
+      intimacyValue: -10,
+      moodValue: -20,
+      message: "啊！好痛！你在做什麼？",
+      effect: "angry",
+      effectIcon: "😠",
+      damageClass: "damaged"
+    },
+    knife: {
+      emoji: "🔪",
+      name: "刀子",
+      healthValue: -30,
+      intimacyValue: -25,
+      moodValue: -40,
+      message: "嗚嗚嗚...你為什麼這樣對我...",
+      effect: "sad",
+      effectIcon: "😭",
+      damageClass: "damaged"
+    },
+    bomb: {
+      emoji: "💣",
+      name: "炸彈",
+      healthValue: -70,
+      intimacyValue: -40,
+      moodValue: -50,
+      message: "救命...我要死了...",
+      effect: "depressed",
+      effectIcon: "💀",
+      damageClass: "damaged"
+    }
+  };
+  // Pet state
+  let petState = {
+    name: "Oooi Wooi",
+    hunger: 100, // 100 = full, 0 = hungry
+    cleanliness: 100, // 100 = clean, 0 = dirty
+    health: 100, // 100 = healthy, 0 = sick
+    intimacy: 50, // 0-100, starting at 50
+    mood: 80, // 0-100, starting at 80
+    isDead: false,
+    causeOfDeath: "",
+    isEating: false,
+    hasPooped: false,
+    poops: [], // Array to store poop elements and their positions
+    isMoving: false,
+    isWalking: false,
+    isBathing: false,
+    isSpeaking: false,
+    clickCount: 0,
+    lastClickTime: 0,
+    currentEffect: null,
+    effectTimeout: null,
+    moveSpeed: 8000, // Default move speed (ms)
+    hungerDecreaseRate: 2, // Amount hunger decreases by default
+    poopTimeout: null,
+    hungerInterval: null,
+    cleanlinessInterval: null,
+    healthInterval: null,
+    intimacyInterval: null,
+    moodInterval: null,
+    moveInterval: null,
+    speechTimeout: null,
+    criticalAlertInterval: null,
+    bumpCooldown: false, // Cooldown for wall bumps
+    totalBumpCount: 0, // Track total number of bumps
+    // Touch tracking for petting
+    touchStartX: 0,
+    touchStartY: 0,
+    isBeingPet: false
+  };
+  // Window dimensions for movement bounds
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
+  const petWidth = 200; // Width of pet
+  const petHeight = 200; // Height of pet
+  // Messages for when pet is clicked
+  const clickMessages = [
+    "咕嚕嚕~",
+    "我餓了...",
+    "好無聊喔...",
+    "摸摸頭~",
+    "嗨！",
+    "我好開心！",
+    "咿咿呀呀~",
+    "我愛你❤️",
+    "我們去散步吧！",
+    "噗噗..."
+  ];
+  // Messages for different mood states
+  const moodMessages = {
+    normal: ["今天心情很好！", "感覺很棒！", "我喜歡和你一起玩！"],
+    sad: ["唉...心情不太好...", "今天有點難過...", "你能陪我玩嗎？"],
+    depressed: ["我感覺很糟糕...", "好難過...", "我需要關心..."],
+    angry: ["別煩我！", "我在生氣！", "哼！"],
+    hungry: ["好餓...肚子咕咕叫...", "我需要食物...", "餓得發慌..."],
+    dirty: ["好髒...需要洗澡...", "臭臭的...", "幫我洗乾淨好嗎？"],
+    hurt: ["好痛...", "為什麼要這樣對我...", "嗚嗚..."]
+  };
+  // Death messages
+  const deathMessages = {
+    hunger: "飢餓過度",
+    cleanliness: "清潔度過低，感染疾病",
+    health: "健康度歸零",
+    mood: "太過抑鬱"
+  };
+  // Check for saved pet data
+  loadPetData();
+  // Track mouse position for bath cursor
+  document.addEventListener("mousemove", function (e) {
+    if (petState.isBathing) {
+      bathCursor.style.left = e.clientX + "px";
+      bathCursor.style.top = e.clientY + "px";
+    }
+  });
+  // Touch move for bath cursor on mobile
+  document.addEventListener("touchmove", function (e) {
+    if (petState.isBathing) {
+      const touch = e.touches[0];
+      bathCursor.style.left = touch.clientX + "px";
+      bathCursor.style.top = touch.clientY + "px";
+    }
+  });
+  // Toggle control panel
+  controlIcon.addEventListener("click", function () {
+    if (petState.isDead) return;
+    controlPanel.classList.toggle("active");
+  });
+  // Function to update the pet's appearance based on slider values
+  function updateAppearance() {
+    const hue = hueSlider.value;
+    const saturation = saturationSlider.value;
+    const lightness = lightnessSlider.value;
+    const contrast = contrastSlider.value;
+    // Store custom properties for use with mood filters
+    petWrapper.style.setProperty("--hue", hue + "deg");
+    petWrapper.style.setProperty("--saturation", saturation);
+    petWrapper.style.setProperty("--lightness", lightness);
+    petWrapper.style.setProperty("--contrast", contrast);
+  }
+  // Add event listeners to sliders
+  hueSlider.addEventListener("input", updateAppearance);
+  saturationSlider.addEventListener("input", updateAppearance);
+  lightnessSlider.addEventListener("input", updateAppearance);
+  contrastSlider.addEventListener("input", updateAppearance);
+  // Randomize function
+  randomizeButton.addEventListener("click", function () {
+    if (petState.isDead) return;
+    hueSlider.value = Math.floor(Math.random() * 361); // 0-360
+    saturationSlider.value = (Math.random() * 1.3).toFixed(2); // 0-1.3
+    lightnessSlider.value = (0.8 + Math.random() * 0.4).toFixed(2); // 0.8-1.2
+    contrastSlider.value = (1 + Math.random() * 0.4).toFixed(2); // 1-1.4
+    updateAppearance();
+    increaseIntimacy(5); // Changing colors increases intimacy a little
+    increaseMood(10); // Changing colors increases mood
+    // Save pet appearance
+    savePetData();
+  });
+  // Show food items when feed button is clicked
+  feedButton.addEventListener("click", function () {
+    if (petState.isDead) return;
+    if (petState.isBathing) {
+      exitBathMode();
+    }
+    weaponItems.style.display = "none";
+    foodItems.style.display =
+      foodItems.style.display === "flex" ? "none" : "flex";
+  });
+  // Show weapon items when harm button is clicked
+  harmButton.addEventListener("click", function () {
+    if (petState.isDead) return;
+    if (petState.isBathing) {
+      exitBathMode();
+    }
+    foodItems.style.display = "none";
+    weaponItems.style.display =
+      weaponItems.style.display === "flex" ? "none" : "flex";
+  });
+  // Hide items when clicking outside
+  document.addEventListener("click", function (event) {
+    if (
+      !feedButton.contains(event.target) &&
+      !foodItems.contains(event.target)
+    ) {
+      foodItems.style.display = "none";
+    }
+    if (
+      !harmButton.contains(event.target) &&
+      !weaponItems.contains(event.target)
+    ) {
+      weaponItems.style.display = "none";
+    }
+  });
+  // Feed pet when food item is clicked
+  foodItemButtons.forEach((foodItem) => {
+    foodItem.addEventListener("click", function () {
+      const foodType = this.dataset.food;
+      feedPet(foodType);
+      foodItems.style.display = "none";
+    });
+  });
+  // Harm pet when weapon item is clicked
+  weaponItemButtons.forEach((weaponItem) => {
+    weaponItem.addEventListener("click", function () {
+      const weaponType = this.dataset.weapon;
+      harmPet(weaponType);
+      weaponItems.style.display = "none";
+    });
+  });
+  // Bath button functionality - toggle bath mode
+  bathButton.addEventListener("click", function () {
+    if (petState.isDead) return;
+    if (petState.isBathing) {
+      exitBathMode();
+    } else {
+      enterBathMode();
+    }
+  });
+  // Name button functionality
+  nameButton.addEventListener("click", function () {
+    if (petState.isDead) return;
+    if (petState.isBathing) {
+      exitBathMode();
+    }
+    openNameModal();
+  });
+  // Function to enter bath mode
+  function enterBathMode() {
+    petState.isBathing = true;
+    bathButton.classList.add("active");
+    petWrapper.classList.add("bathing-mode");
+    // Stop movement if it's moving
+    if (petState.isMoving) {
+      stopMovement();
+    }
+    showSpeechBubble("嗚哇~要洗澡嗎？請幫我搓搓~");
+    // Show bath cursor at current mouse position
+    const mouseX = event ? event.clientX : window.innerWidth / 2;
+    const mouseY = event ? event.clientY : window.innerHeight / 2;
+    bathCursor.style.left = mouseX + "px";
+    bathCursor.style.top = mouseY + "px";
+  }
+  // Function to exit bath mode
+  function exitBathMode() {
+    petState.isBathing = false;
+    bathButton.classList.remove("active");
+    petWrapper.classList.remove("bathing-mode");
+  }
+  // Function to harm the pet
+  function harmPet(weaponType) {
+    if (petState.isDead) return;
+    const weapon = weapons[weaponType];
+    // Show weapon animation and damage effect
+    mainElement.classList.add(weapon.damageClass);
+    // Show damage message
+    showSpeechBubble(weapon.message);
+    // Apply health effect
+    petState.health = Math.max(0, petState.health + weapon.healthValue);
+    updateHealthBar();
+    // Apply mood effect
+    petState.mood = Math.max(0, petState.mood + weapon.moodValue);
+    updateMoodBar();
+    // Apply intimacy effect
+    petState.intimacy = Math.max(0, petState.intimacy + weapon.intimacyValue);
+    updateIntimacyBar();
+    // Update mood class based on the effect
+    updateMoodClass();
+    // Apply angry effect for a while
+    if (weapon.effect === "angry") {
+      petWrapper.classList.remove("mood-normal", "mood-sad", "mood-depressed");
+      petWrapper.classList.add("mood-angry");
+      setTimeout(() => {
+        updateMoodClass();
+      }, 10000);
+    }
+    // Stop damage animation after a while
+    setTimeout(() => {
+      mainElement.classList.remove(weapon.damageClass);
+    }, 500);
+    // Check for death
+    checkVitalSigns();
+    // Save pet state
+    savePetData();
+  }
+  // Bathing functionality - mouse/touch events
+  let isDragging = false;
+  let lastBubbleTime = 0;
+  // Start bathing on mouse down
+  mainElement.addEventListener("mousedown", function (event) {
+    if (petState.isDead) return;
+    // Record start position for petting detection
+    petState.touchStartX = event.clientX;
+    petState.touchStartY = event.clientY;
+    petState.isBeingPet = true;
+    if (petState.isBathing) {
+      isDragging = true;
+      createBubbleEffect(event);
+      event.preventDefault(); // Prevent text selection
+    }
+  });
+  // Continue bathing on mouse move
+  document.addEventListener("mousemove", function (event) {
+    if (petState.isDead) return;
+    // Handle petting gesture
+    if (petState.isBeingPet && !petState.isBathing) {
+      const deltaX = event.clientX - petState.touchStartX;
+      const deltaY = event.clientY - petState.touchStartY;
+      // If horizontal swipe detected (left or right)
+      if (Math.abs(deltaX) > 50 && Math.abs(deltaY) < 30) {
+        createHeartEffect(event);
+        petState.touchStartX = event.clientX; // Reset for continuous hearts
+        // Increase intimacy and mood
+        increaseIntimacy(1);
+        increaseMood(2);
+      }
+    }
+    if (isDragging && petState.isBathing) {
+      // Create bubbles occasionally while dragging
+      const now = Date.now();
+      if (now - lastBubbleTime > 100) {
+        // Limit bubble creation to every 100ms
+        createBubbleEffect(event);
+        lastBubbleTime = now;
+      }
+    }
+  });
+  // End bathing on mouse up
+  document.addEventListener("mouseup", function () {
+    if (petState.isDead) return;
+    petState.isBeingPet = false;
+    if (isDragging && petState.isBathing) {
+      isDragging = false;
+      // Increase cleanliness after bathing
+      petState.cleanliness = Math.min(100, petState.cleanliness + 15);
+      updateCleanlinessBar();
+      // Increase mood
+      increaseMood(10);
+      // Increase intimacy
+      increaseIntimacy(5);
+      // Show happy message
+      showSpeechBubble("啊~好舒服！謝謝你幫我洗澡！");
+      // Show happy animation
+      mainElement.classList.add("happy");
+      setTimeout(() => {
+        mainElement.classList.remove("happy");
+      }, 2000);
+      // Save pet state
+      savePetData();
+      // Check vital signs
+      checkVitalSigns();
+    }
+  });
+  // Touch events for mobile
+  mainElement.addEventListener("touchstart", function (event) {
+    if (petState.isDead) return;
+    // Record start position for petting detection
+    petState.touchStartX = event.touches[0].clientX;
+    petState.touchStartY = event.touches[0].clientY;
+    petState.isBeingPet = true;
+    if (petState.isBathing) {
+      isDragging = true;
+      createBubbleEffect(event.touches[0]);
+      event.preventDefault(); // Prevent scrolling
+    }
+  });
+  mainElement.addEventListener("touchmove", function (event) {
+    if (petState.isDead) return;
+    // Handle petting gesture
+    if (petState.isBeingPet && !petState.isBathing) {
+      const deltaX = event.touches[0].clientX - petState.touchStartX;
+      const deltaY = event.touches[0].clientY - petState.touchStartY;
+      // If horizontal swipe detected (left or right)
+      if (Math.abs(deltaX) > 50 && Math.abs(deltaY) < 30) {
+        createHeartEffect(event.touches[0]);
+        petState.touchStartX = event.touches[0].clientX; // Reset for continuous hearts
+        // Increase intimacy and mood
+        increaseIntimacy(1);
+        increaseMood(2);
+      }
+    }
+    if (isDragging && petState.isBathing) {
+      const now = Date.now();
+      if (now - lastBubbleTime > 100) {
+        createBubbleEffect(event.touches[0]);
+        lastBubbleTime = now;
+      }
+      event.preventDefault(); // Prevent scrolling
+    }
+  });
+  mainElement.addEventListener("touchend", function () {
+    if (petState.isDead) return;
+    petState.isBeingPet = false;
+    if (isDragging && petState.isBathing) {
+      isDragging = false;
+      // Increase cleanliness after bathing
+      petState.cleanliness = Math.min(100, petState.cleanliness + 15);
+      updateCleanlinessBar();
+      // Increase mood
+      increaseMood(10);
+      // Increase intimacy
+      increaseIntimacy(5);
+      // Show happy message
+      showSpeechBubble("啊~好舒服！謝謝你幫我洗澡！");
+      // Show happy animation
+      mainElement.classList.add("happy");
+      setTimeout(() => {
+        mainElement.classList.remove("happy");
+      }, 2000);
+      // Save pet state
+      savePetData();
+      // Check vital signs
+      checkVitalSigns();
+    }
+  });
+  // Function to create heart effect when petting
+  function createHeartEffect(event) {
+    // Get position relative to document
+    const x = event.clientX;
+    const y = event.clientY;
+    // Create heart
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    // Random rotation
+    const rot = Math.random() * 40 - 20 + "deg";
+    heart.style.setProperty("--rot", rot);
+    // Position at mouse/touch point
+    heart.style.left = x + "px";
+    heart.style.top = y + "px";
+    // Add to heart wrapper instead of pet
+    heartWrapper.appendChild(heart);
+    // Remove after animation completes
+    setTimeout(() => {
+      if (heart.parentNode) {
+        heart.parentNode.removeChild(heart);
+      }
+    }, 1500);
+  }
+  // Function to create bubble effect
+  function createBubbleEffect(event) {
+    // Get position relative to pet
+    const petRect = mainElement.getBoundingClientRect();
+    const x = event.clientX - petRect.left;
+    const y = event.clientY - petRect.top;
+    // Check if within pet bounds
+    if (x >= 0 && x <= petRect.width && y >= 0 && y <= petRect.height) {
+      // Create bubble
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+      // Random size
+      const size = 5 + Math.random() * 15;
+      bubble.style.width = size + "px";
+      bubble.style.height = size + "px";
+      // Position at mouse/touch point
+      bubble.style.left = x + "px";
+      bubble.style.top = y + "px";
+      // Add to pet
+      mainElement.appendChild(bubble);
+      // Remove after animation completes
+      setTimeout(() => {
+        if (bubble.parentNode) {
+          bubble.parentNode.removeChild(bubble);
+        }
+      }, 1500);
+    }
+  }
+  // Pet click interaction
+  mainElement.addEventListener("click", function (event) {
+    if (petState.isDead) return;
+    // Only react to clicks if not in bathing mode
+    if (!petState.isBathing) {
+      // Add click animation
+      mainElement.classList.add("clicked");
+      setTimeout(() => {
+        mainElement.classList.remove("clicked");
+      }, 500);
+      // Handle multiple clicks
+      const now = Date.now();
+      if (now - petState.lastClickTime < 500) {
+        petState.clickCount++;
+        if (petState.clickCount >= 5) {
+          // Super happy when clicked multiple times rapidly
+          mainElement.classList.add("happy");
+          showSpeechBubble("咿呀呀！好癢！");
+          increaseIntimacy(10);
+          increaseMood(15);
+          petState.clickCount = 0;
+          setTimeout(() => {
+            mainElement.classList.remove("happy");
+          }, 2000);
+        }
+      } else {
+        petState.clickCount = 1;
+      }
+      petState.lastClickTime = now;
+      // Show random message
+      if (!petState.isSpeaking && !mainElement.classList.contains("happy")) {
+        const randomMessage =
+          clickMessages[Math.floor(Math.random() * clickMessages.length)];
+        showSpeechBubble(randomMessage);
+        increaseIntimacy(2);
+        increaseMood(5);
+      }
+    }
+  });
+  // Save name button
+  saveNameButton.addEventListener("click", function () {
+    savePetName();
+  });
+  // Cancel name button
+  cancelNameButton.addEventListener("click", function () {
+    closeNameModal();
+  });
+  // Restart button
+  restartButton.addEventListener("click", function () {
+    restartGame();
+  });
+  // Function to restart the game
+  function restartGame() {
+    // Reset pet state
+    petState = {
+      name: "Oooi Wooi",
+      hunger: 100,
+      cleanliness: 100,
+      health: 100,
+      intimacy: 50,
+      mood: 80,
+      isDead: false,
+      causeOfDeath: "",
+      isEating: false,
+      hasPooped: false,
+      poops: [],
+      isMoving: false,
+      isWalking: false,
+      isBathing: false,
+      isSpeaking: false,
+      clickCount: 0,
+      lastClickTime: 0,
+      currentEffect: null,
+      effectTimeout: null,
+      moveSpeed: 8000,
+      hungerDecreaseRate: 2,
+      poopTimeout: null,
+      hungerInterval: null,
+      cleanlinessInterval: null,
+      healthInterval: null,
+      intimacyInterval: null,
+      moodInterval: null,
+      moveInterval: null,
+      speechTimeout: null,
+      criticalAlertInterval: null,
+      bumpCooldown: false,
+      totalBumpCount: 0,
+      touchStartX: 0,
+      touchStartY: 0,
+      isBeingPet: false
+    };
+    // Update UI
+    updateHungerBar();
+    updateCleanlinessBar();
+    updateHealthBar();
+    updateIntimacyBar();
+    updateMoodBar();
+    // Reset appearance
+    petWrapper.className = "pet-wrapper mood-normal";
+    petNameDisplay.textContent = petState.name;
+    // Hide death screen
+    deathScreen.classList.remove("show");
+    // Reset pet name
+    petNameDisplay.textContent = "Oooi Wooi";
+    // Clear critical alerts
+    hungerGroup.classList.remove("status-critical");
+    cleanlinessGroup.classList.remove("status-critical");
+    healthGroup.classList.remove("status-critical");
+    if (moodGroup) moodGroup.classList.remove("status-critical");
+    // Start intervals
+    startLifeCycle();
+    // Show welcome message
+    showSpeechBubble("你好！我是新的Oooi Wooi！");
+    // Save reset state
+    localStorage.removeItem("oooiWooiPetData");
+  }
+  // Open name modal
+  function openNameModal() {
+    modalOverlay.classList.add("active");
+    nameInput.value = petState.name;
+    nameInput.focus();
+  }
+  // Close name modal
+  function closeNameModal() {
+    modalOverlay.classList.remove("active");
+  }
+  // Save pet name
+  function savePetName() {
+    const newName = nameInput.value.trim();
+    if (newName !== "") {
+      petState.name = newName;
+      petNameDisplay.textContent = newName;
+      closeNameModal();
+      showSpeechBubble(`我是${newName}！謝謝你！`);
+      increaseIntimacy(15);
+      increaseMood(20);
+      savePetData();
+    }
+  }
+  // Allow enter key to save name
+  nameInput.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+      savePetName();
+    }
+  });
+  // Function to show speech bubble
+  function showSpeechBubble(text) {
+    // Clear any existing speech timeout
+    if (petState.speechTimeout) {
+      clearTimeout(petState.speechTimeout);
+    }
+    speechBubble.textContent = text;
+    speechBubble.classList.add("show");
+    petState.isSpeaking = true;
+    // Hide speech bubble after a few seconds
+    petState.speechTimeout = setTimeout(() => {
+      speechBubble.classList.remove("show");
+      petState.isSpeaking = false;
+    }, 3000);
+  }
+  // Function to show effect indicator
+  function showEffectIndicator(icon) {
+    effectIndicator.textContent = icon;
+    effectIndicator.classList.add("show");
+  }
+  // Function to hide effect indicator
+  function hideEffectIndicator() {
+    effectIndicator.classList.remove("show");
+  }
+  // Function to update mood class based on mood value
+  function updateMoodClass() {
+    // Remove all existing mood classes
+    petWrapper.classList.remove(
+      "mood-normal",
+      "mood-sad",
+      "mood-depressed",
+      "mood-angry"
+    );
+    // Add appropriate mood class
+    if (petState.mood > 60) {
+      petWrapper.classList.add("mood-normal");
+    } else if (petState.mood > 40) {
+      petWrapper.classList.add("mood-sad");
+    } else if (petState.mood > 20) {
+      petWrapper.classList.add("mood-depressed");
+    } else {
+      petWrapper.classList.add("mood-angry");
+    }
+  }
+  // Function to apply food effect
+  function applyFoodEffect(foodType) {
+    const food = foods[foodType];
+    // Clear any existing effect
+    clearFoodEffect();
+    // Set current effect
+    petState.currentEffect = food.effect;
+    // Show effect indicator
+    showEffectIndicator(food.effectIcon);
+    // Apply effect based on type
+    switch (food.effect) {
+      case "speed":
+        // Speed effect - moves faster
+        petState.moveSpeed = 4000; // Faster movement
+        if (petState.isMoving) {
+          stopMovement();
+          startMovement();
+        }
+        break;
+      case "endurance":
+        // Endurance effect - slower hunger decrease
+        petState.hungerDecreaseRate = 0.5; // Decrease hunger more slowly
+        break;
+      case "hyper":
+        // Hyper effect - pet moves faster and looks excited
+        petWrapper.classList.add("pet-hyper");
+        petState.moveSpeed = 3000; // Even faster movement
+        if (petState.isMoving) {
+          stopMovement();
+          startMovement();
+        }
+        break;
+      case "happy":
+        // Happy effect - pet is super happy
+        mainElement.classList.add("happy");
+        break;
+    }
+    // Set timeout to end effect if it has a duration
+    if (food.effectDuration > 0) {
+      petState.effectTimeout = setTimeout(() => {
+        clearFoodEffect();
+      }, food.effectDuration);
+    }
+  }
+  // Function to clear food effect
+  function clearFoodEffect() {
+    if (petState.effectTimeout) {
+      clearTimeout(petState.effectTimeout);
+    }
+    // Hide effect indicator
+    hideEffectIndicator();
+    // Save walking state to restore it
+    const wasWalking = petState.isMoving;
+    // Stop walking temporarily
+    if (wasWalking) {
+      stopMovement();
+    }
+    // Reset pet state
+    petState.moveSpeed = 8000; // Reset to default speed
+    petState.hungerDecreaseRate = 2; // Reset hunger decrease rate
+    petWrapper.classList.remove("pet-hyper");
+    if (petState.currentEffect === "happy") {
+      mainElement.classList.remove("happy");
+    }
+    // Restore walking if it was active
+    if (wasWalking) {
+      setTimeout(() => {
+        startMovement();
+      }, 50);
+    }
+    petState.currentEffect = null;
+  }
+  // Function to feed the pet
+  function feedPet(foodType) {
+    if (petState.isEating || petState.isDead) return;
+    const food = foods[foodType];
+    // Position the food wrapper at the same position as the pet's mouth
+    const petRect = mainElement.getBoundingClientRect();
+    foodWrapper.style.left = petRect.left + petRect.width / 2 + "px";
+    foodWrapper.style.top = petRect.top + petRect.height / 2 + "px";
+    // Show the food
+    foodElement.innerHTML = food.emoji;
+    foodElement.style.opacity = 1;
+    foodElement.style.transform = "translate(-50%, -50%)";
+    // Start eating animation
+    petState.isEating = true;
+    mainElement.classList.add("eating");
+    // Move food into mouth
+    setTimeout(() => {
+      foodElement.style.transform = "translate(-50%, 0%)";
+      foodElement.style.opacity = 0;
+    }, 500);
+    // End eating animation and remove food
+    setTimeout(() => {
+      mainElement.classList.remove("eating");
+      // Apply food effects
+      applyFoodEffect(foodType);
+      // Increase hunger level
+      petState.hunger = Math.min(100, petState.hunger + food.hungerValue);
+      updateHungerBar();
+      // Update health based on food
+      petState.health = Math.min(
+        100,
+        Math.max(0, petState.health + food.healthValue)
+      );
+      updateHealthBar();
+      // Increase intimacy when feeding
+      increaseIntimacy(food.intimacyValue);
+      // Increase mood when feeding
+      increaseMood(food.moodValue);
+      // Show happy message
+      showSpeechBubble(food.message);
+      // End eating state
+      setTimeout(() => {
+        petState.isEating = false;
+      }, 1000);
+      // Save pet state
+      savePetData();
+      // Check vital signs
+      checkVitalSigns();
+    }, 1000);
+    // Schedule poop after feeding
+    if (petState.poopTimeout) {
+      clearTimeout(petState.poopTimeout);
+    }
+    // Determine poop delay based on food
+    let basePoopDelay = 20000 + Math.random() * 20000; // 20-40 seconds
+    let poopProbability = 0.3 + food.poopChance; // Base 30% + food specific chance
+    // If probability is positive, schedule poop
+    if (poopProbability > 0 && Math.random() < poopProbability) {
+      const poopDelay =
+        food.poopChance > 0
+          ? basePoopDelay / (1 + food.poopChance) // Shorter delay for foods that increase poop chance
+          : basePoopDelay * (1 - food.poopChance); // Longer delay for foods that decrease poop chance
+      petState.poopTimeout = setTimeout(createPoop, poopDelay);
+    }
+  }
+  // Function to create poop
+  function createPoop() {
+    if (petState.isDead) return;
+    // Get current pet position
+    const petRect = petWrapper.getBoundingClientRect();
+    // Create a new poop element
+    const poop = document.createElement("div");
+    poop.className = "poop";
+    poop.innerHTML = "💩";
+    // Position poop where the pet currently is
+    poop.style.position = "absolute";
+    poop.style.left = petRect.left + petRect.width / 2 + "px";
+    poop.style.bottom = windowHeight - petRect.bottom + 30 + "px"; // Position below the pet
+    // Add poop to the document body
+    document.body.appendChild(poop);
+    // Generate unique ID for this poop
+    const poopId = "poop-" + Date.now();
+    poop.id = poopId;
+    // Add click event to clean poop
+    poop.addEventListener("click", function () {
+      cleanSpecificPoop(poopId);
+    });
+    // Add to poops array
+    petState.poops.push({
+      id: poopId,
+      element: poop,
+      position: {
+        left: petRect.left + petRect.width / 2,
+        bottom: windowHeight - petRect.bottom + 30
+      }
+    });
+    petState.hasPooped = true;
+    // Show embarrassed message
+    showSpeechBubble("啊...不好意思...");
+    // Decrease cleanliness when poop appears
+    petState.cleanliness = Math.max(0, petState.cleanliness - 30);
+    updateCleanlinessBar();
+    // Decrease mood when pooping
+    decreaseMood(10);
+    // Continue decreasing cleanliness while poop exists
+    if (petState.cleanlinessInterval) {
+      clearInterval(petState.cleanlinessInterval);
+    }
+    petState.cleanlinessInterval = setInterval(() => {
+      if (petState.isDead) {
+        clearInterval(petState.cleanlinessInterval);
+        return;
+      }
+      if (petState.poops.length > 0) {
+        petState.cleanliness = Math.max(0, petState.cleanliness - 5);
+        updateCleanlinessBar();
+        // Decrease mood if poop stays too long
+        decreaseMood(3);
+        // Decrease intimacy if poop stays too long
+        decreaseIntimacy(3);
+        // Check if pet dies from filth
+        checkVitalSigns();
+      } else {
+        clearInterval(petState.cleanlinessInterval);
+      }
+    }, 10000); // Decrease every 10 seconds
+    // Save pet state
+    savePetData();
+  }
+  // Function to clean a specific poop
+  function cleanSpecificPoop(poopId) {
+    if (petState.isDead) return;
+    // Find the poop
+    const poopIndex = petState.poops.findIndex((p) => p.id === poopId);
+    if (poopIndex !== -1) {
+      const poop = petState.poops[poopIndex];
+      const poopElement = poop.element;
+      // Animate poop disappearing
+      poopElement.style.transform = "scale(0)";
+      poopElement.style.opacity = "0";
+      setTimeout(() => {
+        // Remove poop from DOM
+        if (poopElement.parentNode) {
+          poopElement.parentNode.removeChild(poopElement);
+        }
+        // Remove from poops array
+        petState.poops.splice(poopIndex, 1);
+        // Update state
+        if (petState.poops.length === 0) {
+          petState.hasPooped = false;
+        }
+        // Increase cleanliness after cleaning
+        petState.cleanliness = Math.min(100, petState.cleanliness + 15);
+        updateCleanlinessBar();
+        // Increase mood after cleaning
+        increaseMood(5);
+        // Increase intimacy after cleaning
+        increaseIntimacy(10);
+        // Show thankful message
+        showSpeechBubble("謝謝你幫我清理！");
+        // Check vital signs
+        checkVitalSigns();
+        // Save pet state
+        savePetData();
+      }, 300);
+    }
+  }
+  // Function to create wall bump effect with stars
+  function createWallBumpEffect() {
+    // Create stars around the pet
+    for (let i = 0; i < 5; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.innerHTML = "⭐";
+      star.style.position = "absolute";
+      // Random position around the pet
+      const angle = Math.random() * Math.PI * 2;
+      const distance = 30 + Math.random() * 20;
+      const x = Math.cos(angle) * distance;
+      const y = Math.sin(angle) * distance;
+      // Set random transform for animation
+      const tx = Math.random() * 100 - 50 + "px";
+      const rot = Math.random() * 360 + "deg";
+      star.style.setProperty("--tx", tx);
+      star.style.setProperty("--rot", rot);
+      // Position relative to pet center
+      star.style.left = `calc(50% + ${x}px)`;
+      star.style.top = `calc(50% + ${y}px)`;
+      // Add to pet element
+      mainElement.appendChild(star);
+      // Remove after animation completes
+      setTimeout(() => {
+        if (star.parentNode) {
+          star.parentNode.removeChild(star);
+        }
+      }, 1500);
+    }
+  }
+  // Function to handle wall bump
+  function handleWallBump() {
+    if (petState.bumpCooldown || petState.isDead) return;
+    // Set cooldown
+    petState.bumpCooldown = true;
+    setTimeout(() => {
+      petState.bumpCooldown = false;
+    }, 3000); // 3 second cooldown
+    // Add bump count
+    petState.totalBumpCount++;
+    // Add bump animation
+    mainElement.classList.add("bumped");
+    setTimeout(() => {
+      mainElement.classList.remove("bumped");
+    }, 500);
+    // Create star effect
+    createWallBumpEffect();
+    // Show bump message
+    const randomMessage =
+      wallBumpMessages[Math.floor(Math.random() * wallBumpMessages.length)];
+    showSpeechBubble(randomMessage);
+    // Decrease mood slightly
+    decreaseMood(3);
+    // Decrease health slightly
+    decreaseHealth(2);
+    // Change direction if moving
+    if (petState.isMoving) {
+      moveRandomly();
+    }
+    // If bumped too many times, make it dizzy
+    if (petState.totalBumpCount % 5 === 0) {
+      // Make pet dizzy
+      showSpeechBubble("頭好暈...我撞太多次了...");
+      // Stop movement temporarily
+      if (petState.isMoving) {
+        const wasMoving = petState.isMoving;
+        stopMovement();
+        // Resume movement after a while
+        setTimeout(() => {
+          if (
+            wasMoving &&
+            !petState.isDead &&
+            !petState.isBathing &&
+            !petState.isEating
+          ) {
+            startMovement();
+          }
+        }, 5000);
+      }
+    }
+    // Save pet state
+    savePetData();
+  }
+  // Function to start random movement
+  function startMovement() {
+    if (petState.isDead || petState.isMoving) return;
+    petState.isMoving = true;
+    // Add walking animation class based on current state
+    petWrapper.classList.add("walking");
+    // Show message
+    showSpeechBubble("我們去散步吧！");
+    // Start random movement interval
+    petState.moveInterval = setInterval(() => {
+      moveRandomly();
+    }, petState.moveSpeed); // Change direction based on current move speed
+    // Start with one movement immediately
+    moveRandomly();
+    // Increase mood when walking
+    increaseMood(10);
+    // Increase intimacy slightly when pet starts walking
+    increaseIntimacy(2);
+  }
+  // Function to stop movement
+  function stopMovement() {
+    if (!petState.isMoving) return;
+    petState.isMoving = false;
+    // Remove walking animation class
+    petWrapper.classList.remove("walking");
+    // Show message
+    showSpeechBubble("累了...休息一下~");
+    // Clear movement interval
+    if (petState.moveInterval) {
+      clearInterval(petState.moveInterval);
+      petState.moveInterval = null;
+    }
+  }
+  // Function for random movement
+  function moveRandomly() {
+    if (petState.isDead) return;
+    // Calculate safe boundaries to keep pet on screen
+    const maxLeft = windowWidth - petWidth;
+    const maxBottom = windowHeight - petHeight - 150; // Account for control panel
+    // Get current position
+    const petRect = petWrapper.getBoundingClientRect();
+    const currentLeft = petRect.left;
+    const currentBottom = windowHeight - petRect.bottom;
+    // Generate random position within boundaries
+    let newLeft = Math.max(50, Math.min(maxLeft - 50, Math.random() * maxLeft));
+    let newBottom = Math.max(
+      150,
+      Math.min(maxBottom - 50, Math.random() * maxBottom)
+    );
+    // Check if at edge of screen (close to boundary)
+    const atLeftEdge = currentLeft < 60;
+    const atRightEdge = currentLeft > maxLeft - 60;
+    const atTopEdge = currentBottom > maxBottom - 60;
+    const atBottomEdge = currentBottom < 160;
+    // If at edge, trigger wall bump
+    if (atLeftEdge || atRightEdge || atTopEdge || atBottomEdge) {
+      handleWallBump();
+      // Move away from the wall
+      if (atLeftEdge) newLeft = 100 + Math.random() * 100;
+      if (atRightEdge) newLeft = maxLeft - 150 - Math.random() * 100;
+      if (atTopEdge) newBottom = maxBottom - 150 - Math.random() * 100;
+      if (atBottomEdge) newBottom = 200 + Math.random() * 100;
+    }
+    // Update position with slow transition (CSS handles the animation duration)
+    petWrapper.style.left = newLeft + "px";
+    petWrapper.style.bottom = newBottom + "px";
+    petWrapper.style.transform = "translateX(0)"; // Override the default centering
+  }
+  // Function to increase intimacy
+  function increaseIntimacy(amount) {
+    petState.intimacy = Math.min(100, petState.intimacy + amount);
+    updateIntimacyBar();
+    savePetData();
+  }
+  // Function to decrease intimacy
+  function decreaseIntimacy(amount) {
+    petState.intimacy = Math.max(0, petState.intimacy - amount);
+    updateIntimacyBar();
+    savePetData();
+  }
+  // Function to increase health
+  function increaseHealth(amount) {
+    petState.health = Math.min(100, petState.health + amount);
+    updateHealthBar();
+    savePetData();
+    checkVitalSigns();
+  }
+  // Function to decrease health
+  function decreaseHealth(amount) {
+    petState.health = Math.max(0, petState.health - amount);
+    updateHealthBar();
+    savePetData();
+    checkVitalSigns();
+  }
+  // Function to increase mood
+  function increaseMood(amount) {
+    petState.mood = Math.min(100, petState.mood + amount);
+    updateMoodBar();
+    updateMoodClass();
+    savePetData();
+    checkVitalSigns();
+  }
+  // Function to decrease mood
+  function decreaseMood(amount) {
+    petState.mood = Math.max(0, petState.mood - amount);
+    updateMoodBar();
+    updateMoodClass();
+    savePetData();
+    checkVitalSigns();
+  }
+  // Function to check vital signs and trigger death if needed
+  function checkVitalSigns() {
+    if (petState.isDead) return;
+    // Clear critical alerts first
+    hungerGroup.classList.remove("status-critical");
+    cleanlinessGroup.classList.remove("status-critical");
+    healthGroup.classList.remove("status-critical");
+    if (moodGroup) moodGroup.classList.remove("status-critical");
+    // Check critical states
+    if (petState.hunger <= 15) {
+      hungerGroup.classList.add("status-critical");
+    }
+    if (petState.cleanliness <= 15) {
+      cleanlinessGroup.classList.add("status-critical");
+    }
+    if (petState.health <= 15) {
+      healthGroup.classList.add("status-critical");
+    }
+    if (moodGroup && petState.mood <= 15) {
+      moodGroup.classList.add("status-critical");
+    }
+    // Check death conditions
+    if (petState.hunger <= 0) {
+      petDies("hunger");
+    } else if (petState.cleanliness <= 0) {
+      petDies("cleanliness");
+    } else if (petState.health <= 0) {
+      petDies("health");
+    } else if (petState.mood <= 0) {
+      petDies("mood");
+    }
+  }
+  // Function to handle pet death
+  function petDies(cause) {
+    if (petState.isDead) return;
+    petState.isDead = true;
+    petState.causeOfDeath = cause;
+    // Stop all intervals
+    clearAllIntervals();
+    // Stop all animations
+    stopMovement();
+    if (petState.effectTimeout) {
+      clearTimeout(petState.effectTimeout);
+    }
+    // Apply dead appearance
+    petWrapper.classList.remove(
+      "mood-normal",
+      "mood-sad",
+      "mood-depressed",
+      "mood-angry"
+    );
+    petWrapper.classList.add("pet-dead");
+    // Set death message
+    deathMessage.textContent = `原因：${deathMessages[cause]} (${petState.name})`;
+    // Show death screen
+    setTimeout(() => {
+      deathScreen.classList.add("show");
+    }, 1000);
+    // Clear any showing speech bubble
+    if (petState.speechTimeout) {
+      clearTimeout(petState.speechTimeout);
+    }
+    speechBubble.classList.remove("show");
+    // Save death state
+    savePetData();
+  }
+  // Function to clear all intervals
+  function clearAllIntervals() {
+    if (petState.hungerInterval) clearInterval(petState.hungerInterval);
+    if (petState.cleanlinessInterval)
+      clearInterval(petState.cleanlinessInterval);
+    if (petState.healthInterval) clearInterval(petState.healthInterval);
+    if (petState.intimacyInterval) clearInterval(petState.intimacyInterval);
+    if (petState.moodInterval) clearInterval(petState.moodInterval);
+    if (petState.moveInterval) clearInterval(petState.moveInterval);
+    if (petState.criticalAlertInterval)
+      clearInterval(petState.criticalAlertInterval);
+    if (petState.poopTimeout) clearTimeout(petState.poopTimeout);
+    if (petState.speechTimeout) clearTimeout(petState.speechTimeout);
+    if (petState.randomMovementInterval)
+      clearInterval(petState.randomMovementInterval);
+  }
+  // Update hunger bar
+  function updateHungerBar() {
+    hungerBar.style.width = petState.hunger + "%";
+  }
+  // Update cleanliness bar
+  function updateCleanlinessBar() {
+    cleanlinessBar.style.width = petState.cleanliness + "%";
+  }
+  // Update health bar
+  function updateHealthBar() {
+    healthBar.style.width = petState.health + "%";
+  }
+  // Update intimacy bar
+  function updateIntimacyBar() {
+    intimacyBar.style.width = petState.intimacy + "%";
+  }
+  // Update mood bar
+  function updateMoodBar() {
+    if (moodBar) {
+      moodBar.style.width = petState.mood + "%";
+    }
+  }
+  // Start the pet's life cycle
+  function startLifeCycle() {
+    // Start decreasing hunger over time
+    petState.hungerInterval = setInterval(() => {
+      if (petState.isDead) {
+        clearInterval(petState.hungerInterval);
+        return;
+      }
+      petState.hunger = Math.max(
+        0,
+        petState.hunger - petState.hungerDecreaseRate
+      );
+      updateHungerBar();
+      // If very hungry, decrease mood and health
+      if (petState.hunger < 30) {
+        decreaseMood(3);
+        decreaseHealth(1);
+        // If very hungry, decrease intimacy
+        if (petState.hunger < 20) {
+          decreaseIntimacy(2);
+        }
+        // Show hungry message occasionally
+        if (
+          petState.hunger < 10 &&
+          Math.random() < 0.3 &&
+          !petState.isSpeaking
+        ) {
+          showSpeechBubble("好餓...我快餓死了...");
+        }
+        // If very hungry, schedule poop (upset stomach)
+        if (!petState.hasPooped && Math.random() < 0.3) {
+          if (petState.poopTimeout) {
+            clearTimeout(petState.poopTimeout);
+          }
+          petState.poopTimeout = setTimeout(createPoop, 5000);
+        }
+      }
+      // Check if pet dies from hunger
+      checkVitalSigns();
+      savePetData();
+    }, 10000); // Decrease every 10 seconds
+    // Natural cleanliness decrease
+    petState.cleanlinessInterval = setInterval(() => {
+      if (petState.isDead) {
+        clearInterval(petState.cleanlinessInterval);
+        return;
+      }
+      if (petState.poops.length === 0) {
+        // Only decrease naturally if no poop present
+        petState.cleanliness = Math.max(0, petState.cleanliness - 1);
+        updateCleanlinessBar();
+        // If very dirty, decrease mood and health
+        if (petState.cleanliness < 30) {
+          decreaseMood(2);
+          decreaseHealth(1);
+          // If very dirty, decrease intimacy
+          if (petState.cleanliness < 20) {
+            decreaseIntimacy(1);
+          }
+          // Show dirty message occasionally
+          if (
+            petState.cleanliness < 10 &&
+            Math.random() < 0.3 &&
+            !petState.isSpeaking
+          ) {
+            showSpeechBubble("好髒...我需要清理...");
+          }
+        }
+      }
+      // Check if pet dies from filth
+      checkVitalSigns();
+      savePetData();
+    }, 20000); // Decrease every 20 seconds
+    // Health natural decrease
+    petState.healthInterval = setInterval(() => {
+      if (petState.isDead) {
+        clearInterval(petState.healthInterval);
+        return;
+      }
+      // Very slow natural health decrease
+      if (petState.health > 80) {
+        // If health is high, decrease very slowly
+        if (Math.random() < 0.3) {
+          decreaseHealth(1);
+        }
+      } else if (petState.health < 20) {
+        // If health is very low, affect mood significantly
+        decreaseMood(3);
+        showSpeechBubble("我感覺不太舒服...");
+      }
+      checkVitalSigns();
+      savePetData();
+    }, 30000); // Check every 30 seconds
+    // Natural intimacy decrease
+    petState.intimacyInterval = setInterval(() => {
+      if (petState.isDead) {
+        clearInterval(petState.intimacyInterval);
+        return;
+      }
+      // Intimacy slowly decreases over time
+      decreaseIntimacy(1);
+      // Low intimacy affects mood
+      if (petState.intimacy < 30) {
+        decreaseMood(1);
+      }
+    }, 60000); // Decrease every 60 seconds
+    // Natural mood decrease
+    petState.moodInterval = setInterval(() => {
+      if (petState.isDead) {
+        clearInterval(petState.moodInterval);
+        return;
+      }
+      // Mood decreases over time
+      decreaseMood(1);
+      // Random mood messages based on current mood
+      if (!petState.isSpeaking && Math.random() < 0.2) {
+        let messages;
+        if (petState.hunger < 30) {
+          messages = moodMessages.hungry;
+        } else if (petState.cleanliness < 30) {
+          messages = moodMessages.dirty;
+        } else if (petState.health < 30) {
+          messages = moodMessages.hurt;
+        } else if (petState.mood > 60) {
+          messages = moodMessages.normal;
+        } else if (petState.mood > 40) {
+          messages = moodMessages.sad;
+        } else if (petState.mood > 20) {
+          messages = moodMessages.depressed;
+        } else {
+          messages = moodMessages.angry;
+        }
+        const randomMessage =
+          messages[Math.floor(Math.random() * messages.length)];
+        showSpeechBubble(randomMessage);
+      }
+      // Check if pet dies from depression
+      checkVitalSigns();
+    }, 30000); // Decrease every 30 seconds
+    // Random movements for the pet
+    petState.randomMovementInterval = setInterval(() => {
+      if (
+        petState.isDead ||
+        petState.isMoving ||
+        petState.isBathing ||
+        petState.isEating
+      )
+        return;
+      // 30% chance to start moving randomly (increased from 10%)
+      if (Math.random() < 0.3) {
+        startMovement();
+        // Stop after a random amount of time (5-15 seconds)
+        setTimeout(() => {
+          if (petState.isMoving) {
+            stopMovement();
+          }
+        }, 5000 + Math.random() * 10000);
+      }
+    }, 15000); // Check every 15 seconds (reduced from 30 seconds)
+    // Start with a movement right away (to make it more obvious the pet moves on its own)
+    setTimeout(() => {
+      if (
+        !petState.isDead &&
+        !petState.isMoving &&
+        !petState.isBathing &&
+        !petState.isEating
+      ) {
+        startMovement();
+        setTimeout(() => {
+          if (petState.isMoving) {
+            stopMovement();
+          }
+        }, 5000 + Math.random() * 5000);
+      }
+    }, 3000); // Start moving after 3 seconds
+  }
+  // Load pet data from localStorage
+  function loadPetData() {
+    try {
+      const savedData = localStorage.getItem("oooiWooiPetData");
+      if (savedData) {
+        const data = JSON.parse(savedData);
+        // Update pet state
+        petState.name = data.name || "Oooi Wooi";
+        petState.hunger = data.hunger !== undefined ? data.hunger : 100;
+        petState.cleanliness =
+          data.cleanliness !== undefined ? data.cleanliness : 100;
+        petState.health = data.health !== undefined ? data.health : 100;
+        petState.intimacy = data.intimacy !== undefined ? data.intimacy : 50;
+        petState.mood = data.mood !== undefined ? data.mood : 80;
+        petState.isDead = data.isDead || false;
+        petState.causeOfDeath = data.causeOfDeath || "";
+        petState.totalBumpCount = data.totalBumpCount || 0;
+        // Update pet appearance
+        if (data.appearance) {
+          hueSlider.value = data.appearance.hue || 0;
+          saturationSlider.value = data.appearance.saturation || 1;
+          lightnessSlider.value = data.appearance.lightness || 1;
+          contrastSlider.value = data.appearance.contrast || 1;
+          updateAppearance();
+        }
+        // Update display
+        petNameDisplay.textContent = petState.name;
+        updateHungerBar();
+        updateCleanlinessBar();
+        updateHealthBar();
+        updateIntimacyBar();
+        updateMoodBar();
+        updateMoodClass();
+        // Check if pet is dead
+        if (petState.isDead) {
+          petWrapper.classList.add("pet-dead");
+          deathMessage.textContent = `原因：${
+            deathMessages[petState.causeOfDeath]
+          } (${petState.name})`;
+          deathScreen.classList.add("show");
+        } else {
+          // Welcome message based on mood and intimacy
+          setTimeout(() => {
+            if (petState.mood > 80 && petState.intimacy > 80) {
+              showSpeechBubble(`${petState.name}好想你！太開心了！`);
+            } else if (petState.mood > 50) {
+              showSpeechBubble(`嗨！我是${petState.name}！`);
+            } else if (petState.mood > 20) {
+              showSpeechBubble(`我是${petState.name}...心情不太好...`);
+            } else {
+              showSpeechBubble(`...我感覺很糟糕...`);
+            }
+            // Start life cycle
+            startLifeCycle();
+            // Initial check of vital signs
+            checkVitalSigns();
+          }, 1000);
+        }
+      } else {
+        // First time - start life cycle
+        startLifeCycle();
+      }
+    } catch (error) {
+      console.log("Error loading pet data:", error);
+      // In case of error, start life cycle anyway
+      startLifeCycle();
+    }
+  }
+  // Save pet data to localStorage
+  function savePetData() {
+    try {
+      const data = {
+        name: petState.name,
+        hunger: petState.hunger,
+        cleanliness: petState.cleanliness,
+        health: petState.health,
+        intimacy: petState.intimacy,
+        mood: petState.mood,
+        isDead: petState.isDead,
+        causeOfDeath: petState.causeOfDeath,
+        totalBumpCount: petState.totalBumpCount,
+        appearance: {
+          hue: hueSlider.value,
+          saturation: saturationSlider.value,
+          lightness: lightnessSlider.value,
+          contrast: contrastSlider.value
+        }
+      };
+      localStorage.setItem("oooiWooiPetData", JSON.stringify(data));
+    } catch (error) {
+      console.log("Error saving pet data:", error);
+    }
+  }
+  // Stop movement if window is resized
+  window.addEventListener("resize", () => {
+    if (petState.isDead) return;
+    // Stop movement on resize
+    stopMovement();
+    // Exit bath mode if active
+    if (petState.isBathing) {
+      exitBathMode();
+    }
+    // Center pet
+    petWrapper.style.left = "50%";
+    petWrapper.style.transform = "translateX(-50%)";
+    petWrapper.style.bottom = "150px";
+  });
+});
+
+  </script>
+</body>
+
+</html>
