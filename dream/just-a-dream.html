@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.5>
+  <meta name="viewport" content="width=device-width, initial-scale=1.8">
   <meta name="keywords" content="">
   <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,8 +10,7 @@
   <link href="" rel="shortcut icon" />
   <title>251131395</title>
 
-  <style>
-    body {
+  <style>body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -177,7 +176,6 @@
   height: 199px;
   padding: 20px;
   overflow: auto;
-  overflow: hidden;
   scrollbar-width: none;
 }
 .typing {
@@ -340,6 +338,7 @@
   right:10px;
   height: 14px;
   aborder:1px red solid;
+  cursor: pointer;
 }
 .k-up-center-down{
   position:absolute;
@@ -348,6 +347,7 @@
   right:10px;
   height: 14px;
   aborder:1px red solid;
+  cursor: pointer;
 }
 .k-up-center-left{
   position:absolute;
@@ -451,6 +451,8 @@
   transform: scale(0.98);
   transform-origin: center right;
 }
+
+
 
 @media screen and (max-width: 600px) {
 }
@@ -560,11 +562,14 @@
     </div>
   </div>
 
-  <script>    
+  <script>
     // Scroll functionality
     const textElement = document.querySelector('.text');
     const upButton = document.querySelector('.k-up-center-up');
     const downButton = document.querySelector('.k-up-center-down');
+    
+    let scrollInterval = null;
+    let scrollSpeed = 1;
     
     // Calculate line height
     function getLineHeight() {
@@ -578,18 +583,99 @@
       return parseFloat(lineHeight);
     }
     
-    // Scroll down (text moves down, showing earlier content)
-    upButton.addEventListener('click', function() {
+    // Scroll functions
+    function scrollUp() {
       const lineHeight = getLineHeight();
-      textElement.scrollTop = Math.max(0, textElement.scrollTop - lineHeight);
-    });
+      textElement.scrollTop = Math.max(0, textElement.scrollTop - lineHeight * scrollSpeed);
+    }
     
-    // Scroll up (text moves up, showing later content)
-    downButton.addEventListener('click', function() {
+    function scrollDown() {
       const lineHeight = getLineHeight();
       const maxScroll = textElement.scrollHeight - textElement.clientHeight;
-      textElement.scrollTop = Math.min(maxScroll, textElement.scrollTop + lineHeight);
+      textElement.scrollTop = Math.min(maxScroll, textElement.scrollTop + lineHeight * scrollSpeed);
+    }
+    
+    // Start continuous scrolling
+    function startScrolling(direction) {
+      if (scrollInterval) return; // Prevent multiple intervals
+      
+      scrollSpeed = 1;
+      let accelerationCounter = 0;
+      
+      // Initial scroll
+      if (direction === 'up') {
+        scrollUp();
+      } else {
+        scrollDown();
+      }
+      
+      // Start interval for continuous scrolling
+      scrollInterval = setInterval(() => {
+        if (direction === 'up') {
+          scrollUp();
+        } else {
+          scrollDown();
+        }
+        
+        // Gradually increase speed after some time
+        accelerationCounter++;
+        if (accelerationCounter > 5 && scrollSpeed < 3) {
+          scrollSpeed += 0.5;
+        }
+      }, 150); // Initial delay between scrolls
+    }
+    
+    // Stop continuous scrolling
+    function stopScrolling() {
+      if (scrollInterval) {
+        clearInterval(scrollInterval);
+        scrollInterval = null;
+        scrollSpeed = 1;
+      }
+    }
+    
+    // Mouse events for up button
+    upButton.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      startScrolling('up');
     });
+    
+    upButton.addEventListener('mouseup', stopScrolling);
+    upButton.addEventListener('mouseleave', stopScrolling);
+    
+    // Mouse events for down button
+    downButton.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      startScrolling('down');
+    });
+    
+    downButton.addEventListener('mouseup', stopScrolling);
+    downButton.addEventListener('mouseleave', stopScrolling);
+    
+    // Touch events for mobile support
+    upButton.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      startScrolling('up');
+    });
+    
+    upButton.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      stopScrolling();
+    });
+    
+    downButton.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      startScrolling('down');
+    });
+    
+    downButton.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      stopScrolling();
+    });
+    
+    // Prevent context menu on long press
+    upButton.addEventListener('contextmenu', (e) => e.preventDefault());
+    downButton.addEventListener('contextmenu', (e) => e.preventDefault());
   </script>
 </body>
 
