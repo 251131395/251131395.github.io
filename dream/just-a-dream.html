@@ -27,7 +27,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow: hidden;
+  overflow:hidden;
 }
 
 .bg-img-cover {
@@ -152,15 +152,20 @@
   display: inline-block;
   margin: 0 2px 0;
 }
+.bottom span i{
+  width:20px;
+  text-align:center;
+  aborder:1px red solid;
+}
 .bottom span:nth-child(2) {
   margin: 0 auto 0;
 }
 
 .text-shell {
-  aborder: 1px #666 solid;
+  border: 2px #111 solid;
   position: relative;
-  min-width: 166px;
-  max-width: 166px;
+  min-width: 164px;
+  max-width: 164px;
   overflow: hidden;
   background-color: #191919;
   margin: 0 0 57px;
@@ -222,6 +227,7 @@
 
 .keyboard-up {
   color: #aaa;
+  text-shadow: 0 0 4px rgba(255,255,255,0.3);
   position: relative;
   border: 1px #000 solid;
   min-width: 166px;
@@ -262,7 +268,7 @@
 }
 .k-up-top span:active {
   color: #999;
-  transform: scale(0.985);
+  transform: scale(0.99);
 }
 
 .k-up-bottom {
@@ -569,102 +575,154 @@
 
   <script>
     
-    // Scroll functionality
-    const textElement = document.querySelector('.text');
-    const upButton = document.querySelector('.k-up-center-up');
-    const downButton = document.querySelector('.k-up-center-down');
-    let scrollInterval = null;
-    let scrollSpeed = 1;
-    // Calculate line height
-    function getLineHeight() {
-      const computedStyle = window.getComputedStyle(textElement);
-      const lineHeight = computedStyle.lineHeight;
-      if (lineHeight === 'normal') {
-        // Estimate line height as 1.2 times font size
-        const fontSize = parseFloat(computedStyle.fontSize);
-        return fontSize * 1.2;
-      }
-      return parseFloat(lineHeight);
-    }
-    // Scroll functions
-    function scrollUp() {
-      const lineHeight = getLineHeight();
-      textElement.scrollTop = Math.max(0, textElement.scrollTop - lineHeight * scrollSpeed);
-    }
+// Vibration function
+function vibrate() {
+  if (navigator.vibrate) {
+    navigator.vibrate(10); // 30ms subtle vibration
+  }
+}
 
-    function scrollDown() {
-      const lineHeight = getLineHeight();
-      const maxScroll = textElement.scrollHeight - textElement.clientHeight;
-      textElement.scrollTop = Math.min(maxScroll, textElement.scrollTop + lineHeight * scrollSpeed);
+// Scroll functionality
+const textElement = document.querySelector(".text");
+const upButton = document.querySelector(".k-up-center-up");
+const downButton = document.querySelector(".k-up-center-down");
+let scrollInterval = null;
+let scrollSpeed = 1;
+
+// Calculate line height
+function getLineHeight() {
+  const computedStyle = window.getComputedStyle(textElement);
+  const lineHeight = computedStyle.lineHeight;
+  if (lineHeight === "normal") {
+    // Estimate line height as 1.2 times font size
+    const fontSize = parseFloat(computedStyle.fontSize);
+    return fontSize * 1.2;
+  }
+  return parseFloat(lineHeight);
+}
+
+// Scroll functions
+function scrollUp() {
+  const lineHeight = getLineHeight();
+  textElement.scrollTop = Math.max(
+    0,
+    textElement.scrollTop - lineHeight * scrollSpeed
+  );
+}
+
+function scrollDown() {
+  const lineHeight = getLineHeight();
+  const maxScroll = textElement.scrollHeight - textElement.clientHeight;
+  textElement.scrollTop = Math.min(
+    maxScroll,
+    textElement.scrollTop + lineHeight * scrollSpeed
+  );
+}
+
+// Start continuous scrolling
+function startScrolling(direction) {
+  if (scrollInterval) return; // Prevent multiple intervals
+  scrollSpeed = 1;
+  let accelerationCounter = 0;
+  // Initial scroll
+  if (direction === "up") {
+    scrollUp();
+  } else {
+    scrollDown();
+  }
+  // Start interval for continuous scrolling
+  scrollInterval = setInterval(() => {
+    if (direction === "up") {
+      scrollUp();
+    } else {
+      scrollDown();
     }
-    // Start continuous scrolling
-    function startScrolling(direction) {
-      if (scrollInterval) return; // Prevent multiple intervals
-      scrollSpeed = 1;
-      let accelerationCounter = 0;
-      // Initial scroll
-      if (direction === 'up') {
-        scrollUp();
-      } else {
-        scrollDown();
-      }
-      // Start interval for continuous scrolling
-      scrollInterval = setInterval(() => {
-        if (direction === 'up') {
-          scrollUp();
-        } else {
-          scrollDown();
-        }
-        // Gradually increase speed after some time
-        accelerationCounter++;
-        if (accelerationCounter > 5 && scrollSpeed < 3) {
-          scrollSpeed += 0.5;
-        }
-      }, 150); // Initial delay between scrolls
+    // Gradually increase speed after some time
+    accelerationCounter++;
+    if (accelerationCounter > 5 && scrollSpeed < 3) {
+      scrollSpeed += 0.5;
     }
-    // Stop continuous scrolling
-    function stopScrolling() {
-      if (scrollInterval) {
-        clearInterval(scrollInterval);
-        scrollInterval = null;
-        scrollSpeed = 1;
-      }
-    }
-    // Mouse events for up button
-    upButton.addEventListener('mousedown', (e) => {
-      e.preventDefault();
-      startScrolling('up');
+  }, 150); // Initial delay between scrolls
+}
+
+// Stop continuous scrolling
+function stopScrolling() {
+  if (scrollInterval) {
+    clearInterval(scrollInterval);
+    scrollInterval = null;
+    scrollSpeed = 1;
+  }
+}
+
+// Mouse events for up button
+upButton.addEventListener("mousedown", (e) => {
+  e.preventDefault();
+  vibrate();
+  startScrolling("up");
+});
+upButton.addEventListener("mouseup", stopScrolling);
+upButton.addEventListener("mouseleave", stopScrolling);
+
+// Mouse events for down button
+downButton.addEventListener("mousedown", (e) => {
+  e.preventDefault();
+  vibrate();
+  startScrolling("down");
+});
+downButton.addEventListener("mouseup", stopScrolling);
+downButton.addEventListener("mouseleave", stopScrolling);
+
+// Touch events for mobile support
+upButton.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  vibrate();
+  startScrolling("up");
+});
+upButton.addEventListener("touchend", (e) => {
+  e.preventDefault();
+  stopScrolling();
+});
+downButton.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  vibrate();
+  startScrolling("down");
+});
+downButton.addEventListener("touchend", (e) => {
+  e.preventDefault();
+  stopScrolling();
+});
+
+// Prevent context menu on long press
+upButton.addEventListener("contextmenu", (e) => e.preventDefault());
+downButton.addEventListener("contextmenu", (e) => e.preventDefault());
+
+// Add vibration to all other buttons
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all the button elements
+  const buttons = [
+    ...document.querySelectorAll('.k-up-top span'),
+    ...document.querySelectorAll('.k-up-bottom span'),
+    document.querySelector('.k-up-center-inner'),
+    document.querySelector('.k-up-center-left'),
+    document.querySelector('.k-up-center-right'),
+    document.querySelector('.k-up-left'),
+    document.querySelector('.k-up-right')
+  ].filter(Boolean); // Remove any null elements
+
+  // Add vibration to each button
+  buttons.forEach(button => {
+    // For mouse/click events
+    button.addEventListener('mousedown', () => {
+      vibrate();
     });
-    upButton.addEventListener('mouseup', stopScrolling);
-    upButton.addEventListener('mouseleave', stopScrolling);
-    // Mouse events for down button
-    downButton.addEventListener('mousedown', (e) => {
-      e.preventDefault();
-      startScrolling('down');
+    
+    // For touch events
+    button.addEventListener('touchstart', (e) => {
+      vibrate();
     });
-    downButton.addEventListener('mouseup', stopScrolling);
-    downButton.addEventListener('mouseleave', stopScrolling);
-    // Touch events for mobile support
-    upButton.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      startScrolling('up');
-    });
-    upButton.addEventListener('touchend', (e) => {
-      e.preventDefault();
-      stopScrolling();
-    });
-    downButton.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      startScrolling('down');
-    });
-    downButton.addEventListener('touchend', (e) => {
-      e.preventDefault();
-      stopScrolling();
-    });
-    // Prevent context menu on long press
-    upButton.addEventListener('contextmenu', (e) => e.preventDefault());
-    downButton.addEventListener('contextmenu', (e) => e.preventDefault());
-  </script>
+  });
+});
+</script>
 </body>
 
 </html>
