@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.5>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="">
   <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,8 +22,7 @@
   position: relative;
   -webkit-tap-highlight-color: transparent;
   background-color: #080808;
-
-  height:calc(100vh - 20px);
+  height: calc(100vh - 20px);
   padding: 10px;
   display: flex;
   align-items: center;
@@ -40,7 +39,7 @@
   bottom: 0;
   z-index: 1111;
   display: flex;
-  xdisplay:none;
+  xdisplay: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -66,13 +65,10 @@
   bottom: 0;
   opacity: 0.02;
   pointer-events: none;
-
   background-position: center;
   background-image: url("");
-
   filter: grayscale(0.5);
   webkit-filter: grayscale(0.5);
-
   background: linear-gradient(
     0deg,
     rgba(255, 0, 0, 1) 0%,
@@ -86,7 +82,6 @@
     rgba(214, 0, 255, 1) 89%,
     rgba(255, 0, 0, 1) 100%
   );
-
   background-size: 20px 60px;
   background-repeat: repeat;
 }
@@ -168,8 +163,9 @@
   max-width: 166px;
   overflow: hidden;
   background-color: #191919;
-  margin:0 0 57px;
-  sbox-shadow:0 0 20px #161616;
+  margin: 0 0 57px;
+  sbox-shadow: 0 0 20px #161616;
+  pointer-events: none;
 }
 .text {
   color: orange;
@@ -177,9 +173,10 @@
   height: 199px;
   padding: 20px;
   overflow: auto;
-  overflow: hidden;
+  overflow: none;
   scrollbar-width: none;
 }
+
 .typing {
   display: inline-block;
   width: 10px;
@@ -194,19 +191,24 @@
   0% {
     opacity: 0;
   }
+
   1% {
     opacity: 1;
   }
+
   60% {
     opacity: 1;
   }
+
   61% {
     opacity: 0;
   }
+
   100% {
     opacity: 0;
   }
 }
+
 .tit {
   color: #111;
   background-color: orange;
@@ -218,237 +220,241 @@
   webkit-filter: brightness(0.75);
 }
 
-.keyboard-up{
-  margin:0 0 40px;
-  color:#aaa;
-  position:relative;
-  border:1px #000 solid;
+.keyboard-up {
+  color: #aaa;
+  position: relative;
+  border: 1px #000 solid;
   min-width: 166px;
   max-width: 166px;
   height: 98px;
-  border-radius:12px;
+  border-radius: 12px;
   background-color: #111;
-  box-shadow:inset 0 -1px 1px rgba(255,255,255,0.1), 0 -1px 2px rgba(255,255,255,0.1);
-  overflow:hidden;
+  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.1),
+    0 -1px 2px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
   cursor: pointer;
 }
 
-.k-up-top{
-  position:absolute;
-  z-index:50;
-  top:-5px;
-  left:-5px;
-  right:-5px;
-  height:calc(50% + 1px);
-  padding:5px 5px 0;
-  border-bottom:1px #000 solid;
-  box-shadow:inset 0 -1px 3px #333;
+.k-up-top {
+  position: absolute;
+  z-index: 50;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  height: calc(50% + 1px);
+  padding: 5px 5px 0;
+  border-bottom: 1px #000 solid;
+  box-shadow: inset 0 -1px 3px #333;
   display: flex;
   align-items: top;
   justify-content: space-between;
   flex-direction: row;
 }
-.k-up-top span{
-  sborder:1px red solid;
-  font-size:18px;
-  height:70%;
-  width:45px;
-  
+.k-up-top span {
+  sborder: 1px red solid;
+  font-size: 18px;
+  height: 70%;
+  width: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
 }
-.k-up-top span:active{
-  color:#999;
+.k-up-top span:active {
+  color: #999;
   transform: scale(0.985);
 }
 
-.k-up-bottom{
-  position:absolute;
-  z-index:50;
-  bottom:-5px;
-  left:-5px;
-  right:-5px;
-  height:calc(50% + 1px);
-  padding:0 5px 5px;
+.k-up-bottom {
+  position: absolute;
+  z-index: 50;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+  height: calc(50% + 1px);
+  padding: 0 5px 5px;
   display: flex;
   align-items: end;
   justify-content: space-between;
   flex-direction: row;
 }
-.k-up-bottom span{
-  sborder:1px red solid;
-  font-size:16px;
-  height:70%;
-  width:45px;
-  
+.k-up-bottom span {
+  sborder: 1px red solid;
+  font-size: 16px;
+  height: 70%;
+  width: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
 }
-.k-up-bottom span:active{
-  color:#999;
+.k-up-bottom span:active {
+  color: #999;
   transform: scale(0.97);
 }
 
-.k-up-center{
-  position:relative;
-  z-index:100;
+.k-up-center {
+  position: relative;
+  z-index: 100;
   min-width: 77px;
   max-width: 77px;
   height: 77px;
-  margin:10px auto 10px;
-  overflow:hidden;
-  border:1px #000 solid;
-  border-radius:22%;
-  box-shadow:0 0 2px #000, 0 0 2px #000,0 0 2px #000, 0 0 2px #000, 0 0 2px #666, 1px -1px 2px rgba(255,255,255,0.3), 0 0 4px #070707, 0 0 4px #070707, 0 0 4px #070707;
-  background-color:#111;
+  margin: 10px auto 10px;
+  overflow: hidden;
+  border: 1px #000 solid;
+  border-radius: 22%;
+  box-shadow: 0 0 2px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000,
+    0 0 2px #666, 1px -1px 2px rgba(255, 255, 255, 0.3), 0 0 4px #070707,
+    0 0 4px #070707, 0 0 4px #070707;
+  background-color: #111;
 }
-.k-up-center:before{
-  content:"";
-  position:absolute;
-  top:-10px;
-  left:35px;
-  bottom:-10px;
+.k-up-center:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 35px;
+  bottom: -10px;
   transform: rotate(45deg);
   transform-origin: center;
-  width:5px;
+  width: 5px;
   background-color: #444;
   filter: blur(5px);
 }
-.k-up-center-inner{
-  position:relative;
+.k-up-center-inner {
+  position: relative;
   min-width: 49px;
   max-width: 49px;
   height: 49px;
-  margin:12px auto 12px;
-  
-  border:1px #000 solid;
-  border-radius:22%;
-  box-shadow:0 0 2px #000, 0 0 2px #000,0 0 2px #000, 0 0 2px #000, 0 0 2px #666, 1px -1px 2px rgba(255,255,255,0.3), 0 0 4px #070707, 0 0 4px #070707, 0 0 4px #070707, inset 1px -1px 1px rgba(255,255,255,0.05), inset -1px 1px 1px rgba(0,0,0,0.4);
-  background-color:#111;
+  margin: 12px auto 12px;
+  border: 1px #000 solid;
+  border-radius: 22%;
+  box-shadow: 0 0 2px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000,
+    0 0 2px #666, 1px -1px 2px rgba(255, 255, 255, 0.3), 0 0 4px #070707,
+    0 0 4px #070707, 0 0 4px #070707,
+    inset 1px -1px 1px rgba(255, 255, 255, 0.05),
+    inset -1px 1px 1px rgba(0, 0, 0, 0.4);
+  background-color: #111;
 }
-.k-up-center-inner:active{
+.k-up-center-inner:active {
   transform: scale(0.98);
 }
 
-.k-up-center-up{
-  position:absolute;
-  top:0;
-  left:10px;
-  right:10px;
+.k-up-center-up {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  right: 10px;
   height: 14px;
-  aborder:1px red solid;
+  aborder: 1px red solid;
+  cursor: pointer;
 }
-.k-up-center-down{
-  position:absolute;
-  bottom:0;
-  left:10px;
-  right:10px;
+.k-up-center-down {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
   height: 14px;
-  aborder:1px red solid;
+  aborder: 1px red solid;
+  cursor: pointer;
 }
-.k-up-center-left{
-  position:absolute;
-  left:0;
-  top:10px;
-  bottom:10px;
+.k-up-center-left {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
   width: 14px;
-  aborder:1px red solid;
+  aborder: 1px red solid;
 }
-.k-up-center-right{
-  position:absolute;
-  right:0;
-  top:10px;
-  bottom:10px;
+.k-up-center-right {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  bottom: 10px;
   width: 14px;
-  aborder:1px red solid;
-}
-.k-up-center-up:active,
-.k-up-center-down:active{
-  left:18px;
-  right:18px;
-  background-color: #080808;
-  filter:blur(15px);
-}
-.k-up-center-left:active,
-.k-up-center-right:active{
-  top:18px;
-  bottom:18px;
-  background-color: #080808;
-  filter:blur(15px);
+  aborder: 1px red solid;
 }
 
-.k-up-left{
-  position:absolute;
-  left:0;
-  top:34%;
-  z-index:80;
+.k-up-center-up:active,
+.k-up-center-down:active {
+  left: 18px;
+  right: 18px;
+  background-color: #080808;
+  filter: blur(15px);
+}
+.k-up-center-left:active,
+.k-up-center-right:active {
+  top: 18px;
+  bottom: 18px;
+  background-color: #080808;
+  filter: blur(15px);
+}
+
+.k-up-left {
+  position: absolute;
+  left: 0;
+  top: 34%;
+  z-index: 80;
   background-color: #111;
-  aborder:1px #fff solid;
-  border-top-right-radius:24%;
-  border-bottom-right-radius:24%;
-  height:30%;
-  width:20%;
+  aborder: 1px #fff solid;
+  border-top-right-radius: 24%;
+  border-bottom-right-radius: 24%;
+  height: 30%;
+  width: 20%;
   box-shadow: inset -1px 1px 2px #000, 0 0 4px #444;
-  
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  font-size:14px;
+  font-size: 14px;
 }
-.k-up-left:before{
-  content:"";
-  position:absolute;
-  z-index:-1;
-  right:5px;
-  left:0;
-  bottom:-3px;
-  height:1.5px;
+.k-up-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: 5px;
+  left: 0;
+  bottom: -3px;
+  height: 1.5px;
   background-color: #000;
   filter: blur(1px);
 }
-.k-up-left:active{
-  color:#999;
+.k-up-left:active {
+  color: #999;
   transform: scale(0.98);
   transform-origin: center left;
 }
 
-.k-up-right{
-  position:absolute;
-  right:0;
-  top:34%;
-  z-index:80;
+.k-up-right {
+  position: absolute;
+  right: 0;
+  top: 34%;
+  z-index: 80;
   background-color: #111;
-  aborder:1px #fff solid;
-  border-top-left-radius:24%;
-  border-bottom-left-radius:24%;
-  height:30%;
-  width:20%;
+  aborder: 1px #fff solid;
+  border-top-left-radius: 24%;
+  border-bottom-left-radius: 24%;
+  height: 30%;
+  width: 20%;
   box-shadow: inset 1px 1px 2px #000, 0 0 4px #444;
-  
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  font-size:14px;
+  font-size: 14px;
 }
-.k-up-right:before{
-  content:"";
-  position:absolute;
-  z-index:-1;
-  left:5px;
-  right:0;
-  bottom:-3px;
-  height:1.5px;
+.k-up-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 5px;
+  right: 0;
+  bottom: -3px;
+  height: 1.5px;
   background-color: #000;
   filter: blur(1px);
 }
-.k-up-right:active{
-  color:#999;
+.k-up-right:active {
+  color: #999;
   transform: scale(0.98);
   transform-origin: center right;
 }
@@ -549,7 +555,7 @@
       <div class="k-up-center-down"></div>
       <div class="k-up-center-left"></div>
       <div class="k-up-center-right"></div>
-      
+
       <div class="k-up-center-inner"></div>
     </div>
 
@@ -561,12 +567,14 @@
     </div>
   </div>
 
-  <script>    
+  <script>
+    
     // Scroll functionality
     const textElement = document.querySelector('.text');
     const upButton = document.querySelector('.k-up-center-up');
     const downButton = document.querySelector('.k-up-center-down');
-    
+    let scrollInterval = null;
+    let scrollSpeed = 1;
     // Calculate line height
     function getLineHeight() {
       const computedStyle = window.getComputedStyle(textElement);
@@ -578,19 +586,84 @@
       }
       return parseFloat(lineHeight);
     }
-    
-    // Scroll down (text moves down, showing earlier content)
-    upButton.addEventListener('click', function() {
+    // Scroll functions
+    function scrollUp() {
       const lineHeight = getLineHeight();
-      textElement.scrollTop = Math.max(0, textElement.scrollTop - lineHeight);
-    });
-    
-    // Scroll up (text moves up, showing later content)
-    downButton.addEventListener('click', function() {
+      textElement.scrollTop = Math.max(0, textElement.scrollTop - lineHeight * scrollSpeed);
+    }
+
+    function scrollDown() {
       const lineHeight = getLineHeight();
       const maxScroll = textElement.scrollHeight - textElement.clientHeight;
-      textElement.scrollTop = Math.min(maxScroll, textElement.scrollTop + lineHeight);
+      textElement.scrollTop = Math.min(maxScroll, textElement.scrollTop + lineHeight * scrollSpeed);
+    }
+    // Start continuous scrolling
+    function startScrolling(direction) {
+      if (scrollInterval) return; // Prevent multiple intervals
+      scrollSpeed = 1;
+      let accelerationCounter = 0;
+      // Initial scroll
+      if (direction === 'up') {
+        scrollUp();
+      } else {
+        scrollDown();
+      }
+      // Start interval for continuous scrolling
+      scrollInterval = setInterval(() => {
+        if (direction === 'up') {
+          scrollUp();
+        } else {
+          scrollDown();
+        }
+        // Gradually increase speed after some time
+        accelerationCounter++;
+        if (accelerationCounter > 5 && scrollSpeed < 3) {
+          scrollSpeed += 0.5;
+        }
+      }, 150); // Initial delay between scrolls
+    }
+    // Stop continuous scrolling
+    function stopScrolling() {
+      if (scrollInterval) {
+        clearInterval(scrollInterval);
+        scrollInterval = null;
+        scrollSpeed = 1;
+      }
+    }
+    // Mouse events for up button
+    upButton.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      startScrolling('up');
     });
+    upButton.addEventListener('mouseup', stopScrolling);
+    upButton.addEventListener('mouseleave', stopScrolling);
+    // Mouse events for down button
+    downButton.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      startScrolling('down');
+    });
+    downButton.addEventListener('mouseup', stopScrolling);
+    downButton.addEventListener('mouseleave', stopScrolling);
+    // Touch events for mobile support
+    upButton.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      startScrolling('up');
+    });
+    upButton.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      stopScrolling();
+    });
+    downButton.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      startScrolling('down');
+    });
+    downButton.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      stopScrolling();
+    });
+    // Prevent context menu on long press
+    upButton.addEventListener('contextmenu', (e) => e.preventDefault());
+    downButton.addEventListener('contextmenu', (e) => e.preventDefault());
   </script>
 </body>
 
