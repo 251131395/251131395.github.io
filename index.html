@@ -11,260 +11,316 @@
   <title>???</title>
   
   <style>
+    :root {
+      --bg-color: #fff;
+      --text-color: #202124;
+      --text-secondary: #3c4043;
+      --text-muted: #70757a;
+      --border-color: rgba(223, 225, 229, 1);
+      --border-hover: rgba(223, 225, 229, 0.5);
+      --search-bg: #fff;
+      --button-bg: #f6f6f6;
+      --button-border: #fff;
+      --button-hover-border: #dadce0;
+      --dropdown-bg: #fff;
+      --dropdown-hover: #eee;
+      --shadow: rgba(32, 33, 36, 0.2);
+      --shadow-light: rgba(32, 33, 36, 0.15);
+      --shadow-dropdown: rgba(32, 33, 36, 0.2);
+      --eye-bg: #fff;
+    }
+
+    .dark {
+      --bg-color: #181818;
+      --text-color: #e8eaed;
+      --text-secondary: #bdc1c6;
+      --text-muted: #9aa0a6;
+      --border-color: rgba(95, 99, 104, 0.7);
+      --border-hover: rgba(95, 99, 104, 0.5);
+      --search-bg: #303134;
+      --button-bg: #303134;
+      --button-border: #303134;
+      --button-hover-border: #5f6368;
+      --dropdown-bg: #303134;
+      --dropdown-hover: #3c4043;
+      --shadow: rgba(0, 0, 0, 0.3);
+      --shadow-light: rgba(0, 0, 0, 0.2);
+      --shadow-dropdown: rgba(0, 0, 0, 0.3);
+      --eye-bg: #303134;
+    }
+
     body {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  margin: 0;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  background-color: #fff;
-}
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-.filter {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 888;
-  animation: distort 20s ease-in infinite;
-  pointer-events: none;
-  opacity: 0.7;
-}
-@keyframes distort {
-  0% {
-    backdrop-filter: invert(0.2) opacity(0.2) hue-rotate(90deg) saturate(7)
-      brightness(3);
-    -webkit-backdrop-filter: invert(0.2) opacity(0.2) hue-rotate(90deg)
-      saturate(7) brightness(3);
-  }
-  10% {
-    backdrop-filter: opacity(0.2) hue-rotate(90deg) saturate(5) brightness(0.8);
-    -webkit-backdrop-filter: opacity(0.2) hue-rotate(90deg) saturate(5)
-      brightness(0.8);
-  }
-  50% {
-    backdrop-filter: opacity(0.2) saturate(10) brightness(2);
-    -webkit-backdrop-filter: opacity(0.2) saturate(10) brightness(2);
-  }
-  60% {
-    backdrop-filter: invert(0.3) opacity(0.7) saturate(7) brightness(0.2);
-    -webkit-backdrop-filter: invert(0.3) opacity(0.7) saturate(7)
-      brightness(0.2);
-  }
-  61% {
-    backdrop-filter: invert(0.3) opacity(0.2) hue-rotate(-20deg) saturate(2)
-      brightness(1);
-    -webkit-backdrop-filter: invert(0.3) opacity(0.2) hue-rotate(-20deg)
-      saturate(2) brightness(1);
-  }
-  65% {
-    backdrop-filter: opacity(0.5) saturate(1) brightness(3);
-    -webkit-backdrop-filter: opacity(0.5) saturate(1) brightness(3);
-  }
-  100% {
-    backdrop-filter: invert(0.2) opacity(0.2) hue-rotate(90deg) saturate(7)
-      brightness(3);
-    -webkit-backdrop-filter: invert(0.2) opacity(0.2) hue-rotate(90deg)
-      saturate(7) brightness(3);
-  }
-}
+    .filter {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 888;
+      animation: distort 20s ease-in infinite;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    @keyframes distort {
+      0% {
+        backdrop-filter: invert(0.2) opacity(0.2) hue-rotate(90deg) saturate(7) brightness(3);
+        -webkit-backdrop-filter: invert(0.2) opacity(0.2) hue-rotate(90deg) saturate(7) brightness(3);
+      }
 
-.shell {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 20px;
-}
+      10% {
+        backdrop-filter: opacity(0.2) hue-rotate(90deg) saturate(5) brightness(0.8);
+        -webkit-backdrop-filter: opacity(0.2) hue-rotate(90deg) saturate(5) brightness(0.8);
+      }
 
-.logo {
-  margin: -60px 0 0;
-  margin-bottom: 20px;
-  position: relative;
-  z-index: 10;
-}
-.logo img {
-  width: 350px;
-  height: auto;
-}
+      50% {
+        backdrop-filter: opacity(0.2) saturate(10) brightness(2);
+        -webkit-backdrop-filter: opacity(0.2) saturate(10) brightness(2);
+      }
 
-.search-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 600px;
-  aborder: 1px blue solid;
-}
-.search-box-wrapper {
-  width: 100%;
-  position: relative;
-  aborder: 1px red solid;
-}
-#search {
-  display: bock;
-  padding: 0 9px 0;
-  font-size: 14px;
-  color: #555;
-}
-#mic-n-cam {
-  display: bock;
-  margin: 0 12px 0;
-  font-size: 15px;
-  color: #555;
-  cursor: pointer;
-  position: relative;
-}
-#eye {
-  display: bock;
-  position: absolute;
-  top: 0;
-  left: -1px;
-  background-color: #fff;
-  z-index: 888;
-  animation: eye 20s infinite;
-}
-@keyframes eye {
-  0% {
-    display: none;
-  }
-  49% {
-    display: none;
-  }
-  50% {
-    display: block;
-  }
-  51% {
-    display: block;
-  }
-  50% {
-    display: none;
-  }
-  100% {
-    display: none;
-  }
-}
-.search-box {
-  display: flex;
-  align-items: center;
-  border: 1px solid rgba(223, 225, 229, 1);
-  border-radius: 24px;
-  padding: 13px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(32, 33, 36, 0.2);
-  transition: box-shadow 0.2s ease-in-out;
-  overflow: hidden;
-  cursor: text;
-}
-.search-box:hover {
-  border: 1px solid rgba(223, 225, 229, 0.5);
-}
-.search-box:focus-within {
-  border: 1px solid rgba(223, 225, 229, 0.5);
-  box-shadow: 0 2px 5px rgba(32, 33, 36, 0.15);
-  border-radius: 0;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
-}
-.search-box input {
-  flex: 1;
-  width: 100%;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  color: #202124;
-}
-.search-box button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #70757a;
-  font-size: 16px;
-}
-.search-buttons {
-  margin-top: 30px;
-  display: flex;
-  gap: 10px;
-}
-.search-buttons button {
-  padding: 10px 20px;
-  font-size: 15px;
-  color: #3c4043;
-  background-color: #f6f6f6;
-  border: 1px solid #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-.search-buttons button:hover {
-  border: 1px solid #dadce0;
-  box-shadow: 0 1px 1px rgba(32, 33, 36, 0.1);
-}
+      60% {
+        backdrop-filter: invert(0.3) opacity(0.7) saturate(7) brightness(0.2);
+        -webkit-backdrop-filter: invert(0.3) opacity(0.7) saturate(7) brightness(0.2);
+      }
 
-.history-dropdown {
-  display: none;
-  position: absolute;
-  top: 42px;
-  left: 1px;
-  right: 1px;
-  background: #fff;
-  border: 1px rgba(0, 0, 0, 0) solid;
-  border-radius: 0;
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
-  box-shadow: 0 5px 5px rgba(32, 33, 36, 0.2);
-  z-index: 100;
-  overflow: hidden;
-}
-.history-dropdown ul {
-  list-style: none;
-  margin: 0;
-  padding: 10px 0;
-  padding-right: 20px;
-}
-.history-dropdown li {
-  postion: relative;
-  padding: 12px 15px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  border-top-right-radius: 24px;
-  border-bottom-right-radius: 24px;
-  cursor: pointer;
-  font-size: 16px;
-  color: #202124;
-}
-.history-dropdown li:hover {
-  background-color: #eee;
-  padding-right: 25px;
-}
-.history-dropdown li:hover:after {
-  color: #777;
-  content: "X";
-  position: absolute;
-  right: 36px;
-  transform: scale(1, 0.8);
-}
-.history-dropdown li i {
-  font-size: 12px;
-  margin-left: 4px;
-  margin-right: 18px;
-  color: #777;
-}
-.search-box:focus-within + .history-dropdown {
-  display: block;
-}
+      61% {
+        backdrop-filter: invert(0.3) opacity(0.2) hue-rotate(-20deg) saturate(2) brightness(1);
+        -webkit-backdrop-filter: invert(0.3) opacity(0.2) hue-rotate(-20deg) saturate(2) brightness(1);
+      }
 
+      65% {
+        backdrop-filter: opacity(0.5) saturate(1) brightness(3);
+        -webkit-backdrop-filter: opacity(0.5) saturate(1) brightness(3);
+      }
+
+      100% {
+        backdrop-filter: invert(0.2) opacity(0.2) hue-rotate(90deg) saturate(7) brightness(3);
+        -webkit-backdrop-filter: invert(0.2) opacity(0.2) hue-rotate(90deg) saturate(7) brightness(3);
+      }
+    }
+
+    .shell {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 20px;
+    }
+
+    .logo {
+      margin: -60px 0 0;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 10;
+    }
+    .logo img {
+      width: 350px;
+      height: auto;
+      transition: filter 0.3s ease;
+    }
+    .dark .logo img {
+      filter: invert(0.91) hue-rotate(180deg);
+    }
+
+    .search-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+      aborder: 1px blue solid;
+      border-radius: 24px;
+    }
+    .search-box-wrapper {
+      width: 100%;
+      position: relative;
+      aborder: 1px red solid;
+    }
+    #search {
+      display: bock;
+      padding: 0 9px 0;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .mic-n-cam {
+      display: bock;
+      margin: 0 12px 0;
+      font-size: 15px;
+      color: var(--text-muted);
+      cursor: pointer;
+      position: relative;
+    }
+    #eye {
+      display: bock;
+      position: absolute;
+      top: 0;
+      left: -1px;
+      background-color: var(--eye-bg);
+      z-index: 888;
+      animation: eye 20s infinite;
+    }
+    @keyframes eye {
+      0% {
+        display: none;
+      }
+
+      49% {
+        display: none;
+      }
+
+      50% {
+        display: block;
+      }
+
+      51% {
+        display: block;
+      }
+
+      50% {
+        display: none;
+      }
+
+      100% {
+        display: none;
+      }
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 13px;
+      background-color: var(--search-bg);
+      box-shadow: 0 2px 5px var(--shadow);
+      transition: box-shadow 0.2s ease-in-out, border-color 0.3s ease, background-color 0.3s ease;
+      overflow: hidden;
+      cursor: text;
+    }
+    .search-box:hover {
+      border: 1px solid var(--border-hover);
+    }
+    .search-box:focus-within {
+      border: 1px solid var(--border-hover);
+      box-shadow: 0 2px 5px var(--shadow-light);
+      border-radius: 0;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+    }
+    .search-box input {
+      flex: 1;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      color: var(--text-color);
+      background-color: transparent;
+    }
+    .search-box input::placeholder {
+      color: var(--text-muted);
+    }
+    .search-box button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    .search-buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 10px;
+    }
+    .search-buttons button {
+      padding: 10px 20px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      background-color: var(--button-bg);
+      border: 1px solid var(--button-border);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out, border-color 0.3s ease, color 0.3s ease;
+    }
+    .search-buttons button:hover {
+      border: 1px solid var(--button-hover-border);
+      box-shadow: 0 1px 1px var(--shadow);
+    }
+
+    .history-dropdown {
+      display: none;
+      position: absolute;
+      top: 42px;
+      left: 0;
+      right: 0;
+      background: var(--dropdown-bg);
+      border: 1px rgba(0, 0, 0, 0) solid;
+      border-radius: 0;
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+      box-shadow: 0 5px 5px var(--shadow-dropdown);
+      z-index: 100;
+      overflow: hidden;
+      transition: background-color 0.3s ease;
+    }
+    .history-dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 10px 0;
+      padding-right: 20px;
+    }
+    .history-dropdown li {
+      postion: relative;
+      padding: 12px 15px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      border-top-right-radius: 24px;
+      border-bottom-right-radius: 24px;
+      cursor: pointer;
+      font-size: 16px;
+      color: var(--text-color);
+      transition: background-color 0.2s ease, color 0.3s ease;
+    }
+    .history-dropdown li:hover {
+      background-color: var(--dropdown-hover);
+      padding-right: 25px;
+    }
+    .history-dropdown li:hover:after {
+      color: var(--text-muted);
+      content: "X";
+      position: absolute;
+      right: 36px;
+      transform: scale(1, 0.8);
+    }
+    .history-dropdown li i {
+      font-size: 12px;
+      margin-left: 4px;
+      margin-right: 18px;
+      color: var(--text-muted);
+    }
+
+    .search-box:focus-within+.history-dropdown {
+      display: block;
+    }
   </style>
 </head>
 
@@ -280,8 +336,8 @@
         <div class="search-box" tabindex="0">
           <i id="search" class="fa-solid fa-magnifying-glass"></i>
           <input type="text" id="search-input" placeholder="搜尋 ▒◙◙▄▐¿ 或輸入網址" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-          <i id="mic-n-cam" style="font-size:17px" class="fa-solid fa-microphone"></i>
-          <i id="mic-n-cam" class="fa-solid fa-camera"><i id="eye" class="fa-solid fa-eye"></i></i>
+          <i class="mic-n-cam fa-solid fa-microphone" style="font-size:17px"></i>
+          <i class="mic-n-cam fa-solid fa-camera"><i id="eye" class="fa-solid fa-eye"></i></i>
         </div>
         <div class="history-dropdown">
           <ul>
@@ -305,6 +361,17 @@
   </div>
 
   <script>
+    // Dark mode detection
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+      if (event.matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    });
     const searchInput = document.getElementById('search-input');
     searchInput.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
