@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>電子手帳素材站</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="" rel="shortcut icon" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#5D5CDE'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    header button span {
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  #scrollLeft,
+  #scrollRight {
+    display: none;
+  }
+  #categoryContainer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.sticker-item {
+  cursor: pointer;
+}
+
+.category-chip {
+  padding: 5px 10px 5px;
+  margin-right: 3px;
+  border-radius: 8px;
+  background-color: #eee;
+  font-weight: bold;
+}
+.dark .category-chip {
+  background-color: #222;
+  color: #fff;
+}
+.category-chip.active {
+  background-color: #000;
+  color: #fff;
+  transform: scale(1.05);
+}
+.dark .category-chip.active {
+  background-color: #fff;
+  color: #000;
+  transform: scale(1.05);
+}
+
+.slider-container {
+  position: relative;
+}
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: #ddd;
+  outline: none;
+  transition: background 0.3s;
+}
+.dark .slider {
+  background: #444;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #666;
+  cursor: pointer;
+  border: none;
+}
+
+.loading-spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #5d5cde;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.canvas-shell {
+  position: sticky;
+  top: 0;
+  margin: -16px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+canvas {
+  position: sticky;
+  top: 0;
+  width: auto;
+  height: 40vh;
+}
+
+#editorTitle {
+    padding:0 16px 0;
+  z-index:60;
+  }
+
+@media (min-width: 640px) {
+  .canvas-shell {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+  canvas {
+    width: 100%;
+    height: auto;
+  }
+
+  #editorTitle {
+    position: fixed;
+    top: 16px;
+    left: 40px;
+    padding:0 16px 0;
+    width:calc(100% - 50px);
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+#categoryContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.tag-chip {
+  display: inline-block;
+  background-color: #e5e7eb;
+  color: #374151;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-right: 4px;
+  margin-bottom: 2px;
+}
+.dark .tag-chip {
+  background-color: #4b5563;
+  color: #d1d5db;
+}
+
+  </style>
+</head>
+
+<body class="bg-white dark:bg-black">
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto pt-0 pr-4 pb-4 pl-4">
+    <!-- Home Page -->
+    <div id="homePage">
+      <!-- Category Filter -->
+      <section class="mb-8 sticky top-0 bg-white dark:bg-black z-50 my-0 mx-[-16px] ">
+        <!-- Header -->
+        <header class="z-50 py-2 px-5 -mb-3" style="aborder:1px red solid;">
+          <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold text-gray-800 dark:text-white">
+              貼紙簿！
+            </h1>
+            <button id="themeToggle" class="p-1 rounded-lg text-gray-700 dark:text-gray-300 transition-colors">
+              <span class="dark:hidden"><i class="fa-solid fa-moon"></i></span>
+              <span class="hidden dark:inline"><i class="fa-solid fa-sun"></i></span>
+            </button>
+          </div>
+        </header>
+
+        <div class="relative flex items-center">
+          <button id="scrollLeft" class="absolute left-2 z-10 w-8 h-8 bg-white dark:bg-black shadow-md rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+            <i class="fa-solid fa-chevron-left text-sm"></i>
+          </button>
+          <div id="categoryContainer" class="overflow-hidden whitespace-nowrap py-2 px-12" style="scrollbar-width: none; -ms-overflow-style: none;">
+            <button class="category-chip active text-sm text-gray-000 dark:text-white" data-category="all">
+              全部
+            </button>
+            <button class="category-chip text-sm text-gray-000 dark:text-white" data-category="geometric">
+              貼紙
+            </button>
+            <button class="category-chip text-sm text-gray-000 dark:text-white" data-category="memo">
+              便條紙
+            </button>
+            <button class="category-chip text-sm text-gray-000 dark:text-white" data-category="recent">
+              最近上載
+            </button>
+            <button class="category-chip text-sm text-gray-000 dark:text-white" data-category="recommended">
+              新推薦
+            </button>
+          </div>
+          <button id="scrollRight" class="absolute right-2 z-10 w-8 h-8 bg-white dark:bg-black shadow-md rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+            <i class="fa-solid fa-chevron-right text-sm"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- Stickers Grid -->
+      <section>
+        <div id="stickersGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+          <!-- Stickers will be loaded here -->
+          
+        </div>
+      </section>
+    </div>
+
+    <!-- Editor Page -->
+    <div id="editorPage" class="hidden bg-white dark:bg-black -m-4 p-4">
+      <div class="mb-4">
+        <button id="backBtn" class="text-xl p-0 pl-1 text-gray-700 dark:text-gray-300 fixed top-4 z-50">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-8 align-top ">
+        <!-- Preview Section -->
+        <div class="canvas-shell bg-white dark:bg-[#333]">
+          <h2 id="editorTitle" class="text-xl font-bold text-gray-800 dark:text-white"></h2>
+          <canvas id="previewCanvas" class="pointer-events-none z-40"></canvas>
+        </div>
+        <div>
+          <!-- Controls Section -->
+          <div class="space-y-6">
+            <div class="p-6">
+              <button id="resetBtn-top" class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 float-right p-1 rounded transition-colors" title="重置參數">
+                <i class="fa-solid fa-rotate-left"></i>
+              </button>
+              <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">調整參數</h3>
+
+              <!-- Hue -->
+              <div class="mb-4">
+                <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">色調</label>
+                <input type="range" id="hueSlider" class="slider w-full" min="0" max="360" value="0">
+                <span id="hueValue" class="text-sm text-gray-600 dark:text-gray-400">0°</span>
+              </div>
+
+              <!-- Saturation -->
+              <div class="mb-4">
+                <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">飽和度</label>
+                <input type="range" id="saturationSlider" class="slider w-full" min="0" max="200" value="100">
+                <span id="saturationValue" class="text-sm text-gray-600 dark:text-gray-400">100%</span>
+              </div>
+
+              <!-- Brightness -->
+              <div class="mb-4">
+                <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">亮度</label>
+                <input type="range" id="brightnessSlider" class="slider w-full" min="0" max="200" value="100">
+                <span id="brightnessValue" class="text-sm text-gray-600 dark:text-gray-400">100%</span>
+              </div>
+
+              <!-- Contrast -->
+              <div class="mb-4">
+                <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">對比度</label>
+                <input type="range" id="contrastSlider" class="slider w-full" min="0" max="200" value="100">
+                <span id="contrastValue" class="text-sm text-gray-600 dark:text-gray-400">100%</span>
+              </div>
+            </div>
+
+            <!-- Drop Shadow Controls -->
+            <div class="p-6">
+              <button id="resetBtn-bottom" class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 float-right p-1 rounded transition-colors" title="重置陰影">
+                <i class="fa-solid fa-rotate-left"></i>
+              </button>
+              <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">陰影效果</h3>
+
+              <!-- Shadow X -->
+              <div class="mb-4">
+                <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">水平偏移</label>
+                <input type="range" id="shadowXSlider" class="slider w-full" min="-20" max="20" value="5">
+                <span id="shadowXValue" class="text-sm text-gray-600 dark:text-gray-400">0px</span>
+              </div>
+
+              <!-- Shadow Y -->
+              <div class="mb-4">
+                <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">垂直偏移</label>
+                <input type="range" id="shadowYSlider" class="slider w-full" min="-20" max="20" value="5">
+                <span id="shadowYValue" class="text-sm text-gray-600 dark:text-gray-400">0px</span>
+              </div>
+
+              <!-- Shadow Blur -->
+              <div class="mb-4">
+                <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">模糊程度</label>
+                <input type="range" id="shadowBlurSlider" class="slider w-full" min="0" max="30" value="10">
+                <span id="shadowBlurValue" class="text-sm text-gray-600 dark:text-gray-400">10px</span>
+              </div>
+
+              <!-- Shadow Opacity -->
+              <div class="mb-4">
+                <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">陰影透明度</label>
+                <input type="range" id="shadowOpacitySlider" class="slider w-full" min="0" max="100" value="50">
+                <span id="shadowOpacityValue" class="text-sm text-gray-600 dark:text-gray-400">50%</span>
+              </div>
+            </div>
+
+            <!-- Download Section -->
+            <div class="p-6">
+              <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">下載</h3>
+              <div class="flex gap-2">
+                <button id="resetBtn" class="flex-1 px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors">
+                  重置
+                </button>
+                <button id="downloadBtn" class="flex-1 px-4 py-2 bg-primary text-white rounded-lg hover:bg-purple-600 transition-colors">
+                  下載PNG
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <script>
+    // Theme management
+function initTheme() {
+  if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    document.documentElement.classList.add("dark");
+  }
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (event) => {
+      if (event.matches) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    });
+}
+// Sticker data
+const stickers = [
+  // Geometric shapes from provided image
+  {
+    id: 1,
+    url: "https://251131395.github.io/media/image/sticker.png",
+    name: "幾何素材1",
+    category: "geometric",
+    subcategory: "square",
+    tags: [
+      "y2k",
+      "幾何",
+      "簡約",
+      "幾何",
+      "簡約",
+      "簡約",
+      "幾何",
+      "簡約"
+    ],
+    date: "2025-06-10",
+    recommended: true
+  },
+  // Additional sticker
+  {
+    id: 2,
+    url: "https://251131395.github.io/media/image/sticker.png",
+    name: "裝飾貼紙",
+    category: "decorative",
+    subcategory: "cute",
+    tags: ["裝飾", "可愛", "花朵"],
+    date: "2005-01-11",
+    recommended: false
+  },
+  {
+    id: 3,
+    url: "https://251131395.github.io/media/image/sticker.png",
+    name: "水晶圖案",
+    category: "crystal",
+    subcategory: "gem",
+    tags: ["水晶", "寶石", "透明"],
+    date: "2015-01-10",
+    recommended: true
+  },
+  // Additional sticker
+  {
+    id: 4,
+    url: "https://251131395.github.io/media/image/sticker.png",
+    name: "漸層背景",
+    category: "gradient",
+    subcategory: "background",
+    tags: ["漸層", "背景", "彩色"],
+    date: "2025-01-09",
+    recommended: false
+  },
+  {
+    id: 5,
+    url: "https://251131395.github.io/media/image/sticker.png",
+    name: "幾何圓形",
+    category: "geometric",
+    subcategory: "circle",
+    tags: ["圓形", "幾何", "現代"],
+    date: "2025-01-08",
+    recommended: true
+  },
+  // Additional sticker
+  {
+    id: 6,
+    url: "https://251131395.github.io/media/image/sticker.png",
+    name: "星星裝飾",
+    category: "decorative",
+    subcategory: "star",
+    tags: ["星星", "裝飾", "閃亮"],
+    date: "2025-01-07",
+    recommended: false
+  },
+  {
+    id: 7,
+    url: "https://251131395.github.io/media/image/sticker.png",
+    name: "三角形組",
+    category: "geometric",
+    subcategory: "triangle",
+    tags: ["三角形", "抽象", "藝術"],
+    date: "2025-01-06",
+    recommended: true
+  },
+  // Additional sticker
+  {
+    id: 8,
+    url: "https://251131395.github.io/media/image/sticker.png",
+    name: "花邊框架",
+    category: "decorative",
+    subcategory: "frame",
+    tags: ["邊框", "花朵", "精緻"],
+    date: "2025-01-05",
+    recommended: false
+  }
+];
+let currentSticker = null;
+let currentImage = null;
+let canvas = null;
+let ctx = null;
+let filteredStickers = [...stickers];
+
+// Initialize app
+document.addEventListener("DOMContentLoaded", function () {
+  initTheme();
+  setupEventListeners();
+  loadStickers();
+});
+
+function setupEventListeners() {
+  // Theme toggle
+  document.getElementById("themeToggle").addEventListener("click", function () {
+    document.documentElement.classList.toggle("dark");
+  });
+  // Category filters
+  document.querySelectorAll(".category-chip").forEach((chip) => {
+    chip.addEventListener("click", function () {
+      document
+        .querySelectorAll(".category-chip")
+        .forEach((c) => c.classList.remove("active"));
+      this.classList.add("active");
+      filterStickers(this.dataset.category);
+    });
+  });
+  // Navigation
+  document.getElementById("backBtn").addEventListener("click", function () {
+    showHomePage();
+  });
+  // Category scroll buttons
+  document.getElementById("scrollLeft").addEventListener("click", function () {
+    const container = document.getElementById("categoryContainer");
+    container.scrollBy({
+      left: -150,
+      behavior: "smooth"
+    });
+  });
+  document.getElementById("scrollRight").addEventListener("click", function () {
+    const container = document.getElementById("categoryContainer");
+    container.scrollBy({
+      left: 150,
+      behavior: "smooth"
+    });
+  });
+  // Editor controls
+  setupEditorControls();
+}
+
+function loadStickers() {
+  const grid = document.getElementById("stickersGrid");
+  grid.innerHTML = "";
+  filteredStickers.forEach((sticker) => {
+    const stickerElement = createStickerElement(sticker);
+    grid.appendChild(stickerElement);
+  });
+}
+
+function createStickerElement(sticker) {
+  const div = document.createElement("div");
+  div.className = "sticker-item rounded-xl";
+  // Format date for display
+  const formatDate = (dateStr) => {
+    const date = new Date(dateStr);
+    const now = new Date();
+    const diffTime = Math.abs(now - date);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+    if (diffDays === 0) {
+      return "今天";
+    } else if (diffDays === 1) {
+      return "昨天";
+    } else if (diffDays < 7) {
+      return `${diffDays} 天前`;
+    } else if (diffDays < 30) {
+      const weeks = Math.floor(diffDays / 7);
+      return `${weeks} 週前`;
+    } else if (diffDays < 365) {
+      const months = Math.floor(diffDays / 30);
+      return `${months} 個月前`;
+    } else {
+      const years = Math.floor(diffDays / 365);
+      return `${years} 年前`;
+    }
+  };
+  // Create tags HTML
+  const tagsHtml = sticker.tags
+    .map((tag) => `<span class="tag-chip">#${tag}</span>`)
+    .join("");
+  div.innerHTML = `
+    <div class="aspect-square mb-2 overflow-hidden">
+      <img src="${sticker.url}" alt="${
+    sticker.name
+  }" class="w-full h-full object-contain">
+    </div>
+    <p class="text-base text-gray-700 dark:text-gray-300 text-left font-bold mb-1 overflow-hidden whitespace-nowrap text-ellipsis">${
+      sticker.name
+    }</p>
+    <div class="mb-2 overflow-hidden" style="max-height: 1.5rem;">
+      ${tagsHtml}
+    </div>
+    <p class="text-xs text-gray-500 dark:text-gray-400 text-left">${formatDate(
+      sticker.date
+    )}</p>
+  `;
+  div.addEventListener("click", function () {
+    openEditor(sticker);
+  });
+  return div;
+}
+
+function filterStickers(category) {
+  if (category === "all") {
+    filteredStickers = [...stickers];
+  } else if (category === "recent") {
+    // Sort by date (most recent first)
+    filteredStickers = [...stickers].sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
+  } else if (category === "recommended") {
+    // Show only recommended items
+    filteredStickers = stickers.filter((sticker) => sticker.recommended);
+  } else {
+    // Filter by category
+    filteredStickers = stickers.filter(
+      (sticker) => sticker.category === category
+    );
+  }
+
+  loadStickers();
+}
+
+function showHomePage() {
+  document.getElementById("homePage").classList.remove("hidden");
+  document.getElementById("editorPage").classList.add("hidden");
+}
+
+function openEditor(sticker) {
+  currentSticker = sticker;
+  document.getElementById("homePage").classList.add("hidden");
+  document.getElementById("editorPage").classList.remove("hidden");
+  // Update editor title
+  document.getElementById("editorTitle").textContent = sticker.name;
+  loadImageToEditor(sticker.url);
+}
+
+function loadImageToEditor(imageUrl) {
+  const img = new Image();
+  img.crossOrigin = "anonymous";
+  img.onload = function () {
+    currentImage = img;
+    canvas = document.getElementById("previewCanvas");
+    ctx = canvas.getContext("2d");
+    // Set canvas size
+    const maxSize = 1080;
+    const scale = Math.min(maxSize / img.width, maxSize / img.height);
+    canvas.width = img.width * scale;
+    canvas.height = img.height * scale;
+    resetEditor();
+    updatePreview();
+  };
+  img.onerror = function () {
+    console.error("Failed to load image:", imageUrl);
+    // Try loading without crossOrigin for fallback
+    const fallbackImg = new Image();
+    fallbackImg.onload = function () {
+      currentImage = fallbackImg;
+      canvas = document.getElementById("previewCanvas");
+      ctx = canvas.getContext("2d");
+      const maxSize = 1080;
+      const scale = Math.min(
+        maxSize / fallbackImg.width,
+        maxSize / fallbackImg.height
+      );
+      canvas.width = fallbackImg.width * scale;
+      canvas.height = fallbackImg.height * scale;
+      resetEditor();
+      updatePreview();
+    };
+    fallbackImg.src = imageUrl;
+  };
+  img.src = imageUrl;
+}
+
+function setupEditorControls() {
+  const controls = [
+    {
+      id: "hueSlider",
+      valueId: "hueValue",
+      suffix: "°"
+    },
+    {
+      id: "saturationSlider",
+      valueId: "saturationValue",
+      suffix: "%"
+    },
+    {
+      id: "brightnessSlider",
+      valueId: "brightnessValue",
+      suffix: "%"
+    },
+    {
+      id: "contrastSlider",
+      valueId: "contrastValue",
+      suffix: "%"
+    },
+    {
+      id: "shadowXSlider",
+      valueId: "shadowXValue",
+      suffix: "px"
+    },
+    {
+      id: "shadowYSlider",
+      valueId: "shadowYValue",
+      suffix: "px"
+    },
+    {
+      id: "shadowBlurSlider",
+      valueId: "shadowBlurValue",
+      suffix: "px"
+    },
+    {
+      id: "shadowOpacitySlider",
+      valueId: "shadowOpacityValue",
+      suffix: "%"
+    }
+  ];
+  controls.forEach((control) => {
+    const slider = document.getElementById(control.id);
+    const valueDisplay = document.getElementById(control.valueId);
+    slider.addEventListener("input", function () {
+      valueDisplay.textContent = this.value + control.suffix;
+      updatePreview();
+    });
+  });
+  document.getElementById("resetBtn").addEventListener("click", resetEditor);
+  document
+    .getElementById("resetBtn-top")
+    .addEventListener("click", resetColorAdjustments);
+  document
+    .getElementById("resetBtn-bottom")
+    .addEventListener("click", resetShadowEffects);
+  document
+    .getElementById("downloadBtn")
+    .addEventListener("click", downloadImage);
+}
+
+function updatePreview() {
+  if (!currentImage || !canvas || !ctx) return;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // Get values
+  const hue = document.getElementById("hueSlider").value;
+  const saturation = document.getElementById("saturationSlider").value;
+  const brightness = document.getElementById("brightnessSlider").value;
+  const contrast = document.getElementById("contrastSlider").value;
+  const shadowX = document.getElementById("shadowXSlider").value;
+  const shadowY = document.getElementById("shadowYSlider").value;
+  const shadowBlur = document.getElementById("shadowBlurSlider").value;
+  const shadowOpacity = document.getElementById("shadowOpacitySlider").value;
+  // Apply shadow
+  ctx.shadowColor = `rgba(0, 0, 0, ${shadowOpacity / 100})`;
+  ctx.shadowOffsetX = shadowX;
+  ctx.shadowOffsetY = shadowY;
+  ctx.shadowBlur = shadowBlur;
+  // Apply filters
+  ctx.filter = `
+                hue-rotate(${hue}deg)
+                saturate(${saturation}%)
+                brightness(${brightness}%)
+                contrast(${contrast}%)
+            `;
+  // Draw image
+  ctx.drawImage(currentImage, 0, 0, canvas.width, canvas.height);
+  // Reset shadow and filter
+  ctx.shadowColor = "transparent";
+  ctx.filter = "none";
+}
+
+function resetEditor() {
+  document.getElementById("hueSlider").value = 0;
+  document.getElementById("saturationSlider").value = 100;
+  document.getElementById("brightnessSlider").value = 100;
+  document.getElementById("contrastSlider").value = 100;
+  document.getElementById("shadowXSlider").value = 0;
+  document.getElementById("shadowYSlider").value = 0;
+  document.getElementById("shadowBlurSlider").value = 10;
+  document.getElementById("shadowOpacitySlider").value = 50;
+  // Update value displays
+  document.getElementById("hueValue").textContent = "0°";
+  document.getElementById("saturationValue").textContent = "100%";
+  document.getElementById("brightnessValue").textContent = "100%";
+  document.getElementById("contrastValue").textContent = "100%";
+  document.getElementById("shadowXValue").textContent = "0px";
+  document.getElementById("shadowYValue").textContent = "0px";
+  document.getElementById("shadowBlurValue").textContent = "10px";
+  document.getElementById("shadowOpacityValue").textContent = "50%";
+  updatePreview();
+}
+
+function resetColorAdjustments() {
+  // Reset only color adjustment parameters
+  document.getElementById("hueSlider").value = 0;
+  document.getElementById("saturationSlider").value = 100;
+  document.getElementById("brightnessSlider").value = 100;
+  document.getElementById("contrastSlider").value = 100;
+  // Update value displays
+  document.getElementById("hueValue").textContent = "0°";
+  document.getElementById("saturationValue").textContent = "100%";
+  document.getElementById("brightnessValue").textContent = "100%";
+  document.getElementById("contrastValue").textContent = "100%";
+  updatePreview();
+}
+
+function resetShadowEffects() {
+  // Reset only shadow effect parameters
+  document.getElementById("shadowXSlider").value = 0;
+  document.getElementById("shadowYSlider").value = 0;
+  document.getElementById("shadowBlurSlider").value = 10;
+  document.getElementById("shadowOpacitySlider").value = 50;
+  // Update value displays
+  document.getElementById("shadowXValue").textContent = "0px";
+  document.getElementById("shadowYValue").textContent = "0px";
+  document.getElementById("shadowBlurValue").textContent = "10px";
+  document.getElementById("shadowOpacityValue").textContent = "50%";
+  updatePreview();
+}
+
+function downloadImage() {
+  if (!canvas) return;
+  // Create download link
+  const link = document.createElement("a");
+  link.download = `sticker_${currentSticker.name}_${Date.now()}.png`;
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+}
+
+  </script>
+</body>
+
+</html>
