@@ -1,0 +1,563 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="">
+  <script src="https://kit.fontawesome.com/92e8f6cdc3.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="" rel="shortcut icon" />
+  <title>貼紙簿！ StickerPool!</title>
+
+  <style>
+    html::selection {
+  color: #fff;
+  background-color: #b2d8ce;
+}
+body {
+  a-webkit-user-select: none;
+  a-moz-user-select: none;
+  a-ms-user-select: none;
+  auser-select: none;
+
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://images.unsplash.com/photo-1615800098779-1be32e60cca3?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDk2MTcyNDh8&ixlib=rb-4.1.0&q=85");
+}
+
+.top {
+  color: #ff9b45;
+  position: relative;
+  display: flex;
+  height: calc(100vh - 32px);
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  aborder: 1px red solid;
+  overflow: hidden;
+}
+.top h1 {
+  aborder: 1px red solid;
+  margin: 10px 0 5px;
+}
+.top p {
+  font-size: 14px;
+  max-width: 400px;
+}
+
+.top-bnt-shell {
+  margin: 15px 0 0px;
+  white-space: nowrap;
+}
+.top-bnt-shell button,
+.try-control button {
+  font-size: 12px;
+  color: #fff;
+  background-color: #ff9b45;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px 8px;
+  cursor: pointer;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3),
+    inset -0.5px -1px 2px rgba(0, 0, 0, 0.15),
+    inset 1px 1px 3px rgba(255, 255, 255, 0.7);
+}
+.top-bnt-shell button:hover,
+.try-control button:hover {
+  transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+}
+.top-bnt-shell button:active,
+.try-control button:active {
+  transform: scale(0.98);
+  -webkit-transform: scale(0.98);
+}
+#top-bnt-more {
+  color: #ff9b45;
+  background-color: #eee;
+  margin-left: 5px;
+}
+.top-bnt-shell button span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.top-bnt-shell button span i {
+  font-size: 10px;
+  display: inline-block;
+  margin: 1.5px 0 0;
+}
+
+.top-sticker-shell {
+  transition: all 0.3s linear;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .top-sticker-shell {
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    left: 10%;
+    right: 10%;
+  }
+}
+
+.sticker {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  filter: drop-shadow(0px 1.5px 2px rgba(0, 0, 0, 0.4)) hue-rotate(90deg);
+  background-image: url("https://251131395.github.io/media/image/sticker.png");
+}
+#s1 {
+  top: 5%;
+  left: 5%;
+  background-size: 660%;
+  background-position: 65% 21%;
+}
+#s2 {
+  top: 20%;
+  right: 5%;
+  background-size: 600%;
+  background-position: 44% 60%;
+}
+#s3 {
+  bottom: 13%;
+  left: 7%;
+  background-size: 520%;
+  background-position: 88% 60%;
+  transform: rotate(-12deg);
+  -webkit-transform: rotate(-12deg);
+}
+#s4 {
+  bottom: 6%;
+  right: 2%;
+  background-size: 660%;
+  background-position: 93% 80%;
+  transform: rotate(-42deg);
+  -webkit-transform: rotate(-42deg);
+}
+
+.try {
+  color: #ff9b45;
+  padding: 100px 16px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 60px;
+}
+.try-img {
+  position: relative;
+  aborder: 1px red solid;
+  min-width: 260px;
+  min-height: 260px;
+  max-width: 260px;
+  max-height: 260px;
+}
+.try-control {
+  aborder: 1px red solid;
+}
+.try-control h2 {
+  margin: 0;
+}
+
+.try-img .sticker {
+  width: 100px;
+  height: 100px;
+  filter: hue-rotate(90deg);
+}
+#s5 {
+  top: 2%;
+  left: 4%;
+  background-size: 660%;
+  background-position: 65% 21%;
+}
+#s6 {
+  top: 10%;
+  right: 5%;
+  background-size: 600%;
+  background-position: 44% 60%;
+}
+#s7 {
+  bottom: 13%;
+  left: 7%;
+  background-size: 520%;
+  background-position: 88% 60%;
+  transform: rotate(-12deg);
+  -webkit-transform: rotate(-12deg);
+}
+#s8 {
+  bottom: 2%;
+  right: 3%;
+  background-size: 600%;
+  background-position: 74% 80%;
+  transform: rotate(10deg);
+  -webkit-transform: rotate(10deg);
+}
+
+.slider-container {
+  position: relative;
+}
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: #ddd;
+  outline: none;
+  transition: background 0.3s;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #666;
+  cursor: pointer;
+  border: none;
+}
+
+.space-y-6 {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  flex-direction: row;
+  gap: 15px;
+  margin-bottom: 5px;
+}
+.p-6 h3 {
+  margin-bottom: 8px;
+}
+.mb-4 label {
+  font-size: 14px;
+}
+.mb-4 input {
+  display: block;
+  margin: 4px 0 4px;
+  width: 100%;
+}
+.mb-4 span {
+  font-size: 12px;
+  display: block;
+  margin: 0 0 10px;
+}
+
+@media (max-width: 768px) {
+  .try {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 15px;
+  }
+  .try-img {
+    min-width: 100%;
+    min-height: 80px;
+  }
+  .try-control {
+    display: block;
+  }
+  .p-6 {
+    width: 100%;
+  }
+
+  .try-img .sticker {
+    width: 55px;
+    height: 55px;
+  }
+  #s5 {
+    top: 0%;
+    left: 0%;
+  }
+  #s6 {
+    botttom: 0%;
+    right: 2%;
+  }
+  #s7 {
+    bottom: 28%;
+    left: 28%;
+  }
+  #s8 {
+    top: 12%;
+    right: 28%;
+  }
+}
+
+footor{
+  color: #ff9b45;
+  text-align: center;
+  display:block;
+  padding: 16px;
+  color: #777;
+  background-color: #fff;
+}
+.footer-bottom u{
+  cursor: pointer;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="top">
+    <h1>貼紙簿！ StickerPool!</h1>
+    <p>免費素材，輕鬆拼貼！瀏覽海量電子手帳素材，一鍵下載，隨心自訂色彩、陰影等效果。</p>
+    <div class="top-bnt-shell">
+      <button onclick="location.href='https://251131395.github.io/StickerPool/collection.html'"><span>立即開始</span></button>
+      <button id="top-bnt-more"><span>了解更多 <i class="fa-solid fa-chevron-right"></i></span></button>
+    </div>
+
+    <div class="top-sticker-shell">
+      <div class="sticker" id="s1"></div>
+      <div class="sticker" id="s2"></div>
+      <div class="sticker" id="s3"></div>
+      <div class="sticker" id="s4"></div>
+    </div>
+  </div>
+
+  <div class="try">
+    <div class="try-img">
+      <div class="sticker" id="s5"></div>
+      <div class="sticker" id="s6"></div>
+      <div class="sticker" id="s7"></div>
+      <div class="sticker" id="s8"></div>
+    </div>
+
+    <div class="try-control">
+      <h2>貼紙自定義功能</h2>
+      <!-- Controls Section -->
+      <div class="space-y-6">
+        <div class="p-6">
+          <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">調整參數</h3>
+
+          <!-- Hue -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">色調</label>
+            <input type="range" id="hueSlider" class="slider w-full" min="0" max="360" value="90">
+            <span id="hueValue" class="text-sm text-gray-600 dark:text-gray-400">90°</span>
+          </div>
+
+          <!-- Saturation -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">飽和度</label>
+            <input type="range" id="saturationSlider" class="slider w-full" min="0" max="200" value="100">
+            <span id="saturationValue" class="text-sm text-gray-600 dark:text-gray-400">100%</span>
+          </div>
+
+          <!-- Brightness -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">亮度</label>
+            <input type="range" id="brightnessSlider" class="slider w-full" min="0" max="200" value="100">
+            <span id="brightnessValue" class="text-sm text-gray-600 dark:text-gray-400">100%</span>
+          </div>
+
+          <!-- Contrast -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">對比度</label>
+            <input type="range" id="contrastSlider" class="slider w-full" min="0" max="200" value="100">
+            <span id="contrastValue" class="text-sm text-gray-600 dark:text-gray-400">100%</span>
+          </div>
+        </div>
+
+        <!-- Drop Shadow Controls -->
+        <div class="p-6">
+          <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">陰影效果</h3>
+
+          <!-- Shadow X -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">水平偏移</label>
+            <input type="range" id="shadowXSlider" class="slider w-full" min="-20" max="20" value="0">
+            <span id="shadowXValue" class="text-sm text-gray-600 dark:text-gray-400">0px</span>
+          </div>
+
+          <!-- Shadow Y -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">垂直偏移</label>
+            <input type="range" id="shadowYSlider" class="slider w-full" min="-20" max="20" value="2">
+            <span id="shadowYValue" class="text-sm text-gray-600 dark:text-gray-400">2px</span>
+          </div>
+
+          <!-- Shadow Blur -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">模糊程度</label>
+            <input type="range" id="shadowBlurSlider" class="slider w-full" min="0" max="30" value="2">
+            <span id="shadowBlurValue" class="text-sm text-gray-600 dark:text-gray-400">2px</span>
+          </div>
+
+          <!-- Shadow Opacity -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">陰影透明度</label>
+            <input type="range" id="shadowOpacitySlider" class="slider w-full" min="0" max="100" value="40">
+            <span id="shadowOpacityValue" class="text-sm text-gray-600 dark:text-gray-400">40%</span>
+          </div>
+        </div>
+      </div>
+
+      <button onclick="location.href='https://251131395.github.io/StickerPool/collection.html'"><span>探索更多</span></button>
+    </div>
+  </div>
+  
+  <footor>
+    <span class="footer-bottom">貼紙簿！ StickerPool! © 2025 | <u onclick="location.href='https://251131395.github.io/StickerPool/terms-of-use.html'">使用條款</u></span>
+  </footer>
+
+  <script>
+    
+    // Initialize controls
+    document.addEventListener("DOMContentLoaded", function () {
+      setupControls();
+      updateStickers();
+    });
+
+    function setupControls() {
+      const controls = [
+        {
+          id: "hueSlider",
+          valueId: "hueValue",
+          suffix: "°"
+        },
+        {
+          id: "saturationSlider",
+          valueId: "saturationValue",
+          suffix: "%"
+        },
+        {
+          id: "brightnessSlider",
+          valueId: "brightnessValue",
+          suffix: "%"
+        },
+        {
+          id: "contrastSlider",
+          valueId: "contrastValue",
+          suffix: "%"
+        },
+        {
+          id: "shadowXSlider",
+          valueId: "shadowXValue",
+          suffix: "px"
+        },
+        {
+          id: "shadowYSlider",
+          valueId: "shadowYValue",
+          suffix: "px"
+        },
+        {
+          id: "shadowBlurSlider",
+          valueId: "shadowBlurValue",
+          suffix: "px"
+        },
+        {
+          id: "shadowOpacitySlider",
+          valueId: "shadowOpacityValue",
+          suffix: "%"
+        }
+      ];
+
+      controls.forEach((control) => {
+        const slider = document.getElementById(control.id);
+        const valueDisplay = document.getElementById(control.valueId);
+        
+        if (slider && valueDisplay) {
+          // Initialize display value
+          valueDisplay.textContent = slider.value + control.suffix;
+          
+          slider.addEventListener("input", function () {
+            valueDisplay.textContent = this.value + control.suffix;
+            updateStickers();
+          });
+        }
+      });
+    }
+
+    function updateStickers() {
+      // Get values from sliders
+      const hue = document.getElementById("hueSlider").value;
+      const saturation = document.getElementById("saturationSlider").value;
+      const brightness = document.getElementById("brightnessSlider").value;
+      const contrast = document.getElementById("contrastSlider").value;
+      const shadowX = document.getElementById("shadowXSlider").value;
+      const shadowY = document.getElementById("shadowYSlider").value;
+      const shadowBlur = document.getElementById("shadowBlurSlider").value;
+      const shadowOpacity = document.getElementById("shadowOpacitySlider").value;
+
+      // Apply effects to all stickers in try-img
+      const stickers = document.querySelectorAll('.try-img .sticker');
+      
+      stickers.forEach(sticker => {
+        const filters = `
+          hue-rotate(${hue}deg)
+          saturate(${saturation}%)
+          brightness(${brightness}%)
+          contrast(${contrast}%)
+          drop-shadow(${shadowX}px ${shadowY}px ${shadowBlur}px rgba(0, 0, 0, ${shadowOpacity / 100}))
+        `;
+        
+        sticker.style.filter = filters;
+        
+        // Preserve original transform for stickers that have rotation
+        if (sticker.id === 's7') {
+          sticker.style.transform = 'rotate(-12deg)';
+        } else if (sticker.id === 's8') {
+          sticker.style.transform = 'rotate(10deg)';
+        }
+      });
+    }
+
+    // Add smooth animation effect when sliders are being used
+    let isUpdating = false;
+    function smoothUpdate() {
+      if (!isUpdating) {
+        isUpdating = true;
+        requestAnimationFrame(() => {
+          updateStickers();
+          isUpdating = false;
+        });
+      }
+    }
+
+    // Optional: Add click-to-reset functionality for demo purposes
+    document.getElementById('top-bnt-more').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Reset all sliders to default values
+      document.getElementById("hueSlider").value = 90;
+      document.getElementById("saturationSlider").value = 100;
+      document.getElementById("brightnessSlider").value = 100;
+      document.getElementById("contrastSlider").value = 100;
+      document.getElementById("shadowXSlider").value = 0;
+      document.getElementById("shadowYSlider").value = 2;
+      document.getElementById("shadowBlurSlider").value = 2;
+      document.getElementById("shadowOpacitySlider").value = 40;
+      
+      // Update displays and effects
+      setupControls();
+      updateStickers();
+    });
+  </script>
+
+</body>
+
+</html>
