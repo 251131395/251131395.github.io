@@ -17,7 +17,7 @@
       theme: {
         extend: {
           colors: {
-            primary: '#5D5CDE'
+            primary: '#000'
           }
         }
       }
@@ -186,8 +186,102 @@ canvas {
 </head>
 
 <body class="bg-white dark:bg-black">
+  <!-- Terms of Service Modal -->
+  <div id="termsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+      <div class="p-6 border-b border-gray-200 dark:border-gray-600">
+        <h2 class="text-xl font-bold text-gray-800 dark:text-white">使用條款</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">請仔細閱讀以下條款</p>
+      </div>
+      
+      <div class="p-6 overflow-y-auto flex-1">
+        <div class="space-y-4 text-sm text-gray-700 dark:text-gray-300">
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">1. 服務說明</h3>
+            <p>貼紙簿！StickerPool! 提供免費的數位貼紙素材下載服務，使用者可以瀏覽、自訂及下載各種電子手帳素材。</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">2. 使用權限</h3>
+            <ul class="list-disc list-inside space-y-1">
+              <li>本平台提供的所有素材僅供個人非商業用途使用</li>
+              <li>使用者可以自由下載、編輯和使用素材進行個人創作</li>
+              <li>禁止將素材用於商業用途或轉售</li>
+              <li>禁止重新分發或二次上傳素材到其他平台</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">3. 版權聲明</h3>
+            <ul class="list-disc list-inside space-y-1">
+              <li>本平台所有素材版權歸貼紙簿！StickerPool! 所有</li>
+              <li>使用者下載素材不代表獲得版權所有權</li>
+              <li>請勿移除素材上的版權標示</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">4. 使用限制</h3>
+            <ul class="list-disc list-inside space-y-1">
+              <li>禁止使用素材進行違法、有害或不當的活動</li>
+              <li>禁止將素材用於歧視、仇恨或暴力內容</li>
+              <li>禁止批量下載或使用自動化工具獲取素材</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">5. 免責聲明</h3>
+            <ul class="list-disc list-inside space-y-1">
+              <li>本平台不保證服務的連續性或無錯誤性</li>
+              <li>使用者使用素材所產生的任何後果由使用者自行承擔</li>
+              <li>本平台有權隨時修改或終止服務</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">6. 隱私保護</h3>
+            <ul class="list-disc list-inside space-y-1">
+              <li>我們重視使用者隱私，不會收集個人敏感資訊</li>
+              <li>網站可能使用 Cookies 來改善使用體驗</li>
+              <li>我們不會與第三方分享使用者資訊</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">7. 條款修改</h3>
+            <p>本平台保留隨時修改使用條款的權利，修改後的條款將在網站上公布。繼續使用服務即表示同意修改後的條款。</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-2">8. 聯絡我們</h3>
+            <p>如有任何問題或建議，歡迎透過網站聯絡功能與我們聯繫。</p>
+          </div>
+
+          <div class="text-right text-xs text-gray-500 dark:text-gray-400 pt-4">
+            <p>最後更新：2025年1月</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 border-t border-gray-200 dark:border-gray-600 space-y-4">
+        <label class="flex items-start space-x-3 cursor-pointer">
+          <input type="checkbox" id="termsCheckbox" class="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary">
+          <span class="text-sm text-gray-700 dark:text-gray-300">
+            我已閱讀並瞭解使用條款。
+          </span>
+        </label>
+        
+        <div class="flex justify-end">
+          <button id="agreeBtn" disabled class="px-6 py-2 bg-primary text-white rounded-lg hover:bg-gray-600 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed disabled:hover:bg-gray-300">
+            我同意這些條款
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Main Content -->
-  <main class="max-w-7xl mx-auto pt-0 pr-4 pb-4 pl-4">
+  <main class="max-w-7xl mx-auto pt-0 pr-4 pb-4 pl-4" id="mainContent" style="display: none;">
     <!-- Home Page -->
     <div id="homePage">
       <!-- Category Filter -->
@@ -196,7 +290,7 @@ canvas {
         <header class="z-50 py-2 px-5 -mb-3" style="aborder:1px red solid;">
           <div class="max-w-7xl mx-auto flex justify-between items-center">
             <h1 class="text-xl font-bold text-gray-800 dark:text-white">
-              貼紙簿！
+              貼紙簿！ StickerPool!
             </h1>
             <button id="themeToggle" class="p-1 rounded-lg text-gray-700 dark:text-gray-300 transition-colors">
               <span class="dark:hidden"><i class="fa-solid fa-moon"></i></span>
@@ -337,7 +431,7 @@ canvas {
                 <button id="resetBtn" class="flex-1 px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors">
                   重置
                 </button>
-                <button id="downloadBtn" class="flex-1 px-4 py-2 bg-primary text-white rounded-lg hover:bg-purple-600 transition-colors">
+                <button id="downloadBtn" class="flex-1 px-4 py-2 bg-primary text-white rounded-lg hover:bg-gray-600 transition-colors">
                   下載PNG
                 </button>
               </div>
@@ -345,10 +439,14 @@ canvas {
           </div>
         </div>
       </div>
+    </div>
   </main>
 
   <script>
-    // Theme management
+    // Terms acceptance state
+let termsAccepted = false;
+
+// Theme management
 function initTheme() {
   if (
     window.matchMedia &&
@@ -366,6 +464,29 @@ function initTheme() {
       }
     });
 }
+
+// Terms of service handling
+function setupTermsModal() {
+  const termsModal = document.getElementById('termsModal');
+  const termsCheckbox = document.getElementById('termsCheckbox');
+  const agreeBtn = document.getElementById('agreeBtn');
+  const mainContent = document.getElementById('mainContent');
+
+  // Enable/disable agree button based on checkbox
+  termsCheckbox.addEventListener('change', function() {
+    agreeBtn.disabled = !this.checked;
+  });
+
+  // Handle agreement
+  agreeBtn.addEventListener('click', function() {
+    if (termsCheckbox.checked) {
+      termsAccepted = true;
+      termsModal.style.display = 'none';
+      mainContent.style.display = 'block';
+    }
+  });
+}
+
 // Sticker data
 const stickers = [
   // Geometric shapes from provided image
@@ -472,6 +593,7 @@ let filteredStickers = [...stickers];
 // Initialize app
 document.addEventListener("DOMContentLoaded", function () {
   initTheme();
+  setupTermsModal();
   setupEventListeners();
   loadStickers();
 });
