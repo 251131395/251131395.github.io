@@ -13,7 +13,7 @@
   <style>
     html::selection {
   color: #fff;
-  background-color: #b2d8ce;
+  background-color: #555;
 }
 body {
   a-webkit-user-select: none;
@@ -26,7 +26,8 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #fff;
-
+}
+.bg-paper{
   background-size: cover;
   background-position: center;
   background-image: url("https://images.unsplash.com/photo-1615800098779-1be32e60cca3?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDk2MTcyNDh8&ixlib=rb-4.1.0&q=85");
@@ -51,6 +52,14 @@ body {
 .top p {
   font-size: 14px;
   max-width: 400px;
+}
+@media (max-width: 438px) {
+  .top h1{
+    align-self: start;
+  }
+  .top h1 span {
+  display:block;
+}
 }
 
 .top-bnt-shell {
@@ -152,8 +161,21 @@ body {
   -webkit-transform: rotate(-42deg);
 }
 
+.try-white-linear{
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
 .try {
+  position: relative;
   color: #ff9b45;
+  color: #000;
   padding: 100px 16px 100px;
   display: flex;
   justify-content: center;
@@ -168,12 +190,17 @@ body {
   min-height: 260px;
   max-width: 260px;
   max-height: 260px;
+  z-index: 100;
 }
 .try-control {
+  position: relative;
   aborder: 1px red solid;
+  z-index: 100;
 }
-.try-control h2 {
-  margin: 0;
+.try-control h3 {
+  margin: 0 0 10px;
+  font-weight: normal;
+  font-weight: 500;
 }
 
 .try-img .sticker {
@@ -250,10 +277,12 @@ body {
   margin-bottom: 5px;
 }
 .p-6 h3 {
+  font-size: 14px;
   margin-bottom: 8px;
+  font-weight: normal;
 }
 .mb-4 label {
-  font-size: 14px;
+  font-size: 12px;
 }
 .mb-4 input {
   display: block;
@@ -263,9 +292,8 @@ body {
 .mb-4 span {
   font-size: 12px;
   display: block;
-  margin: 0 0 10px;
+  margin: 0 0 5px;
 }
-
 @media (max-width: 768px) {
   .try {
     display: block;
@@ -307,15 +335,69 @@ body {
   }
 }
 
-footor{
+.imgtext-shell {
+  margin: 0 32px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 10px;
+}
+.it-img {
+  flex: 50%;
+  height: 30vw;
+  aborder: 1px red solid;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://images.unsplash.com/photo-1748924388605-fe7da3657563?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDk4MDEwOTB8&ixlib=rb-4.1.0&q=85");
+}
+.it-text {
+  flex: 50%;
+  margin: 0 0 10px;
+  aborder: 1px blue solid;
+}
+.it-text-inner-shell {
+  width: 300px;
+  margin: 0 auto 0;
+  aborder: 1px red solid;
+}
+.it-text h3 {
+  margin: 0 0 10px;
+  font-weight: 500;
+}
+.it-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+@media (max-width: 768px) {
+  .imgtext-shell {
+    display: block;
+    margin: 0 16px 100px;
+  }
+  .it-text-inner-shell {
+    width: auto;
+  }
+  .it-img {
+    height: 60vw;
+  }
+}
+
+#it-img1{
+  background-size: 120%;
+  background-image: url("https://images.unsplash.com/photo-1507344694028-6dab396bed2b?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDk4MDE2MTZ8&ixlib=rb-4.1.0&q=85");
+}
+
+footer {
   color: #ff9b45;
   text-align: center;
-  display:block;
+  display: block;
   padding: 16px;
   color: #777;
   background-color: #fff;
 }
-.footer-bottom u{
+.footer-bottom u {
   cursor: pointer;
 }
 
@@ -323,105 +405,125 @@ footor{
 </head>
 
 <body>
-  <div class="top">
-    <h1>貼紙簿！ StickerPool!</h1>
-    <p>免費素材，輕鬆拼貼！瀏覽海量電子手帳素材，一鍵下載，隨心自訂色彩、陰影等效果。</p>
-    <div class="top-bnt-shell">
-      <button onclick="location.href='https://251131395.github.io/StickerPool/collection.html'"><span>立即開始</span></button>
-      <button id="top-bnt-more"><span>了解更多 <i class="fa-solid fa-chevron-right"></i></span></button>
+  <div class="bg-paper">
+    <div class="top">
+      <h1><span>貼紙簿！ </span><span>StickerPool!</span></h1>
+      <p>免費素材，輕鬆拼貼！瀏覽海量電子手帳素材，一鍵下載，隨心自訂色彩、陰影等效果。</p>
+      <div class="top-bnt-shell">
+        <button onclick="location.href='https://251131395.github.io/StickerPool/collection.html'"><span>立即開始</span></button>
+        <button id="top-bnt-more"><span>了解更多 <i class="fa-solid fa-chevron-right"></i></span></button>
+      </div>
+
+      <div class="top-sticker-shell">
+        <div class="sticker" id="s1"></div>
+        <div class="sticker" id="s2"></div>
+        <div class="sticker" id="s3"></div>
+        <div class="sticker" id="s4"></div>
+      </div>
     </div>
+    <div class="try">
+      <div class="try-img">
+        <div class="sticker" id="s5"></div>
+        <div class="sticker" id="s6"></div>
+        <div class="sticker" id="s7"></div>
+        <div class="sticker" id="s8"></div>
+      </div>
+      <div class="try-control">
+        <h3>貼紙自定義功能</h3>
+        <!-- Controls Section -->
+        <div class="space-y-6">
+          <div class="p-6">
+            <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">調整參數</h3>
 
-    <div class="top-sticker-shell">
-      <div class="sticker" id="s1"></div>
-      <div class="sticker" id="s2"></div>
-      <div class="sticker" id="s3"></div>
-      <div class="sticker" id="s4"></div>
-    </div>
-  </div>
+            <!-- Hue -->
+            <div class="mb-4">
+              <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">色調</label>
+              <input type="range" id="hueSlider" class="slider w-full" min="0" max="360" value="320">
+              <span id="hueValue" class="text-sm text-gray-600 dark:text-gray-400">90°</span>
+            </div>
 
-  <div class="try">
-    <div class="try-img">
-      <div class="sticker" id="s5"></div>
-      <div class="sticker" id="s6"></div>
-      <div class="sticker" id="s7"></div>
-      <div class="sticker" id="s8"></div>
-    </div>
+            <!-- Saturation -->
+            <div class="mb-4">
+              <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">飽和度</label>
+              <input type="range" id="saturationSlider" class="slider w-full" min="0" max="200" value="100">
+              <span id="saturationValue" class="text-sm text-gray-600 dark:text-gray-400">100%</span>
+            </div>
 
-    <div class="try-control">
-      <h2>貼紙自定義功能</h2>
-      <!-- Controls Section -->
-      <div class="space-y-6">
-        <div class="p-6">
-          <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">調整參數</h3>
+            <!-- Brightness -->
+            <div class="mb-4">
+              <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">亮度</label>
+              <input type="range" id="brightnessSlider" class="slider w-full" min="0" max="200" value="100">
+              <span id="brightnessValue" class="text-sm text-gray-600 dark:text-gray-400">100%</span>
+            </div>
 
-          <!-- Hue -->
-          <div class="mb-4">
-            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">色調</label>
-            <input type="range" id="hueSlider" class="slider w-full" min="0" max="360" value="90">
-            <span id="hueValue" class="text-sm text-gray-600 dark:text-gray-400">90°</span>
+            <!-- Contrast -->
+            <div class="mb-4">
+              <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">對比度</label>
+              <input type="range" id="contrastSlider" class="slider w-full" min="0" max="200" value="100">
+              <span id="contrastValue" class="text-sm text-gray-600 dark:text-gray-400">100%</span>
+            </div>
           </div>
 
-          <!-- Saturation -->
-          <div class="mb-4">
-            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">飽和度</label>
-            <input type="range" id="saturationSlider" class="slider w-full" min="0" max="200" value="100">
-            <span id="saturationValue" class="text-sm text-gray-600 dark:text-gray-400">100%</span>
-          </div>
+          <!-- Drop Shadow Controls -->
+          <div class="p-6">
+            <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">陰影效果</h3>
 
-          <!-- Brightness -->
-          <div class="mb-4">
-            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">亮度</label>
-            <input type="range" id="brightnessSlider" class="slider w-full" min="0" max="200" value="100">
-            <span id="brightnessValue" class="text-sm text-gray-600 dark:text-gray-400">100%</span>
-          </div>
+            <!-- Shadow X -->
+            <div class="mb-4">
+              <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">水平偏移</label>
+              <input type="range" id="shadowXSlider" class="slider w-full" min="-20" max="20" value="0">
+              <span id="shadowXValue" class="text-sm text-gray-600 dark:text-gray-400">0px</span>
+            </div>
 
-          <!-- Contrast -->
-          <div class="mb-4">
-            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">對比度</label>
-            <input type="range" id="contrastSlider" class="slider w-full" min="0" max="200" value="100">
-            <span id="contrastValue" class="text-sm text-gray-600 dark:text-gray-400">100%</span>
-          </div>
-        </div>
+            <!-- Shadow Y -->
+            <div class="mb-4">
+              <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">垂直偏移</label>
+              <input type="range" id="shadowYSlider" class="slider w-full" min="-20" max="20" value="2">
+              <span id="shadowYValue" class="text-sm text-gray-600 dark:text-gray-400">2px</span>
+            </div>
 
-        <!-- Drop Shadow Controls -->
-        <div class="p-6">
-          <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">陰影效果</h3>
+            <!-- Shadow Blur -->
+            <div class="mb-4">
+              <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">模糊程度</label>
+              <input type="range" id="shadowBlurSlider" class="slider w-full" min="0" max="30" value="2">
+              <span id="shadowBlurValue" class="text-sm text-gray-600 dark:text-gray-400">2px</span>
+            </div>
 
-          <!-- Shadow X -->
-          <div class="mb-4">
-            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">水平偏移</label>
-            <input type="range" id="shadowXSlider" class="slider w-full" min="-20" max="20" value="0">
-            <span id="shadowXValue" class="text-sm text-gray-600 dark:text-gray-400">0px</span>
-          </div>
-
-          <!-- Shadow Y -->
-          <div class="mb-4">
-            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">垂直偏移</label>
-            <input type="range" id="shadowYSlider" class="slider w-full" min="-20" max="20" value="2">
-            <span id="shadowYValue" class="text-sm text-gray-600 dark:text-gray-400">2px</span>
-          </div>
-
-          <!-- Shadow Blur -->
-          <div class="mb-4">
-            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">模糊程度</label>
-            <input type="range" id="shadowBlurSlider" class="slider w-full" min="0" max="30" value="2">
-            <span id="shadowBlurValue" class="text-sm text-gray-600 dark:text-gray-400">2px</span>
-          </div>
-
-          <!-- Shadow Opacity -->
-          <div class="mb-4">
-            <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">陰影透明度</label>
-            <input type="range" id="shadowOpacitySlider" class="slider w-full" min="0" max="100" value="40">
-            <span id="shadowOpacityValue" class="text-sm text-gray-600 dark:text-gray-400">40%</span>
+            <!-- Shadow Opacity -->
+            <div class="mb-4">
+              <label class="block text-sm font-medium mb-0 text-gray-700 dark:text-gray-300">陰影透明度</label>
+              <input type="range" id="shadowOpacitySlider" class="slider w-full" min="0" max="100" value="40">
+              <span id="shadowOpacityValue" class="text-sm text-gray-600 dark:text-gray-400">40%</span>
+            </div>
           </div>
         </div>
       </div>
-
-      <button onclick="location.href='https://251131395.github.io/StickerPool/collection.html'"><span>探索更多</span></button>
+      
+      <div class="try-white-linear"></div>
     </div>
   </div>
   
-  <footor>
+  <div class="imgtext-shell">
+    <div class="it-text">
+      <div class="it-text-inner-shell">
+        <h3>真實感素材，讓設計更生動</h3>
+        <p>精心設計的素材擁有自然的影子與反光效果，如同真實物品般立體生動。
+反光與陰影細節讓拼貼作品更具層次感，完美還原手帳的真實質感。</p>
+      </div>
+    </div>
+    <div class="it-img" id="it-img1"></div>
+  </div>
+  <div class="imgtext-shell">
+    <div class="it-text">
+      <div class="it-text-inner-shell">
+        <h3>高度自定義，創造你的專屬素材</h3>
+        <p>用戶可根據自己的設計需求，快速調整素材的細節，無需依賴第三方工具。即時預覽功能，讓用戶在修改過程中實時檢視效果，所見即所得。</p>
+      </div>
+    </div>
+    <div class="it-img" id="it-img1"></div>
+  </div>
+
+  <footer>
     <span class="footer-bottom">貼紙簿！ StickerPool! © 2025 | <u onclick="location.href='https://251131395.github.io/StickerPool/terms-of-use.html'">使用條款</u></span>
   </footer>
 
