@@ -54,7 +54,7 @@
       border: 1px solid #eee;
     }
 
-    #artworks div div div div div{
+    #artworks div div div div div {
       cursor: pointer;
     }
 
@@ -65,7 +65,7 @@
       -ms-user-select: none;
       user-select: none;
     }
-    
+
     #imageModal img {
       -webkit-user-select: none;
       -moz-user-select: none;
@@ -348,6 +348,15 @@
             <p class="text-gray-400 text-sm">Blender</p>
           </div>
         </div>
+        <div class="">
+          <div class="h-64 rounded-lg overflow-hidden relative cursor-pointer" onclick="showLargeImage('https://251131395.github.io/media/image/profile/badbadennn.png')">
+            <div class="w-full h-full bg-cover bg-left-center bg-repeat transition-transform duration-300 hover:scale-110" style="background-image: url('https://251131395.github.io/media/image/profile/badbadennn.png');"></div>
+          </div>
+          <div class="pt-3">
+            <h3 class="font-bold text-primary">數碼藝術</h3>
+            <p class="text-gray-400 text-sm">Blender</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -393,7 +402,7 @@
           <div class="pt-3">
             <h3 class="text-2xl font-bold text-primary mb-2">素材網站</h3>
             <p class="text-gray-700">電子手帳拼貼素材網站</p>
-            <a href="https://251131395.github.io/StickerPool/home.html" target="_blank" class="inline-block mt-2 bg-[#e7e7e7] text-black hover:bg-[#ddd] rounded-3xl px-4 py-2 text-sm">
+            <a href="https://251131395.github.io/clovibe/test.html" target="_blank" class="inline-block mt-2 bg-[#e7e7e7] text-black hover:bg-[#ddd] rounded-3xl px-4 py-2 text-sm">
               查看完整網站
             </a>
           </div>
@@ -418,26 +427,26 @@
   <!-- Image Modal -->
   <div id="imageModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4" style="pointer-events: none;">
     <div class="relative w-full h-full flex items-center justify-center">
-      <button onclick="closeImageModal()" class="absolute top-4 right-4 text-white bg-black bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 z-10" style="pointer-events: auto;">
+      <button onclick="closeImageModal()" class="absolute top-4 right-4 text-white bg-black bg-opacity-0 hover:bg-opacity-20 rounded-full p-2 z-10" style="pointer-events: auto;">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
-      
+
       <!-- Left Navigation Button -->
-      <button id="prevImageBtn" onclick="showPreviousImage()" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 hover:bg-opacity-70 rounded-full p-3 z-10" style="pointer-events: auto;">
+      <button id="prevImageBtn" onclick="showPreviousImage()" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-0 hover:bg-opacity-20 rounded-full p-3 z-10" style="pointer-events: auto;">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
         </svg>
       </button>
-      
+
       <!-- Right Navigation Button -->
-      <button id="nextImageBtn" onclick="showNextImage()" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 hover:bg-opacity-70 rounded-full p-3 z-10" style="pointer-events: auto;">
+      <button id="nextImageBtn" onclick="showNextImage()" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-0 hover:bg-opacity-20 rounded-full p-3 z-10" style="pointer-events: auto;">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
         </svg>
       </button>
-      
+
       <img id="modalImage" src="" alt="大圖" class="max-w-full max-h-full object-contain" style="max-width: calc(100vw - 2rem); max-height: calc(100vh - 2rem); pointer-events: auto;">
     </div>
   </div>
@@ -457,18 +466,16 @@
       'https://251131395.github.io/media/image/profile/1000036695.jpg',
       'https://251131395.github.io/media/image/profile/1000058392.jpg',
       'https://251131395.github.io/media/image/profile/BLUE-CAKE-2-effectapp.png',
-      'https://251131395.github.io/media/image/profile/1000387759.png'
+      'https://251131395.github.io/media/image/profile/1000387759.png',
+      'https://251131395.github.io/media/image/profile/badbadennn.png'
     ];
-    
     let currentImageIndex = 0;
-
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
-    
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -484,7 +491,6 @@
         }
       });
     });
-    
     // Add scroll effect to navigation
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
@@ -494,16 +500,13 @@
         nav.style.background = 'rgba(255, 255, 255, 0.8)';
       }
     });
-
     // Image modal functions
     function showLargeImage(imageUrl) {
       const modal = document.getElementById('imageModal');
       const modalImage = document.getElementById('modalImage');
-      
       // Find the current image index
       currentImageIndex = imageGallery.findIndex(url => url === imageUrl);
       if (currentImageIndex === -1) currentImageIndex = 0;
-      
       modalImage.src = imageUrl;
       modal.classList.remove('hidden');
       modal.style.pointerEvents = 'auto';
@@ -516,26 +519,24 @@
       modal.style.pointerEvents = 'none';
       document.body.style.overflow = 'auto'; // Restore scrolling
     }
-    
+
     function showPreviousImage() {
       currentImageIndex = (currentImageIndex - 1 + imageGallery.length) % imageGallery.length;
       const modalImage = document.getElementById('modalImage');
       modalImage.src = imageGallery[currentImageIndex];
     }
-    
+
     function showNextImage() {
       currentImageIndex = (currentImageIndex + 1) % imageGallery.length;
       const modalImage = document.getElementById('modalImage');
       modalImage.src = imageGallery[currentImageIndex];
     }
-
     // Close modal when clicking outside the image (now handled by pointer-events)
     document.getElementById('imageModal').addEventListener('click', function(e) {
       if (e.target === this) {
         closeImageModal();
       }
     });
-
     // Close modal with ESC key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
@@ -546,14 +547,12 @@
         showNextImage();
       }
     });
-
     // Image protection JavaScript
     // Disable right-click context menu
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
       return false;
     });
-
     // Disable common keyboard shortcuts for downloading/saving
     document.addEventListener('keydown', function(e) {
       // Disable F12 (Developer Tools)
@@ -561,51 +560,42 @@
         e.preventDefault();
         return false;
       }
-      
       // Disable Ctrl+S (Save As)
       if (e.ctrlKey && e.keyCode === 83) {
         e.preventDefault();
         return false;
       }
-      
       // Disable Ctrl+A (Select All)
       if (e.ctrlKey && e.keyCode === 65) {
         e.preventDefault();
         return false;
       }
-      
       // Disable Ctrl+U (View Source)
       if (e.ctrlKey && e.keyCode === 85) {
         e.preventDefault();
         return false;
       }
-      
       // Disable Ctrl+Shift+I (Developer Tools)
       if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
         e.preventDefault();
         return false;
       }
-      
       // Disable Ctrl+Shift+J (Console)
       if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
         e.preventDefault();
         return false;
       }
-      
       // Disable Ctrl+Shift+C (Inspect Element)
       if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
         e.preventDefault();
         return false;
       }
     });
-
     // Disable drag and drop globally
     document.addEventListener('dragstart', function(e) {
       e.preventDefault();
       return false;
     });
-
-
   </script>
 </body>
 
