@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Curriculum Plan</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.editor-panel {
+  abackground: white;
+  apadding: 20px;
+  aborder-radius: 8px;
+  abox-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+.preview-panel {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+.header-controls {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 15px;
+}
+.title-date-group {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 15px;
+  align-items: end;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.input-group label {
+  font-weight: bold;
+  color: #333;
+  font-size: 14px;
+}
+.input-group input {
+  padding: 8px 12px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+.input-group input:focus {
+  outline: none;
+  border-color: #5d5cde;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+.btn-primary {
+  background-color: #5d5cde;
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #4a49c7;
+}
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+.btn-danger:hover {
+  background-color: #c82333;
+}
+.btn-success {
+  background-color: #28a745;
+  color: white;
+}
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+/* Color customization controls */
+.color-controls {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.color-controls h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+.color-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.color-item label {
+  flex: 1;
+  font-size: 14px;
+}
+.color-picker {
+  width: 40px;
+  height: 30px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.year-container {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.year-header {
+  background: #e9ecef;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+  cursor: pointer;
+}
+.year-header:hover {
+  background: #dee2e6;
+}
+.year-name-input {
+  background: transparent;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  min-width: 120px;
+}
+.year-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.collapse-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 5px;
+  color: #666;
+}
+.year-content {
+  transition: max-height 0.3s ease-out;
+  overflow: hidden;
+}
+.year-content.collapsed {
+  max-height: 0;
+}
+.year-content.expanded {
+  max-height: 2000px;
+}
+
+.semesters {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+}
+.semester {
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 15px;
+  background: white;
+}
+.semester {
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 30px 15px 15px 15px;
+  background: white;
+  position: relative;
+}
+.semester-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.semester-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.semester-name {
+  font-weight: bold;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  min-width: 100px;
+  flex: 1;
+}
+.semester-credits {
+  background: #5d5cde;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.semester-delete {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.semester-delete:hover {
+  background: #c82333;
+}
+
+.courses {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+  min-height: 40px;
+}
+.course {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.course-info {
+  flex: 1;
+}
+.course-delete {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  color: white;
+  border-radius: 2px;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.course-delete:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+.course-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto auto auto;
+  gap: 5px;
+  align-items: center;
+  margin-top: 10px;
+}
+.course-form input,
+.course-form select {
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 14px;
+  min-height: 34px;
+}
+.course-form input[type="number"] {
+  awidth: 100px;
+}
+
+/* Course category colors */
+.common-core {
+  background-color: #dc3545;
+}
+.school-required {
+  background-color: #ffc107;
+  color: #000;
+}
+.major-required {
+  background-color: #28a745;
+}
+.track-required {
+  background-color: #007bff;
+}
+.track-elective {
+  background-color: #6f42c1;
+}
+.other {
+  background-color: #e91e63;
+}
+
+/* Preview area */
+.preview-content {
+  background: white;
+  position: relative;
+}
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.preview-title-section h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+.preview-title-section .date {
+  color: #666;
+  font-size: 14px;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.legend-color {
+  width: 20px;
+  height: 15px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.preview-table {
+  width: 100%;
+  margin-top: 20px;
+}
+.preview-year {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.preview-year-header {
+  background: #f0f0f0;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+}
+.preview-semesters {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  margin: -5px 0 -5px;
+}
+.preview-semester {
+  position: relative;
+  padding: 15px;
+  padding-right: 45px;
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  background: #f0f0f0;
+  margin: 5px 0 5px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.preview-semester-header {
+  font-weight: bold;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.preview-courses {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.preview-course {
+  padding: 15px 8px 15px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  min-height: 60px;
+  position: relative;
+  amin-width: 80px;
+}
+.preview-course-credits {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: bold;
+}
+.preview-semester-credits {
+  position: absolute;
+  right: 10px;
+  background: #fff;
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  
+  
+  .course-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  .semesters {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .course-form {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .course-form button {
+    grid-column: span 2;
+  }
+
+  .header-controls {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .title-date-group {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .year-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .year-controls {
+    justify-content: center;
+  }
+
+  .color-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-form {
+    grid-template-columns: 1fr;
+  }
+
+  .course-form select,
+  .course-form button {
+    grid-column: span 1;
+  }
+}
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Editor Panel -->
+    <div class="editor-panel">
+      <div class="header-controls">
+        <div class="title-date-group">
+          <div class="input-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" value="My Curriculum Plan" placeholder="Enter title">
+          </div>
+          <div class="input-group">
+            <label for="date">Creation Date</label>
+            <input type="date" id="date">
+          </div>
+        </div>
+        <button class="btn btn-success" onclick="exportPDF()">Export PDF</button>
+      </div>
+
+      <div class="color-controls">
+        <h3>Customize Category Colors</h3>
+        <div class="color-grid">
+          <div class="color-item">
+            <label>Common Core</label>
+            <input type="color" class="color-picker" data-category="common-core" value="#dc3545">
+          </div>
+          <div class="color-item">
+            <label>School Required</label>
+            <input type="color" class="color-picker" data-category="school-required" value="#ffc107">
+          </div>
+          <div class="color-item">
+            <label>Major Required</label>
+            <input type="color" class="color-picker" data-category="major-required" value="#28a745">
+          </div>
+          <div class="color-item">
+            <label>Track Required</label>
+            <input type="color" class="color-picker" data-category="track-required" value="#007bff">
+          </div>
+          <div class="color-item">
+            <label>Track Elective</label>
+            <input type="color" class="color-picker" data-category="track-elective" value="#6f42c1">
+          </div>
+          <div class="color-item">
+            <label>Other</label>
+            <input type="color" class="color-picker" data-category="other" value="#e91e63">
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn btn-primary" onclick="addYear()">Add Year</button>
+        <button class="btn btn-secondary" onclick="sortYears()">Sort Years</button>
+      </div>
+
+      <div id="years-container">
+        <!-- Years container -->
+      </div>
+    </div>
+
+    <!-- Preview Panel -->
+    <div class="preview-panel">
+      <div id="preview-content" class="preview-content">
+        <!-- Preview content -->
+      </div>
+    </div>
+  </div>
+
+  <script>let yearCounter = 1;
+let sortAscending = true;
+const categories = {
+  "common-core": { name: "Common Core", color: "#dc3545" },
+  "school-required": { name: "School Required", color: "#ffc107" },
+  "major-required": { name: "Major Required", color: "#28a745" },
+  "track-required": { name: "Track Required", color: "#007bff" },
+  "track-elective": { name: "Track Elective", color: "#6f42c1" },
+  other: { name: "Other", color: "#e91e63" }
+};
+
+// Initialize
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("date").value = new Date()
+    .toISOString()
+    .split("T")[0];
+  
+  // Initialize color pickers
+  initializeColorPickers();
+  
+  addYear();
+  updatePreview();
+
+  // Listen for title and date changes
+  document.getElementById("title").addEventListener("input", updatePreview);
+  document.getElementById("date").addEventListener("change", updatePreview);
+});
+
+function initializeColorPickers() {
+  const colorPickers = document.querySelectorAll('.color-picker');
+  colorPickers.forEach(picker => {
+    picker.addEventListener('change', function() {
+      const category = this.dataset.category;
+      categories[category].color = this.value;
+      updateCategoryColors();
+      updatePreview();
+    });
+  });
+}
+
+function updateCategoryColors() {
+  // Update CSS custom properties for category colors
+  const styleElement = document.createElement('style');
+  styleElement.id = 'dynamic-category-colors';
+  
+  // Remove existing style element if it exists
+  const existingStyle = document.getElementById('dynamic-category-colors');
+  if (existingStyle) {
+    existingStyle.remove();
+  }
+  
+  let cssRules = '';
+  Object.entries(categories).forEach(([key, cat]) => {
+    cssRules += `.${key} { background-color: ${cat.color} !important; }\n`;
+    if (key === 'school-required') {
+      // Determine text color based on background lightness
+      const hex = cat.color.replace('#', '');
+      const r = parseInt(hex.substr(0, 2), 16);
+      const g = parseInt(hex.substr(2, 2), 16);
+      const b = parseInt(hex.substr(4, 2), 16);
+      const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+      const textColor = brightness > 125 ? '#000' : '#fff';
+      cssRules += `.${key} { color: ${textColor} !important; }\n`;
+    }
+  });
+  
+  styleElement.textContent = cssRules;
+  document.head.appendChild(styleElement);
+}
+
+function toggleYear(yearNum) {
+  const yearContent = document.querySelector(`[data-year="${yearNum}"] .year-content`);
+  const collapseBtn = document.querySelector(`[data-year="${yearNum}"] .collapse-btn`);
+  
+  if (yearContent.classList.contains('collapsed')) {
+    yearContent.classList.remove('collapsed');
+    yearContent.classList.add('expanded');
+    collapseBtn.textContent = '−';
+  } else {
+    yearContent.classList.remove('expanded');
+    yearContent.classList.add('collapsed');
+    collapseBtn.textContent = '+';
+  }
+}
+
+function addYear() {
+  const container = document.getElementById("years-container");
+  const yearDiv = document.createElement("div");
+  yearDiv.className = "year-container";
+  yearDiv.dataset.year = yearCounter;
+
+  yearDiv.innerHTML = `
+                <div class="year-header" onclick="toggleYear(${yearCounter})">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <button class="collapse-btn" onclick="event.stopPropagation();">−</button>
+                        <input type="text" class="year-name-input" value="Year ${yearCounter}" 
+                               onchange="updatePreview()" onclick="event.stopPropagation();" placeholder="Year name">
+                    </div>
+                    <div class="year-controls">
+                        <button class="btn btn-primary" onclick="event.stopPropagation(); addSemester(${yearCounter})">Add Semester</button>
+                        <button class="btn btn-danger" onclick="event.stopPropagation(); removeYear(${yearCounter})">Delete Year</button>
+                    </div>
+                </div>
+                <div class="year-content expanded">
+                    <div class="semesters" id="semesters-${yearCounter}">
+                        <!-- Semesters container -->
+                    </div>
+                </div>
+            `;
+
+  container.appendChild(yearDiv);
+
+  // Default add two semesters
+  addSemester(yearCounter, "Fall Semester");
+  addSemester(yearCounter, "Spring Semester");
+
+  yearCounter++;
+  updatePreview();
+}
+
+function removeYear(yearNum) {
+  const yearDiv = document.querySelector(`[data-year="${yearNum}"]`);
+  if (yearDiv) {
+    yearDiv.remove();
+    updatePreview();
+  }
+}
+
+function addSemester(yearNum, defaultName = "") {
+  const semestersContainer = document.getElementById(`semesters-${yearNum}`);
+  const semesterCount = semestersContainer.children.length + 1;
+  const semesterName = defaultName || `Semester ${semesterCount}`;
+
+  const semesterDiv = document.createElement("div");
+  semesterDiv.className = "semester";
+  semesterDiv.innerHTML = `
+                <div class="semester-header">
+                    <div class="semester-title-group">
+                        <input type="text" class="semester-name" value="${semesterName}" 
+                               onchange="updatePreview()" placeholder="Semester name">
+                        <span class="semester-credits">0 credits</span>
+                    </div>
+                    <button class="semester-delete" onclick="removeSemester(this)">×</button>
+                </div>
+                <div class="courses"></div>
+                <div class="course-form">
+                    <input type="text" placeholder="Course name (optional)" class="course-name">
+                    <input type="text" placeholder="Course code" class="course-code">
+                    <input type="number" placeholder="Credits" min="0" step="0.5" class="course-credits">
+                    <select class="course-category">
+                        <option value="common-core">Common Core</option>
+                        <option value="school-required">School Required</option>
+                        <option value="major-required">Major Required</option>
+                        <option value="track-required">Track Required</option>
+                        <option value="track-elective">Track Elective</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <button class="btn btn-primary" onclick="addCourse(this)">Add</button>
+                </div>
+            `;
+
+  semestersContainer.appendChild(semesterDiv);
+  updatePreview();
+}
+
+function removeSemester(button) {
+  const semester = button.closest('.semester');
+  if (semester) {
+    semester.remove();
+    updatePreview();
+  }
+}
+
+function addCourse(button) {
+  const form = button.parentElement;
+  const coursesContainer = form.previousElementSibling;
+
+  const name = form.querySelector(".course-name").value.trim() || "Course";
+  const code = form.querySelector(".course-code").value.trim();
+  const credits = parseFloat(form.querySelector(".course-credits").value) || 0;
+  const category = form.querySelector(".course-category").value;
+
+  const courseDiv = document.createElement("div");
+  courseDiv.className = `course ${category}`;
+  courseDiv.innerHTML = `
+                <div class="course-info">
+                    <div>${name}</div>
+                    <div>${code} (${credits} credits)</div>
+                </div>
+                <button class="course-delete" onclick="removeCourse(this)">×</button>
+            `;
+
+  coursesContainer.appendChild(courseDiv);
+
+  // Clear form
+  form.querySelector(".course-name").value = "";
+  form.querySelector(".course-code").value = "";
+  form.querySelector(".course-credits").value = "";
+
+  updateSemesterCredits(form.closest(".semester"));
+  updatePreview();
+}
+
+function removeCourse(button) {
+  const courseDiv = button.parentElement;
+  const semester = courseDiv.closest(".semester");
+  courseDiv.remove();
+  updateSemesterCredits(semester);
+  updatePreview();
+}
+
+function updateSemesterCredits(semester) {
+  const courses = semester.querySelectorAll(".course");
+  let totalCredits = 0;
+
+  courses.forEach((course) => {
+    const creditText = course.querySelector(".course-info div:last-child")
+      .textContent;
+    const match = creditText.match(/\((\d+(?:\.\d+)?)\s+credits\)/);
+    if (match) {
+      totalCredits += parseFloat(match[1]);
+    }
+  });
+
+  semester.querySelector(
+    ".semester-credits"
+  ).textContent = `${totalCredits} credits`;
+}
+
+function sortYears() {
+  const container = document.getElementById("years-container");
+  const years = Array.from(container.children);
+
+  years.sort((a, b) => {
+    const yearA = parseInt(a.dataset.year);
+    const yearB = parseInt(b.dataset.year);
+    return sortAscending ? yearA - yearB : yearB - yearA;
+  });
+
+  years.forEach((year) => container.appendChild(year));
+  sortAscending = !sortAscending;
+  updatePreview();
+}
+
+function sortSemestersInYear(semestersContainer, descending = false) {
+  const semesters = Array.from(semestersContainer.children);
+
+  if (descending) {
+    semesters.reverse();
+  }
+
+  semesters.forEach((semester) => semestersContainer.appendChild(semester));
+}
+
+function updatePreview() {
+  const previewContent = document.getElementById("preview-content");
+  const title = document.getElementById("title").value || "My Course Plan";
+  const date = document.getElementById("date").value;
+
+  // Format date to show only year and month
+  const formattedDate = date
+    ? new Date(date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long"
+      })
+    : "";
+
+  let previewHTML = `
+                <div class="preview-header">
+                    <div class="preview-title-section">
+                        <h1>${title}</h1>
+                        <div class="date">Created: ${formattedDate}</div>
+                    </div>
+                    <div class="legend">
+                        ${Object.entries(categories)
+                          .map(
+                            ([key, cat]) => `
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: ${cat.color}"></div>
+                                <span>${cat.name}</span>
+                            </div>
+                        `
+                          )
+                          .join("")}
+                    </div>
+                </div>
+                <div class="preview-table">
+            `;
+
+  const years = document.querySelectorAll(".year-container");
+  years.forEach((yearContainer) => {
+    const yearNum = yearContainer.dataset.year;
+    const yearName = yearContainer.querySelector(".year-name-input").value;
+    const semesters = yearContainer.querySelectorAll(".semester");
+    const semestersArray = Array.from(semesters);
+
+    // If years are in descending order, reverse semesters too
+    if (!sortAscending) {
+      semestersArray.reverse();
+    }
+
+    previewHTML += `
+                    <div class="preview-year">
+                        <div class="preview-year-header">${yearName}</div>
+                        <div class="preview-semesters">
+                `;
+
+    semestersArray.forEach((semester) => {
+      const semesterName = semester.querySelector(".semester-name").value;
+      const semesterCredits = semester
+        .querySelector(".semester-credits")
+        .textContent.match(/(\d+(?:\.\d+)?)/)[1]; // Extract only the number
+      const courses = semester.querySelectorAll(".course");
+
+      previewHTML += `
+                        <div class="preview-semester">
+                            <div class="preview-semester-header">
+                                <span>${semesterName}</span>
+                            </div>
+                            <div class="preview-courses">
+                    `;
+
+      courses.forEach((course) => {
+        const courseInfoDiv = course.querySelector(".course-info");
+        const courseName = courseInfoDiv.querySelector("div:first-child")
+          .textContent;
+        const courseDetails = courseInfoDiv.querySelector("div:last-child")
+          .textContent;
+        const creditsMatch = courseDetails.match(
+          /\((\d+(?:\.\d+)?)\s+credits\)/
+        );
+        const credits = creditsMatch ? creditsMatch[1] : "0";
+
+        const category = course.className.split(" ")[1];
+        const categoryColor = categories[category]?.color || "#e91e63";
+        previewHTML += `
+                            <div class="preview-course ${category}" style="background-color: ${categoryColor}">
+                                <div>${courseName}</div>
+                                <div>${courseDetails.replace(
+                                  /\s*\(\d+(?:\.\d+)?\s+credits\)/,
+                                  ""
+                                )}</div>
+                                <div class="preview-course-credits">${credits}</div>
+                            </div>
+                        `;
+      });
+
+      previewHTML += `
+                            </div>
+                            <div class="preview-semester-credits">${semesterCredits}</div>
+                        </div>
+                    `;
+    });
+
+    previewHTML += `
+                        </div>
+                    </div>
+                `;
+  });
+
+  previewHTML += "</div>";
+  previewContent.innerHTML = previewHTML;
+}
+
+async function exportPDF() {
+  const { jsPDF } = window.jspdf;
+
+  try {
+    // Create a temporary export container with higher resolution
+    const exportContainer = document.createElement("div");
+    exportContainer.style.cssText = `
+                    position: absolute;
+                    top: -20000px;
+                    left: -20000px;
+                    width: 1190px;
+                    height: 842px;
+                    background: white;
+                    padding: 60px;
+                    font-family: Arial, sans-serif;
+                    transform: scale(1);
+                    transform-origin: top left;
+                `;
+
+    exportContainer.innerHTML = document.getElementById(
+      "preview-content"
+    ).innerHTML;
+    document.body.appendChild(exportContainer);
+
+    // Apply custom styles for better PDF rendering
+    const customStyles = document.createElement('style');
+    customStyles.textContent = `
+      .preview-course {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .preview-semester {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    `;
+    exportContainer.appendChild(customStyles);
+
+    // Use html2canvas with higher quality settings
+    const canvas = await html2canvas(exportContainer, {
+      scale: 3, // Increased scale for higher resolution
+      useCORS: true,
+      allowTaint: true,
+      width: exportContainer.offsetWidth,
+      height: exportContainer.offsetHeight,
+      backgroundColor: '#ffffff',
+      logging: false,
+      imageTimeout: 0,
+      removeContainer: false
+    });
+
+    // Create PDF with better quality
+    const pdf = new jsPDF("landscape", "mm", "a4");
+    const imgData = canvas.toDataURL("image/jpeg", 0.95); // Higher quality JPEG
+
+    // A4 landscape dimensions: 297mm x 210mm
+    const imgWidth = 297;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+    if (imgHeight <= 210) {
+      pdf.addImage(imgData, "JPEG", 0, 0, imgWidth, imgHeight);
+    } else {
+      // If content is too tall, fit to page height
+      const scaledHeight = 210;
+      const scaledWidth = (canvas.width * scaledHeight) / canvas.height;
+      pdf.addImage(imgData, "JPEG", (297 - scaledWidth) / 2, 0, scaledWidth, scaledHeight);
+    }
+
+    // Download PDF
+    const title = document.getElementById("title").value || "Course Plan";
+    pdf.save(`${title}.pdf`);
+
+    // Clean up temporary element
+    document.body.removeChild(exportContainer);
+  } catch (error) {
+    console.error("PDF export failed:", error);
+    alert("PDF export failed, please try again later");
+  }
+}
+</script>
+</body>
+
+</html>
